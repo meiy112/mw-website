@@ -97,7 +97,7 @@ function Body({ body }: { body: Content[] }) {
   };
 
   return (
-    <ul className="px-[5.8%] font-normal mt-[1.3em] text-[0.91rem] tracking-[0.32px] flex flex-col items-start gap-y-[1.4em] leading-[1.9em]">
+    <ul className="px-[5.8%] mt-[1.3em] font-light text-[1rem] tracking-[0.32px] flex flex-col items-start gap-y-[1.4em] leading-[1.9em]">
       {body.map((item, index) => getContent({ item, index }))}
     </ul>
   );
