@@ -1,4 +1,3 @@
-import { useTheme } from "@mui/material/styles";
 import TwitterUser from "./TwitterUser";
 
 const profileData = [

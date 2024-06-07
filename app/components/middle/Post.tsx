@@ -134,7 +134,7 @@ function Tag({ title, unicode }: { title: string; unicode: string }) {
 
 function Body({ body }: { body: React.ReactNode[] }) {
   return (
-    <ul className="text-[0.925rem] tracking-[0.32px] flex flex-col items-start gap-y-[2.5vh] pb-[2vh] leading-[1.5em]">
+    <ul className="font-light text-[1rem] tracking-[0.32px] flex flex-col items-start gap-y-[2.5vh] pb-[2vh] leading-[1.5em]">
       {body.map((item, index) => (
         <li key={index}>{item}</li>
       ))}

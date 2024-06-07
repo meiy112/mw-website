@@ -113,7 +113,7 @@ function NavButton({
   return (
     <button
       onClick={onClick}
-      className={`font-bold tracking-[0.32px] text-[1rem] nav-button h-[100%] w-[130px] rounded-[10px]`}
+      className={`font-bold tracking-[0.32px] text-[1rem] hoverable h-[100%] w-[130px] rounded-[10px]`}
       style={currentPage === title ? { opacity: 1 } : { opacity: 0.5 }}
       aria-current={currentPage === title ? "page" : undefined}
     >
