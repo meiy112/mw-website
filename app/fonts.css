@@ -20,6 +20,13 @@
 }
 
 @font-face {
+  font-family: "NY";
+  src: url("./fonts/NY/NewYorkExtraLarge-SemiboldItalic.otf") format("opentype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
   font-family: "SF Pro";
   src: url("./fonts/SFPro/SF-Pro-Display-Black.otf") format("opentype");
   font-weight: 900;

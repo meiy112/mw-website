@@ -40,10 +40,13 @@
 
 .name-header {
   font-family: "NY", serif;
+  font-style: italic;
+  font-weight: 800;
 }
 
 .glow {
   text-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+  -webkit-text-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
 }
 
 .glowing-border {
