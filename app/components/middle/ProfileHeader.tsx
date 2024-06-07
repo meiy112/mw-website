@@ -94,7 +94,7 @@ function Bio() {
 function BioHeader() {
   return (
     <div className="flex flex-row items-center gap-x-[9px]">
-      <h1 className="glow font-bold text-[2.3rem]">Hey, I&#39;m</h1>
+      <h1 className="glow font-bold intro-header">Hey, I&#39;m</h1>
       <h2 className="text-[3rem] name-header glow"> Maggie Weng</h2>
       <Image height={24} width={24} alt="" src="/verified-check.png" />
     </div>
