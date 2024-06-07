@@ -33,7 +33,6 @@ export default function Sidebar({
   const buttonData = [
     {
       text: "About",
-      icon: <LuHome size={26} className="mr-[1.625vw]" />,
       onClick: () => {
         setCurrentPage("About");
         scrollToNavbar();
@@ -41,7 +40,6 @@ export default function Sidebar({
     },
     {
       text: "Projects",
-      icon: <LuFolderOpen size={26} className="mr-[1.625vw]" />,
       onClick: () => {
         setCurrentPage("Projects");
         scrollToNavbar();
@@ -49,7 +47,6 @@ export default function Sidebar({
     },
     {
       text: "Resume",
-      icon: <LuUserCircle size={26} className="mr-[1.625vw]" />,
       onClick: () => {
         setCurrentPage("Resume");
         scrollToNavbar();
@@ -57,7 +54,6 @@ export default function Sidebar({
     },
     {
       text: "Blog",
-      icon: <LuPencilLine size={26} className="mr-[1.625vw]" />,
       onClick: () => {
         setCurrentPage("Blog");
         scrollToNavbar();
@@ -65,7 +61,6 @@ export default function Sidebar({
     },
     {
       text: "Contact",
-      icon: <LuMessageSquare size={26} className="mr-[1.625vw]" />,
       onClick: () => {
         setIsModalOpen(true);
       },
@@ -123,12 +118,7 @@ export default function Sidebar({
     <div className="sidebar fixed h-screen items-baseline flex flex-col pb-[6vh] gap-y-[0.5em]">
       <DuckLogo />
       {buttonData.map((button, index) => (
-        <SideButton
-          key={index}
-          onClick={button.onClick}
-          text={button.text}
-          icon={button.icon}
-        />
+        <SideButton key={index} onClick={button.onClick} text={button.text} />
       ))}
       <LastUpdatedDisplay days={days} months={months} years={years} />
       <DisplayToggle toggleTheme={toggleTheme} />

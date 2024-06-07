@@ -23,16 +23,28 @@
   font-family: "SF Pro", sans-serif;
 }
 
+.banner {
+  --mask: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 0,
+      rgba(0, 0, 0, 1) 60%,
+      rgba(0, 0, 0, 0) 97%,
+      rgba(0, 0, 0, 0) 0
+    )
+    100% 50% / 100% 100% repeat-x;
+
+  border: 1px #d8d8d8 dashed;
+  font: 2em/1.6em Arial;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+}
+
 .name-header {
   font-family: "NY", serif;
 }
 
 .glow {
   text-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
-}
-
-.fade-img {
-  /*mask-image: linear-gradient(to bottom, rgba(16, 16, 16, 1), rgba(0, 0, 0, 0));*/
 }
 
 .glowing-border {
@@ -79,31 +91,11 @@
   box-shadow: 5px 5px 20px 2px white;
 }
 
-.shine {
-  position: relative;
-  overflow: hidden;
-}
-
-.shine::before {
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 0.7) 100%
-  );
-  content: "";
-  display: block;
-  height: 100%;
-  left: -75%;
-  position: absolute;
-  top: 0;
-  transform: skewX(-25deg);
-  width: 50%;
-  z-index: 2;
-}
-
-.shine:hover::before,
-.shine:focus::before {
-  animation: shine 0.85s;
+.glowing-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 15px 2px rgba(255, 255, 255, 0.8);
 }
 
 @keyframes shine {

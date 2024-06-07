@@ -39,7 +39,7 @@ export default function ProfileHeader({
 
 function Banner() {
   return (
-    <div className="px-[5px] pt-[5px] glowing-border flex items-end justify-center rounded-t-[30px] w-[100%] h-[28vh]">
+    <div className="banner px-[5px] pt-[5px] glowing-border flex items-end justify-center rounded-t-[30px] w-[100%] h-[32vh]">
       <div className="glow-element bg-white w-[90%] h-[1px] absolute top-[-0.5px]" />
       <div className="glow-element-2 bg-white w-[40%] h-[1px] absolute top-[5px]" />
       <div className="glow-element-3 bg-white w-[1px] h-[50%] absolute top-[5vh] left-[-0.5px]" />
@@ -56,7 +56,7 @@ function Banner() {
         <img
           alt="banner"
           src="/banner-1.jpg"
-          className="fade-img relative w-[100%] mt-[-46vh]"
+          className=" relative w-[100%] mt-[-46vh]"
         />
       </div>
     </div>
@@ -66,7 +66,7 @@ function Banner() {
 function ProfilePicture() {
   const theme = useTheme();
   return (
-    <div className="mt-[-76px]">
+    <div className="mt-[-90px]">
       <img
         alt=""
         height={150}
@@ -81,7 +81,7 @@ function ProfilePicture() {
 
 function Bio() {
   return (
-    <div className={`bio flex flex-col px-[4.3vw] pt-[1.5vh] gap-y-[13px]`}>
+    <div className={`bio flex flex-col px-[4.3vw] pt-[1.3vh] gap-y-[13px]`}>
       <BioHeader />
       <BioDescription />
       <BioDetails />
