@@ -19,7 +19,7 @@ export default function SideButton({ onClick, text, icon }: SideButtonProps) {
       type="button"
     >
       {icon}
-      <h1 className="font-medium text-[1.065rem] tracking-[0.32px]">{text}</h1>
+      <h1 className="font-medium text-[1.08rem] tracking-[0.5px]">{text}</h1>
     </button>
   );
 }

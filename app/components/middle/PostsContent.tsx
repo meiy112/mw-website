@@ -3,7 +3,6 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Resume from "./pages/Resume";
 import Drawings from "./pages/Drawings";
-import { Raleway } from "next/font/google";
 import { usePageContext } from "../context/PageProvider";
 import { LuCopyright, LuContainer, LuCode2, LuMusic4 } from "react-icons/lu";
 import { AnimatePresence, useInView } from "framer-motion";
@@ -16,10 +15,7 @@ import {
   useRef,
   useState,
 } from "react";
-import Recommendations from "../right/Recommendations";
 import StaticRecommendations from "./StaticRecommendations/StaticRecommendations";
-
-const raleway = Raleway({ subsets: ["latin"] });
 
 export default function PostsContent({
   setIsModalOpen,
@@ -43,7 +39,7 @@ export default function PostsContent({
     }
   };
   return (
-    <div className={`${raleway.className}`}>
+    <div>
       <NavBar />
       <AnimatePresence mode="wait">{renderPage()}</AnimatePresence>
       <Footer />

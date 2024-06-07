@@ -2,12 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("./fonts.css");
+
 :root {
   --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 21, 21, 24;
-  --background-end-rgb: 21, 21, 24;
-  --color-bg1: rgb(21, 21, 24);
-  --color-bg2: rgb(21, 21, 24);
+  --background-start-rgb: 16, 16, 16;
+  --background-end-rgb: 16, 16, 16;
+  --color-bg1: rgb(16, 16, 16);
+  --color-bg2: rgb(16, 16, 16);
   --color1: 255, 53, 155;
   --color2: 255, 253, 135;
   --color3: 0, 210, 255;
@@ -17,16 +19,100 @@
   --circle-size: 80%;
   --blending: hard-light;
   --reflection-color: hsla(48, 30%, 95%, 0.2);
+
+  font-family: "SF Pro", sans-serif;
 }
 
-@font-face {
-  font-family: "SF";
-  src: url("/fonts/SF-Pro.ttf") format("truetype");
-  /* Add other font formats if needed */
+.name-header {
+  font-family: "NY", serif;
 }
 
-p {
-  line-height: 170%;
+.glow {
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+}
+
+.fade-img {
+  /*mask-image: linear-gradient(to bottom, rgba(16, 16, 16, 1), rgba(0, 0, 0, 0));*/
+}
+
+.glowing-border {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  position: relative;
+}
+
+.glowing-border-2 {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  position: relative;
+}
+
+.glow-element {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0)
+  );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.glow-element-2 {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  z-index: 10;
+}
+
+.glow-element-3 {
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+  z-index: 10;
+  box-shadow: 5px 5px 20px 2px white;
+}
+
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine::before {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.7) 100%
+  );
+  content: "";
+  display: block;
+  height: 100%;
+  left: -75%;
+  position: absolute;
+  top: 0;
+  transform: skewX(-25deg);
+  width: 50%;
+  z-index: 2;
+}
+
+.shine:hover::before,
+.shine:focus::before {
+  animation: shine 0.85s;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
 }
 
 @media (min-width: 1376px) {
