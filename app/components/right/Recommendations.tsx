@@ -60,7 +60,7 @@ function Header() {
 function Content() {
   return (
     <div className="rounded-b-[19px] p-[1.75em] pb-[2em] flex flex-col gap-y-[1.15em]">
-      {profileData.map((profile, index) => (
+      {profileData.map((profile) => (
         <TwitterUser
           pfp={profile.pfp}
           username={profile.username}

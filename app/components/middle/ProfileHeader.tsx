@@ -1,14 +1,11 @@
 import { useTheme } from "@mui/material/styles";
-import { Inter, Raleway } from "next/font/google";
 import { Emoji, EmojiStyle } from "emoji-picker-react";
 import { LuMapPin, LuCalendarDays, LuUsers2, LuLink } from "react-icons/lu";
-import ContactButton from "../misc/ContactButton";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import { AnimatePresence } from "framer-motion";
 import ContactModal from "../misc/ContactModal/ContactModal";
 import Image from "next/image";
-
-const inter = Inter({ subsets: ["latin"] });
+import Button from "./Framer-Button/Button";
 
 export default function ProfileHeader({
   isModalOpen,
@@ -22,7 +19,7 @@ export default function ProfileHeader({
       <Banner />
       <div className="flex-row flex justify-between px-[4.5vw] pb-[1vh]">
         <ProfilePicture />
-        <ContactButton onClick={setIsModalOpen} />
+        <Button onClick={() => setIsModalOpen(true)} />
       </div>
       <Bio />
       <AnimatePresence>
@@ -156,14 +153,12 @@ function BioDetails() {
 }
 
 function BioFollowers() {
-  const numberStyle = "font-extrabold text-[0.95rem]";
-  const wordStyle = "text-[0.85rem] opacity-[0.5]";
+  const numberStyle = "font-extrabold text-[1rem]";
+  const wordStyle = "text-[0.9rem] font-light tracking-[0.7px] opacity-[0.5]";
   const container = "flex items-center flex-row gap-x-[0.3em]";
 
   return (
-    <div
-      className={`mt-[0.3em] flex items-center flex-row gap-x-[2em] ${inter.className}`}
-    >
+    <div className={`mt-[0.3em] flex items-center flex-row gap-x-[2em]`}>
       <div className={container}>
         <span className={numberStyle}>8</span>
         <span className={wordStyle}>Languages</span>
