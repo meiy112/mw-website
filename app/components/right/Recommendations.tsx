@@ -1,3 +1,4 @@
+import { LuPlus } from "react-icons/lu";
 import TwitterUser from "./TwitterUser";
 
 const profileData = [
@@ -35,7 +36,39 @@ const profileData = [
 // Container with "You Might Like" + Github, Linkedin
 export default function Recommendations() {
   return (
-    <div className="recommendations glass-container-2 rounded-[19px] p-[1.75em] pb-[2em] flex flex-col gap-y-[1.15em]">
+    <div className="overflow-hidden glass-container-2 recommendations flex flex-col rounded-[19px]">
+      <Header />
+      <Content />
+    </div>
+  );
+}
+
+function Header() {
+  return (
+    <div className="rec-header px-[16px] rounded-t-[19px] h-[30px] flex flex-row justify-between items-center">
+      <div className="glow-element bg-white w-[90%] h-[2px] absolute top-0" />
+      <div className="flex flex-row gap-x-[8px]">
+        <div className="glowing-dot-red" />
+        <div className="glowing-dot-yellow" />
+        <div className="glowing-dot-green" />
+      </div>
+      <LuPlus className="opacity-[0.3]" size={20} />
+      {/*<section
+        className="flex justify-center absolute top-0 left-0 w-[100%] z-10"
+        style={{ filter: "blur(40px)" }}
+      >
+        <div
+          className="absolute w-[70%] h-[20px] rounded-[50%]"
+          style={{ background: "rgba(255, 255, 255, 1)" }}
+        />
+      </section>*/}
+    </div>
+  );
+}
+
+function Content() {
+  return (
+    <div className="rounded-b-[19px] p-[1.75em] pt-[1.6em] pb-[2em] flex flex-col gap-y-[1.15em]">
       <Heading />
       {profileData.map((profile, index) => (
         <TwitterUser

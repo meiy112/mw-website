@@ -125,7 +125,7 @@ function BioDetails() {
         <span>U of British Columbia</span>
       </div>
       <div className="flex items-center gap-x-[5px] opacity-[50%]">
-        <LuCalendarDays className="size-[1.3rem]" /> <span>2nd Year</span>
+        <LuCalendarDays className="size-[1.3rem]" /> <span>3rd Year</span>
       </div>
       <div className="flex items-center gap-x-[5px] opacity-[50%]">
         <LuUsers2 className="size-[1.3rem]" /> <span>Coop</span>
