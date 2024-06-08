@@ -53,23 +53,13 @@ function Header() {
         <div className="glowing-dot-green" />
       </div>
       <LuPlus className="opacity-[0.3]" size={20} />
-      {/*<section
-        className="flex justify-center absolute top-0 left-0 w-[100%] z-10"
-        style={{ filter: "blur(40px)" }}
-      >
-        <div
-          className="absolute w-[70%] h-[20px] rounded-[50%]"
-          style={{ background: "rgba(255, 255, 255, 1)" }}
-        />
-      </section>*/}
     </div>
   );
 }
 
 function Content() {
   return (
-    <div className="rounded-b-[19px] p-[1.75em] pt-[1.6em] pb-[2em] flex flex-col gap-y-[1.15em]">
-      <Heading />
+    <div className="rounded-b-[19px] p-[1.75em] pb-[2em] flex flex-col gap-y-[1.15em]">
       {profileData.map((profile, index) => (
         <TwitterUser
           pfp={profile.pfp}
