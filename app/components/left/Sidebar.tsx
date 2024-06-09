@@ -1,17 +1,10 @@
 "use client";
 import SideButton from "./SideButton";
-import {
-  LuMessageSquare,
-  LuHome,
-  LuFolderOpen,
-  LuUserCircle,
-  LuPencilLine,
-} from "react-icons/lu";
-import DisplayToggle from "./DisplayToggle";
 import { usePageContext } from "../context/PageProvider";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import Image from "next/image";
 import { LastUpdatedDisplay } from "./LastUpdatedDisplay";
+import DisplayContainer from "./DisplaySetting/DisplayContainer";
 
 type ToggleThemeFunction = () => void;
 
@@ -68,7 +61,7 @@ export default function Sidebar({
   ];
   // -------------------------------------------------------------------------
 
-  const [days, setDays] = useState(11);
+  const [days, setDays] = useState(12);
   const [months, setMonths] = useState(8);
   const [years, setYears] = useState(2027);
 
@@ -77,13 +70,13 @@ export default function Sidebar({
       decrementMonths(7);
     }, 1500);
     setTimeout(() => {
-      decrementDays(10);
+      decrementDays(11);
     }, 2000);
     setTimeout(() => {
-      decrementDays(9);
+      decrementDays(10);
     }, 2700);
     setTimeout(() => {
-      decrementDays(8);
+      decrementDays(9);
     }, 3600);
     setTimeout(() => {
       decrementYears(2026);
@@ -95,7 +88,7 @@ export default function Sidebar({
       decrementMonths(6);
     }, 5000);
     setTimeout(() => {
-      decrementDays(7);
+      decrementDays(8);
     }, 5700);
     setTimeout(() => {
       decrementYears(2024);
@@ -121,7 +114,7 @@ export default function Sidebar({
         <SideButton key={index} onClick={button.onClick} text={button.text} />
       ))}
       <LastUpdatedDisplay days={days} months={months} years={years} />
-      <DisplayToggle toggleTheme={toggleTheme} />
+      <DisplayContainer toggleTheme={toggleTheme} />
     </div>
   );
 }

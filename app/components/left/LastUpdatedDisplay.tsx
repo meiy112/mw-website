@@ -275,7 +275,7 @@ export const LastUpdatedDisplay = ({
   years: number;
 }) => {
   return (
-    <div className="mb-[4vh] h-[100%] w-[15vw] flex flex-col justify-end items-start">
+    <div className="mb-[2vh] h-[100%] w-[15vw] flex flex-col justify-end items-start">
       <span className="ml-[0.5vw] mb-[0.5rem] opacity-[0.5] text-[0.6rem] font-light">
         LAST UPDATED:
       </span>
