@@ -1,7 +1,7 @@
 .hand {
   position: absolute;
   top: 50%;
-  left: 50.5%;
+  left: 50%;
   transform: translate(-50%, -100%);
   transform-origin: center top;
   border-radius: 40px;
@@ -27,11 +27,13 @@
 .minute {
   height: 38%;
   z-index: 4;
+  box-shadow: 0 0 5px 2px black;
 }
 
 .hour {
   height: 22%;
   z-index: 3;
+  box-shadow: 0 0 5px 2px black;
 }
 
 .handContainer {
@@ -53,34 +55,47 @@
 }
 
 .center {
-  box-shadow: inset 0 0 0 1.2px white;
+  outline: solid 2px white;
   z-index: 5;
 }
 
 .number {
   position: absolute;
-  width: 78%;
-  height: 78%;
+  width: 77%;
+  height: 77%;
   text-align: center;
   transform: rotate(var(--rotation));
 }
 
-.number span {
+.numberInner {
   display: inline-block;
   transform: rotate(calc(-1 * var(--rotation)));
   font-size: 0.85rem;
+  margin-top: 5px;
 }
 
-.number::before {
-  content: "";
+.thickLine {
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 1.5px;
-  height: 5px;
+  width: 1.2px;
+  height: 4.4px;
   background-color: white;
   border-radius: 10px;
+}
+
+.dials {
+  width: 0.8px;
+  height: 3.6px;
+  background-color: white;
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  transform-origin: 50% 57.6px;
+  opacity: 0.5;
 }
 
 .number1 {
@@ -100,6 +115,7 @@
 }
 .number6 {
   --rotation: 180deg;
+  margin-top: 1px;
 }
 .number7 {
   --rotation: 210deg;
