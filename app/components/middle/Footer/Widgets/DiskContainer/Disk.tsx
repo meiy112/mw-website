@@ -14,7 +14,6 @@ export default function Disk({
       id: id,
     });
   const style = {
-    // Outputs `translate3d(x, y, 0)`
     transform: CSS.Translate.toString(transform),
     zIndex: isDragging ? 100 : 10,
   };
@@ -25,13 +24,14 @@ export default function Disk({
       {...listeners}
       {...attributes}
       style={style}
-      className="w-[67px] flex items-center justify-center relative aspect-square rounded-[50%] overflow-hidden"
+      className={`cursor-grab w-[67px] flex items-center justify-center relative aspect-square rounded-[50%] overflow-hidden`}
     >
       <img src={item.img} alt="disk" />
       <div
         className={`${styles.diskCenter} absolute w-[12px] bg-[#101010] aspect-square rounded-[50%]`}
       />
       <div className={`${styles.holographic}`}></div>
+      <div className={`${styles.diskBorder}`}></div>
     </div>
   );
 }

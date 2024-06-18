@@ -120,9 +120,12 @@ function BioDescription() {
         <span>... and I make things glow.</span>
         <Emoji unified="1f31f" size={24} emojiStyle={EmojiStyle.APPLE} />
       </div>
-      <p className="font-light">
-        UBC CompSci Student. Aspiring Full-Stack Developer. Designer. Digital
-        Artist. Coding Tutor. Casual Hiker. All-Nighter Puller. Duck Enthusiast.
+      <p className="font-regular text-[1rem]">
+        <span className="">UBC CompSci Student. </span>
+        <span className="opacity-[0.7]">
+          Aspiring Full-Stack Developer. Designer. Digital Artist. Coding Tutor.
+          All-Nighter Puller. Duck Enthusiast.
+        </span>
       </p>
     </div>
   );
