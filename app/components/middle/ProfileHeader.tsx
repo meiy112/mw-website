@@ -6,6 +6,7 @@ import { AnimatePresence } from "framer-motion";
 import ContactModal from "../misc/ContactModal/ContactModal";
 import Image from "next/image";
 import Button from "./Framer-Button/Button";
+import styles from "./ProfileHeader.module.css";
 
 export default function ProfileHeader({
   isModalOpen,
@@ -36,7 +37,9 @@ export default function ProfileHeader({
 
 function Banner() {
   return (
-    <div className="banner px-[5px] pt-[5px] glowing-border flex items-end justify-center rounded-t-[30px] w-[100%] h-[32vh]">
+    <div
+      className={`${styles.shine} banner px-[5px] pt-[5px] glowing-border flex items-end justify-center rounded-t-[30px] w-[100%] h-[32vh]`}
+    >
       <div className="glow-element bg-white w-[90%] h-[1px] absolute top-[-0.5px]" />
       <div className="glow-element-2 bg-white w-[40%] h-[1px] absolute top-[5px]" />
       <div className="glow-element-3 bg-white w-[1px] h-[50%] absolute top-[5vh] left-[-0.5px]" />

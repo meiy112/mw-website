@@ -29,10 +29,17 @@ export default function MusicPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [buttonChild, setButtonChild] = useState(playButton);
 
-  const duckAudio = new Audio("./audio/duck.mp3");
-  const acnhAudio = new Audio("./audio/acnh.mp3");
-  const yhxAudio = new Audio("./audio/yhx.mp3");
-  const pianoAudio = new Audio("./audio/duck.mp3");
+  let duckAudio: HTMLAudioElement | undefined;
+  let acnhAudio: HTMLAudioElement | undefined;
+  let yhxAudio: HTMLAudioElement | undefined;
+  let pianoAudio: HTMLAudioElement | undefined;
+
+  if (typeof window !== "undefined") {
+    duckAudio = new Audio("./audio/duck.mp3");
+    acnhAudio = new Audio("./audio/acnh.mp3");
+    yhxAudio = new Audio("./audio/yhx.mp3");
+    pianoAudio = new Audio("./audio/duck.mp3");
+  }
 
   const [audio, setAudio] = useState(acnhAudio);
 
