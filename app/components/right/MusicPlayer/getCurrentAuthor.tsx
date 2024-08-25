@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useDragContext } from "../../context/DragContext";
 
-const getCurrentAuthor = () => {
+const GetCurrentAuthor = () => {
   const dragContext = useDragContext();
   if (!dragContext) {
     return null;
@@ -81,4 +81,4 @@ const getCurrentAuthor = () => {
   );
 };
 
-export default getCurrentAuthor;
+export default GetCurrentAuthor;
