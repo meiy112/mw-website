@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useDragContext } from "../../context/DragContext";
 
-const getCurrentTitle = () => {
+const GetCurrentTitle = () => {
   const dragContext = useDragContext();
   if (!dragContext) {
     return null;
@@ -81,4 +81,4 @@ const getCurrentTitle = () => {
   );
 };
 
-export default getCurrentTitle;
+export default GetCurrentTitle;

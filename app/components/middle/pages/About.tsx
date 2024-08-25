@@ -28,7 +28,7 @@ export default function About({
       title: "Hello World!",
       typeOf: ["About Me"],
       body: [
-        <p key={0}>I'm Maggie Weng and I love crafting interactivity.</p>,
+        <p key={0}>I&#39;m Maggie Weng and I love crafting interactivity.</p>,
         <p key={1}>
           If you&#39;re curious about my work, check out{" "}
           <NavLink name="Projects" tab="Projects" /> to see what I&#39;ve been

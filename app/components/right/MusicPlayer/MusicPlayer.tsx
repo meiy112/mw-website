@@ -9,6 +9,18 @@ import getCurrentTitle from "./getCurrentTitle";
 import getCurrentAuthor from "./getCurrentAuthor";
 import { useEffect, useState } from "react";
 
+let duckAudio: HTMLAudioElement | undefined;
+let acnhAudio: HTMLAudioElement | undefined;
+let yhxAudio: HTMLAudioElement | undefined;
+let pianoAudio: HTMLAudioElement | undefined;
+
+if (typeof window !== "undefined") {
+  duckAudio = new Audio("./audio/duck.mp3");
+  acnhAudio = new Audio("./audio/acnh.mp3");
+  yhxAudio = new Audio("./audio/yhx.mp3");
+  pianoAudio = new Audio("./audio/duck.mp3");
+}
+
 export default function MusicPlayer() {
   const { isOver, setNodeRef } = useDroppable({
     id: "droppable",
@@ -16,71 +28,27 @@ export default function MusicPlayer() {
 
   const dragContext = useDragContext();
 
-  if (!dragContext) {
-    return null;
-  }
-
-  const { currentChildId, parent, draggables, isDragging } = dragContext;
-
-  const playButton = <IoIosPlay className="text-black" size={20} />;
-  const loader = <span className={styles.loader}></span>;
-  const pauseButton = <IoIosPause className="text-black" size={20} />;
-
+  // Ensure hooks are called unconditionally
   const [isPlaying, setIsPlaying] = useState(false);
-  const [buttonChild, setButtonChild] = useState(playButton);
-
-  let duckAudio: HTMLAudioElement | undefined;
-  let acnhAudio: HTMLAudioElement | undefined;
-  let yhxAudio: HTMLAudioElement | undefined;
-  let pianoAudio: HTMLAudioElement | undefined;
-
-  if (typeof window !== "undefined") {
-    duckAudio = new Audio("./audio/duck.mp3");
-    acnhAudio = new Audio("./audio/acnh.mp3");
-    yhxAudio = new Audio("./audio/yhx.mp3");
-    pianoAudio = new Audio("./audio/duck.mp3");
-  }
-
+  const [buttonChild, setButtonChild] = useState(
+    <IoIosPlay className="text-black" size={20} />
+  );
   const [audio, setAudio] = useState(acnhAudio);
 
   useEffect(() => {
     if (audio) {
       isPlaying ? audio.play() : audio.pause();
     }
-  }, [isPlaying]);
-
-  const handlePlay = () => {
-    setIsPlaying(true);
-    setButtonChild(pauseButton);
-  };
-  const handlePause = () => {
-    setIsPlaying(false);
-    setButtonChild(playButton);
-  };
-
-  const handleButtonPress = () => {
-    if (isPlaying) {
-      handlePause();
-    } else {
-      handlePlay();
-    }
-  };
-
-  const handleLoad = () => {
-    setIsPlaying(false);
-    setButtonChild(loader);
-    setTimeout(() => {
-      handlePlay();
-    }, 1500);
-  };
+  }, [isPlaying, audio]);
 
   useEffect(() => {
-    if (currentChildId != null) {
-      if (currentChildId == "draggable0") {
+    if (dragContext && dragContext.currentChildId != null) {
+      const { currentChildId } = dragContext;
+      if (currentChildId === "draggable0") {
         setAudio(acnhAudio);
-      } else if (currentChildId == "draggable1") {
+      } else if (currentChildId === "draggable1") {
         setAudio(yhxAudio);
-      } else if (currentChildId == "draggable2") {
+      } else if (currentChildId === "draggable2") {
         setAudio(pianoAudio);
       } else {
         setAudio(duckAudio);
@@ -89,13 +57,44 @@ export default function MusicPlayer() {
     } else {
       handlePause();
     }
-  }, [currentChildId]);
+  }, [dragContext?.currentChildId]);
 
   useEffect(() => {
-    if (isDragging && isPlaying) {
+    if (dragContext?.isDragging && isPlaying) {
       handlePause();
     }
-  }, [isDragging]);
+  }, [dragContext?.isDragging, isPlaying]);
+
+  if (!dragContext) {
+    return null;
+  }
+
+  const { currentChildId, parent, draggables, isDragging } = dragContext;
+
+  const handlePlay = () => {
+    setIsPlaying(true);
+    setButtonChild(<IoIosPause className="text-black" size={20} />);
+  };
+  const handlePause = () => {
+    setIsPlaying(false);
+    setButtonChild(<IoIosPlay className="text-black" size={20} />);
+  };
+
+  const handleButtonPress = () => {
+    if (isPlaying) {
+      handlePause();
+    } else if (currentChildId) {
+      handlePlay();
+    }
+  };
+
+  const handleLoad = () => {
+    setIsPlaying(false);
+    setButtonChild(<span className={styles.loader}></span>);
+    setTimeout(() => {
+      handlePlay();
+    }, 1500);
+  };
 
   const getCurrentChild = () => {
     if (parent === "droppable") {
