@@ -46,7 +46,6 @@ const spring = {
   damping: 30,
 };
 
-// From https://easings.net/#easeOutBounce
 function bounceEase(x: number) {
   const n1 = 7.5625;
   const d1 = 2.75;

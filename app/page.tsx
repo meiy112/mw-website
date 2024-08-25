@@ -8,6 +8,7 @@ import { lightTheme, darkTheme } from "../app/theme/colors";
 import React from "react";
 import { PageProvider } from "./components/context/PageProvider";
 import InteractiveSidebar from "./components/left/InteractiveSidebar";
+import { DragProvider } from "./components/context/DragContext";
 
 export default function Home() {
   // for contact modal
@@ -51,33 +52,35 @@ export default function Home() {
       className="relative z-10 flex flex-row h-[100%] justify-between"
       style={{ color: theme.palette.primary.contrastText }}
     >
-      <PageProvider>
-        <ThemeProvider theme={theme}>
-          {/*Navbar + Logo*/}
-          <div className="left-container">
-            {isSmallScreen ? (
-              <InteractiveSidebar
-                toggleTheme={toggleTheme}
-                setIsModalOpen={setIsModalOpen}
-              />
-            ) : (
-              <Sidebar
-                toggleTheme={toggleTheme}
-                setIsModalOpen={setIsModalOpen}
-              />
-            )}
-          </div>
-          {/*Main middle content*/}
-          <div className="main-container">
-            <Main isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
-          </div>
-          {/*You Might Like*/}
-          <div className="right-container">
-            <Right />
-          </div>
-          {isSmallerScreen ? null : <Ornament />}
-        </ThemeProvider>
-      </PageProvider>
+      <DragProvider>
+        <PageProvider>
+          <ThemeProvider theme={theme}>
+            {/*Navbar + Logo*/}
+            <div className="left-container">
+              {isSmallScreen ? (
+                <InteractiveSidebar
+                  toggleTheme={toggleTheme}
+                  setIsModalOpen={setIsModalOpen}
+                />
+              ) : (
+                <Sidebar
+                  toggleTheme={toggleTheme}
+                  setIsModalOpen={setIsModalOpen}
+                />
+              )}
+            </div>
+            {/*Main middle content*/}
+            <div className="main-container">
+              <Main isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+            </div>
+            {/*You Might Like*/}
+            <div className="right-container">
+              <Right />
+            </div>
+            {isSmallerScreen ? null : <Ornament />}
+          </ThemeProvider>
+        </PageProvider>
+      </DragProvider>
     </main>
   );
 }

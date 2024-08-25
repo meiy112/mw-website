@@ -6,6 +6,7 @@ import { AnimatePresence } from "framer-motion";
 import ContactModal from "../misc/ContactModal/ContactModal";
 import Image from "next/image";
 import Button from "./Framer-Button/Button";
+import styles from "./ProfileHeader.module.css";
 
 export default function ProfileHeader({
   isModalOpen,
@@ -36,7 +37,9 @@ export default function ProfileHeader({
 
 function Banner() {
   return (
-    <div className="banner px-[5px] pt-[5px] glowing-border flex items-end justify-center rounded-t-[30px] w-[100%] h-[32vh]">
+    <div
+      className={`${styles.shine} banner px-[5px] pt-[5px] glowing-border flex items-end justify-center rounded-t-[30px] w-[100%] h-[32vh]`}
+    >
       <div className="glow-element bg-white w-[90%] h-[1px] absolute top-[-0.5px]" />
       <div className="glow-element-2 bg-white w-[40%] h-[1px] absolute top-[5px]" />
       <div className="glow-element-3 bg-white w-[1px] h-[50%] absolute top-[5vh] left-[-0.5px]" />
@@ -120,9 +123,12 @@ function BioDescription() {
         <span>... and I make things glow.</span>
         <Emoji unified="1f31f" size={24} emojiStyle={EmojiStyle.APPLE} />
       </div>
-      <p className="font-light">
-        UBC CompSci Student. Aspiring Full-Stack Developer. Designer. Digital
-        Artist. Coding Tutor. Casual Hiker. All-Nighter Puller. Duck Enthusiast.
+      <p className="font-regular text-[1rem]">
+        <span className="">UBC CompSci Student. </span>
+        <span className="opacity-[0.7]">
+          Aspiring Full-Stack Developer. Designer. Digital Artist. Coding Tutor.
+          All-Nighter Puller. Duck Enthusiast.
+        </span>
       </p>
     </div>
   );

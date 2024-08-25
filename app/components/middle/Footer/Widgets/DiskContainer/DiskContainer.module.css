@@ -1,0 +1,97 @@
+.diskCenter {
+  outline: solid 3px rgba(255, 255, 255, 0.5);
+  z-index: 11;
+}
+
+.diskBorder {
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.holographic {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(
+    95.11% 95.11% at 36.64% 4.89%,
+    #2ad0ca 0%,
+    #e1f664 22.92%,
+    #feb0fe 46.88%,
+    #abb3fc 68.23%,
+    #5df7a4 87.5%,
+    #58c4f6 100%
+  );
+  z-index: 10;
+  opacity: 0.2;
+}
+
+.holographic::before,
+.holographic::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 176.21deg at 50% 50%,
+    #000000 -24.66deg,
+    #ffffff 0.25deg,
+    #000000 50.63deg,
+    #000000 51.97deg,
+    #ffffff 88.12deg,
+    #000000 142.5deg,
+    #ffffff 196.87deg,
+    #000000 256.87deg,
+    #ffffff 300deg,
+    #000000 335.2deg,
+    #000000 335.34deg,
+    #ffffff 360.25deg
+  );
+}
+
+.holographic::before {
+  mix-blend-mode: difference;
+}
+.holographic::after {
+  mix-blend-mode: screen;
+}
+
+.holographic .noise {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../../../../../public/images/Disks/duck-disk.jpg");
+  /*^ skull emoji*/
+  background-size: cover;
+  background-repeat: repeat;
+  mix-blend-mode: overlay;
+  z-index: 1;
+}
+
+.diskBackground {
+  width: 67px;
+  height: 67px;
+  position: relative;
+}
+
+.diskBackground::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 50%;
+  border: 2px dashed rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+  box-sizing: border-box;
+}

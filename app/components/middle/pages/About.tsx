@@ -28,11 +28,7 @@ export default function About({
       title: "Hello World!",
       typeOf: ["About Me"],
       body: [
-        <p key={0}>
-          Welcome to my corner of the web! This is where I&#39;ll be sharing
-          updates on my latest projects, creative endeavors, and insights into
-          my personal journey.
-        </p>,
+        <p key={0}>I'm Maggie Weng and I love crafting interactivity.</p>,
         <p key={1}>
           If you&#39;re curious about my work, check out{" "}
           <NavLink name="Projects" tab="Projects" /> to see what I&#39;ve been
@@ -44,14 +40,6 @@ export default function About({
             setIsModalOpen={setIsModalOpen}
           />{" "}
           if you have any questions or want to connect!
-        </p>,
-        <p key={2}>
-          I&#39;ll leave this post off with a passage from one of my all-time
-          favourite plays:
-        </p>,
-        <p key={3}>
-          “Let&#39;s go.” “We can&#39;t.” “Why not?” “We&#39;re waiting for
-          Godot.”
         </p>,
       ],
       image: "/images/pinned-post.jpg",

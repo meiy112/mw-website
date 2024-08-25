@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  background-color: #1f1f23; /* Equivalent to bg-red-300 in Tailwind */
+  background-color: #1f1f23;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
