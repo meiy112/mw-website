@@ -25,6 +25,7 @@ export default function Notes() {
   const dotIndicator = (opacity?: number) => (
     <div
       className={`h-[6.5px] aspect-square bg-white rounded-[50%] opacity-[${opacity}]`}
+      style={{}}
     ></div>
   );
 
