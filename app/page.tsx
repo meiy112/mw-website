@@ -32,7 +32,6 @@ export default function Home() {
 
   useEffect(() => {
     const handleResize = () => {
-      console.log("Actual window.innerWidth:", window.innerWidth);
       setIsSmallScreen(window.innerWidth <= 1100);
       setIsSmallerScreen(window.innerWidth <= 962);
     };
@@ -45,10 +44,6 @@ export default function Home() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-  useEffect(() => {
-    console.log(isSmallScreen);
-  }, [isSmallScreen]);
 
   return (
     <main
