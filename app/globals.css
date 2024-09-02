@@ -178,7 +178,7 @@ html {
     padding-left: 1.75vw;
   }
   .recommendations {
-    width: 24%;
+    width: 23%;
   }
   .sidebar {
     margin-left: 2vw;
@@ -216,6 +216,10 @@ html {
   .about-text {
     font-size: 3.7rem;
   }
+  .recommendations {
+    width: 27%;
+    max-width: 320px;
+  }
 }
 
 /* Left container resizes */
@@ -235,6 +239,10 @@ html {
   .modal-post {
     width: 65%;
   }
+  .recommendations {
+    width: 32%;
+    max-width: 320px;
+  }
 }
 
 /*Right container disappears*/
@@ -243,7 +251,7 @@ html {
     width: 60px;
   }
   .main-container {
-    width: 760px;
+    width: 750px;
   }
   .right-container {
     width: 0;
