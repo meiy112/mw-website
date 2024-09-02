@@ -1,5 +1,6 @@
 import { LuPlus } from "react-icons/lu";
 import TwitterUser from "./TwitterUser";
+import { useBrightness } from "../context/BrightnessContext";
 
 const profileData = [
   {
@@ -43,13 +44,55 @@ export default function Recommendations() {
 }
 
 function Header() {
+  const brightnessContext = useBrightness();
+
+  if (!brightnessContext) {
+    throw new Error(
+      "BrightnessControl must be used within a BrightnessProvider"
+    );
+  }
+
+  const { brightness } = brightnessContext;
+
   return (
-    <div className="rec-header px-[16px] rounded-t-[19px] h-[30px] flex flex-row justify-between items-center">
+    <div
+      className="rec-header px-[16px] rounded-t-[19px] h-[30px] flex flex-row justify-between items-center"
+      //      style={{
+      //        background: `linear-gradient(
+      //  to left,
+      //  rgba(64, 64, 64, 1),
+      //  rgba(188, 188, 188, ${
+      //    brightness / 100 > 100 ? brightness / 100 : brightness / 100 + 0.1
+      //  }),
+      //  rgba(64, 64, 64, 1))`,
+      //      }}
+    >
       <div className="glow-element bg-white w-[90%] h-[2px] absolute top-0" />
       <div className="flex flex-row gap-x-[8px]">
-        <div className="glowing-dot-red" />
-        <div className="glowing-dot-yellow" />
-        <div className="glowing-dot-green" />
+        <div
+          className="glowing-dot-red"
+          style={{
+            boxShadow: `0px 0px 15px 2px rgba(244, 109, 93, ${
+              brightness / 100 > 100 ? brightness / 100 : brightness / 100 + 0.1
+            })`,
+          }}
+        />
+        <div
+          className="glowing-dot-yellow"
+          style={{
+            boxShadow: `0px 0px 15px 2px rgba(244, 189, 78, ${
+              brightness / 100 > 100 ? brightness / 100 : brightness / 100 + 0.1
+            })`,
+          }}
+        />
+        <div
+          className="glowing-dot-green"
+          style={{
+            boxShadow: `0px 0px 15px 2px rgba(87, 195, 83, ${
+              brightness / 100 > 100 ? brightness / 100 : brightness / 100 + 0.1
+            })`,
+          }}
+        />
       </div>
       <LuPlus className="opacity-[0.3]" size={20} />
     </div>

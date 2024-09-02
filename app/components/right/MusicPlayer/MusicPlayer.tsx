@@ -8,6 +8,7 @@ import { FiUpload } from "react-icons/fi";
 import getCurrentTitle from "./getCurrentTitle";
 import getCurrentAuthor from "./getCurrentAuthor";
 import { useEffect, useState } from "react";
+import { useBrightness } from "../../context/BrightnessContext";
 
 let duckAudio: HTMLAudioElement | undefined;
 let acnhAudio: HTMLAudioElement | undefined;
@@ -25,6 +26,16 @@ export default function MusicPlayer() {
   const { isOver, setNodeRef } = useDroppable({
     id: "droppable",
   });
+
+  const brightnessContext = useBrightness();
+
+  if (!brightnessContext) {
+    throw new Error(
+      "BrightnessControl must be used within a BrightnessProvider"
+    );
+  }
+
+  const { brightness } = brightnessContext;
 
   const dragContext = useDragContext();
 
@@ -222,6 +233,11 @@ export default function MusicPlayer() {
       <button
         className={`${styles.button} mr-[5%] h-[32px] flex justify-center items-center aspect-square rounded-[50%] bg-white`}
         onClick={handleButtonPress}
+        style={{
+          boxShadow: `0 0 12px 1px rgba(255, 255, 255, ${
+            brightness / 100 < 0 ? brightness / 100 : brightness / 100 - 0.1
+          })`,
+        }}
       >
         {buttonChild}
       </button>
