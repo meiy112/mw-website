@@ -33,6 +33,7 @@ export function DragProvider({ children }: DragProviderProps) {
     <Disk id="draggable1" item={diskData[1]} key={1} />,
     <Disk id="draggable2" item={diskData[2]} key={2} />,
     <Disk id="draggable3" item={diskData[3]} key={3} />,
+    <Disk id="draggable4" item={diskData[4]} key={4} />,
   ];
 
   return (
