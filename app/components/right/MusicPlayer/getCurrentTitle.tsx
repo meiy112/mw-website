@@ -65,7 +65,8 @@ const GetCurrentTitle = () => {
       {currentChildId !== "draggable0" &&
         currentChildId !== "draggable1" &&
         currentChildId !== "draggable2" &&
-        currentChildId !== "draggable3" && (
+        currentChildId !== "draggable3" &&
+        currentChildId !== "draggable4" && (
           <motion.h1
             key="no-music-found"
             initial={{ opacity: 0, scale: 0, x: -10 }}
@@ -77,6 +78,19 @@ const GetCurrentTitle = () => {
             No Music Found
           </motion.h1>
         )}
+
+      {currentChildId === "draggable4" && parent === "droppable" && (
+        <motion.h1
+          key="draggable4"
+          initial={{ opacity: 0, scale: 0, x: -10 }}
+          animate={{ opacity: 1, scale: 1, x: 0 }}
+          exit={{ opacity: 0, scale: 0, x: -10 }}
+          transition={{ duration: 0.1 }}
+          className="font-semibold text-[0.95rem] tracking-[0.5px]"
+        >
+          Pewter City
+        </motion.h1>
+      )}
     </AnimatePresence>
   );
 };

@@ -14,12 +14,14 @@ let duckAudio: HTMLAudioElement | undefined;
 let acnhAudio: HTMLAudioElement | undefined;
 let yhxAudio: HTMLAudioElement | undefined;
 let pianoAudio: HTMLAudioElement | undefined;
+let pokemonAudio: HTMLAudioElement | undefined;
 
 if (typeof window !== "undefined") {
   duckAudio = new Audio("./audio/duck.mp3");
   acnhAudio = new Audio("./audio/acnh.mp3");
   yhxAudio = new Audio("./audio/yhx.mp3");
   pianoAudio = new Audio("./audio/piano.mp3");
+  pokemonAudio = new Audio("./audio/pokemon.mp3");
 }
 
 export default function MusicPlayer() {
@@ -62,6 +64,8 @@ export default function MusicPlayer() {
         setAudio(yhxAudio);
       } else if (currentChildId === "draggable2") {
         setAudio(pianoAudio);
+      } else if (currentChildId === "draggable4") {
+        setAudio(pokemonAudio);
       } else {
         setAudio(duckAudio);
       }
@@ -187,6 +191,23 @@ export default function MusicPlayer() {
               }
             >
               {draggables[3]}
+            </div>
+            <div className="z-0 absolute flex justify-center items-center aspect-square h-[67px] rounded-[50%] bg-black"></div>
+          </>
+        );
+      } else if (currentChildId === "draggable4") {
+        return (
+          <>
+            <div
+              className={
+                isDragging
+                  ? ""
+                  : isPlaying
+                  ? styles.rotate
+                  : `${styles.rotate} ${styles.paused}`
+              }
+            >
+              {draggables[4]}
             </div>
             <div className="z-0 absolute flex justify-center items-center aspect-square h-[67px] rounded-[50%] bg-black"></div>
           </>
