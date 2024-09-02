@@ -12,7 +12,7 @@ export const diskData = [
     artist: "Yan Haoxiang",
   },
   {
-    img: "./images/Disks/piano-disk.png",
+    img: "./images/Disks/piano-disk.jpg",
     id: "piano",
     name: "2AM Bg Music",
     artist: "Animal Crossing New Horizons",

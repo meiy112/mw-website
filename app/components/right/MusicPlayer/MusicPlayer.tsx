@@ -19,7 +19,7 @@ if (typeof window !== "undefined") {
   duckAudio = new Audio("./audio/duck.mp3");
   acnhAudio = new Audio("./audio/acnh.mp3");
   yhxAudio = new Audio("./audio/yhx.mp3");
-  pianoAudio = new Audio("./audio/duck.mp3");
+  pianoAudio = new Audio("./audio/piano.mp3");
 }
 
 export default function MusicPlayer() {
