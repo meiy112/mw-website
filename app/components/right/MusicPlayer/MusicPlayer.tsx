@@ -44,6 +44,7 @@ export default function MusicPlayer() {
     <IoIosPlay className="text-black" size={20} />
   );
   const [audio, setAudio] = useState(acnhAudio);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     if (audio) {
@@ -54,7 +55,7 @@ export default function MusicPlayer() {
 
   useEffect(() => {
     if (dragContext && dragContext.currentChildId != null) {
-      const { currentChildId } = dragContext;
+      handleLoad();
       if (currentChildId === "draggable0") {
         setAudio(acnhAudio);
       } else if (currentChildId === "draggable1") {
@@ -64,17 +65,25 @@ export default function MusicPlayer() {
       } else {
         setAudio(duckAudio);
       }
-      handleLoad();
     } else {
       handlePause();
     }
   }, [dragContext?.currentChildId]);
 
   useEffect(() => {
-    if (dragContext?.isDragging && isPlaying) {
+    if (!isPaused && dragContext?.currentChildId !== null) {
+      handlePlay();
+    }
+  }, [dragContext?.dragEnd]);
+
+  useEffect(() => {
+    if (
+      (dragContext?.isDragging || dragContext?.isDraggingOther) &&
+      isPlaying
+    ) {
       handlePause();
     }
-  }, [dragContext?.isDragging, isPlaying]);
+  }, [dragContext?.isDragging, isPlaying, dragContext?.isDraggingOther]);
 
   if (!dragContext) {
     return null;
@@ -94,8 +103,10 @@ export default function MusicPlayer() {
   const handleButtonPress = () => {
     if (isPlaying) {
       handlePause();
+      setIsPaused(true);
     } else if (currentChildId) {
       handlePlay();
+      setIsPaused(false);
     }
   };
 
@@ -103,7 +114,10 @@ export default function MusicPlayer() {
     setIsPlaying(false);
     setButtonChild(<span className={styles.loader}></span>);
     setTimeout(() => {
-      handlePlay();
+      if (audio) {
+        audio.currentTime = 0;
+        handlePlay();
+      }
     }, 1500);
   };
 

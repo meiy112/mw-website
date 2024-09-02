@@ -92,7 +92,7 @@ export default function Home() {
 function Ornament() {
   const theme = useTheme();
   return (
-    <div className="right-0 fixed bottom-12 size-[40vh]">
+    <div className="right-0 fixed bottom-12 size-[42vh]">
       {theme.palette.mode === "dark" ? (
         <img src="/ornament-dark.png" alt="" />
       ) : (
