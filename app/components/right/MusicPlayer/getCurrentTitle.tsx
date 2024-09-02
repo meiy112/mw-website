@@ -19,7 +19,7 @@ const GetCurrentTitle = () => {
           transition={{ duration: 0.1 }}
           className="font-semibold text-[0.95rem] tracking-[0.5px]"
         >
-          2AM
+          2 AM
         </motion.h1>
       )}
 
@@ -45,7 +45,7 @@ const GetCurrentTitle = () => {
           transition={{ duration: 0.1 }}
           className="font-semibold text-[0.95rem] tracking-[0.5px]"
         >
-          Piano
+          Umi no Mieru Machi
         </motion.h1>
       )}
 
