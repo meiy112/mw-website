@@ -9,6 +9,7 @@ import React from "react";
 import { PageProvider } from "./components/context/PageProvider";
 import InteractiveSidebar from "./components/left/InteractiveSidebar";
 import { DragProvider } from "./components/context/DragContext";
+import { BrightnessProvider } from "./components/context/BrightnessContext";
 
 export default function Home() {
   // for contact modal
@@ -52,31 +53,36 @@ export default function Home() {
     >
       <DragProvider>
         <PageProvider>
-          <ThemeProvider theme={theme}>
-            {/*Navbar + Logo*/}
-            <div className="left-container">
-              {isSmallScreen ? (
-                <InteractiveSidebar
-                  toggleTheme={toggleTheme}
+          <BrightnessProvider>
+            <ThemeProvider theme={theme}>
+              {/*Navbar + Logo*/}
+              <div className="left-container">
+                {isSmallScreen ? (
+                  <InteractiveSidebar
+                    toggleTheme={toggleTheme}
+                    setIsModalOpen={setIsModalOpen}
+                  />
+                ) : (
+                  <Sidebar
+                    toggleTheme={toggleTheme}
+                    setIsModalOpen={setIsModalOpen}
+                  />
+                )}
+              </div>
+              {/*Main middle content*/}
+              <div className="main-container">
+                <Main
+                  isModalOpen={isModalOpen}
                   setIsModalOpen={setIsModalOpen}
                 />
-              ) : (
-                <Sidebar
-                  toggleTheme={toggleTheme}
-                  setIsModalOpen={setIsModalOpen}
-                />
-              )}
-            </div>
-            {/*Main middle content*/}
-            <div className="main-container">
-              <Main isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
-            </div>
-            {/*You Might Like*/}
-            <div className="right-container">
-              <Right />
-            </div>
-            {isSmallerScreen ? null : <Ornament />}
-          </ThemeProvider>
+              </div>
+              {/*You Might Like*/}
+              <div className="right-container">
+                <Right />
+              </div>
+              {isSmallerScreen ? null : <Ornament />}
+            </ThemeProvider>
+          </BrightnessProvider>
         </PageProvider>
       </DragProvider>
     </main>

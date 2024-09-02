@@ -1,4 +1,4 @@
-import { FC, useState, ElementRef, useRef } from "react";
+import { FC, useState, ElementRef, useRef, useEffect } from "react";
 import { DisplayProps } from "./Display.d";
 import * as RadixSlider from "@radix-ui/react-slider";
 import {
@@ -11,11 +11,20 @@ import {
 import { decay } from "./helper";
 import styles from "./Display.module.css";
 import { IoSunny } from "react-icons/io5";
+import { useBrightness } from "../../context/BrightnessContext";
 
 const MAX_OVERFLOW = 50;
 
 const DisplaySettings: FC<DisplayProps> = ({ toggleTheme }: DisplayProps) => {
-  let [brightness, setBrightness] = useState(30);
+  const brightnessContext = useBrightness();
+
+  if (!brightnessContext) {
+    throw new Error(
+      "BrightnessControl must be used within a BrightnessProvider"
+    );
+  }
+
+  const { brightness, setBrightness } = brightnessContext;
 
   let ref = useRef<ElementRef<typeof RadixSlider.Root>>(null);
   let clientX = useMotionValue(0);

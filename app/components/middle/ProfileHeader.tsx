@@ -1,12 +1,13 @@
 import { useTheme } from "@mui/material/styles";
 import { Emoji, EmojiStyle } from "emoji-picker-react";
 import { LuMapPin, LuCalendarDays, LuUsers2, LuLink } from "react-icons/lu";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import ContactModal from "../misc/ContactModal/ContactModal";
 import Image from "next/image";
 import Button from "./Framer-Button/Button";
 import styles from "./ProfileHeader.module.css";
+import { useBrightness } from "../context/BrightnessContext";
 
 export default function ProfileHeader({
   isModalOpen,
@@ -105,12 +106,35 @@ function Bio() {
 }
 
 function BioHeader() {
+  const brightnessContext = useBrightness();
+
+  if (!brightnessContext) {
+    throw new Error(
+      "BrightnessControl must be used within a BrightnessProvider"
+    );
+  }
+
+  const { brightness } = brightnessContext;
+
   return (
     <div className="flex flex-row items-center gap-x-[9px]">
-      <h1 className="glow font-bold intro-header text-[2.2rem]">
+      <h1
+        className="glow font-bold intro-header text-[2.2rem]"
+        style={{
+          textShadow: `0 0 28px rgba(255, 255, 255, ${brightness / 100})`,
+        }}
+      >
         Hey, I&#39;m
       </h1>
-      <h2 className="text-[2.5rem] name-header glow"> Maggie Weng</h2>
+      <h2
+        className="text-[2.5rem] name-header glow"
+        style={{
+          textShadow: `0 0 28px rgba(255, 255, 255, ${brightness / 100})`,
+        }}
+      >
+        {" "}
+        Maggie Weng
+      </h2>
       <Image height={24} width={24} alt="" src="/verified-check.png" />
     </div>
   );
