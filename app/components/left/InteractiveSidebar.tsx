@@ -118,7 +118,7 @@ export default function InteractiveSidebar({
         />
       ))}
       <div className="flex flex-col justify-end flex-1 items-center gap-y-[5px]">
-        <LuSun
+        {/*<LuSun
           size={20}
           className={`${theme.palette.mode == "dark" ? "opacity-[0.5]" : ""}`}
         />
@@ -126,7 +126,7 @@ export default function InteractiveSidebar({
         <LuMoonStar
           size={20}
           className={`${theme.palette.mode == "dark" ? "" : "opacity-[0.5]"}`}
-        />
+        />*/}
       </div>
     </motion.div>
   );

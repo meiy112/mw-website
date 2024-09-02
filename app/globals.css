@@ -23,6 +23,19 @@
   font-family: "SF Pro", sans-serif;
 }
 
+body,
+html {
+  width: 100vw;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.goo {
+  filter: url("#shadowed-goo");
+}
+
 .banner {
   --mask: linear-gradient(
       to bottom,

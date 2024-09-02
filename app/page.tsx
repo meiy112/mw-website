@@ -32,20 +32,23 @@ export default function Home() {
 
   useEffect(() => {
     const handleResize = () => {
+      console.log("Actual window.innerWidth:", window.innerWidth);
       setIsSmallScreen(window.innerWidth <= 1100);
       setIsSmallerScreen(window.innerWidth <= 962);
     };
 
-    handleResize(); // Initial check
+    handleResize();
 
-    // Add event listener on client-side only
     window.addEventListener("resize", handleResize);
 
-    // Cleanup function to remove the event listener when the component unmounts
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    console.log(isSmallScreen);
+  }, [isSmallScreen]);
 
   return (
     <main

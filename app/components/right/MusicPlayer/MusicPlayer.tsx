@@ -28,7 +28,6 @@ export default function MusicPlayer() {
 
   const dragContext = useDragContext();
 
-  // Ensure hooks are called unconditionally
   const [isPlaying, setIsPlaying] = useState(false);
   const [buttonChild, setButtonChild] = useState(
     <IoIosPlay className="text-black" size={20} />
@@ -210,9 +209,9 @@ export default function MusicPlayer() {
   return (
     <div
       ref={setNodeRef}
-      className={`${styles.container} justify-between px-[12px] max-h-[90px] flex items-center flex-1 relative recommendations rounded-[23px]`}
+      className={`${styles.container} flex-1 justify-between px-[12px] max-h-[90px] flex items-center relative recommendations rounded-[23px]`}
     >
-      <div className="h-[67px] flex flex-row gap-x-[12px]">
+      <div className="h-[73%] flex flex-row gap-x-[12px]">
         {getCurrentChild()}
         <div className="h-[100%] py-[10px] flex flex-col justify-between">
           {getCurrentTitle()}

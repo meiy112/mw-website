@@ -1,4 +1,5 @@
 import { useTheme } from "@mui/material/styles";
+import GooButton from "../middle/goo-button/GooButton";
 
 interface TwitterUserProps {
   pfp: string;
@@ -21,7 +22,7 @@ export default function TwitterUser({
         <ProfilePicture pfp={pfp} />
         <Username username={username} at={at} isVerified={isVerified} />
       </div>
-      <VisitButton isVerified={isVerified} onClick={onClick} />
+      <GooButton title="Visit" onClick={onClick} />
     </div>
   );
 }
