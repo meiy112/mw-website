@@ -9,6 +9,8 @@ type DragContextType = {
   draggables: any;
   currentChildId: string | null;
   isDragging: boolean;
+  isDraggingOther: boolean;
+  dragEnd: boolean;
 };
 
 const DragContext = createContext<DragContextType | undefined>(undefined);
@@ -23,6 +25,8 @@ export function DragProvider({ children }: DragProviderProps) {
   const [parent, setParent] = useState(null);
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [currentChildId, setCurrentChildId] = useState<string | null>(null);
+  const [isDraggingOther, setIsDraggingOther] = useState(false);
+  const [dragEnd, toggleDragEnd] = useState(false);
 
   const draggables = [
     <Disk id="draggable0" item={diskData[0]} key={0} />,
@@ -33,12 +37,22 @@ export function DragProvider({ children }: DragProviderProps) {
 
   return (
     <DragContext.Provider
-      value={{ parent, isDragging, setParent, draggables, currentChildId }}
+      value={{
+        parent,
+        isDragging,
+        setParent,
+        draggables,
+        currentChildId,
+        isDraggingOther,
+        dragEnd,
+      }}
     >
       <DndContext
         onDragStart={({ active }) => {
           if (currentChildId === null || active.id === currentChildId) {
             setIsDragging(true);
+          } else {
+            setIsDraggingOther(true);
           }
         }}
         onDragEnd={handleDragEnd}
@@ -50,6 +64,7 @@ export function DragProvider({ children }: DragProviderProps) {
 
   function handleDragEnd({ active, over }: { active: any; over: any }) {
     setIsDragging(false);
+    setIsDraggingOther(false);
 
     if (over) {
       setCurrentChildId(active.id);
@@ -57,6 +72,8 @@ export function DragProvider({ children }: DragProviderProps) {
     } else if (active.id === currentChildId) {
       setCurrentChildId(null);
       setParent(null);
+    } else {
+      toggleDragEnd((prevDragEnd) => !prevDragEnd);
     }
   }
 }
