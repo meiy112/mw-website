@@ -45,7 +45,7 @@ const GetCurrentAuthor = () => {
           transition={{ duration: 0.1, delay: 0.03 }}
           className="font-light text-[0.85rem] tracking-[0.7px]"
         >
-          Kiki's Delivery Service
+          Kiki&#39;s Delivery Service
         </motion.span>
       )}
 
