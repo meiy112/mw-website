@@ -11,14 +11,18 @@ const GooButton = (props: ButtonProps) => {
       className="mr-[3%] h-[1.9em] relative goo text-black flex items-center justify-center"
       onClick={props.onClick}
     >
-      <div className="relative z-100 tracking-[0.3px] pl-[1.1vw] text-[0.87rem] w-[67px] h-[100%] rounded-[10em] ml-[1.2vw] bg-white font-bold flex items-center">
+      <div className="relative z-10 tracking-[0.3px] pl-[1.1vw] text-[0.87rem] w-[67px] h-[100%] rounded-[10em] ml-[1.2vw] bg-white font-bold flex items-center">
         {props.title}
       </div>
       <motion.div
         variants={buttonAnim}
-        className="absolute right-[-10%] flex items-center justify-center aspect-square bg-white h-[100%] rounded-[50%]"
+        className="overflow-hidden absolute bg-white right-[-10%] flex items-center justify-center aspect-square h-[100%] rounded-[50%]"
+      ></motion.div>
+      <motion.div
+        variants={buttonAnim}
+        className="overflow-hidden absolute z-10 right-[-10%] flex items-center justify-center aspect-square h-[100%] rounded-[50%]"
       >
-        <LuArrowUpRight size={15} />
+        <LuArrowUpRight className="absolute" size={15} />
       </motion.div>
 
       {/*------------ filter ------------*/}
