@@ -1,3 +1,4 @@
+import { Emoji, EmojiStyle } from "emoji-picker-react";
 import { useBrightness } from "../context/BrightnessContext";
 import { usePageContext } from "../context/PageProvider";
 import { useTheme } from "@mui/material/styles";

@@ -23,10 +23,8 @@
   font-family: "SF Pro", sans-serif;
 }
 
-body,
-html {
-  width: 100vw;
-  overflow-x: hidden;
+html,
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
