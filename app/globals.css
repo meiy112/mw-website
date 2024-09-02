@@ -23,6 +23,19 @@
   font-family: "SF Pro", sans-serif;
 }
 
+body,
+html {
+  width: 100vw;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.goo {
+  filter: url("#shadowed-goo");
+}
+
 .banner {
   --mask: linear-gradient(
       to bottom,
@@ -165,7 +178,7 @@
     padding-left: 1.75vw;
   }
   .recommendations {
-    width: 24%;
+    width: 23%;
   }
   .sidebar {
     margin-left: 2vw;
@@ -203,6 +216,10 @@
   .about-text {
     font-size: 3.7rem;
   }
+  .recommendations {
+    width: 27%;
+    max-width: 320px;
+  }
 }
 
 /* Left container resizes */
@@ -222,6 +239,10 @@
   .modal-post {
     width: 65%;
   }
+  .recommendations {
+    width: 32%;
+    max-width: 320px;
+  }
 }
 
 /*Right container disappears*/
@@ -230,7 +251,7 @@
     width: 60px;
   }
   .main-container {
-    width: 760px;
+    width: 750px;
   }
   .right-container {
     width: 0;

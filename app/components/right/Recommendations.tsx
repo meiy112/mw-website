@@ -9,7 +9,6 @@ const profileData = [
     isVerified: false,
     onClick: function () {
       window.location.href = "https://github.com/meiy112";
-      console.log("hi");
     },
   },
   {
