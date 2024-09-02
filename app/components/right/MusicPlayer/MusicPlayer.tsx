@@ -27,6 +27,16 @@ export default function MusicPlayer() {
     id: "droppable",
   });
 
+  const brightnessContext = useBrightness();
+
+  if (!brightnessContext) {
+    throw new Error(
+      "BrightnessControl must be used within a BrightnessProvider"
+    );
+  }
+
+  const { brightness } = brightnessContext;
+
   const dragContext = useDragContext();
 
   const [isPlaying, setIsPlaying] = useState(false);
@@ -207,16 +217,6 @@ export default function MusicPlayer() {
       );
     }
   };
-
-  const brightnessContext = useBrightness();
-
-  if (!brightnessContext) {
-    throw new Error(
-      "BrightnessControl must be used within a BrightnessProvider"
-    );
-  }
-
-  const { brightness } = brightnessContext;
 
   return (
     <div
