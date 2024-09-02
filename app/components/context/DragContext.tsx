@@ -36,7 +36,11 @@ export function DragProvider({ children }: DragProviderProps) {
       value={{ parent, isDragging, setParent, draggables, currentChildId }}
     >
       <DndContext
-        onDragStart={() => setIsDragging(true)}
+        onDragStart={({ active }) => {
+          if (currentChildId === null || active.id === currentChildId) {
+            setIsDragging(true);
+          }
+        }}
         onDragEnd={handleDragEnd}
       >
         {children}
@@ -45,12 +49,14 @@ export function DragProvider({ children }: DragProviderProps) {
   );
 
   function handleDragEnd({ active, over }: { active: any; over: any }) {
-    setParent(over ? over.id : null);
     setIsDragging(false);
+
     if (over) {
       setCurrentChildId(active.id);
-    } else {
+      setParent(over.id);
+    } else if (active.id === currentChildId) {
       setCurrentChildId(null);
+      setParent(null);
     }
   }
 }

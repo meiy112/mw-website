@@ -36,6 +36,7 @@ export default function MusicPlayer() {
 
   useEffect(() => {
     if (audio) {
+      audio.loop = true;
       isPlaying ? audio.play() : audio.pause();
     }
   }, [isPlaying, audio]);
