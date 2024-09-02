@@ -4,19 +4,10 @@ import Projects from "./pages/Projects";
 import Resume from "./pages/Resume";
 import Drawings from "./pages/Drawings";
 import { usePageContext } from "../context/PageProvider";
-import { LuCopyright, LuContainer, LuCode2, LuMusic4 } from "react-icons/lu";
 import { AnimatePresence, useInView } from "framer-motion";
-import { useTheme } from "@mui/material/styles";
-import {
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
-import StaticRecommendations from "./StaticRecommendations/StaticRecommendations";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import Footer from "./Footer/Footer";
+import OldFooter from "./Footer/OldFooter";
 
 export default function PostsContent({
   setIsModalOpen,
@@ -39,11 +30,28 @@ export default function PostsContent({
         return <About setIsModalOpen={setIsModalOpen} />;
     }
   };
+
+  const [isSmallerScreen, setIsSmallerScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallerScreen(window.innerWidth <= 962);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div>
       <NavBar />
       <AnimatePresence mode="wait">{renderPage()}</AnimatePresence>
-      <Footer />
+      {isSmallerScreen ? <OldFooter /> : <Footer />}
     </div>
   );
 }
