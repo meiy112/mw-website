@@ -120,9 +120,25 @@ export default function Sidebar({
 }
 
 function DuckLogo() {
+  const handleNavigation = () => {
+    window.location.reload();
+    window.scrollTo(0, 0);
+  };
+
   return (
-    <div className="mt-[3.125em] mb-[1em] px-[1.75vw]">
-      <Image src="/duck-logo.png" alt="Duck Logo" width={32} height={32} />
+    <div className="flex mt-[3.125em] w-[100%] mb-[2em] items-center">
+      <div onClick={handleNavigation} className="cursor-pointer mr-[6%]">
+        <Image src="/Logo.png" alt="Duck Logo" width={40} height={40} />
+      </div>
+      <div
+        onClick={handleNavigation}
+        className="cursor-pointer flex flex-col gap-y-[0.2em] h-full text-[1.1rem]"
+      >
+        <span>Maggie Weng</span>
+        <span className="opacity-[0.5] text-[0.75rem]">
+          Full-Stack Developer
+        </span>
+      </div>
     </div>
   );
 }
