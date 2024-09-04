@@ -95,12 +95,26 @@ function ProfilePicture() {
 
 function Bio() {
   return (
-    <div className={`bio flex flex-col px-[4.3vw] pt-[1.3vh] gap-y-[13px]`}>
-      <BioHeader />
-      <BioDescription />
-      <BioDetails />
-      <BioFollowers />
-      {/*<Carousel />*/}
+    <div className="relative">
+      <GlowingComponent />
+      <div className={`bio flex flex-col px-[4.3vw] pt-[1.3vh] gap-y-[13px]`}>
+        <BioHeader />
+        <BioDescription />
+        <BioDetails />
+        <BioFollowers />
+        {/*<Carousel />*/}
+      </div>
+    </div>
+  );
+}
+
+function GlowingComponent() {
+  return (
+    <div
+      style={{ filter: "blur(8vw)" }}
+      className="absolute top-[-10%] w-[100%] h-[80%] items-center justify-center flex"
+    >
+      <div className="w-[60%] h-[15%] bg-white opacity-[0.5]"></div>
     </div>
   );
 }
@@ -121,7 +135,11 @@ function BioHeader() {
       <h1
         className="glow font-bold intro-header text-[2.2rem]"
         style={{
-          textShadow: `0 0 28px rgba(255, 255, 255, ${brightness / 100})`,
+          textShadow: `0 0 28px rgba(255, 255, 255, ${
+            brightness / 100 - 0.3 < 0
+              ? brightness / 100
+              : brightness / 100 - 0.3
+          })`,
         }}
       >
         Hey, I&#39;m
@@ -129,7 +147,11 @@ function BioHeader() {
       <h2
         className="text-[2.5rem] name-header glow"
         style={{
-          textShadow: `0 0 28px rgba(255, 255, 255, ${brightness / 100})`,
+          textShadow: `0 0 28px rgba(255, 255, 255, ${
+            brightness / 100 - 0.3 < 0
+              ? brightness / 100
+              : brightness / 100 - 0.3
+          })`,
         }}
       >
         {" "}
