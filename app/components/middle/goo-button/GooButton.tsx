@@ -33,7 +33,7 @@ const GooButton = (props: ButtonProps) => {
               <feGaussianBlur
                 in="SourceGraphic"
                 result="blur"
-                stdDeviation="4"
+                stdDeviation="6"
               />
               <feColorMatrix
                 in="blur"
