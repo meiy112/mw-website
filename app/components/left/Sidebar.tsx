@@ -61,7 +61,7 @@ export default function Sidebar({
   ];
   // -------------------------------------------------------------------------
 
-  const [days, setDays] = useState(5);
+  const [days, setDays] = useState(26);
   const [months, setMonths] = useState(11);
   const [years, setYears] = useState(2027);
 
@@ -70,13 +70,13 @@ export default function Sidebar({
       decrementMonths(10);
     }, 1500);
     setTimeout(() => {
-      decrementDays(4);
+      decrementDays(25);
     }, 2000);
     setTimeout(() => {
-      decrementDays(3);
+      decrementDays(24);
     }, 2700);
     setTimeout(() => {
-      decrementDays(2);
+      decrementDays(23);
     }, 3600);
     setTimeout(() => {
       decrementYears(2026);
@@ -88,7 +88,7 @@ export default function Sidebar({
       decrementMonths(9);
     }, 5000);
     setTimeout(() => {
-      decrementDays(1);
+      decrementDays(22);
     }, 5700);
     setTimeout(() => {
       decrementYears(2024);

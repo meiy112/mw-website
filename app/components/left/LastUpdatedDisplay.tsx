@@ -80,7 +80,7 @@ const StaticCard = ({
   );
 };
 
-const MotionFlex = motion(Flex as any);
+const MotionFlex = motion.create(Flex as any);
 
 const AnimatedCard = memo(
   ({
