@@ -17,6 +17,7 @@ function Globe() {
   }));
 
   useEffect(() => {
+    let phi = 0;
     let width = 0;
     const onResize = () => {
       if (canvasRef.current) {
@@ -42,7 +43,10 @@ function Globe() {
         glowColor: [1.2, 1.2, 1.2],
         markers: [{ location: [49.246292, -123.116226], size: 0.1 }],
         onRender: (state) => {
-          state.phi = r.get();
+          if (!pointerInteracting.current) {
+            phi += 0.001;
+          }
+          state.phi = phi + r.get();
           state.width = width * 2;
           state.height = width * 2;
         },
