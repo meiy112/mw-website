@@ -6,10 +6,10 @@
 
 :root {
   --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 16, 16, 16;
-  --background-end-rgb: 16, 16, 16;
-  --color-bg1: rgb(16, 16, 16);
-  --color-bg2: rgb(16, 16, 16);
+  --background-start-rgb: 7, 8, 10;
+  --background-end-rgb: 7, 8, 10;
+  --color-bg1: rgb(7, 8, 10);
+  --color-bg2: rgb(7, 8, 10);
   --color1: 255, 53, 155;
   --color2: 255, 253, 135;
   --color3: 0, 210, 255;
@@ -38,8 +38,8 @@ body {
   --mask: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 1) 0,
-      rgba(0, 0, 0, 1) 60%,
-      rgba(0, 0, 0, 0) 97%,
+      rgba(0, 0, 0, 1) 90%,
+      rgba(0, 0, 0, 0) 100%,
       rgba(0, 0, 0, 0) 0
     )
     100% 50% / 100% 100% repeat-x;

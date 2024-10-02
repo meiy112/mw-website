@@ -1,13 +1,15 @@
 import { useTheme } from "@mui/material/styles";
 import { Emoji, EmojiStyle } from "emoji-picker-react";
 import { LuMapPin, LuCalendarDays, LuUsers2, LuLink } from "react-icons/lu";
-import { Dispatch, SetStateAction, useEffect } from "react";
+import { Dispatch, SetStateAction } from "react";
 import { AnimatePresence } from "framer-motion";
 import ContactModal from "../misc/ContactModal/ContactModal";
 import Image from "next/image";
 import Button from "./Framer-Button/Button";
 import styles from "./ProfileHeader.module.css";
 import { useBrightness } from "../context/BrightnessContext";
+import ProfileBanner from "./Banner/Banner";
+import Globe from "./Banner/Globe";
 
 export default function ProfileHeader({
   isModalOpen,
@@ -39,39 +41,29 @@ export default function ProfileHeader({
 function Banner() {
   return (
     <div
-      className={`${styles.shine} banner px-[5px] pt-[5px] glowing-border flex items-end justify-center rounded-t-[30px] w-[100%] h-[32vh]`}
+      className={`banner px-[5px] pt-[5px] glowing-border flex items-end justify-center rounded-t-[30px] w-[100%] h-[32vh]`}
     >
       <div className="glow-element bg-white w-[90%] h-[1px] absolute top-[-0.5px]" />
       <div className="glow-element-2 bg-white w-[40%] h-[1px] absolute top-[5px]" />
       <div className="glow-element-3 bg-white w-[1px] h-[50%] absolute top-[5vh] left-[-0.5px]" />
       <section
         className="flex justify-center w-[100%] absolute top-0 z-10"
-        style={{ filter: "blur(40px)" }}
+        style={{ filter: "blur(80px)" }}
       >
         <div
-          className="absolute w-[200px] h-[20px] rounded-[50%]"
-          style={{ background: "rgba(255, 255, 255, 1)" }}
-        ></div>
-        <div
-          className="absolute left-[5%] top-[5vh] w-[200px] h-[50px] rounded-[50%]"
+          className="absolute left-[2%] top-[3vh] w-[20vw] h-[5vh] rounded-[50%]"
           style={{ background: "rgba(255, 255, 255, 0.5)" }}
         ></div>
       </section>
       <section
         className="flex justify-center w-[100%] absolute top-0 z-10"
         style={{ filter: "blur(15px)" }}
-      >
-        <div
-          className="absolute left-[5%] top-[2vh] w-[120px] h-[20px]"
-          style={{ background: "rgba(255, 255, 255, 0.8)" }}
-        ></div>
-      </section>
+      ></section>
       <div className="glowing-border-2 w-[100%] overflow-hidden h-[100%] rounded-t-[25px]">
-        <img
-          alt="banner"
-          src="/banner-1.jpg"
-          className=" relative w-[100%] mt-[-46vh]"
-        />
+        <ProfileBanner />
+        <div className="w-[25vw] h-[25vw] absolute top-[20%] right-[-10%]">
+          <Globe />
+        </div>
       </div>
     </div>
   );

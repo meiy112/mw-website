@@ -13,7 +13,7 @@ export const darkTheme = createTheme({
       contrastText: "#000000",
     },
     background: {
-      default: "#101010",
+      default: "#07080A",
     },
     action: {
       hover: "rgba(255, 255, 255, 0.1)",

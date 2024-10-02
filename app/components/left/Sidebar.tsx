@@ -126,11 +126,11 @@ function DuckLogo() {
   };
 
   return (
-    <div className="flex mt-[3.125em] w-[100%] mb-[2em] items-center">
-      <div onClick={handleNavigation} className="cursor-pointer mr-[6%]">
+    <div className="flex mt-[3.125em] w-[100%] mb-[1em] items-center">
+      <div onClick={handleNavigation} className="cursor-pointer ml-[2%]">
         <Image src="/Logo.png" alt="Duck Logo" width={40} height={40} />
       </div>
-      <div
+      {/* <div
         onClick={handleNavigation}
         className="cursor-pointer flex flex-col gap-y-[0.2em] h-full text-[1.1rem]"
       >
@@ -138,7 +138,7 @@ function DuckLogo() {
         <span className="opacity-[0.5] text-[0.75rem]">
           Full-Stack Developer
         </span>
-      </div>
+      </div> */}
     </div>
   );
 }
