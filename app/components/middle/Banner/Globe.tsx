@@ -40,7 +40,7 @@ function Globe() {
         mapBrightness: 1.2,
         baseColor: [1, 1, 1],
         markerColor: [1.5, 1.5, 1.5],
-        glowColor: [1.2, 1.2, 1.2],
+        glowColor: [1, 1, 1],
         markers: [{ location: [49.246292, -123.116226], size: 0.1 }],
         onRender: (state) => {
           if (!pointerInteracting.current) {

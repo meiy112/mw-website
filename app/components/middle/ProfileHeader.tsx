@@ -10,6 +10,7 @@ import styles from "./ProfileHeader.module.css";
 import { useBrightness } from "../context/BrightnessContext";
 import ProfileBanner from "./Banner/Banner";
 import Globe from "./Banner/Globe";
+import ProfilePicture from "./ProfilePicture/ProfilePicture";
 
 export default function ProfileHeader({
   isModalOpen,
@@ -61,26 +62,10 @@ function Banner() {
       ></section>
       <div className="glowing-border-2 w-[100%] overflow-hidden h-[100%] rounded-t-[25px]">
         <ProfileBanner />
-        <div className="w-[25vw] h-[25vw] absolute top-[20%] right-[-10%]">
+        <div className="w-[49.5%] h-[49.5%] absolute top-[20%] right-[-10%]">
           <Globe />
         </div>
       </div>
-    </div>
-  );
-}
-
-function ProfilePicture() {
-  const theme = useTheme();
-  return (
-    <div className="mt-[-90px]">
-      <img
-        alt=""
-        height={150}
-        width={150}
-        src="/pfp.png"
-        className="relative rounded-[50%] ml-[4px] mt-[4px]"
-        style={{ border: `4px solid ${theme.palette.background.default}` }}
-      />
     </div>
   );
 }
