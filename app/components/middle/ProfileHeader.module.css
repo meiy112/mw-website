@@ -1,3 +1,14 @@
+.header {
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+
+.gradient {
+  background: linear-gradient(to right, #92bfe9, #ffe0fe, #f2d3ca);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .shine {
   position: relative;
 }

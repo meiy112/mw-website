@@ -4,7 +4,6 @@ import { LuMapPin, LuCalendarDays, LuUsers2, LuLink } from "react-icons/lu";
 import { Dispatch, SetStateAction } from "react";
 import { AnimatePresence } from "framer-motion";
 import ContactModal from "../misc/ContactModal/ContactModal";
-import Image from "next/image";
 import Button from "./Framer-Button/Button";
 import styles from "./ProfileHeader.module.css";
 import { useBrightness } from "../context/BrightnessContext";
@@ -76,7 +75,7 @@ function Bio() {
       <GlowingComponent />
       <div className={`bio flex flex-col px-[4.3vw] pt-[1.3vh] gap-y-[13px]`}>
         <BioHeader />
-        <BioDescription />
+        {/* <BioDescription /> */}
         <BioDetails />
         <BioFollowers />
         {/*<Carousel />*/}
@@ -106,11 +105,15 @@ function BioHeader() {
   }
 
   const { brightness } = brightnessContext;
+  const ICON_SIZE = 30;
 
   return (
-    <div className="flex flex-row items-center gap-x-[9px]">
-      <h1
-        className="glow font-bold intro-header text-[2.2rem]"
+    <div className="mb-[1em] inline">
+      <span className={`glow ${styles.header} inline-block`}>
+        I&#39;m&nbsp;
+      </span>
+      <span
+        className="text-[2.5rem] name-header glow mb-[-0.1em] inline-block mr-[0.1em]"
         style={{
           textShadow: `0 0 28px rgba(255, 255, 255, ${
             brightness / 100 - 0.3 < 0
@@ -119,38 +122,92 @@ function BioHeader() {
           })`,
         }}
       >
-        Hey, I&#39;m
-      </h1>
-      <h2
-        className="text-[2.5rem] name-header glow"
-        style={{
-          textShadow: `0 0 28px rgba(255, 255, 255, ${
-            brightness / 100 - 0.3 < 0
-              ? brightness / 100
-              : brightness / 100 - 0.3
-          })`,
-        }}
-      >
-        {" "}
         Maggie Weng
-      </h2>
-      <Image height={24} width={24} alt="" src="/verified-check.png" />
+      </span>
+      <span className={`${styles.header} inline-block`}>
+        , a Full Stack developer&nbsp;
+      </span>
+      <span
+        className={`${styles.header} inline-flex items-center ${styles.gradient}`}
+      >
+        who loves the stars&nbsp;
+        <img
+          src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Dizzy.png"
+          alt="Dizzy"
+          width={ICON_SIZE}
+          height={ICON_SIZE}
+        />
+        .&nbsp;
+      </span>
+      <span className={`${styles.header} inline-block`}>I'm also a&nbsp;</span>
+      <span className={`${styles.header} inline-flex items-center`}>
+        Designer&nbsp;
+        <img
+          src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/White%20Heart.png"
+          alt="White Heart"
+          width={ICON_SIZE}
+          height={ICON_SIZE}
+        />
+        .&nbsp;
+      </span>
+      <span className={`${styles.header} inline-flex items-center`}>
+        Digital Artist&nbsp;
+        <img
+          src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20professions/Artist%20Light%20Skin%20Tone.png"
+          alt="Artist Light Skin Tone"
+          width={ICON_SIZE}
+          height={ICON_SIZE}
+        />
+        .&nbsp;
+      </span>
+      <span className={`${styles.header} inline-flex items-center`}>
+        Coding Tutor&nbsp;
+        <img
+          src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Nerd%20Face.png"
+          alt="Nerd Face"
+          width={ICON_SIZE}
+          height={ICON_SIZE}
+        />
+        .&nbsp;
+      </span>
+      <span className={`${styles.header} inline-flex items-center`}>
+        All-Nighter Puller&nbsp;
+        <img
+          src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Zzz.png"
+          alt="Zzz"
+          width={ICON_SIZE}
+          height={ICON_SIZE}
+        />
+        .&nbsp;
+      </span>
+      <span className={`${styles.header} inline-flex items-center`}>
+        Duck Enthusiast&nbsp;
+        <img
+          src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Duck.png"
+          alt="Duck"
+          width={ICON_SIZE}
+          height={ICON_SIZE}
+        />
+        <img
+          src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Astonished%20Face.png"
+          alt="Astonished Face"
+          width={ICON_SIZE}
+          height={ICON_SIZE}
+        />
+        .
+      </span>
     </div>
   );
 }
 
 function BioDescription() {
   return (
-    <div className="tracking-[0.32px] text-[1rem] gap-y-[15px] flex flex-col">
-      <div className="text-[1.1rem] flex gap-x-[5px] items-center">
-        <span>... and I make things glow.</span>
-        <Emoji unified="1f31f" size={24} emojiStyle={EmojiStyle.APPLE} />
-      </div>
-      <p className="font-regular text-[1rem]">
-        <span className="">UBC CompSci Student. </span>
+    <div className="tracking-[0.32px] text-[0.95rem] gap-y-[15px] flex flex-col">
+      <p className="font-regular">
+        <span className="">@UBC CompSci Student. </span>
         <span className="opacity-[0.7]">
-          Aspiring Full-Stack Developer. Designer. Digital Artist. Coding Tutor.
-          All-Nighter Puller. Duck Enthusiast.
+          Developer. Designer. Digital Artist. Coding Tutor. All-Nighter Puller.
+          Duck Enthusiast.
         </span>
       </p>
     </div>

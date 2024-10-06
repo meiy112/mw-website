@@ -2,15 +2,15 @@ import useTheme from "@mui/material/styles/useTheme";
 import { Canvas } from "@react-three/fiber";
 import { Bounds, Environment, OrbitControls } from "@react-three/drei";
 import AvatarModel from "./AvatarModel";
+import s from "./ProfilePicture.module.css";
 
 const ProfilePicture = () => {
   const theme = useTheme();
 
   return (
-    <div className="mt-[-90px]">
+    <div className="mt-[-90px] relative">
       <div
-        className="h-[150px] w-[150px] flex relative rounded-[50%] overflow-hidden ml-[4px] mt-[4px] z-10 justify-center items-center"
-        style={{ border: `4px solid ${theme.palette.background.default}` }}
+        className={`${s.roundBorder} h-[150px] aspect-square flex relative rounded-[50%] overflow-hidden ml-[4px] mt-[4px] z-10 justify-center items-center`}
       >
         <div className="h-[130%] w-[130%] mt-[25%]">
           <Canvas
