@@ -109,7 +109,7 @@ function BioHeader() {
   const ICON_SIZE = 30;
 
   return (
-    <div className="mb-[1em] inline">
+    <div className="mb-[1em] mt-[0.5em] inline">
       <span className={`glow ${styles.header} inline-block`}>
         I&#39;m&nbsp;
       </span>

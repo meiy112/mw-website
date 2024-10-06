@@ -10,6 +10,7 @@ import { PageProvider } from "./components/context/PageProvider";
 import InteractiveSidebar from "./components/left/InteractiveSidebar";
 import { DragProvider } from "./components/context/DragContext";
 import { BrightnessProvider } from "./components/context/BrightnessContext";
+import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 
 export default function Home() {
   // for contact modal
@@ -31,6 +32,8 @@ export default function Home() {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [isSmallerScreen, setIsSmallerScreen] = useState(false);
 
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth <= 1100);
@@ -45,6 +48,10 @@ export default function Home() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
 
   return (
     <main
