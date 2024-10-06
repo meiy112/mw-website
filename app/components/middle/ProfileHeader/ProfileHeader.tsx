@@ -2,14 +2,15 @@ import { useTheme } from "@mui/material/styles";
 import { Emoji, EmojiStyle } from "emoji-picker-react";
 import { LuMapPin, LuCalendarDays, LuUsers2, LuLink } from "react-icons/lu";
 import { Dispatch, SetStateAction } from "react";
-import { AnimatePresence } from "framer-motion";
-import ContactModal from "../misc/ContactModal/ContactModal";
-import Button from "./Framer-Button/Button";
+import { AnimatePresence, motion } from "framer-motion";
+import ContactModal from "../../misc/ContactModal/ContactModal";
+import Button from "../Framer-Button/Button";
 import styles from "./ProfileHeader.module.css";
-import { useBrightness } from "../context/BrightnessContext";
-import ProfileBanner from "./Banner/Banner";
-import Globe from "./Banner/Globe";
-import ProfilePicture from "./ProfilePicture/ProfilePicture";
+import { useBrightness } from "../../context/BrightnessContext";
+import ProfileBanner from "../Banner/Banner";
+import Globe from "../Banner/Globe";
+import ProfilePicture from "../ProfilePicture/ProfilePicture";
+import { blurAnimation } from "./ProfileHeader.d";
 
 export default function ProfileHeader({
   isModalOpen,
@@ -140,7 +141,10 @@ function BioHeader() {
         .&nbsp;
       </span>
       <span className={`${styles.header} inline-block`}>I'm also a&nbsp;</span>
-      <span className={`${styles.header} inline-flex items-center`}>
+      <motion.span
+        {...blurAnimation}
+        className={`${styles.header} inline-flex items-center`}
+      >
         Designer&nbsp;
         <img
           src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/White%20Heart.png"
@@ -149,8 +153,11 @@ function BioHeader() {
           height={ICON_SIZE}
         />
         .&nbsp;
-      </span>
-      <span className={`${styles.header} inline-flex items-center`}>
+      </motion.span>
+      <motion.span
+        {...blurAnimation}
+        className={`${styles.header} inline-flex items-center`}
+      >
         Digital Artist&nbsp;
         <img
           src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20professions/Artist%20Light%20Skin%20Tone.png"
@@ -159,8 +166,11 @@ function BioHeader() {
           height={ICON_SIZE}
         />
         .&nbsp;
-      </span>
-      <span className={`${styles.header} inline-flex items-center`}>
+      </motion.span>
+      <motion.span
+        {...blurAnimation}
+        className={`${styles.header} inline-flex items-center`}
+      >
         Coding Tutor&nbsp;
         <img
           src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Nerd%20Face.png"
@@ -169,8 +179,11 @@ function BioHeader() {
           height={ICON_SIZE}
         />
         .&nbsp;
-      </span>
-      <span className={`${styles.header} inline-flex items-center`}>
+      </motion.span>
+      <motion.span
+        {...blurAnimation}
+        className={`${styles.header} inline-flex items-center`}
+      >
         All-Nighter Puller&nbsp;
         <img
           src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Zzz.png"
@@ -179,8 +192,11 @@ function BioHeader() {
           height={ICON_SIZE}
         />
         .&nbsp;
-      </span>
-      <span className={`${styles.header} inline-flex items-center`}>
+      </motion.span>
+      <motion.span
+        {...blurAnimation}
+        className={`${styles.header} inline-flex items-center`}
+      >
         Duck Enthusiast&nbsp;
         <img
           src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Duck.png"
@@ -195,7 +211,7 @@ function BioHeader() {
           height={ICON_SIZE}
         />
         .
-      </span>
+      </motion.span>
     </div>
   );
 }

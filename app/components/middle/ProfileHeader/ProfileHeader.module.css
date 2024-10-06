@@ -1,6 +1,8 @@
 .header {
   font-weight: 500;
   font-size: 1.8rem;
+  cursor: default;
+  user-select: none;
 }
 
 .gradient {

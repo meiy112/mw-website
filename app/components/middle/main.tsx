@@ -1,5 +1,5 @@
 import { useTheme } from "@mui/material/styles";
-import ProfileHeader from "./ProfileHeader";
+import ProfileHeader from "./ProfileHeader/ProfileHeader";
 import PostsContent from "./PostsContent";
 import { Dispatch, SetStateAction } from "react";
 
