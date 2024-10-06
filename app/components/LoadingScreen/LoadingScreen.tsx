@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { colors, generateSize, useAnimationLoop } from "./utils";
+import { colors, generateSize, images, useAnimationLoop } from "./utils";
 import { mix, distance, wrap } from "@popmotion/popcorn";
 import TrailImage from "./Image";
 import { Position } from "./LoadingScreen.d";
@@ -50,11 +50,11 @@ const LoadingScreen = ({ distanceThreshold = 140 }) => {
       className={s.container}
       onMouseMove={(e) => (mouseInfo.now = { x: e.pageX, y: e.pageY })}
     >
-      {colors.map((color, i) => (
+      {images.map((image, i) => (
         <TrailImage
           position={imagePositions.current[i]}
-          color={color}
-          key={color}
+          image={image}
+          key={image}
         />
       ))}
     </div>

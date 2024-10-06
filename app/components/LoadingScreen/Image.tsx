@@ -1,10 +1,10 @@
 import { useAnimation, motion } from "framer-motion";
 import { useEffect } from "react";
-import { powerOut4, center } from "./utils";
+import { powerOut4, center, IMAGE_SIZE } from "./utils";
 import { TrailImageProps } from "./LoadingScreen.d";
 import s from "./LoadingScreen.module.css";
 
-const TrailImage: React.FC<TrailImageProps> = ({ position, color }) => {
+const TrailImage: React.FC<TrailImageProps> = ({ position, image }) => {
   const controls = useAnimation();
 
   useEffect(() => {
@@ -30,9 +30,11 @@ const TrailImage: React.FC<TrailImageProps> = ({ position, color }) => {
       initial={{ opacity: 0 }}
       animate={controls}
       transformTemplate={center}
-      style={{ background: color, ...style }}
-      className={s.placeholder}
-    />
+      style={{ ...style }}
+      className={`${s.placeholder} ${s.image}`}
+    >
+      <img src={image} width={IMAGE_SIZE} height={IMAGE_SIZE} alt="png" />
+    </motion.div>
   );
 };
 

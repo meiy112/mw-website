@@ -8,5 +8,5 @@ export type Position = {
 
 export type TrailImageProps = {
   position: Position | null;
-  color: string;
+  image: string;
 };
