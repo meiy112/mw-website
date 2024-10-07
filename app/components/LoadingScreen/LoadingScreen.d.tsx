@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type Position = {
   xOrigin: number;
   x: number;
@@ -8,5 +10,10 @@ export type Position = {
 
 export type TrailImageProps = {
   position: Position | null;
-  image: string;
+  image: ReactNode;
+};
+
+export type LoadingBlockProps = {
+  text: string;
+  delayClass?: any;
 };

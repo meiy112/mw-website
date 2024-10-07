@@ -16,9 +16,9 @@ const TrailImage: React.FC<TrailImageProps> = ({ position, image }) => {
       opacity: [1, 1, 0],
       scale: [1, 1, 0.2],
       transition: {
-        duration: 0.8,
+        duration: 1.6,
         ease: ["easeOut", powerOut4, powerOut4],
-        times: [0, 0.7, 1],
+        times: [0, 0.85, 1],
       },
     });
   }, [position]);
@@ -33,7 +33,7 @@ const TrailImage: React.FC<TrailImageProps> = ({ position, image }) => {
       style={{ ...style }}
       className={`${s.placeholder} ${s.image}`}
     >
-      <img src={image} width={IMAGE_SIZE} height={IMAGE_SIZE} alt="png" />
+      {image}
     </motion.div>
   );
 };

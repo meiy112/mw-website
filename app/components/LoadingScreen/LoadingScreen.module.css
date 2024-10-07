@@ -28,3 +28,42 @@
   max-width: 100%;
   transform: translateZ(0);
 }
+
+@keyframes bounce {
+  0% {
+    transform: translateY(40px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.bounceIn {
+  animation: bounce 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+  will-change: transform;
+  opacity: 0.7;
+  transform: translateY(40px);
+}
+
+.delay1 {
+  animation-delay: 0.3s;
+}
+
+.delay2 {
+  animation-delay: 0.6s;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.slideUp {
+  animation: slideUp 0.5s forwards;
+}

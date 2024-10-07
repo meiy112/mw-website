@@ -49,13 +49,25 @@ export default function Home() {
     };
   }, []);
 
-  if (isLoading) {
-    return <LoadingScreen />;
-  }
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isLoading]);
+
+  setTimeout(() => {
+    setIsLoading(false);
+  }, 4000);
 
   return (
     <main
-      className="relative z-10 flex flex-row h-[100%] justify-between"
+      className={`relative z-10 flex flex-row h-[100%] justify-between}`}
       style={{ color: theme.palette.primary.contrastText }}
     >
       <DragProvider>
@@ -92,6 +104,11 @@ export default function Home() {
           </BrightnessProvider>
         </PageProvider>
       </DragProvider>
+      {isLoading && (
+        <div className="absolute z-20 flex h-[100%] w-[100%]">
+          <LoadingScreen />
+        </div>
+      )}
     </main>
   );
 }

@@ -1,62 +1,45 @@
-import { useRef, useState } from "react";
-import { colors, generateSize, images, useAnimationLoop } from "./utils";
-import { mix, distance, wrap } from "@popmotion/popcorn";
-import TrailImage from "./Image";
-import { Position } from "./LoadingScreen.d";
+import { LoadingBlockProps } from "./LoadingScreen.d";
+import MouseTrail from "./MouseTrail";
 import s from "./LoadingScreen.module.css";
+import { useEffect, useState } from "react";
+import { motion, useAnimation } from "framer-motion";
 
-const LoadingScreen = ({ distanceThreshold = 140 }) => {
-  const mouseInfo = useRef({
-    now: { x: 0, y: 0 },
-    prev: { x: 0, y: 0 },
-    prevImage: { x: 0, y: 0 },
-  }).current;
+const LoadingBlock: React.FC<LoadingBlockProps> = ({ text, delayClass }) => {
+  return (
+    <div
+      className={`${delayClass} ${s.bounceIn} glass1 rounded-[3em] h-[2.5em] px-[1.5em] flex items-center justify-center text-[0.95rem]`}
+      style={{ color: "rgba(255, 255, 255, 0.7" }}
+    >
+      {text}
+    </div>
+  );
+};
 
-  const imagePositions = useRef<Position[]>([]);
+const LoadingScreen = () => {
+  const [activeTrail, setActiveTrail] = useState(false);
 
-  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setActiveTrail(true);
+    }, 300);
 
-  useAnimationLoop(() => {
-    const mouseDistance = distance(mouseInfo.now, mouseInfo.prevImage);
-
-    mouseInfo.prev = {
-      x: mix(mouseInfo.prev.x || mouseInfo.now.x, mouseInfo.now.x, 0.1),
-      y: mix(mouseInfo.prev.y || mouseInfo.now.y, mouseInfo.now.y, 0.1),
-    };
-
-    if (mouseDistance > distanceThreshold) {
-      const newIndex = index + 1;
-      const imageIndex = wrap(0, colors.length - 1, newIndex);
-
-      imagePositions.current[imageIndex] = {
-        xOrigin: mouseInfo.prev.x,
-        yOrigin: mouseInfo.prev.y,
-        x: mouseInfo.now.x,
-        y: mouseInfo.now.y,
-        style: {
-          ...generateSize(),
-          zIndex: imageIndex,
-        },
-      };
-
-      mouseInfo.prevImage = mouseInfo.now;
-
-      setIndex(newIndex);
-    }
-  });
+    return () => clearTimeout(timeout);
+  }, []);
 
   return (
     <div
-      className={s.container}
-      onMouseMove={(e) => (mouseInfo.now = { x: e.pageX, y: e.pageY })}
+      className={`fixed w-[100%] h-[100%] bg-[#07080A] overflow-hidden ${s.slideUp}`}
     >
-      {images.map((image, i) => (
-        <TrailImage
-          position={imagePositions.current[i]}
-          image={image}
-          key={image}
-        />
-      ))}
+      <div className="relative z-30 flex items-center justify-center w-[100%] h-[100%] gap-x-[0.5em] pointer-events-none">
+        <LoadingBlock text="Just" />
+        <LoadingBlock text="A" delayClass={s.delay1} />
+        <LoadingBlock text="Second..." delayClass={s.delay2} />
+      </div>
+      {activeTrail && (
+        <div className="absolute z-20 w-[100%] h-[100%]">
+          <MouseTrail />
+        </div>
+      )}
     </div>
   );
 };
