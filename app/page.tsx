@@ -33,6 +33,7 @@ export default function Home() {
   const [isSmallerScreen, setIsSmallerScreen] = useState(false);
 
   const [isLoading, setIsLoading] = useState(true);
+  const [modelLoaded, setModelLoaded] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -60,10 +61,6 @@ export default function Home() {
       document.body.style.overflow = "";
     };
   }, [isLoading]);
-
-  setTimeout(() => {
-    setIsLoading(false);
-  }, 4000);
 
   return (
     <main
@@ -93,6 +90,7 @@ export default function Home() {
                 <Main
                   isModalOpen={isModalOpen}
                   setIsModalOpen={setIsModalOpen}
+                  setModelLoaded={setModelLoaded}
                 />
               </div>
               {/*You Might Like*/}
@@ -104,11 +102,11 @@ export default function Home() {
           </BrightnessProvider>
         </PageProvider>
       </DragProvider>
-      {isLoading && (
-        <div className="absolute z-20 flex h-[100%] w-[100%]">
-          <LoadingScreen />
-        </div>
-      )}
+      <LoadingScreen
+        setIsLoading={setIsLoading}
+        isLoading={isLoading}
+        modelLoaded={modelLoaded}
+      />
     </main>
   );
 }

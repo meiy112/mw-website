@@ -30,12 +30,32 @@ body {
   box-sizing: border-box;
 }
 
-.glass1 {
+/* Dark element */
+.element0 {
   background: rgba(255, 255, 255, 0.1);
 }
 
 .goo {
   filter: url("#shadowed-goo");
+}
+
+/* Glowing Element */
+.element1 {
+  outline: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-top: 1px solid #878787;
+  box-shadow: 0 0 1em rgba(255, 255, 255, 0.2);
+  position: relative;
+  backdrop-filter: blur(1em);
+  -webkit-backdrop-filter: blur(1em);
+}
+
+.elementHighlight {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  top: 0;
+  z-index: -1;
 }
 
 .banner {

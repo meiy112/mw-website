@@ -1,47 +1,61 @@
-import { LoadingBlockProps } from "./LoadingScreen.d";
-import MouseTrail from "./MouseTrail";
-import s from "./LoadingScreen.module.css";
-import { useEffect, useState } from "react";
-import { motion, useAnimation } from "framer-motion";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import MouseTrail, { images } from "./MouseTrail";
+import LoadingBar from "./LoadingBar";
 
-const LoadingBlock: React.FC<LoadingBlockProps> = ({ text, delayClass }) => {
-  return (
-    <div
-      className={`${delayClass} ${s.bounceIn} glass1 rounded-[3em] h-[2.5em] px-[1.5em] flex items-center justify-center text-[0.95rem]`}
-      style={{ color: "rgba(255, 255, 255, 0.7" }}
-    >
-      {text}
-    </div>
-  );
-};
-
-const LoadingScreen = () => {
-  const [activeTrail, setActiveTrail] = useState(false);
+const LoadingScreen = ({
+  isLoading,
+  setIsLoading,
+  modelLoaded,
+}: {
+  isLoading: boolean;
+  setIsLoading: Dispatch<SetStateAction<boolean>>;
+  modelLoaded: boolean;
+}) => {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setActiveTrail(true);
-    }, 300);
+    const preloadImages = () => {
+      const promises = React.Children.map(images, (image) => {
+        const imgElement = image as React.ReactElement<HTMLImageElement>;
+        const src = imgElement.props.src;
 
-    return () => clearTimeout(timeout);
-  }, []);
+        return new Promise((resolve) => {
+          const img = new Image();
+          img.src = src;
+          img.onload = resolve;
+          img.onerror = resolve;
+        });
+      });
 
-  return (
+      Promise.all(promises).then(() => {
+        setTimeout(() => {
+          setImagesLoaded(true);
+        }, 300);
+      });
+    };
+
+    preloadImages();
+  }, [imagesLoaded]);
+
+  return isLoading ? (
     <div
-      className={`fixed w-[100%] h-[100%] bg-[#07080A] overflow-hidden ${s.slideUp}`}
+      className={`z-20 fixed w-[100%] h-[100%] bg-[#07080A] overflow-hidden`}
     >
-      <div className="relative z-30 flex items-center justify-center w-[100%] h-[100%] gap-x-[0.5em] pointer-events-none">
-        <LoadingBlock text="Just" />
-        <LoadingBlock text="A" delayClass={s.delay1} />
-        <LoadingBlock text="Second..." delayClass={s.delay2} />
-      </div>
-      {activeTrail && (
-        <div className="absolute z-20 w-[100%] h-[100%]">
-          <MouseTrail />
+      <div className="relative z-30 flex w-[100%] items-center justify-center h-[100%] pb-[2em] pointer-events-none">
+        <div className="flex flex-col items-start gap-y-[0.5em]">
+          <span className="text-[0.75rem] opacity-[0.5] ml-[0.5em]">
+            Psst... move your mouse!
+          </span>
+          <LoadingBar
+            isImagesLoaded={imagesLoaded}
+            isModelLoaded={modelLoaded}
+            onComplete={() => setIsLoading(false)}
+          />
         </div>
-      )}
+      </div>
+      {imagesLoaded && <MouseTrail isLoaded={!isLoading} />}
     </div>
-  );
+  ) : null;
 };
 
 export default LoadingScreen;

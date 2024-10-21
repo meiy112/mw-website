@@ -1,14 +1,20 @@
 .header {
   font-weight: 500;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   cursor: default;
   user-select: none;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .gradient {
   background: linear-gradient(to right, #92bfe9, #ffe0fe, #f2d3ca);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.hoverable {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 1);
 }
 
 .shine {

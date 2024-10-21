@@ -3,8 +3,13 @@ import { Canvas } from "@react-three/fiber";
 import { Bounds, Environment, OrbitControls } from "@react-three/drei";
 import AvatarModel from "./AvatarModel";
 import s from "./ProfilePicture.module.css";
+import { Dispatch, SetStateAction } from "react";
 
-const ProfilePicture = () => {
+const ProfilePicture = ({
+  setModelLoaded,
+}: {
+  setModelLoaded: Dispatch<SetStateAction<boolean>>;
+}) => {
   const theme = useTheme();
 
   return (
@@ -26,7 +31,7 @@ const ProfilePicture = () => {
               position={[5, 5, 5]}
             />
             <Bounds fit clip observe margin={0.8}>
-              <AvatarModel />
+              <AvatarModel setModelLoaded={setModelLoaded} />
             </Bounds>
           </Canvas>
         </div>

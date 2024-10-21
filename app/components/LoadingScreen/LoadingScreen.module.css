@@ -4,6 +4,7 @@
   left: 0;
   right: 0;
   bottom: 0;
+  user-select: none;
 }
 
 .placeholder {
@@ -31,7 +32,7 @@
 
 @keyframes bounce {
   0% {
-    transform: translateY(40px);
+    transform: translateY(10vh);
   }
   100% {
     transform: translateY(0px);
@@ -39,10 +40,10 @@
 }
 
 .bounceIn {
-  animation: bounce 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+  animation: bounce 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
   will-change: transform;
   opacity: 0.7;
-  transform: translateY(40px);
+  transform: translateY(10vh);
 }
 
 .delay1 {
@@ -60,10 +61,22 @@
   }
   100% {
     transform: translateY(-100%);
-    opacity: 0;
+    opacity: 1;
   }
 }
 
 .slideUp {
-  animation: slideUp 0.5s forwards;
+  animation: slideUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.popup {
+  width: 15.2em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.95rem;
+  border-radius: 2em;
+  display: flex;
+  text-align: center;
+  justify-content: center;
 }

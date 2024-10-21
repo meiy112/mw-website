@@ -46,7 +46,13 @@ export const images = [
   />,
 ];
 
-const MouseTrail = ({ distanceThreshold = 140 }) => {
+const MouseTrail = ({
+  isLoaded,
+  distanceThreshold = 140,
+}: {
+  isLoaded: boolean;
+  distanceThreshold?: number;
+}) => {
   const mouseInfo = useRef({
     now: { x: 0, y: 0 },
     prev: { x: 0, y: 0 },
@@ -65,7 +71,7 @@ const MouseTrail = ({ distanceThreshold = 140 }) => {
       y: mix(mouseInfo.prev.y || mouseInfo.now.y, mouseInfo.now.y, 0.1),
     };
 
-    if (mouseDistance > distanceThreshold) {
+    if (!isLoaded && mouseDistance > distanceThreshold) {
       const newIndex = index + 1;
       const imageIndex = wrap(0, images.length, newIndex);
 
@@ -88,7 +94,7 @@ const MouseTrail = ({ distanceThreshold = 140 }) => {
 
   return (
     <div
-      className={s.container}
+      className={`${s.container} flex justify-center items-end absolute z-20 w-[100%] h-[100%]`}
       onMouseMove={(e) => (mouseInfo.now = { x: e.pageX, y: e.pageY })}
     >
       {images.map((image, i) => (

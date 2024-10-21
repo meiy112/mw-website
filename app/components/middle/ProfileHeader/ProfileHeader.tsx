@@ -15,15 +15,17 @@ import { blurAnimation } from "./ProfileHeader.d";
 export default function ProfileHeader({
   isModalOpen,
   setIsModalOpen,
+  setModelLoaded,
 }: {
   isModalOpen: boolean;
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+  setModelLoaded: Dispatch<SetStateAction<boolean>>;
 }) {
   return (
     <div className="h-auto pb-[4vh] w-[100%]">
       <Banner />
       <div className="flex-row flex justify-between px-[4.5vw] pb-[1vh]">
-        <ProfilePicture />
+        <ProfilePicture setModelLoaded={setModelLoaded} />
         <Button onClick={() => setIsModalOpen(true)} />
       </div>
       <Bio />
@@ -125,7 +127,7 @@ function BioHeader() {
       >
         Maggie Weng
       </span>
-      <span className={`${styles.header} inline-block`}>
+      <span className={`${styles.header} cursor-pointer inline-block`}>
         , a Full Stack developer&nbsp;
       </span>
       <span
@@ -143,7 +145,7 @@ function BioHeader() {
       <span className={`${styles.header} inline-block`}>I'm also a&nbsp;</span>
       <motion.span
         {...blurAnimation}
-        className={`${styles.header} inline-flex items-center`}
+        className={`${styles.header} ${styles.hoverable} inline-flex items-center`}
       >
         Designer&nbsp;
         <img
@@ -156,7 +158,7 @@ function BioHeader() {
       </motion.span>
       <motion.span
         {...blurAnimation}
-        className={`${styles.header} inline-flex items-center`}
+        className={`${styles.header} ${styles.hoverable} inline-flex items-center`}
       >
         Digital Artist&nbsp;
         <img
@@ -169,7 +171,7 @@ function BioHeader() {
       </motion.span>
       <motion.span
         {...blurAnimation}
-        className={`${styles.header} inline-flex items-center`}
+        className={`${styles.header} ${styles.hoverable} inline-flex items-center`}
       >
         Coding Tutor&nbsp;
         <img
@@ -182,7 +184,7 @@ function BioHeader() {
       </motion.span>
       <motion.span
         {...blurAnimation}
-        className={`${styles.header} inline-flex items-center`}
+        className={`${styles.header} ${styles.hoverable} inline-flex items-center`}
       >
         All-Nighter Puller&nbsp;
         <img
@@ -195,7 +197,7 @@ function BioHeader() {
       </motion.span>
       <motion.span
         {...blurAnimation}
-        className={`${styles.header} inline-flex items-center`}
+        className={`${styles.header} ${styles.hoverable} inline-flex items-center`}
       >
         Duck Enthusiast&nbsp;
         <img
@@ -233,7 +235,7 @@ function BioDescription() {
 function BioDetails() {
   const theme = useTheme();
   return (
-    <div className="mt-[1vh] flex flex-wrap gap-x-[0.9375rem] font-regular text-[0.93rem] gap-y-[0.5rem]">
+    <div className="mt-[1vh] flex flex-wrap gap-x-[1.2em] font-regular text-[0.93rem] gap-y-[0.5rem]">
       <div className="flex items-center gap-x-[4px] opacity-[50%]">
         <LuMapPin className="size-[1.2rem]" />
         <span>U of British Columbia</span>
@@ -246,9 +248,7 @@ function BioDetails() {
       </div>
       <div className="flex items-center gap-x-[5px]">
         <LuLink className="size-[1.2rem] opacity-[50%]" />
-        <span style={{ color: theme.palette.primary.light }}>
-          maggie.weng112@gmail.com
-        </span>
+        <span className={`${styles.gradient}`}>maggie.weng112@gmail.com</span>
       </div>
     </div>
   );

@@ -6,9 +6,11 @@ import { Dispatch, SetStateAction } from "react";
 export default function Main({
   isModalOpen,
   setIsModalOpen,
+  setModelLoaded,
 }: {
   isModalOpen: boolean;
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+  setModelLoaded: Dispatch<SetStateAction<boolean>>;
 }) {
   const theme = useTheme();
   return (
@@ -22,6 +24,7 @@ export default function Main({
       <ProfileHeader
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
+        setModelLoaded={setModelLoaded}
       />
       <PostsContent setIsModalOpen={setIsModalOpen} />
     </div>

@@ -8,8 +8,8 @@ export default function Copyright() {
           <LuCopyright /> <h1>2024 Maggie Weng.</h1>
         </div>
         <p className="opacity-[0.7] text-[0.85rem] flex">
-          Built with Next.js, TailwindCSS, Framer motion, React Three Fiber,
-          Milk Teas, and Love&nbsp;
+          Built with Next.js, TailwindCSS, Framer motion, React Three Fiber, and
+          Love&nbsp;
           <img
             src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Revolving%20Hearts.png"
             alt="Revolving Hearts"
