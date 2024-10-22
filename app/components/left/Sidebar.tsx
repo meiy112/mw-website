@@ -62,12 +62,12 @@ export default function Sidebar({
   // -------------------------------------------------------------------------
 
   const [days, setDays] = useState(26);
-  const [months, setMonths] = useState(11);
+  const [months, setMonths] = useState(12);
   const [years, setYears] = useState(2027);
 
   useEffect(() => {
     setTimeout(() => {
-      decrementMonths(10);
+      decrementMonths(11);
     }, 1500);
     setTimeout(() => {
       decrementDays(25);
@@ -85,7 +85,7 @@ export default function Sidebar({
       decrementYears(2025);
     }, 3700);
     setTimeout(() => {
-      decrementMonths(9);
+      decrementMonths(10);
     }, 5000);
     setTimeout(() => {
       decrementDays(22);

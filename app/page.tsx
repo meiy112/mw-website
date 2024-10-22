@@ -11,6 +11,8 @@ import InteractiveSidebar from "./components/left/InteractiveSidebar";
 import { DragProvider } from "./components/context/DragContext";
 import { BrightnessProvider } from "./components/context/BrightnessContext";
 import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
+import { motion } from "framer-motion";
+import { leftVariants, rightVariants, variants } from "./page.anim";
 
 export default function Home() {
   // for contact modal
@@ -72,7 +74,13 @@ export default function Home() {
           <BrightnessProvider>
             <ThemeProvider theme={theme}>
               {/*Navbar + Logo*/}
-              <div className="left-container">
+              <motion.div
+                className="left-container"
+                initial="hidden"
+                animate={isLoading ? "hidden" : "visible"}
+                variants={leftVariants}
+                layout
+              >
                 {isSmallScreen ? (
                   <InteractiveSidebar
                     toggleTheme={toggleTheme}
@@ -84,19 +92,30 @@ export default function Home() {
                     setIsModalOpen={setIsModalOpen}
                   />
                 )}
-              </div>
+              </motion.div>
               {/*Main middle content*/}
-              <div className="main-container">
+              <motion.div
+                className="main-container"
+                initial="hidden"
+                animate={isLoading ? "hidden" : "visible"}
+                variants={variants}
+              >
                 <Main
                   isModalOpen={isModalOpen}
                   setIsModalOpen={setIsModalOpen}
                   setModelLoaded={setModelLoaded}
                 />
-              </div>
+              </motion.div>
               {/*You Might Like*/}
-              <div className="right-container">
+              <motion.div
+                className="right-container"
+                initial="hidden"
+                animate={isLoading ? "hidden" : "visible"}
+                variants={rightVariants}
+                layout
+              >
                 <Right />
-              </div>
+              </motion.div>
               {isSmallerScreen ? null : <Ornament />}
             </ThemeProvider>
           </BrightnessProvider>

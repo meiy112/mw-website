@@ -200,7 +200,7 @@ body {
     padding-left: 1.75vw;
   }
   .recommendations {
-    width: 23%;
+    width: 23vw;
   }
   .sidebar {
     margin-left: 2vw;
@@ -239,7 +239,7 @@ body {
     font-size: 3.7rem;
   }
   .recommendations {
-    width: 27%;
+    width: 27vw;
     max-width: 320px;
   }
 }
@@ -262,7 +262,7 @@ body {
     width: 65%;
   }
   .recommendations {
-    width: 32%;
+    width: 32vw;
     max-width: 320px;
   }
 }

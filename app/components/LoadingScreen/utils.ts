@@ -29,3 +29,40 @@ export const generateSize = (): { height: number; width: number } => ({
 });
 
 export const IMAGE_SIZE = 150;
+
+export const imageFiles = [
+  "/images/under-maintenance.jpg",
+  "/Logo.png",
+  "/pfp-small.png",
+  "/github-pfp.png",
+  "/dog-pfp.png",
+  "/banner.jpg",
+  "/linkedin-pfp.png",
+  "/images/Photo/photo-1.jpg",
+  "/images/Photo/photo-2.jpg",
+  "/images/Photo/photo-3.jpg",
+  "/images/Photo/photo-4.jpg",
+  "/images/Disks/acnh-disk.jpg",
+  "/images/Disks/duck-disk.jpg",
+  "/images/Disks/noise.png",
+  "/images/Disks/piano-disk.png",
+  "/images/Disks/piano-disk.jpg",
+  "/images/Disks/pokemon-disk.jpg",
+  "/images/Disks/yhx-disk.jpg",
+  "/images/About/birds.png",
+  "/images/About/sailboat.png",
+  "/images/About/sky.png",
+  "/images/About/van.png",
+];
+
+export const fontFiles = [
+  "/fonts/SFPro/SF-Pro-Display-Black.otf",
+  "/fonts/SFPro/SF-Pro-Display-Bold.otf",
+  "/fonts/SFPro/SF-Pro-Display-Heavy.otf",
+  "/fonts/SFPro/SF-Pro-Display-Light.otf",
+  "/fonts/SFPro/SF-Pro-Display-Medium.otf",
+  "/fonts/SFPro/SF-Pro-Display-Regular.otf",
+  "/fonts/SFPro/SF-Pro-Display-Semibold.otf",
+  "/fonts/SFPro/SF-Pro-Display-Thin.otf",
+  "/fonts/SFPro/SF-Pro-Display-Ultralight.otf",
+];
