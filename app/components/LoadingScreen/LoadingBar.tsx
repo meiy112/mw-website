@@ -1,4 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import s from "./LoadingBar.module.css";
 import { motion } from "framer-motion";
 import { fontFiles, imageFiles } from "./utils";
@@ -7,12 +13,16 @@ interface RollingNumberProps {
   isImagesLoaded: boolean;
   isModelLoaded: boolean;
   onComplete: () => void;
+  loadingFinished: boolean;
+  setLoadingFinished: Dispatch<SetStateAction<boolean>>;
 }
 
 const LoadingBar: React.FC<RollingNumberProps> = ({
   isImagesLoaded,
   isModelLoaded,
   onComplete,
+  loadingFinished,
+  setLoadingFinished,
 }) => {
   const [progress, setProgress] = useState(0);
   const [isPublicImagesLoaded, setIsPublicImagesLoaded] = useState(false);
@@ -79,7 +89,7 @@ const LoadingBar: React.FC<RollingNumberProps> = ({
       }, 4000);
       const timeout100 = setTimeout(() => {
         setProgress(100);
-      }, 3000);
+      }, 4000);
 
       return () => {
         clearTimeout(timeout95);
@@ -103,7 +113,7 @@ const LoadingBar: React.FC<RollingNumberProps> = ({
           0;
 
         if (width >= parentWidth) {
-          onComplete();
+          setLoadingFinished(true);
         }
       }
     };
@@ -114,14 +124,22 @@ const LoadingBar: React.FC<RollingNumberProps> = ({
   }, [onComplete]);
 
   return (
-    <div className={`${s.container} flex h-[3px] w-[15em] rounded-[8em]`}>
+    <div className={`flex h-[3px] w-[15em] rounded-[8em]`}>
       <motion.div
-        ref={progressBarRef}
-        className={`${s.progressBar} bg-white h-full rounded-[8em]`}
-        initial={{ width: 0 }}
-        animate={{ width: `${progress}%` }}
-        transition={{ duration: 1, ease: "easeOut" }}
-      />
+        initial={{ scaleX: 1 }} // Start with full scale (100%)
+        animate={{ scaleX: loadingFinished ? 0 : 1 }} // Shrink to 0 when finished
+        transition={{ duration: 1, ease: "easeInOut" }}
+        className={`${s.container} flex h-[100%] w-[100%] rounded-[8em]`}
+        style={{ transformOrigin: "right" }}
+      >
+        <motion.div
+          ref={progressBarRef}
+          className={`${s.progressBar} bg-white h-full rounded-[8em]`}
+          initial={{ width: 0 }}
+          animate={{ width: `${progress}%` }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        />
+      </motion.div>
     </div>
   );
 };

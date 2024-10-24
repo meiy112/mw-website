@@ -11,7 +11,7 @@ const FlipText: React.FC<{ children: string; href?: string }> = ({
   return (
     <motion.a
       initial="initial"
-      whileHover="hovered"
+      animate="hovered"
       href={href}
       className="relative block overflow-hidden whitespace-nowrap"
     >

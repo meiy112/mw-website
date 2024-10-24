@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { generateSize, IMAGE_SIZE, useAnimationLoop } from "./utils";
 import { mix, distance, wrap } from "@popmotion/popcorn";
 import TrailImage from "./Image";
@@ -60,8 +60,17 @@ const MouseTrail = ({
   }).current;
 
   const imagePositions = useRef<Position[]>([]);
+  const [disableTrail, setDisableTrail] = useState(false);
 
   const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (isLoaded) {
+      setTimeout(() => {
+        setDisableTrail(true);
+      }, 1000);
+    }
+  }, [isLoaded]);
 
   useAnimationLoop(() => {
     const mouseDistance = distance(mouseInfo.now, mouseInfo.prevImage);
@@ -71,7 +80,7 @@ const MouseTrail = ({
       y: mix(mouseInfo.prev.y || mouseInfo.now.y, mouseInfo.now.y, 0.1),
     };
 
-    if (!isLoaded && mouseDistance > distanceThreshold) {
+    if (!disableTrail && mouseDistance > distanceThreshold) {
       const newIndex = index + 1;
       const imageIndex = wrap(0, images.length, newIndex);
 
