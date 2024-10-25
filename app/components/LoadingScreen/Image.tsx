@@ -16,7 +16,7 @@ const TrailImage: React.FC<TrailImageProps> = ({ position, image }) => {
       opacity: [1, 1, 0],
       scale: [1, 1, 0.2],
       transition: {
-        duration: 1.6,
+        duration: 2,
         ease: ["easeOut", powerOut4, powerOut4],
         times: [0, 0.85, 1],
       },

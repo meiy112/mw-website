@@ -66,9 +66,7 @@ const MouseTrail = ({
 
   useEffect(() => {
     if (isLoaded) {
-      setTimeout(() => {
-        setDisableTrail(true);
-      }, 1000);
+      setDisableTrail(true);
     }
   }, [isLoaded]);
 

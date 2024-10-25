@@ -8,7 +8,6 @@ export const variants = {
     y: 0,
     transition: {
       duration: 1,
-      delay: 1,
       ease: "easeInOut",
     },
   },
@@ -24,7 +23,7 @@ export const leftVariants = {
     x: 0,
     transition: {
       duration: 1.5,
-      delay: 1.2,
+      delay: 0.5,
       ease: "easeInOut",
     },
   },
@@ -40,7 +39,7 @@ export const rightVariants = {
     x: 0,
     transition: {
       duration: 1.5,
-      delay: 1.2,
+      delay: 0.5,
       ease: "easeInOut",
     },
   },

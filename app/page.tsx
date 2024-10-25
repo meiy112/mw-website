@@ -116,7 +116,6 @@ export default function Home() {
               >
                 <Right />
               </motion.div>
-              {isSmallerScreen ? null : <Ornament />}
             </ThemeProvider>
           </BrightnessProvider>
         </PageProvider>
