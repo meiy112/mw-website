@@ -1,6 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useDragContext } from "../../context/DragContext";
 
+const style = "text-[0.85rem]";
+
 const GetCurrentAuthor = () => {
   const dragContext = useDragContext();
   if (!dragContext) {
@@ -17,7 +19,7 @@ const GetCurrentAuthor = () => {
           animate={{ opacity: 1, scale: 1, x: 0 }}
           exit={{ opacity: 0, scale: 0, x: -10 }}
           transition={{ duration: 0.1, delay: 0.03 }}
-          className="font-light text-[0.85rem] tracking-[0.7px]"
+          className={style}
         >
           ACNH
         </motion.span>
@@ -30,7 +32,7 @@ const GetCurrentAuthor = () => {
           animate={{ opacity: 1, scale: 1, x: 0 }}
           exit={{ opacity: 0, scale: 0, x: -10 }}
           transition={{ duration: 0.1, delay: 0.03 }}
-          className="font-light text-[0.85rem] tracking-[0.7px]"
+          className={style}
         >
           Yan Haoxiang
         </motion.span>
@@ -43,7 +45,7 @@ const GetCurrentAuthor = () => {
           animate={{ opacity: 1, scale: 1, x: 0 }}
           exit={{ opacity: 0, scale: 0, x: -10 }}
           transition={{ duration: 0.1, delay: 0.03 }}
-          className="font-light text-[0.85rem] tracking-[0.7px]"
+          className={style}
         >
           Kiki&#39;s Delivery Service
         </motion.span>
@@ -56,7 +58,7 @@ const GetCurrentAuthor = () => {
           animate={{ opacity: 1, scale: 1, x: 0 }}
           exit={{ opacity: 0, scale: 0, x: -10 }}
           transition={{ duration: 0.1, delay: 0.03 }}
-          className="font-light text-[0.85rem] tracking-[0.7px]"
+          className={style}
         >
           IPhone Alarm
         </motion.span>
@@ -73,7 +75,7 @@ const GetCurrentAuthor = () => {
             animate={{ opacity: 1, scale: 1, x: 0 }}
             exit={{ opacity: 0, scale: 0, x: -10 }}
             transition={{ duration: 0.1, delay: 0.03 }}
-            className="font-light text-[0.85rem] tracking-[0.7px]"
+            className={style}
           >
             Drop disks here
           </motion.span>
@@ -86,7 +88,7 @@ const GetCurrentAuthor = () => {
           animate={{ opacity: 1, scale: 1, x: 0 }}
           exit={{ opacity: 0, scale: 0, x: -10 }}
           transition={{ duration: 0.1, delay: 0.03 }}
-          className="font-light text-[0.85rem] tracking-[0.7px]"
+          className={style}
         >
           Pokemon HGSS
         </motion.span>

@@ -255,8 +255,8 @@ function BioDetails() {
 }
 
 function BioFollowers() {
-  const numberStyle = "font-extrabold text-[1rem]";
-  const wordStyle = "text-[0.9rem] font-light tracking-[0.7px] opacity-[0.5]";
+  const numberStyle = "font-bold text-[1rem]";
+  const wordStyle = "text-[0.9rem] tracking-[0.7px] opacity-[0.5]";
   const container = "flex items-center flex-row gap-x-[0.3em]";
 
   return (

@@ -1,0 +1,26 @@
+.upperCard {
+  background-image: linear-gradient(to bottom, #0f0f0f, #0c0c0c),
+    linear-gradient(to bottom, #2d2d2d, rgba(28, 28, 28, 0.8));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border-top: 1.5px solid transparent;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-bottom: 0.5px solid transparent;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+.bottomCard {
+  background-image: linear-gradient(
+    to bottom,
+    rgb(30, 30, 30),
+    rgb(37, 37, 37)
+  );
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+.titleCard {
+  background-image: none;
+}

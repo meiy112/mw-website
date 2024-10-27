@@ -2,6 +2,7 @@ import { Emoji, EmojiStyle } from "emoji-picker-react";
 import { useBrightness } from "../context/BrightnessContext";
 import { usePageContext } from "../context/PageProvider";
 import { useTheme } from "@mui/material/styles";
+import { motion } from "framer-motion";
 
 interface SideButtonProps {
   onClick: () => void;
@@ -25,14 +26,15 @@ export default function SideButton({ onClick, text }: SideButtonProps) {
   return (
     <button
       onClick={onClick}
-      className={`side-button rounded-[30px] justify-start w-[12vw] py-[13px] flex items-center ml-[0.3125vw] ${
-        currentPage === text ? "active glass-container-3" : "nav-button"
+      className={`side-button relative rounded-[12em] justify-start w-[100%] py-[13px] flex items-center ml-[0.3125vw] ${
+        currentPage === text ? "active" : "nav-button opacity-[0.5]"
       }`}
       type="button"
     >
       <div className="mr-[3.25vw] relative h-[100%] flex items-center justify-center">
         {currentPage === text ? (
-          <div
+          <motion.div
+            layoutId="sidebar-dot"
             className="glowing-dot absolute"
             style={{
               boxShadow: `0px 0px 15px 2px rgba(255, 255, 255, ${
@@ -48,7 +50,7 @@ export default function SideButton({ onClick, text }: SideButtonProps) {
       <h1
         className={`${
           currentPage === text ? "font-medium" : "font-regular"
-        } text-[1rem] tracking-[0.5px]`}
+        } text-[0.95rem] tracking-[0.5px]`}
       >
         {text}
       </h1>

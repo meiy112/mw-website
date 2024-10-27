@@ -32,7 +32,26 @@ body {
 
 /* Dark element */
 .element0 {
-  background: rgba(255, 255, 255, 0.1);
+  background-image: linear-gradient(to bottom, #0f0f0f, #0c0c0c),
+    linear-gradient(to bottom, #2d2d2d, rgba(28, 28, 28, 0.8));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border-top: 2px solid transparent;
+  border-left: 1.5px solid transparent;
+  border-right: 1.5px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+
+/* Darker element */
+.element2 {
+  background-image: linear-gradient(to bottom, #0f0f0f, #0c0c0c),
+    linear-gradient(to bottom, #2d2d2d, rgba(28, 28, 28, 0.8));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border-top: 2px solid transparent;
+  border-left: 1.5px solid transparent;
+  border-right: 1.5px solid transparent;
+  border-bottom: 1px solid transparent;
 }
 
 .goo {
@@ -41,13 +60,15 @@ body {
 
 /* Glowing Element */
 .element1 {
-  outline: 1px solid rgba(255, 255, 255, 0.1);
-  background-color: rgba(255, 255, 255, 0.1);
-  border-top: 1px solid #878787;
-  box-shadow: 0 0 1em rgba(255, 255, 255, 0.2);
-  position: relative;
-  backdrop-filter: blur(1em);
-  -webkit-backdrop-filter: blur(1em);
+  background-image: linear-gradient(
+      to right,
+      rgba(32, 32, 34, 1),
+      rgb(20, 20, 22, 1)
+    ),
+    linear-gradient(to right, rgba(77, 77, 78, 1), rgba(77, 77, 78, 0.5));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border-top: 1px solid transparent;
 }
 
 .elementHighlight {
@@ -60,6 +81,17 @@ body {
 
 .black-gradient-text {
   background: linear-gradient(to bottom, white 20%, rgba(255, 255, 255, 0.3));
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.black-gradient-text0 {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.5) 20%,
+    rgba(255, 255, 255, 0.2)
+  );
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
@@ -518,10 +550,6 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-}
-
-.nav-button {
-  opacity: 0.5;
 }
 
 .placeholderColor::placeholder {

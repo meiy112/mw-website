@@ -5,6 +5,8 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import Image from "next/image";
 import { LastUpdatedDisplay } from "./LastUpdatedDisplay";
 import DisplayContainer from "./DisplaySetting/DisplayContainer";
+import { motion } from "framer-motion";
+import { Countdown } from "./Countdown/Countdown";
 
 type ToggleThemeFunction = () => void;
 
@@ -15,7 +17,7 @@ export default function Sidebar({
   toggleTheme: ToggleThemeFunction;
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
 }) {
-  const { setCurrentPage } = usePageContext();
+  const { setCurrentPage, currentPage } = usePageContext();
   // ------------------------------ button data ------------------------------
   function scrollToNavbar() {
     const navbarElement = document.getElementById("navbar");
@@ -39,9 +41,9 @@ export default function Sidebar({
       },
     },
     {
-      text: "Resume",
+      text: "Feed",
       onClick: () => {
-        setCurrentPage("Resume");
+        setCurrentPage("Feed");
         scrollToNavbar();
       },
     },
@@ -61,60 +63,25 @@ export default function Sidebar({
   ];
   // -------------------------------------------------------------------------
 
-  const [days, setDays] = useState(26);
-  const [months, setMonths] = useState(12);
-  const [years, setYears] = useState(2027);
-
-  useEffect(() => {
-    setTimeout(() => {
-      decrementMonths(11);
-    }, 1500);
-    setTimeout(() => {
-      decrementDays(25);
-    }, 2000);
-    setTimeout(() => {
-      decrementDays(24);
-    }, 2700);
-    setTimeout(() => {
-      decrementDays(23);
-    }, 3600);
-    setTimeout(() => {
-      decrementYears(2026);
-    }, 3000);
-    setTimeout(() => {
-      decrementYears(2025);
-    }, 3700);
-    setTimeout(() => {
-      decrementMonths(10);
-    }, 5000);
-    setTimeout(() => {
-      decrementDays(22);
-    }, 5700);
-    setTimeout(() => {
-      decrementYears(2024);
-    }, 6400);
-  }, []);
-
-  const decrementDays = (num: number) => {
-    setDays(num);
-  };
-
-  const decrementMonths = (num: number) => {
-    setMonths(num);
-  };
-
-  const decrementYears = (num: number) => {
-    setYears(num);
-  };
+  const endDate = new Date("2025-05-02T17:00:00");
 
   return (
-    <div className="sidebar fixed h-screen items-baseline flex flex-col pb-[6vh] gap-y-[0.5em]">
-      <DuckLogo />
-      {buttonData.map((button, index) => (
-        <SideButton key={index} onClick={button.onClick} text={button.text} />
-      ))}
-      <LastUpdatedDisplay days={days} months={months} years={years} />
-      <DisplayContainer toggleTheme={toggleTheme} />
+    <div className="sidebar fixed h-screen items-baseline flex flex-col pb-[5vh] justify-between">
+      <div className="gap-y-[0.5em] flex flex-col">
+        <DuckLogo />
+        {buttonData.map((button, index) => (
+          <div className="relative flex w-[12vw]" key={index}>
+            <SideButton onClick={button.onClick} text={button.text} />
+            {currentPage == button.text && (
+              <motion.div
+                layoutId="sidebar-indicator"
+                className={`element1 absolute w-[12vw] h-[100%] rounded-[12em] inset-0 -z-10`}
+              />
+            )}
+          </div>
+        ))}
+      </div>
+      <Countdown date={endDate} />
     </div>
   );
 }

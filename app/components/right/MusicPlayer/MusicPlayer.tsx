@@ -1,6 +1,6 @@
 import { IoMusicalNotes } from "react-icons/io5";
 import styles from "./MusicPlayer.module.css";
-import { IoIosPause, IoIosPlay } from "react-icons/io";
+import { IoIosPause } from "react-icons/io";
 import { useDroppable } from "@dnd-kit/core";
 import { useDragContext } from "../../context/DragContext";
 import { AnimatePresence, motion } from "framer-motion";
@@ -9,6 +9,7 @@ import getCurrentTitle from "./getCurrentTitle";
 import getCurrentAuthor from "./getCurrentAuthor";
 import { useEffect, useState } from "react";
 import { useBrightness } from "../../context/BrightnessContext";
+import { FaPlay } from "react-icons/fa6";
 
 let duckAudio: HTMLAudioElement | undefined;
 let acnhAudio: HTMLAudioElement | undefined;
@@ -43,7 +44,7 @@ export default function MusicPlayer() {
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [buttonChild, setButtonChild] = useState(
-    <IoIosPlay className="text-black" size={20} />
+    <FaPlay className="text-black" size={14} />
   );
   const [audio, setAudio] = useState(acnhAudio);
   const [isPaused, setIsPaused] = useState(false);
@@ -101,7 +102,7 @@ export default function MusicPlayer() {
   };
   const handlePause = () => {
     setIsPlaying(false);
-    setButtonChild(<IoIosPlay className="text-black" size={20} />);
+    setButtonChild(<FaPlay className="text-black" size={14} />);
   };
 
   const handleButtonPress = () => {
@@ -244,7 +245,7 @@ export default function MusicPlayer() {
                 }}
                 exit={{ scale: 0, transition: { duration: 0.1 } }}
               >
-                <IoMusicalNotes size={22} className="opacity-[0.7]" />
+                <IoMusicalNotes size={22} className="opacity-[0.5]" />
               </motion.div>
             )}
           </AnimatePresence>
@@ -256,23 +257,25 @@ export default function MusicPlayer() {
   return (
     <div
       ref={setNodeRef}
-      className={`${styles.container} flex-1 justify-between px-[12px] max-h-[90px] flex items-center relative recommendations rounded-[23px]`}
+      className={`element0 flex-1 justify-between px-[12px] max-h-[90px] flex items-center relative recommendations rounded-[23px]`}
     >
       <div className="h-[73%] flex flex-row gap-x-[12px]">
         {getCurrentChild()}
-        <div className="h-[100%] py-[10px] flex flex-col justify-between">
+        <div className="pointer-events-none select-none h-[100%] py-[10px] flex flex-col justify-between opacity-[0.85]">
           {getCurrentTitle()}
-          <div className="opacity-[0.5]">{getCurrentAuthor()}</div>
+          <div className="opacity-[0.4]">{getCurrentAuthor()}</div>
         </div>
       </div>
       <button
-        className={`${styles.button} mr-[5%] h-[32px] flex justify-center items-center aspect-square rounded-[50%] bg-white`}
+        className={`${
+          isPlaying ? styles.buttonActive : styles.buttonInactive
+        } mr-[5%] h-[32px] flex justify-center items-center aspect-square rounded-[50%]`}
         onClick={handleButtonPress}
-        style={{
-          boxShadow: `0 0 12px 1px rgba(255, 255, 255, ${
-            brightness / 100 < 0 ? brightness / 100 : brightness / 100 - 0.1
-          })`,
-        }}
+        // style={{
+        //   boxShadow: `0 0 12px 1px rgba(255, 255, 255, ${
+        //     brightness / 100 < 0 ? brightness / 100 : brightness / 100 - 0.1
+        //   })`,
+        // }}
       >
         {buttonChild}
       </button>

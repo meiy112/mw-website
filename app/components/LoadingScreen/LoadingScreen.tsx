@@ -80,8 +80,8 @@ const LoadingScreen = ({
       className={`z-20 fixed w-[100%] h-[100%] bg-[#07080A] overflow-hidden`}
     >
       <div className="relative z-30 flex w-[100%] items-center justify-center h-[100%] pb-[2em] pointer-events-none">
-        <div className="flex flex-col items-center gap-y-[1.5em]">
-          <span className="text-[0.95rem]">
+        <div className="flex flex-col items-center gap-y-[2em]">
+          <span className="text-[2rem] font-light">
             <motion.div
               key={items[index].id}
               initial={{ y: 20, opacity: 0 }}

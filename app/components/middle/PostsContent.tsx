@@ -1,5 +1,4 @@
 import NavBar from "./NavBar";
-import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Resume from "./pages/Resume";
 import Drawings from "./pages/Drawings";
@@ -8,6 +7,7 @@ import { AnimatePresence, useInView } from "framer-motion";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import Footer from "./Footer/Footer";
 import OldFooter from "./Footer/OldFooter";
+import About from "./pages/About";
 
 export default function PostsContent({
   setIsModalOpen,
@@ -22,7 +22,7 @@ export default function PostsContent({
         return <About setIsModalOpen={setIsModalOpen} />;
       case "Projects":
         return <Projects />;
-      case "Resume":
+      case "Feed":
         return <Resume />;
       case "Blog":
         return <Drawings />;

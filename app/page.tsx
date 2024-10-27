@@ -30,11 +30,14 @@ export default function Home() {
     document.body.style.backgroundColor = theme.palette.background.default;
   }, [theme]);
 
-  // for screen size responsiveness
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [isSmallerScreen, setIsSmallerScreen] = useState(false);
 
+  // uncomment for prod mode
   const [isLoading, setIsLoading] = useState(true);
+
+  // uncomment for dev mode
+  // const [isLoading, setIsLoading] = useState(false);
   const [modelLoaded, setModelLoaded] = useState(false);
 
   useEffect(() => {

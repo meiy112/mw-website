@@ -1,5 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useDragContext } from "../../context/DragContext";
+import s from "./MusicPlayer.module.css";
+
+const style = `text-[0.9rem] font-medium ${s.title}`;
 
 const GetCurrentTitle = () => {
   const dragContext = useDragContext();
@@ -17,7 +20,7 @@ const GetCurrentTitle = () => {
           animate={{ opacity: 1, scale: 1, x: 0 }}
           exit={{ opacity: 0, scale: 0, x: -10 }}
           transition={{ duration: 0.1 }}
-          className="font-semibold text-[0.95rem] tracking-[0.5px]"
+          className={style}
         >
           2 AM
         </motion.h1>
@@ -30,7 +33,7 @@ const GetCurrentTitle = () => {
           animate={{ opacity: 1, scale: 1, x: 0 }}
           exit={{ opacity: 0, scale: 0, x: -10 }}
           transition={{ duration: 0.1 }}
-          className="font-semibold text-[0.95rem] tracking-[0.5px]"
+          className={style}
         >
           For You
         </motion.h1>
@@ -43,7 +46,7 @@ const GetCurrentTitle = () => {
           animate={{ opacity: 1, scale: 1, x: 0 }}
           exit={{ opacity: 0, scale: 0, x: -10 }}
           transition={{ duration: 0.1 }}
-          className="font-semibold text-[0.95rem] tracking-[0.5px]"
+          className={style}
         >
           Umi no Mieru Machi
         </motion.h1>
@@ -56,7 +59,7 @@ const GetCurrentTitle = () => {
           animate={{ opacity: 1, scale: 1, x: 0 }}
           exit={{ opacity: 0, scale: 0, x: -10 }}
           transition={{ duration: 0.1 }}
-          className="font-semibold text-[0.95rem] tracking-[0.5px]"
+          className={style}
         >
           Duck
         </motion.h1>
@@ -73,7 +76,7 @@ const GetCurrentTitle = () => {
             animate={{ opacity: 1, scale: 1, x: 0 }}
             exit={{ opacity: 0, scale: 0, x: -10 }}
             transition={{ duration: 0.1 }}
-            className="font-semibold text-[0.95rem] tracking-[0.5px]"
+            className={style}
           >
             No Music Found
           </motion.h1>
@@ -86,7 +89,7 @@ const GetCurrentTitle = () => {
           animate={{ opacity: 1, scale: 1, x: 0 }}
           exit={{ opacity: 0, scale: 0, x: -10 }}
           transition={{ duration: 0.1 }}
-          className="font-semibold text-[0.95rem] tracking-[0.5px]"
+          className={style}
         >
           Pewter City
         </motion.h1>
