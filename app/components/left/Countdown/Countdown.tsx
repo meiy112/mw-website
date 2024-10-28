@@ -198,7 +198,9 @@ const renderer: CountdownRendererFn = ({
   if (completed) return null;
   return (
     <div className="flex flex-col gap-y-[0.3em]">
-      <span className="text-[0.8rem] opacity-[0.5]">Co-op ends in:</span>
+      <span className="ml-[0.5em] text-[0.8rem] opacity-[0.5]">
+        Co-op ends in:
+      </span>
       <HStack align="center" spacing={1}>
         <FlipContainer number={days} title="days" />
         <FlipContainer number={hours} title="hours" />

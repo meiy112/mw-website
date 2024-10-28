@@ -68,67 +68,73 @@ export default function Home() {
   }, [isLoading]);
 
   return (
-    <main
-      className={`relative z-10 flex flex-row h-[100%] justify-between}`}
-      style={{ color: theme.palette.primary.contrastText }}
-    >
-      <DragProvider>
-        <PageProvider>
-          <BrightnessProvider>
-            <ThemeProvider theme={theme}>
-              {/*Navbar + Logo*/}
-              <motion.div
-                className="left-container"
-                initial="hidden"
-                animate={isLoading ? "hidden" : "visible"}
-                variants={leftVariants}
-                layout
+    <DragProvider>
+      <PageProvider>
+        <BrightnessProvider>
+          <ThemeProvider theme={theme}>
+            <main
+              className={`flex flex-col h-[100%]}`}
+              style={{ color: theme.palette.primary.contrastText }}
+            >
+              <div className="h-[3em] topbar"></div>
+              <div
+                className={`relative z-10 flex flex-row h-[100%] justify-between}`}
               >
-                {isSmallScreen ? (
-                  <InteractiveSidebar
-                    toggleTheme={toggleTheme}
+                {/*Navbar + Logo*/}
+                <motion.div
+                  className="left-container h-[100%]"
+                  initial="hidden"
+                  animate={isLoading ? "hidden" : "visible"}
+                  variants={leftVariants}
+                  layout
+                  style={{ border: "1px solid red" }}
+                >
+                  {isSmallScreen ? (
+                    <InteractiveSidebar
+                      toggleTheme={toggleTheme}
+                      setIsModalOpen={setIsModalOpen}
+                    />
+                  ) : (
+                    <Sidebar
+                      toggleTheme={toggleTheme}
+                      setIsModalOpen={setIsModalOpen}
+                    />
+                  )}
+                </motion.div>
+                {/*Main middle content*/}
+                <motion.div
+                  className="main-container"
+                  initial="hidden"
+                  animate={isLoading ? "hidden" : "visible"}
+                  variants={variants}
+                >
+                  <Main
+                    isModalOpen={isModalOpen}
                     setIsModalOpen={setIsModalOpen}
+                    setModelLoaded={setModelLoaded}
                   />
-                ) : (
-                  <Sidebar
-                    toggleTheme={toggleTheme}
-                    setIsModalOpen={setIsModalOpen}
-                  />
-                )}
-              </motion.div>
-              {/*Main middle content*/}
-              <motion.div
-                className="main-container"
-                initial="hidden"
-                animate={isLoading ? "hidden" : "visible"}
-                variants={variants}
-              >
-                <Main
-                  isModalOpen={isModalOpen}
-                  setIsModalOpen={setIsModalOpen}
-                  setModelLoaded={setModelLoaded}
-                />
-              </motion.div>
-              {/*You Might Like*/}
-              <motion.div
-                className="right-container"
-                initial="hidden"
-                animate={isLoading ? "hidden" : "visible"}
-                variants={rightVariants}
-                layout
-              >
-                <Right />
-              </motion.div>
-            </ThemeProvider>
-          </BrightnessProvider>
-        </PageProvider>
-      </DragProvider>
-      <LoadingScreen
-        setIsLoading={setIsLoading}
-        isLoading={isLoading}
-        modelLoaded={modelLoaded}
-      />
-    </main>
+                </motion.div>
+                {/*You Might Like*/}
+                <motion.div
+                  className="right-container"
+                  initial="hidden"
+                  animate={isLoading ? "hidden" : "visible"}
+                  variants={rightVariants}
+                  layout
+                >
+                  <Right />
+                </motion.div>
+              </div>
+              <LoadingScreen
+                setIsLoading={setIsLoading}
+                isLoading={isLoading}
+                modelLoaded={modelLoaded}
+              />
+            </main>
+          </ThemeProvider>
+        </BrightnessProvider>
+      </PageProvider>
+    </DragProvider>
   );
 }
 

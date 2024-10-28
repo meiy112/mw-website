@@ -124,7 +124,7 @@ const LoadingBar: React.FC<RollingNumberProps> = ({
   }, [onComplete]);
 
   return (
-    <div className={`flex h-[3px] w-[15em] rounded-[8em]`}>
+    <div className={`flex h-[3px] w-[10em] rounded-[8em]`}>
       <motion.div
         initial={{ scaleX: 1 }} // Start with full scale (100%)
         animate={{ scaleX: loadingFinished ? 0 : 1 }} // Shrink to 0 when finished
