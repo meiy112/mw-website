@@ -1,4 +1,4 @@
-import NavBar from "./NavBar";
+import NavBar from "./Navbar/NavBar";
 import Projects from "./pages/Projects";
 import Resume from "./pages/Resume";
 import Drawings from "./pages/Drawings";

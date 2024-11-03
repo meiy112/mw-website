@@ -20,7 +20,7 @@ export default function ProfileHeader({
   setModelLoaded: Dispatch<SetStateAction<boolean>>;
 }) {
   return (
-    <div className="h-auto pb-[3.3em] w-[100%]">
+    <div className="relative h-auto pb-[3.3em] w-[100%]">
       <Banner />
       <div className="flex-row flex justify-between px-[4.5vw] pb-[1.3em]">
         <ProfilePicture setModelLoaded={setModelLoaded} />
@@ -91,9 +91,9 @@ function GlowingComponent() {
   return (
     <div
       style={{ filter: "blur(8vw)" }}
-      className="absolute top-[-10%] w-[100%] h-[80%] items-center justify-center flex"
+      className="absolute w-[100%] h-[80%] items-center justify-center flex"
     >
-      <div className="w-[60%] h-[15%] bg-white opacity-[0.5]"></div>
+      <div className="w-[80%] h-[50%] bg-white opacity-[0.25]"></div>
     </div>
   );
 }

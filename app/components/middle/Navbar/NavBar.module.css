@@ -1,0 +1,42 @@
+.navContainer {
+  position: fixed;
+  bottom: 5vh;
+  left: 50%;
+  z-index: 100;
+  display: flex;
+  gap: 0.6em;
+  padding: 0.6em;
+  align-items: flex-end;
+  justify-content: center;
+  background: linear-gradient(
+    181deg,
+    rgba(0, 0, 0, 0.1) 4.5%,
+    hsla(0, 0%, 100%, 0.03) 99.51%
+  );
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--Card-Border, hsla(0, 0%, 100%, 0.06));
+  border-radius: 20px;
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.17),
+    0 4px 3px 0 rgba(0, 0, 0, 0.1), 0 7px 3px 0 rgba(0, 0, 0, 0.03),
+    0 12px 3px 0 transparent, 0 4px 4px 0 rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 0 hsla(0, 0%, 100%, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  transform: translate3d(-50%, 0, 0);
+}
+
+.navButton {
+  display: flex;
+  gap: 3em;
+  align-items: center;
+  padding: 1em;
+  color: rgba(255, 255, 255, 0.5);
+  background: radial-gradient(
+    1139.98% 138.18% at 0 0,
+    hsla(0, 0%, 100%, 0.1) 0,
+    hsla(0, 0%, 100%, 0) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 13px;
+  box-shadow: 0 7px 3px 0 rgba(0, 0, 0, 0.03), 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+}

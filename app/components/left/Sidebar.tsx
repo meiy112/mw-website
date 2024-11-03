@@ -10,10 +10,8 @@ import { Countdown } from "./Countdown/Countdown";
 type ToggleThemeFunction = () => void;
 
 export default function Sidebar({
-  toggleTheme,
   setIsModalOpen,
 }: {
-  toggleTheme: ToggleThemeFunction;
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
 }) {
   const { setCurrentPage, currentPage } = usePageContext();
@@ -37,6 +35,13 @@ export default function Sidebar({
       onClick: () => {
         setCurrentPage("Projects");
         scrollToNavbar();
+      },
+    },
+    {
+      text: "Stack",
+      onClick: () => {
+        // setCurrentPage("Stack");
+        // scrollToNavbar();
       },
     },
     {
@@ -65,9 +70,8 @@ export default function Sidebar({
   const endDate = new Date("2025-05-02T17:00:00");
 
   return (
-    <div className="sidebar fixed items-baseline flex flex-col pb-[2em] justify-between">
+    <div className="select-none sidebar h-[93vh] fixed items-baseline flex flex-col pb-[2em] justify-between">
       <div className="gap-y-[0.5em] flex flex-col">
-        <DuckLogo />
         {buttonData.map((button, index) => (
           <div className="relative flex w-[12vw]" key={index}>
             <SideButton onClick={button.onClick} text={button.text} />
@@ -80,8 +84,8 @@ export default function Sidebar({
           </div>
         ))}
       </div>
-      <div className="flex flex-col gap-y-[1.5em]">
-        <Countdown date={endDate} />
+      <div className="flex flex-col gap-y-[1.5em] w-[15vw]">
+        {/* <Countdown date={endDate} /> */}
         <UserAccount />
       </div>
     </div>

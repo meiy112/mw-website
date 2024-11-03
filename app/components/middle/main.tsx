@@ -15,7 +15,7 @@ export default function Main({
   const theme = useTheme();
   return (
     <div
-      className="h-[100%] pt-[3.125em] w-[100%] flex flex-col"
+      className="h-[100%] w-[100%] flex flex-col rounded-t-[30px]"
       style={{
         borderLeft: `1px solid ${theme.palette.divider}`,
         borderRight: `1px solid ${theme.palette.divider}`,

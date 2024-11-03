@@ -22,13 +22,9 @@ import { motion } from "framer-motion";
 import VerticalDisplayToggle from "./VerticalDisplayToggle";
 import { useTheme } from "@mui/material/styles";
 
-type ToggleThemeFunction = () => void;
-
 export default function InteractiveSidebar({
-  toggleTheme,
   setIsModalOpen,
 }: {
-  toggleTheme: ToggleThemeFunction;
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
 }) {
   const { setCurrentPage } = usePageContext();
