@@ -62,9 +62,8 @@ export default function NavBar() {
   ];
 
   return (
-    <>
-      <div className="absolute opacity-0 w-10 h-10 flex" id="navbar"></div>
-      <nav className={`${s.navContainer} items-end`}>
+    <div className="sticky flex z-[100]" id="navbar">
+      <div className={`${s.navContainer}`}>
         {buttonData.map((button, index) => (
           <div key={index} className="h-[3.5em] flex flex-col justify-center">
             <NavButton
@@ -81,8 +80,8 @@ export default function NavBar() {
             )} */}
           </div>
         ))}
-      </nav>
-    </>
+      </div>
+    </div>
   );
 }
 

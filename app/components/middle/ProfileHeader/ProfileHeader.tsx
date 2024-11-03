@@ -20,7 +20,7 @@ export default function ProfileHeader({
   setModelLoaded: Dispatch<SetStateAction<boolean>>;
 }) {
   return (
-    <div className="relative h-auto pb-[3.3em] w-[100%]">
+    <div className="relative h-auto pb-[3em] w-[100%]">
       <Banner />
       <div className="flex-row flex justify-between px-[4.5vw] pb-[1.3em]">
         <ProfilePicture setModelLoaded={setModelLoaded} />

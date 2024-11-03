@@ -49,11 +49,11 @@ export default function HomePage() {
   }, [isLoading]);
 
   return (
-    <main className={`pt-[4.2em] flex flex-col h-[100%]}`}>
+    <main className={`flex flex-col h-[100%]}`}>
       <div className={`relative z-10 flex flex-row h-[100%] justify-between}`}>
         {/*Navbar + Logo*/}
         <motion.div
-          className="left-container box-border h-[100%]"
+          className="pt-[4.2em] left-container box-border h-[100%]"
           initial="hidden"
           animate={isLoading ? "hidden" : "visible"}
           variants={leftVariants}
@@ -67,7 +67,7 @@ export default function HomePage() {
         </motion.div>
         {/*Main middle content*/}
         <motion.div
-          className="main-container"
+          className="pt-[4.2em] main-container"
           initial="hidden"
           animate={isLoading ? "hidden" : "visible"}
           variants={variants}
@@ -80,7 +80,7 @@ export default function HomePage() {
         </motion.div>
         {/*You Might Like*/}
         <motion.div
-          className="right-container"
+          className="pt-[4.2em] right-container"
           initial="hidden"
           animate={isLoading ? "hidden" : "visible"}
           variants={rightVariants}

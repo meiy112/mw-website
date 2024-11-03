@@ -1,11 +1,9 @@
 .navContainer {
-  position: fixed;
-  bottom: 5vh;
-  left: 50%;
-  z-index: 100;
+  position: relative;
   display: flex;
   gap: 0.5em;
   padding: 0.5em;
+  left: 50%;
   align-items: end;
   justify-content: center;
   background: linear-gradient(

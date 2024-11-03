@@ -25,7 +25,7 @@ export default function Drawings() {
 
   return (
     <motion.div
-      className="p-[1vw] mt-[1.5vh]"
+      className="p-[1vw] mt-[1vh]"
       initial={{ y: 10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -10, opacity: 0 }}
