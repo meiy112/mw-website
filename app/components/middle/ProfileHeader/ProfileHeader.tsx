@@ -104,7 +104,7 @@ function BioHeader() {
       <h2
         className={`${s.smallHeader} ml-[0.55em] text-[1.55rem] font-normal black-gradient-text1 opacity-[0.5]`}
       >
-        Hey, I'm Maggie Weng. I love to...
+        Hey, I&apos;m Maggie Weng. I love to...
       </h2>
       <h1 className={`text-[4.5rem] ${s.largeHeader}`}>Make Things Glow.</h1>
     </div>

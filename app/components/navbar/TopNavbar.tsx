@@ -11,36 +11,42 @@ const EMOJIS = [
     alt="Hatching Chick"
     width={SIZE}
     height={SIZE}
+    key={0}
   />,
   <img
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Duck.png"
     alt="Duck"
     width={SIZE}
     height={SIZE}
+    key={1}
   />,
   <img
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Star.png"
     alt="Star"
     width={SIZE}
     height={SIZE}
+    key={2}
   />,
   <img
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Flying%20Saucer.png"
     alt="Flying Saucer"
     width={SIZE}
     height={SIZE}
+    key={3}
   />,
   <img
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Food/Banana.png"
     alt="Banana"
     width="25"
     height="25"
+    key={4}
   />,
   <img
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png"
     alt="Rocket"
     width={SIZE}
     height={SIZE}
+    key={5}
   />,
 ];
 

@@ -100,6 +100,8 @@ const AnimatedCard = memo(
   }
 );
 
+AnimatedCard.displayName = "AnimatedCard";
+
 const AnimatedCardBottom = ({ unit }: { unit: number | string }) => {
   const [displayUnit, setDisplayUnit] = useState(unit);
   const controls = useAnimationControls();
