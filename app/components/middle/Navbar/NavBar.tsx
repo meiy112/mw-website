@@ -64,12 +64,9 @@ export default function NavBar() {
   return (
     <>
       <div className="absolute opacity-0 w-10 h-10 flex" id="navbar"></div>
-      <nav className={`${s.navContainer}`}>
+      <nav className={`${s.navContainer} items-end`}>
         {buttonData.map((button, index) => (
-          <div
-            key={index}
-            className="h-[3.5em] flex flex-col justify-center items-center"
-          >
+          <div key={index} className="h-[3.5em] flex flex-col justify-center">
             <NavButton
               title={button.title}
               icon={button.icon}
@@ -101,12 +98,17 @@ function NavButton({
   currentPage: string;
 }) {
   return (
-    <button
+    <motion.button
       onClick={onClick}
-      className={`${s.navButton} ${currentPage === title && s.selectedButton}`}
+      className={`${s.navButton} ${currentPage === title && s.activeButton}`}
       aria-current={currentPage === title ? "page" : undefined}
+      animate={{
+        padding: currentPage === title ? "1.4em" : "1em",
+        bottom: currentPage === title ? "0.5em" : "0em",
+      }}
+      transition={{ duration: 0.2 }}
     >
       {icon}
-    </button>
+    </motion.button>
   );
 }
