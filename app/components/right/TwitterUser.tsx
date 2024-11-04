@@ -45,14 +45,14 @@ function Username({
   return (
     <div className="flex flex-col justify-between">
       <div className="flex flex-row gap-x-[0.3rem]">
-        <h1 className="tracking-[0.4px] font-bold text-[0.923rem] h-[1.5em]">
+        <h1 className="tracking-[0.4px] font-semibold text-[0.9rem] h-[1.5em]">
           {username}
         </h1>
         {isVerified ? (
           <img alt="user" src="/verified-check.png" className="size-[1.5em]" />
         ) : null}
       </div>
-      <span className="text-[0.86rem] opacity-50 font-regular tracking-[0.4px]">
+      <span className="text-[0.85rem] opacity-[0.5] font-regular tracking-[0.4px]">
         {at}
       </span>
     </div>

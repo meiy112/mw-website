@@ -3,9 +3,7 @@ import NavLink from "../../misc/NavLink";
 import Post from "../Post";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import ModalPost from "../../misc/ModalPost/ModalPost";
-import { useTheme } from "@mui/material/styles";
 import { PostData } from "@/app/interfaces/Thread";
-import AnimatedGradient from "@/app/assets/AnimatedGradient";
 import SmallGradient from "@/app/assets/SmallGradient";
 
 export default function About({
@@ -76,7 +74,7 @@ export default function About({
 
   return (
     <motion.div
-      className="p-[1vw] mt-[1.5vh]"
+      className="p-[1vw] mt-[1vh]"
       initial={{ y: 10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -10, opacity: 0 }}

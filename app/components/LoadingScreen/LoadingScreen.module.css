@@ -1,0 +1,82 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  user-select: none;
+}
+
+.placeholder {
+  width: 250px;
+  height: 312px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.overlay {
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  mix-blend-mode: color;
+  z-index: 1;
+}
+
+.image {
+  max-width: 100%;
+  transform: translateZ(0);
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(10vh);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.bounceIn {
+  animation: bounce 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+  will-change: transform;
+  opacity: 0.7;
+  transform: translateY(10vh);
+}
+
+.delay1 {
+  animation-delay: 0.3s;
+}
+
+.delay2 {
+  animation-delay: 0.6s;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+}
+
+.slideUp {
+  animation: slideUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.popup {
+  width: 15.2em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.95rem;
+  border-radius: 2em;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}

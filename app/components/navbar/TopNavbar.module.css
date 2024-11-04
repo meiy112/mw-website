@@ -1,0 +1,6 @@
+.tag {
+  background: linear-gradient(90deg, #767676, #545254);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

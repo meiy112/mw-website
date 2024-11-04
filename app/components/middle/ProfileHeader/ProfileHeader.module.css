@@ -1,0 +1,94 @@
+.header {
+  font-weight: 500;
+  font-size: 1.7rem;
+  cursor: default;
+  user-select: none;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.banner {
+  --mask: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 0,
+      rgba(0, 0, 0, 1) 90%,
+      rgba(0, 0, 0, 0) 100%,
+      rgba(0, 0, 0, 0) 0
+    )
+    100% 50% / 100% 100% repeat-x;
+
+  font: 2em/1.6em Arial;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+}
+
+.largeHeader {
+  font-family: "NY", serif;
+  font-style: italic;
+  font-weight: 700;
+  background: linear-gradient(180deg, rgb(255, 255, 255) 45%, #666666 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 0.2em rgba(255, 255, 255, 0.5);
+}
+
+.gradient {
+  background: linear-gradient(to right, #92bfe9, #ffe0fe, #f2d3ca);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hoverable {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 1);
+}
+
+.shine {
+  position: relative;
+}
+
+.shine:before,
+.shine:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  transform: skewX(-30deg);
+  animation: shine 10s infinite linear;
+  z-index: 200;
+}
+
+.shine:before {
+  width: 70px;
+  height: 32vh;
+  background-image: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  left: -100px;
+}
+
+.shine:after {
+  width: 150px;
+  height: 32vh;
+  background-image: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  left: -100px;
+}
+
+@keyframes shine {
+  0% {
+    left: -100px;
+  }
+  10% {
+    left: calc(100% + 100px);
+  }
+  100% {
+    left: calc(100% + 100px);
+  }
+}
