@@ -2,6 +2,9 @@ import { useTheme } from "@mui/material/styles";
 import ProfileHeader from "./ProfileHeader/ProfileHeader";
 import PostsContent from "./PostsContent";
 import { Dispatch, SetStateAction } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { usePageContext } from "../context/PageProvider";
+import Stack from "./Stack/Stack";
 
 export default function Main({
   isModalOpen,
@@ -13,20 +16,48 @@ export default function Main({
   setModelLoaded: Dispatch<SetStateAction<boolean>>;
 }) {
   const theme = useTheme();
+  const { currentPage } = usePageContext();
+
   return (
-    <div
-      className="h-[100%] w-[100%] flex flex-col rounded-t-[30px]"
-      style={{
-        borderLeft: `1px solid ${theme.palette.divider}`,
-        borderRight: `1px solid ${theme.palette.divider}`,
-      }}
-    >
-      <ProfileHeader
-        isModalOpen={isModalOpen}
-        setIsModalOpen={setIsModalOpen}
-        setModelLoaded={setModelLoaded}
-      />
-      <PostsContent setIsModalOpen={setIsModalOpen} />
-    </div>
+    <AnimatePresence mode="wait">
+      {currentPage === "Stack" && (
+        <motion.div
+          className="h-[100%] w-[100%] flex flex-col"
+          style={{
+            borderLeft: `1px solid ${theme.palette.divider}`,
+            borderRight: `1px solid ${theme.palette.divider}`,
+          }}
+          initial={{ y: -10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -10, opacity: 0 }}
+          transition={{ duration: 1 }}
+          key="stack-content"
+        >
+          <Stack />
+        </motion.div>
+      )}
+
+      {currentPage !== "Stack" && (
+        <motion.div
+          className="h-[100%] w-[100%] flex flex-col rounded-t-[30px]"
+          style={{
+            borderLeft: `1px solid ${theme.palette.divider}`,
+            borderRight: `1px solid ${theme.palette.divider}`,
+          }}
+          initial={{ y: -10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -10, opacity: 0 }}
+          transition={{ duration: 1 }}
+          key="profile-content"
+        >
+          <ProfileHeader
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
+            setModelLoaded={setModelLoaded}
+          />
+          <PostsContent setIsModalOpen={setIsModalOpen} />
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

@@ -1,13 +1,9 @@
 "use client";
 import SideButton from "./SideButton";
 import { usePageContext } from "../context/PageProvider";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import Image from "next/image";
+import { Dispatch, SetStateAction } from "react";
 import { LuMoreHorizontal } from "react-icons/lu";
 import { motion } from "framer-motion";
-import { Countdown } from "./Countdown/Countdown";
-
-type ToggleThemeFunction = () => void;
 
 export default function Sidebar({
   setIsModalOpen,
@@ -40,8 +36,7 @@ export default function Sidebar({
     {
       text: "Stack",
       onClick: () => {
-        // setCurrentPage("Stack");
-        // scrollToNavbar();
+        setCurrentPage("Stack");
       },
     },
     {

@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import MouseTrail, { images } from "./MouseTrail";
 import LoadingBar from "./LoadingBar";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const items = [
   {
@@ -73,38 +73,42 @@ const LoadingScreen = ({
     }
   }, [imagesLoaded, loadingFinished]);
 
-  return isLoading ? (
-    <motion.div
-      exit={{ opacity: 1, y: -20 }}
-      transition={{ ease: "easeInOut", duration: 1 }}
-      className={`z-20 fixed w-[100%] h-[100%] bg-[#07080A] overflow-hidden`}
-    >
-      <div className="relative z-30 flex w-[100%] items-center justify-center h-[100%] pb-[2em] pointer-events-none">
-        <div className="flex flex-col items-center gap-y-[2em]">
-          <span className="text-[1.75rem] font-light">
-            <motion.div
-              key={items[index].id}
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -20, opacity: 0 }}
-              transition={{ ease: "easeInOut" }}
-              className="black-gradient-text"
-            >
-              {items[index].content}
-            </motion.div>
-          </span>
-          <LoadingBar
-            isImagesLoaded={imagesLoaded}
-            isModelLoaded={modelLoaded}
-            onComplete={() => setIsLoading(false)}
-            loadingFinished={loadingFinished}
-            setLoadingFinished={setLoadingFinished}
-          />
-        </div>
-      </div>
-      {imagesLoaded && <MouseTrail isLoaded={loadingFinished} />}
-    </motion.div>
-  ) : null;
+  return (
+    <AnimatePresence>
+      {isLoading && (
+        <motion.div
+          exit={{ opacity: 1, y: -20 }}
+          transition={{ ease: "easeInOut", duration: 0.5 }}
+          className={`z-20 fixed w-[100%] h-[100%] bg-[#07080A] overflow-hidden`}
+        >
+          <div className="relative z-30 flex w-[100%] items-center justify-center h-[100%] pb-[2em] pointer-events-none">
+            <div className="flex flex-col items-center gap-y-[2em]">
+              <span className="text-[1.75rem] font-light">
+                <motion.div
+                  key={items[index].id}
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -20, opacity: 0 }}
+                  transition={{ ease: "easeInOut" }}
+                  className="black-gradient-text"
+                >
+                  {items[index].content}
+                </motion.div>
+              </span>
+              <LoadingBar
+                isImagesLoaded={imagesLoaded}
+                isModelLoaded={modelLoaded}
+                onComplete={() => setIsLoading(false)}
+                loadingFinished={loadingFinished}
+                setLoadingFinished={setLoadingFinished}
+              />
+            </div>
+          </div>
+          {imagesLoaded && <MouseTrail isLoaded={loadingFinished} />}
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
 };
 
 export default LoadingScreen;
