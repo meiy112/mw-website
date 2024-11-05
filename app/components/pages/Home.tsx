@@ -52,7 +52,7 @@ export default function HomePage() {
   }, [isLoading]);
 
   return (
-    <main className={`flex flex-col h-[100%]}`}>
+    <main className={`flex flex-col h-[100%] w-[100%]`}>
       <div className={`relative z-10 flex flex-row h-[100%] justify-between}`}>
         {/*Navbar + Logo*/}
         <motion.div
@@ -79,7 +79,6 @@ export default function HomePage() {
             isModalOpen={isModalOpen}
             setIsModalOpen={setIsModalOpen}
             setModelLoaded={setModelLoaded}
-            isLoading={isLoading}
           />
         </motion.div>
         {/*You Might Like*/}
