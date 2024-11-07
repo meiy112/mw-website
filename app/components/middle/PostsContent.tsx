@@ -3,11 +3,12 @@ import Projects from "./pages/Projects";
 import Resume from "./pages/Resume";
 import Drawings from "./pages/Drawings";
 import { usePageContext } from "../context/PageProvider";
-import { AnimatePresence, useInView } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import Footer from "./Footer/Footer";
 import OldFooter from "./Footer/OldFooter";
 import About from "./pages/About";
+import { useTheme } from "@mui/material";
 
 export default function PostsContent({
   setIsModalOpen,
@@ -47,8 +48,16 @@ export default function PostsContent({
     };
   }, []);
 
+  const theme = useTheme();
+
   return (
-    <div className="w-[100%] relative">
+    <div
+      className="w-[100%] h-[100%] relative"
+      style={{
+        borderLeft: `1px solid ${theme.palette.divider}`,
+        borderRight: `1px solid ${theme.palette.divider}`,
+      }}
+    >
       <NavBar />
       <AnimatePresence mode="wait">{renderPage()}</AnimatePresence>
       {isSmallerScreen ? <OldFooter /> : <Footer />}

@@ -41,11 +41,7 @@ export default function Main({
 
       {currentPage !== "Stack" && (
         <motion.div
-          className="h-[100%] w-[100%] flex flex-col rounded-t-[30px]"
-          style={{
-            borderLeft: `1px solid ${theme.palette.divider}`,
-            borderRight: `1px solid ${theme.palette.divider}`,
-          }}
+          className="h-[100%] w-[100%] flex flex-col"
           initial={{ y: -10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -10, opacity: 0 }}

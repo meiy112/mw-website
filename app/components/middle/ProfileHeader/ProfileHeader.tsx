@@ -19,8 +19,16 @@ export default function ProfileHeader({
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
   setModelLoaded: Dispatch<SetStateAction<boolean>>;
 }) {
+  const theme = useTheme();
+
   return (
-    <div className="relative h-auto pb-[3em] w-[100%]">
+    <div
+      className="relative h-auto pb-[3em] w-[100%] rounded-t-[30px]"
+      style={{
+        borderLeft: `1px solid ${theme.palette.divider}`,
+        borderRight: `1px solid ${theme.palette.divider}`,
+      }}
+    >
       <Banner />
       <div className="flex-row flex justify-between px-[4.5vw] pb-[1.3em]">
         <ProfilePicture setModelLoaded={setModelLoaded} />
