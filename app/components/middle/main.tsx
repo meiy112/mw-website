@@ -4,7 +4,7 @@ import PostsContent from "./PostsContent";
 import { Dispatch, SetStateAction } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePageContext } from "../context/PageProvider";
-import Stack from "./Stack/Stack";
+import Stack from "./Stack/StackPage";
 
 export default function Main({
   isModalOpen,

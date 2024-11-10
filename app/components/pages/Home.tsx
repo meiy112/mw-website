@@ -7,7 +7,7 @@ import LoadingScreen from "../LoadingScreen/LoadingScreen";
 import Right from "../right/right";
 import Main from "../middle/main";
 import { usePageContext } from "../context/PageProvider";
-import Stack from "../middle/Stack/Stack";
+import Stack from "../middle/Stack/StackPage";
 
 export default function HomePage() {
   // for contact modal
