@@ -114,7 +114,7 @@ function BioHeader() {
       >
         Hey, I&apos;m Maggie Weng. I love to...
       </h2>
-      <h1 className={`text-[4.5rem] ${s.largeHeader}`}>Make Things Glow.</h1>
+      <h1 className={`text-[4.5rem] largeHeader`}>Make Things Glow.</h1>
     </div>
   );
 }
@@ -149,7 +149,7 @@ function BioDetails() {
       </div>
       <div className="flex items-center gap-x-[5px]">
         <LuLink className="size-[1.2rem] opacity-[50%]" />
-        <span className={`${styles.gradient}`}>maggie.weng112@gmail.com</span>
+        <span className={`pinkGradient`}>maggie.weng112@gmail.com</span>
       </div>
     </div>
   );
