@@ -244,6 +244,9 @@ body {
   .modal-post {
     width: 51%;
   }
+  .largeHeader {
+    font-size: 4.5rem;
+  }
 }
 
 @media (max-width: 1375px) {

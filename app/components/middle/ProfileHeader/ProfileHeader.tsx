@@ -4,11 +4,11 @@ import { Dispatch, SetStateAction } from "react";
 import { AnimatePresence } from "framer-motion";
 import ContactModal from "../../misc/ContactModal/ContactModal";
 import Button from "../Framer-Button/Button";
-import styles from "./ProfileHeader.module.css";
 import ProfileBanner from "../Banner/Banner";
 import Globe from "../Banner/Globe";
 import ProfilePicture from "../ProfilePicture/ProfilePicture";
 import s from "./ProfileHeader.module.css";
+import { ReactFitty } from "react-fitty";
 
 export default function ProfileHeader({
   isModalOpen,
@@ -114,7 +114,9 @@ function BioHeader() {
       >
         Hey, I&apos;m Maggie Weng. I love to...
       </h2>
-      <h1 className={`text-[4.5rem] largeHeader`}>Make Things Glow.</h1>
+      <h1 className={`largeHeader`}>
+        <ReactFitty>Make Things Glow.</ReactFitty>
+      </h1>
     </div>
   );
 }
