@@ -58,6 +58,7 @@ export default function PostsContent({
         borderRight: `1px solid ${theme.palette.divider}`,
       }}
     >
+      <div id="navbar" />
       <NavBar />
       <AnimatePresence mode="wait">{renderPage()}</AnimatePresence>
       {isSmallerScreen ? <OldFooter /> : <Footer />}
