@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
-import MouseTrail, { images } from "./MouseTrail";
+import MouseTrail from "./MouseTrail";
 import LoadingBar from "./LoadingBar";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -39,29 +39,29 @@ const LoadingScreen = ({
     }
   }, [loadingFinished]);
 
-  useEffect(() => {
-    const preloadImages = () => {
-      const promises = React.Children.map(images, (image) => {
-        const imgElement = image as React.ReactElement<HTMLImageElement>;
-        const src = imgElement.props.src;
+  // useEffect(() => {
+  //   const preloadImages = () => {
+  //     const promises = React.Children.map(images, (image) => {
+  //       const imgElement = image as React.ReactElement<HTMLImageElement>;
+  //       const src = imgElement.props.src;
 
-        return new Promise((resolve) => {
-          const img = new Image();
-          img.src = src;
-          img.onload = resolve;
-          img.onerror = resolve;
-        });
-      });
+  //       return new Promise((resolve) => {
+  //         const img = new Image();
+  //         img.src = src;
+  //         img.onload = resolve;
+  //         img.onerror = resolve;
+  //       });
+  //     });
 
-      Promise.all(promises).then(() => {
-        setTimeout(() => {
-          setImagesLoaded(true);
-        }, 300);
-      });
-    };
+  //     Promise.all(promises).then(() => {
+  //       setTimeout(() => {
+  //         setImagesLoaded(true);
+  //       }, 300);
+  //     });
+  //   };
 
-    preloadImages();
-  }, [imagesLoaded]);
+  //   preloadImages();
+  // }, [imagesLoaded]);
 
   useEffect(() => {
     if (loadingFinished) {
@@ -96,7 +96,7 @@ const LoadingScreen = ({
                 </motion.div>
               </span>
               <LoadingBar
-                isImagesLoaded={imagesLoaded}
+                setImagesLoaded={setImagesLoaded}
                 isModelLoaded={modelLoaded}
                 onComplete={() => setIsLoading(false)}
                 loadingFinished={loadingFinished}
