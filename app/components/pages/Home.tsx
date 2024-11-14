@@ -1,15 +1,18 @@
-import { leftVariants, variants, rightVariants } from "@/app/page.anim";
-import { motion } from "framer-motion";
+import { leftVariants, rightVariants, variants } from "@/app/page.anim";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import InteractiveSidebar from "../left/InteractiveSidebar";
 import Sidebar from "../left/Sidebar";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
 import Right from "../right/right";
 import Main from "../middle/main";
+import { usePageContext } from "../context/PageProvider";
+import Stack from "../middle/Stack/StackPage";
 
 export default function HomePage() {
   // for contact modal
   const [isModalOpen, setIsModalOpen] = useState(false);
+  // const { currentPage } = usePageContext();
 
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [isSmallerScreen, setIsSmallerScreen] = useState(false);
@@ -49,7 +52,7 @@ export default function HomePage() {
   }, [isLoading]);
 
   return (
-    <main className={`flex flex-col h-[100%]}`}>
+    <main className={`flex flex-col h-[100%] w-[100%]`}>
       <div className={`relative z-10 flex flex-row h-[100%] justify-between}`}>
         {/*Navbar + Logo*/}
         <motion.div

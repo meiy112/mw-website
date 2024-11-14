@@ -8,9 +8,11 @@ import React, {
 import s from "./LoadingBar.module.css";
 import { motion } from "framer-motion";
 import { fontFiles, imageFiles } from "./utils";
+import { images } from "./MouseTrail";
+import useIncrementalProgress from "../hooks/useIncrementalProgress";
 
 interface RollingNumberProps {
-  isImagesLoaded: boolean;
+  setImagesLoaded: Dispatch<SetStateAction<boolean>>;
   isModelLoaded: boolean;
   onComplete: () => void;
   loadingFinished: boolean;
@@ -18,91 +20,81 @@ interface RollingNumberProps {
 }
 
 const LoadingBar: React.FC<RollingNumberProps> = ({
-  isImagesLoaded,
+  setImagesLoaded,
   isModelLoaded,
   onComplete,
   loadingFinished,
   setLoadingFinished,
 }) => {
-  const [progress, setProgress] = useState(0);
-  const [isPublicImagesLoaded, setIsPublicImagesLoaded] = useState(false);
-  const [isFontsLoaded, setIsFontsLoaded] = useState(false);
   const progressBarRef = useRef<HTMLDivElement>(null);
-
-  const loadFonts = async () => {
-    const fontPromises = fontFiles.map((fontFile) => {
-      const fontName = fontFile.split("/").pop()?.split(".")[0] || "Font";
-      const font = new FontFace(fontName, `url(${fontFile})`);
-      return font.load().then(() => {
-        document.fonts.add(font);
-        console.log(`${fontName} loaded`);
-      });
-    });
-
-    await Promise.all(fontPromises);
-    setIsFontsLoaded(true);
-  };
-
-  const loadImages = async () => {
-    const imagePromises = imageFiles.map((imageFile) => {
-      return new Promise<void>((resolve, reject) => {
-        const img = new Image();
-        img.src = imageFile;
-        img.onload = () => {
-          console.log(`${imageFile} loaded`);
-          resolve();
-        };
-        img.onerror = () => reject(new Error(`Failed to load ${imageFile}`));
-      });
-    });
-
-    await Promise.all(imagePromises);
-    setIsPublicImagesLoaded(true);
-  };
+  const totalResources =
+    images.length + imageFiles.length + fontFiles.length + 1;
+  const { progress, incrementLoadedResources } =
+    useIncrementalProgress(totalResources);
 
   useEffect(() => {
-    const loadAssets = async () => {
-      await loadImages();
-      await loadFonts();
+    const preloadImages = (imageUrls: any[], onComplete: () => void) => {
+      let loadedCount = 0;
+      imageUrls.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => {
+          loadedCount += 1;
+          incrementLoadedResources();
+          if (loadedCount === imageUrls.length) {
+            onComplete();
+          }
+        };
+        img.onerror = () => {
+          loadedCount += 1;
+          incrementLoadedResources();
+          if (loadedCount === imageUrls.length) {
+            onComplete();
+          }
+        };
+      });
     };
 
-    loadAssets();
-  }, []);
+    const preloadFonts = (fontUrls: string[]) => {
+      fontUrls.forEach((url) => {
+        const family = url.split("/").pop()?.replace(".otf", "") || "Unknown";
+        const font = new FontFace(family, `url(${url})`);
+        font
+          .load()
+          .then((loadedFont) => {
+            document.fonts.add(loadedFont);
+            incrementLoadedResources();
+          })
+          .catch(() => {
+            incrementLoadedResources();
+          });
+      });
+    };
+
+    const preloadAdditionalImages = (imageUrls: string[]) => {
+      imageUrls.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = incrementLoadedResources;
+        img.onerror = incrementLoadedResources;
+      });
+    };
+
+    preloadImages(images, () => {
+      setImagesLoaded(true);
+
+      setTimeout(() => {
+        preloadAdditionalImages(imageFiles);
+        preloadFonts(fontFiles);
+      }, 4000);
+    });
+  }, [setImagesLoaded]);
 
   useEffect(() => {
-    const loadedCount = [
-      isImagesLoaded,
-      isModelLoaded,
-      isPublicImagesLoaded,
-      isFontsLoaded,
-    ].filter(Boolean).length;
-
-    if (loadedCount === 1) {
-      setProgress(12);
-    } else if (loadedCount === 2) {
-      setProgress(68);
-    } else if (loadedCount === 3) {
-      setProgress(77);
-    } else if (loadedCount === 4) {
-      const timeout95 = setTimeout(() => {
-        setProgress(95);
-      }, 4000);
-      const timeout100 = setTimeout(() => {
-        setProgress(100);
-      }, 4000);
-
-      return () => {
-        clearTimeout(timeout95);
-        clearTimeout(timeout100);
-      };
+    if (isModelLoaded) {
+      incrementLoadedResources();
     }
-  }, [
-    isImagesLoaded,
-    isModelLoaded,
-    isPublicImagesLoaded,
-    isFontsLoaded,
-    progress,
-  ]);
+  }, [isModelLoaded]);
 
   useEffect(() => {
     const checkProgress = () => {
@@ -128,7 +120,7 @@ const LoadingBar: React.FC<RollingNumberProps> = ({
       <motion.div
         initial={{ scaleX: 1 }} // Start with full scale (100%)
         animate={{ scaleX: loadingFinished ? 0 : 1 }} // Shrink to 0 when finished
-        transition={{ duration: 1, ease: "easeInOut" }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
         className={`${s.container} flex h-[100%] w-[100%] rounded-[8em]`}
         style={{ transformOrigin: "right" }}
       >

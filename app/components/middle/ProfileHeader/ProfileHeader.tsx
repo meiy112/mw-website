@@ -4,11 +4,11 @@ import { Dispatch, SetStateAction } from "react";
 import { AnimatePresence } from "framer-motion";
 import ContactModal from "../../misc/ContactModal/ContactModal";
 import Button from "../Framer-Button/Button";
-import styles from "./ProfileHeader.module.css";
 import ProfileBanner from "../Banner/Banner";
 import Globe from "../Banner/Globe";
 import ProfilePicture from "../ProfilePicture/ProfilePicture";
 import s from "./ProfileHeader.module.css";
+import { ReactFitty } from "react-fitty";
 
 export default function ProfileHeader({
   isModalOpen,
@@ -19,8 +19,16 @@ export default function ProfileHeader({
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
   setModelLoaded: Dispatch<SetStateAction<boolean>>;
 }) {
+  const theme = useTheme();
+
   return (
-    <div className="relative h-auto pb-[3em] w-[100%]">
+    <div
+      className="relative h-auto pb-[3em] w-[100%] rounded-t-[30px]"
+      style={{
+        borderLeft: `1px solid ${theme.palette.divider}`,
+        borderRight: `1px solid ${theme.palette.divider}`,
+      }}
+    >
       <Banner />
       <div className="flex-row flex justify-between px-[4.5vw] pb-[1.3em]">
         <ProfilePicture setModelLoaded={setModelLoaded} />
@@ -106,7 +114,9 @@ function BioHeader() {
       >
         Hey, I&apos;m Maggie Weng. I love to...
       </h2>
-      <h1 className={`text-[4.5rem] ${s.largeHeader}`}>Make Things Glow.</h1>
+      <h1 className={`largeHeader`}>
+        <ReactFitty>Make Things Glow.</ReactFitty>
+      </h1>
     </div>
   );
 }
@@ -141,7 +151,7 @@ function BioDetails() {
       </div>
       <div className="flex items-center gap-x-[5px]">
         <LuLink className="size-[1.2rem] opacity-[50%]" />
-        <span className={`${styles.gradient}`}>maggie.weng112@gmail.com</span>
+        <span className={`pinkGradient`}>maggie.weng112@gmail.com</span>
       </div>
     </div>
   );
