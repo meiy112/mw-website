@@ -13,6 +13,7 @@ const useIncrementalProgress = (totalResources: number) => {
 
   const incrementLoadedResources = () => {
     setLoadedResources((prevCount) => prevCount + 1);
+    console.log(loadedResources);
   };
 
   return { progress, incrementLoadedResources };

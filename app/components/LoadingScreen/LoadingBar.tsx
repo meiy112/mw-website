@@ -9,7 +9,6 @@ import s from "./LoadingBar.module.css";
 import { motion } from "framer-motion";
 import { fontFiles, imageFiles } from "./utils";
 import { images } from "./MouseTrail";
-import useIncrementalProgress from "../hooks/useIncrementalProgress";
 import { EMOJIS } from "../navbar/TopNavbar";
 
 interface RollingNumberProps {
@@ -28,30 +27,56 @@ const LoadingBar: React.FC<RollingNumberProps> = ({
   setLoadingFinished,
 }) => {
   const progressBarRef = useRef<HTMLDivElement>(null);
-  const totalResources =
-    images.length + imageFiles.length + fontFiles.length + 1 + EMOJIS.length;
-  const { progress, incrementLoadedResources } =
-    useIncrementalProgress(totalResources);
+  const [progress, setProgress] = useState(0);
+  const [loadCheck, setLoadCheck] = useState(false);
 
   useEffect(() => {
-    const preloadImages = (imageUrls: any[], onComplete: () => void) => {
+    const extractSrcFromImages = (imageComponents: JSX.Element[]) => {
+      return imageComponents
+        .map((image) => {
+          if (
+            React.isValidElement(image) &&
+            (image.props as { src: string }).src
+          ) {
+            return (image.props as { src: string }).src;
+          }
+          return null;
+        })
+        .filter((src): src is string => src !== null);
+    };
+
+    const preloadImages = (imageUrls: string[], onComplete: () => void) => {
       let loadedCount = 0;
+
       imageUrls.forEach((src) => {
         const img = new Image();
         img.src = src;
         img.onload = () => {
           loadedCount += 1;
-          incrementLoadedResources();
           if (loadedCount === imageUrls.length) {
             onComplete();
           }
         };
         img.onerror = () => {
           loadedCount += 1;
-          incrementLoadedResources();
           if (loadedCount === imageUrls.length) {
             onComplete();
           }
+        };
+      });
+    };
+
+    const preloadAdditionalImages = (imageUrls: string[]) => {
+      let loadedCount = 0;
+
+      imageUrls.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => {
+          loadedCount += 1;
+        };
+        img.onerror = () => {
+          loadedCount += 1;
         };
       });
     };
@@ -64,39 +89,23 @@ const LoadingBar: React.FC<RollingNumberProps> = ({
           .load()
           .then((loadedFont) => {
             document.fonts.add(loadedFont);
-            incrementLoadedResources();
           })
-          .catch(() => {
-            incrementLoadedResources();
-          });
+          .catch(() => {});
       });
     };
 
-    const preloadAdditionalImages = (imageUrls: any[]) => {
-      imageUrls.forEach((src) => {
-        const img = new Image();
-        img.src = src;
-        img.onload = incrementLoadedResources;
-        img.onerror = incrementLoadedResources;
-      });
-    };
+    const imageSrcs = extractSrcFromImages(images);
+    const emojiSrcs = extractSrcFromImages(EMOJIS);
 
-    preloadImages(images, () => {
-      setImagesLoaded(true);
-
-      setTimeout(() => {
-        preloadAdditionalImages(EMOJIS);
+    if (!loadCheck) {
+      setLoadCheck(true);
+      preloadImages(imageSrcs, () => {
+        preloadAdditionalImages(emojiSrcs);
         preloadAdditionalImages(imageFiles);
         preloadFonts(fontFiles);
-      }, 4000);
-    });
-  }, [setImagesLoaded]);
-
-  useEffect(() => {
-    if (isModelLoaded) {
-      incrementLoadedResources();
+      });
     }
-  }, [isModelLoaded]);
+  }, [setImagesLoaded, loadCheck]);
 
   useEffect(() => {
     const checkProgress = () => {
@@ -116,6 +125,54 @@ const LoadingBar: React.FC<RollingNumberProps> = ({
 
     return () => clearInterval(interval);
   }, [onComplete]);
+
+  useEffect(() => {
+    const steps = [
+      { percentage: 12, delay: 1000 },
+      { percentage: 30, delay: 500 },
+      { percentage: 35, delay: 200 },
+      { percentage: 40, delay: 1500 },
+      { percentage: 68, delay: 800 },
+      { percentage: 74, delay: 500 },
+      { percentage: 88, delay: 500 },
+    ];
+
+    let timeoutIds: NodeJS.Timeout[] = [];
+
+    const executeSteps = () => {
+      let currentProgress = 0;
+      steps.forEach(({ percentage, delay }, index) => {
+        const timeoutId = setTimeout(() => {
+          setProgress(percentage);
+          currentProgress = percentage;
+        }, delay + steps.slice(0, index).reduce((acc, step) => acc + step.delay, 0));
+        timeoutIds.push(timeoutId);
+      });
+
+      // Final step to reach 100% only if isModelLoaded is true
+      const finalStepTimeout = setTimeout(
+        () => {
+          if (isModelLoaded) {
+            setProgress(100);
+          }
+        },
+        steps.reduce((acc, step) => acc + step.delay, 0)
+      );
+      timeoutIds.push(finalStepTimeout);
+    };
+
+    executeSteps();
+
+    return () => {
+      timeoutIds.forEach((id) => clearTimeout(id));
+    };
+  }, [isModelLoaded]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setImagesLoaded(true);
+    }, 1000);
+  }, []);
 
   return (
     <div className={`flex h-[3px] w-[10em] rounded-[8em]`}>
