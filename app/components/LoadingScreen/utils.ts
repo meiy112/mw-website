@@ -32,7 +32,6 @@ export const IMAGE_SIZE = 150;
 
 export const imageFiles = [
   "/images/under-maintenance.jpg",
-  "/Logo.png",
   "/pfp-small.png",
   "/github-pfp.png",
   "/dog-pfp.png",
