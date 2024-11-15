@@ -134,30 +134,33 @@ const LoadingBar: React.FC<RollingNumberProps> = ({
       { percentage: 40, delay: 1500 },
       { percentage: 68, delay: 800 },
       { percentage: 74, delay: 500 },
-      { percentage: 88, delay: 500 },
+      { percentage: 88, delay: 1000 },
     ];
 
     let timeoutIds: NodeJS.Timeout[] = [];
+    let currentProgress = 0;
 
     const executeSteps = () => {
-      let currentProgress = 0;
       steps.forEach(({ percentage, delay }, index) => {
         const timeoutId = setTimeout(() => {
-          setProgress(percentage);
-          currentProgress = percentage;
+          if (percentage > currentProgress) {
+            currentProgress = percentage;
+            setProgress(currentProgress);
+          }
         }, delay + steps.slice(0, index).reduce((acc, step) => acc + step.delay, 0));
         timeoutIds.push(timeoutId);
       });
 
-      // Final step to reach 100% only if isModelLoaded is true
       const finalStepTimeout = setTimeout(
         () => {
-          if (isModelLoaded) {
-            setProgress(100);
+          if (isModelLoaded && currentProgress < 100) {
+            currentProgress = 100;
+            setProgress(currentProgress);
           }
         },
         steps.reduce((acc, step) => acc + step.delay, 0)
       );
+
       timeoutIds.push(finalStepTimeout);
     };
 
