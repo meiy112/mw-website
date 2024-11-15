@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const SIZE = 27;
 
-const EMOJIS = [
+export const EMOJIS = [
   <img
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Hatching%20Chick.png"
     alt="Hatching Chick"

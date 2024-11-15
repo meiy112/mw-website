@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import { fontFiles, imageFiles } from "./utils";
 import { images } from "./MouseTrail";
 import useIncrementalProgress from "../hooks/useIncrementalProgress";
+import { EMOJIS } from "../navbar/TopNavbar";
 
 interface RollingNumberProps {
   setImagesLoaded: Dispatch<SetStateAction<boolean>>;
@@ -28,7 +29,7 @@ const LoadingBar: React.FC<RollingNumberProps> = ({
 }) => {
   const progressBarRef = useRef<HTMLDivElement>(null);
   const totalResources =
-    images.length + imageFiles.length + fontFiles.length + 1;
+    images.length + imageFiles.length + fontFiles.length + 1 + EMOJIS.length;
   const { progress, incrementLoadedResources } =
     useIncrementalProgress(totalResources);
 
@@ -71,7 +72,7 @@ const LoadingBar: React.FC<RollingNumberProps> = ({
       });
     };
 
-    const preloadAdditionalImages = (imageUrls: string[]) => {
+    const preloadAdditionalImages = (imageUrls: any[]) => {
       imageUrls.forEach((src) => {
         const img = new Image();
         img.src = src;
@@ -84,6 +85,7 @@ const LoadingBar: React.FC<RollingNumberProps> = ({
       setImagesLoaded(true);
 
       setTimeout(() => {
+        preloadAdditionalImages(EMOJIS);
         preloadAdditionalImages(imageFiles);
         preloadFonts(fontFiles);
       }, 4000);
