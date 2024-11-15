@@ -4,51 +4,59 @@ import { mix, distance, wrap } from "@popmotion/popcorn";
 import TrailImage from "./Image";
 import { Position } from "./LoadingScreen.d";
 import s from "./LoadingScreen.module.css";
+import Image from "next/image";
 
 export const images = [
-  <img
+  <Image
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Face%20in%20Clouds.png"
     alt="Face in Clouds"
     width={IMAGE_SIZE}
     height={IMAGE_SIZE}
     key={0}
   />,
-  <img
+  <Image
     width={IMAGE_SIZE}
     height={IMAGE_SIZE}
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Ghost.png"
     alt="ghost"
     key={1}
   />,
-  <img
+  <Image
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Star.png"
     alt="Star"
     width={IMAGE_SIZE}
     height={IMAGE_SIZE}
     key={2}
   />,
-  <img
-    src="./images/loading/heart.jpeg"
-    className="scale-[0.8]"
+  <Image
+    src="/images/loading/heart.jpeg"
+    width={IMAGE_SIZE}
+    height={IMAGE_SIZE}
     alt="heart"
     key={3}
   />,
-  <img
+  <Image
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Eyes.png"
     alt="Eyes"
     width={IMAGE_SIZE}
     height={IMAGE_SIZE}
     key={4}
   />,
-  <img src="./images/loading/silly_cloud.png" alt="cloud" key={5} />,
-  <img
+  <Image
+    src="/images/loading/silly_cloud.png"
+    alt="cloud"
+    key={5}
+    width={IMAGE_SIZE}
+    height={IMAGE_SIZE}
+  />,
+  <Image
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Bubbles.png"
     alt="Bubbles"
     width={IMAGE_SIZE}
     height={IMAGE_SIZE}
     key={6}
   />,
-  <img
+  <Image
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Octopus.png"
     alt="Octopus"
     width={IMAGE_SIZE}

@@ -26,16 +26,3 @@ export default function Home() {
     </DragProvider>
   );
 }
-
-function Ornament() {
-  const theme = useTheme();
-  return (
-    <div className="right-0 fixed bottom-12 size-[42vh]">
-      {theme.palette.mode === "dark" ? (
-        <img src="/ornament-dark.png" alt="" />
-      ) : (
-        <img src="/ornament-light.png" alt="" />
-      )}
-    </div>
-  );
-}
