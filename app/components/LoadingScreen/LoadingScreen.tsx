@@ -39,30 +39,6 @@ const LoadingScreen = ({
     }
   }, [loadingFinished]);
 
-  // useEffect(() => {
-  //   const preloadImages = () => {
-  //     const promises = React.Children.map(images, (image) => {
-  //       const imgElement = image as React.ReactElement<HTMLImageElement>;
-  //       const src = imgElement.props.src;
-
-  //       return new Promise((resolve) => {
-  //         const img = new Image();
-  //         img.src = src;
-  //         img.onload = resolve;
-  //         img.onerror = resolve;
-  //       });
-  //     });
-
-  //     Promise.all(promises).then(() => {
-  //       setTimeout(() => {
-  //         setImagesLoaded(true);
-  //       }, 300);
-  //     });
-  //   };
-
-  //   preloadImages();
-  // }, [imagesLoaded]);
-
   useEffect(() => {
     if (loadingFinished) {
       setTimeout(() => {
