@@ -114,9 +114,9 @@ function BioHeader() {
       >
         Hey, I&apos;m Maggie Weng. I love to...
       </h2>
-      <h1 className={`largeHeader`}>
-        <ReactFitty>Make Things Glow.</ReactFitty>
-      </h1>
+      <ReactFitty>
+        <h1 className={`largeHeader`}>Make Things Glow.</h1>
+      </ReactFitty>
     </div>
   );
 }
