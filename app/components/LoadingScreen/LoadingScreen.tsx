@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 const items = [
   {
     id: 1,
-    content: "Hi.",
+    content: "Hey There.",
   },
   {
     id: 2,
@@ -53,7 +53,7 @@ const LoadingScreen = ({
     <AnimatePresence>
       {isLoading && (
         <motion.div
-          exit={{ opacity: 1, y: -20 }}
+          exit={{ opacity: 1, y: 20 }}
           transition={{ ease: "easeInOut", duration: 0.5 }}
           className={`z-20 fixed w-[100%] h-[100%] bg-[#07080A] overflow-hidden`}
         >

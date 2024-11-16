@@ -128,8 +128,9 @@ const LoadingBar: React.FC<RollingNumberProps> = ({
 
   useEffect(() => {
     const steps = [
-      { percentage: 12, delay: 1000 },
-      { percentage: 30, delay: 500 },
+      { percentage: 12, delay: 0 },
+      { percentage: 24, delay: 500 },
+      { percentage: 30, delay: 1000 },
       { percentage: 35, delay: 200 },
       { percentage: 40, delay: 1500 },
       { percentage: 68, delay: 800 },
@@ -145,7 +146,9 @@ const LoadingBar: React.FC<RollingNumberProps> = ({
         const timeoutId = setTimeout(() => {
           if (percentage > currentProgress) {
             currentProgress = percentage;
-            setProgress(currentProgress);
+            setProgress((prevProgress) =>
+              Math.max(prevProgress, currentProgress)
+            );
           }
         }, delay + steps.slice(0, index).reduce((acc, step) => acc + step.delay, 0));
         timeoutIds.push(timeoutId);
@@ -155,7 +158,9 @@ const LoadingBar: React.FC<RollingNumberProps> = ({
         () => {
           if (isModelLoaded && currentProgress < 100) {
             currentProgress = 100;
-            setProgress(currentProgress);
+            setProgress((prevProgress) =>
+              Math.max(prevProgress, currentProgress)
+            );
           }
         },
         steps.reduce((acc, step) => acc + step.delay, 0)
@@ -174,14 +179,14 @@ const LoadingBar: React.FC<RollingNumberProps> = ({
   useEffect(() => {
     setTimeout(() => {
       setImagesLoaded(true);
-    }, 1000);
+    }, 500);
   }, []);
 
   return (
     <div className={`flex h-[3px] w-[10em] rounded-[8em]`}>
       <motion.div
-        initial={{ scaleX: 1 }} // Start with full scale (100%)
-        animate={{ scaleX: loadingFinished ? 0 : 1 }} // Shrink to 0 when finished
+        initial={{ scaleX: 1 }}
+        animate={{ scaleX: loadingFinished ? 0 : 1 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
         className={`${s.container} flex h-[100%] w-[100%] rounded-[8em]`}
         style={{ transformOrigin: "right" }}
