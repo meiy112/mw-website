@@ -13,6 +13,7 @@ export const images = [
     width={IMAGE_SIZE}
     height={IMAGE_SIZE}
     key={0}
+    unoptimized
   />,
   <Image
     width={IMAGE_SIZE}
@@ -20,6 +21,7 @@ export const images = [
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Ghost.png"
     alt="ghost"
     key={1}
+    unoptimized
   />,
   <Image
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Star.png"
@@ -27,6 +29,7 @@ export const images = [
     width={IMAGE_SIZE}
     height={IMAGE_SIZE}
     key={2}
+    unoptimized
   />,
   <Image
     src="/images/loading/heart.jpeg"
@@ -34,6 +37,7 @@ export const images = [
     height={IMAGE_SIZE}
     alt="heart"
     key={3}
+    unoptimized
   />,
   <Image
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Eyes.png"
@@ -41,6 +45,7 @@ export const images = [
     width={IMAGE_SIZE}
     height={IMAGE_SIZE}
     key={4}
+    unoptimized
   />,
   <Image
     src="/images/loading/silly_cloud.png"
@@ -48,6 +53,7 @@ export const images = [
     key={5}
     width={IMAGE_SIZE}
     height={IMAGE_SIZE}
+    unoptimized
   />,
   <Image
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Bubbles.png"
@@ -55,6 +61,7 @@ export const images = [
     width={IMAGE_SIZE}
     height={IMAGE_SIZE}
     key={6}
+    unoptimized
   />,
   <Image
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Octopus.png"
@@ -62,6 +69,7 @@ export const images = [
     width={IMAGE_SIZE}
     height={IMAGE_SIZE}
     key={7}
+    unoptimized
   />,
 ];
 

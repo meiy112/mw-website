@@ -4,6 +4,7 @@ import { usePageContext } from "../context/PageProvider";
 import { Dispatch, SetStateAction } from "react";
 import { LuMoreHorizontal } from "react-icons/lu";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Sidebar({
   setIsModalOpen,
@@ -98,7 +99,7 @@ function UserAccount() {
           }}
         >
           <img
-            src="./images/user.png"
+            src="/images/user.png"
             className="scale-[4] absolute top-[50%] left-[5%]"
             alt="banana guy"
           />
