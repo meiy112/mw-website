@@ -11,6 +11,7 @@ import {
   LuMoreHorizontal,
 } from "react-icons/lu";
 import ParallaxCard from "../misc/ParallaxCard/ParallaxCard";
+import s from "./Post.module.css";
 
 export default function Post({
   postKey,
@@ -111,8 +112,8 @@ function Title({ title, typeOf }: { title: string; typeOf: string[] }) {
   };
   return (
     <div className="flex flex-row items-center pt-[1.9vh] pb-[1vh] gap-x-[0.9vw]">
-      <h1 className="font-extrabold text-[1.6rem] tracking-[0.32px]">
-        {title}
+      <h1 className="nyHeader font-black text-[2.5rem] tracking-[0.32px]">
+        {title}&nbsp;
       </h1>
       {typeOf.map((type, index) => getTag({ type, index }))}
     </div>
@@ -134,7 +135,9 @@ function Tag({ title, unicode }: { title: string; unicode: string }) {
 
 function Body({ body }: { body: React.ReactNode[] }) {
   return (
-    <ul className="font-light text-[1rem] tracking-[0.32px] flex flex-col items-start gap-y-[2.5vh] pb-[2vh] leading-[1.5em]">
+    <ul
+      className={`${s.body} font-light text-[1rem] tracking-[0.32px] flex flex-col items-start gap-y-[2.5vh] pb-[2vh] leading-[1.5em]`}
+    >
       {body.map((item, index) => (
         <li key={index}>{item}</li>
       ))}
