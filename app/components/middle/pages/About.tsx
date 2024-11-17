@@ -26,18 +26,28 @@ export default function About({
       title: "Hello World!",
       typeOf: ["About Me"],
       body: [
-        <p key={0}>I&#39;m Maggie Weng and I love crafting interactivity.</p>,
+        <p key={0} className="opacity-[0.9]">
+          I&#39;m a Computer Science student who loves to design, develop, and
+          sacrifice my sleep.
+        </p>,
         <p key={1}>
-          If you&#39;re curious about my work, check out{" "}
-          <NavLink name="Projects" tab="Projects" /> to see what I&#39;ve been
-          up to or explore my <NavLink name="Resume" tab="Resume" /> to learn
-          more about my experience. Feel free to get in touch via{" "}
+          <span className="opacity-[0.5]">Check out</span>
+          <NavLink name="Projects" tab="Projects" />{" "}
+          <span className="opacity-[0.5]">
+            to see what I&#39;ve been up to, or get in touch via{" "}
+          </span>
           <NavLink
             name="Contact"
             tab="Contact"
             setIsModalOpen={setIsModalOpen}
           />{" "}
-          if you have any questions or want to connect!
+          <span className="opacity-[0.5]">
+            if you have any questions or want to connect!
+          </span>
+        </p>,
+        <p key={2} className="opacity-[0.5]">
+          I've got tons more planned for this website and will be pushing out
+          updates in my free time, so stay tuned for more!
         </p>,
       ],
       image: "/images/pinned-post.jpg",
