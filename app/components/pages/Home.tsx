@@ -1,13 +1,11 @@
 import { leftVariants, rightVariants, variants } from "@/app/page.anim";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import InteractiveSidebar from "../left/InteractiveSidebar";
 import Sidebar from "../left/Sidebar";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
 import Right from "../right/right";
 import Main from "../middle/main";
-import { usePageContext } from "../context/PageProvider";
-import Stack from "../middle/Stack/StackPage";
 
 export default function HomePage() {
   // for contact modal
@@ -17,11 +15,8 @@ export default function HomePage() {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [isSmallerScreen, setIsSmallerScreen] = useState(false);
 
-  // uncomment for prod mode
   const [isLoading, setIsLoading] = useState(true);
 
-  // uncomment for dev mode
-  // const [isLoading, setIsLoading] = useState(false);
   const [modelLoaded, setModelLoaded] = useState(false);
 
   useEffect(() => {
