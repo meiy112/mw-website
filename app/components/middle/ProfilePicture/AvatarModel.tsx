@@ -5,7 +5,7 @@ import { Box3, Group, Mesh, Object3D, Vector3 } from "three";
 import { easing } from "maath";
 
 const useMousePosition = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [mousePosition, setMousePosition] = useState({ x: 100, y: 100 });
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
@@ -45,12 +45,12 @@ export default function AvatarModel({
   useEffect(() => {
     if (ref.current) {
       box.setFromObject(ref.current);
-      box.getCenter(center);
     }
   }, [nodes, ref]);
 
   const [dummy] = useState(() => new Object3D());
-  useFrame((state, dt) => {
+  dummy.lookAt(0, 0, 2000);
+  useFrame((_state, dt) => {
     dummy.lookAt(x - 500, 0, y + 2000);
     if (ref.current) {
       ref.current.position.copy(center);

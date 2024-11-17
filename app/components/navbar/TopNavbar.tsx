@@ -2,46 +2,47 @@ import { FaStar } from "react-icons/fa6";
 import s from "./TopNavbar.module.css";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const SIZE = 27;
 
 export const EMOJIS = [
-  <img
+  <Image
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Hatching%20Chick.png"
     alt="Hatching Chick"
     width={SIZE}
     height={SIZE}
     key={0}
   />,
-  <img
+  <Image
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Duck.png"
     alt="Duck"
     width={SIZE}
     height={SIZE}
     key={1}
   />,
-  <img
+  <Image
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Star.png"
     alt="Star"
     width={SIZE}
     height={SIZE}
     key={2}
   />,
-  <img
+  <Image
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Flying%20Saucer.png"
     alt="Flying Saucer"
     width={SIZE}
     height={SIZE}
     key={3}
   />,
-  <img
+  <Image
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Food/Banana.png"
     alt="Banana"
     width="25"
     height="25"
     key={4}
   />,
-  <img
+  <Image
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png"
     alt="Rocket"
     width={SIZE}

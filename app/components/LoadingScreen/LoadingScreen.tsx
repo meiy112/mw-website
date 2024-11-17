@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 const items = [
   {
     id: 1,
-    content: "Hey There.",
+    content: "Hey there.",
   },
   {
     id: 2,

@@ -7,9 +7,7 @@ import React, {
 } from "react";
 import s from "./LoadingBar.module.css";
 import { motion } from "framer-motion";
-import { fontFiles, imageFiles } from "./utils";
-import { images } from "./MouseTrail";
-import { EMOJIS } from "../navbar/TopNavbar";
+import { fontFiles } from "./utils";
 
 interface RollingNumberProps {
   setImagesLoaded: Dispatch<SetStateAction<boolean>>;
@@ -31,56 +29,6 @@ const LoadingBar: React.FC<RollingNumberProps> = ({
   const [loadCheck, setLoadCheck] = useState(false);
 
   useEffect(() => {
-    const extractSrcFromImages = (imageComponents: JSX.Element[]) => {
-      return imageComponents
-        .map((image) => {
-          if (
-            React.isValidElement(image) &&
-            (image.props as { src: string }).src
-          ) {
-            return (image.props as { src: string }).src;
-          }
-          return null;
-        })
-        .filter((src): src is string => src !== null);
-    };
-
-    const preloadImages = (imageUrls: string[], onComplete: () => void) => {
-      let loadedCount = 0;
-
-      imageUrls.forEach((src) => {
-        const img = new Image();
-        img.src = src;
-        img.onload = () => {
-          loadedCount += 1;
-          if (loadedCount === imageUrls.length) {
-            onComplete();
-          }
-        };
-        img.onerror = () => {
-          loadedCount += 1;
-          if (loadedCount === imageUrls.length) {
-            onComplete();
-          }
-        };
-      });
-    };
-
-    const preloadAdditionalImages = (imageUrls: string[]) => {
-      let loadedCount = 0;
-
-      imageUrls.forEach((src) => {
-        const img = new Image();
-        img.src = src;
-        img.onload = () => {
-          loadedCount += 1;
-        };
-        img.onerror = () => {
-          loadedCount += 1;
-        };
-      });
-    };
-
     const preloadFonts = (fontUrls: string[]) => {
       fontUrls.forEach((url) => {
         const family = url.split("/").pop()?.replace(".otf", "") || "Unknown";
@@ -94,18 +42,11 @@ const LoadingBar: React.FC<RollingNumberProps> = ({
       });
     };
 
-    const imageSrcs = extractSrcFromImages(images);
-    const emojiSrcs = extractSrcFromImages(EMOJIS);
-
     if (!loadCheck) {
       setLoadCheck(true);
-      preloadImages(imageSrcs, () => {
-        preloadAdditionalImages(emojiSrcs);
-        preloadAdditionalImages(imageFiles);
-        preloadFonts(fontFiles);
-      });
+      preloadFonts(fontFiles);
     }
-  }, [setImagesLoaded, loadCheck]);
+  }, [loadCheck]);
 
   useEffect(() => {
     const checkProgress = () => {
