@@ -46,8 +46,8 @@ export default function About({
           </span>
         </p>,
         <p key={2} className="opacity-[0.5]">
-          I've got tons more planned for this website and will be pushing out
-          updates in my free time, so stay tuned for more!
+          I&apos;ve got tons more planned for this website and will be pushing
+          out updates in my free time, so stay tuned for more!
         </p>,
       ],
       image: "/images/pinned-post.jpg",
