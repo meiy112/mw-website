@@ -25,11 +25,3 @@
     rgba(0, 0, 0, 0.1) 100%
   );
 }
-
-.gradientBackground {
-  background: linear-gradient(to bottom, white 40%, rgba(255, 255, 255, 0));
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 0.5em rgba(255, 255, 255, 0.7);
-}

@@ -201,7 +201,7 @@ const StackPage = () => {
     <div className="relative h-[100%] m-0 overflow-hidden" ref={containerRef}>
       <div className="px-[1em] select-none absolute w-[100%] flex flex-col items-center">
         <span
-          className={`text-white text-[3.5rem] font-medium ${s.gradientBackground}`}
+          className={`text-white text-[3.5rem] font-medium gradientBackground`}
         >
           Tech Stack
         </span>
