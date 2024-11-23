@@ -9,11 +9,9 @@ import Stack from "./Stack/StackPage";
 export default function Main({
   isModalOpen,
   setIsModalOpen,
-  setModelLoaded,
 }: {
   isModalOpen: boolean;
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
-  setModelLoaded: Dispatch<SetStateAction<boolean>>;
 }) {
   const theme = useTheme();
   const { currentPage } = usePageContext();
@@ -51,7 +49,6 @@ export default function Main({
           <ProfileHeader
             isModalOpen={isModalOpen}
             setIsModalOpen={setIsModalOpen}
-            setModelLoaded={setModelLoaded}
           />
           <PostsContent setIsModalOpen={setIsModalOpen} />
         </motion.div>
