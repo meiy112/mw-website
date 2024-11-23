@@ -22,25 +22,13 @@ const useMousePosition = () => {
   return mousePosition;
 };
 
-export default function AvatarModel({
-  setModelLoaded,
-}: {
-  setModelLoaded: Dispatch<SetStateAction<boolean>>;
-}) {
+export default function AvatarModel({}: {}) {
   const { nodes, materials } = useGLTF("/3d/avatar/24_10_05_06_53_13_179.gltf");
   const { x, y } = useMousePosition();
   const ref = useRef<Group>(null);
 
   const box = new Box3();
   const center = new Vector3();
-
-  const { scene } = useGLTF("/3d/avatar/24_10_05_06_53_13_179.gltf");
-
-  useEffect(() => {
-    if (scene) {
-      setModelLoaded(true);
-    }
-  }, [scene, setModelLoaded]);
 
   useEffect(() => {
     if (ref.current) {

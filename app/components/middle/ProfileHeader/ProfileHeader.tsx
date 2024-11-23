@@ -13,11 +13,9 @@ import { ReactFitty } from "react-fitty";
 export default function ProfileHeader({
   isModalOpen,
   setIsModalOpen,
-  setModelLoaded,
 }: {
   isModalOpen: boolean;
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
-  setModelLoaded: Dispatch<SetStateAction<boolean>>;
 }) {
   const theme = useTheme();
 
@@ -31,7 +29,7 @@ export default function ProfileHeader({
     >
       <Banner />
       <div className="flex-row flex justify-between px-[4.5vw] pb-[1.3em]">
-        <ProfilePicture setModelLoaded={setModelLoaded} />
+        <ProfilePicture />
         <Button onClick={() => setIsModalOpen(true)} />
       </div>
       <Bio />

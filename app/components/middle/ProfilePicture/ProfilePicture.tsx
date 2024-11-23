@@ -5,11 +5,7 @@ import AvatarModel from "./AvatarModel";
 import s from "./ProfilePicture.module.css";
 import { Dispatch, SetStateAction } from "react";
 
-const ProfilePicture = ({
-  setModelLoaded,
-}: {
-  setModelLoaded: Dispatch<SetStateAction<boolean>>;
-}) => {
+const ProfilePicture = ({}: {}) => {
   const theme = useTheme();
 
   return (
@@ -31,7 +27,7 @@ const ProfilePicture = ({
               position={[5, 5, 5]}
             />
             <Bounds fit clip observe margin={0.8}>
-              <AvatarModel setModelLoaded={setModelLoaded} />
+              <AvatarModel />
             </Bounds>
           </Canvas>
         </div>
