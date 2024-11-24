@@ -23,7 +23,7 @@ export const leftVariants = {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 1.5,
+      duration: 1,
       delay: 1,
       ease: "easeInOut",
     },
@@ -39,7 +39,7 @@ export const rightVariants = {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 1.5,
+      duration: 1,
       delay: 1,
       ease: "easeInOut",
     },
