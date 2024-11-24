@@ -120,7 +120,7 @@ const LoadingBar: React.FC<RollingNumberProps> = ({
   useEffect(() => {
     setTimeout(() => {
       setImagesLoaded(true);
-    }, 500);
+    }, 1000);
   }, []);
 
   return (

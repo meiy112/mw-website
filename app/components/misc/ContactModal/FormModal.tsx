@@ -13,11 +13,18 @@ export default function FormModal() {
 function Profile() {
   return (
     <div className="flex flex-row gap-x-[1rem]">
-      <img
-        alt="userpfp"
-        src="/guest-pfp.png"
-        className="size-[45px] rounded-[50%]"
-      />
+      <div
+        className="w-[49.6px] rounded-[50%] overflow-hidden aspect-square flex relative"
+        style={{
+          backgroundImage: "linear-gradient(to bottom, #2F667D, #589ca0 50%)",
+        }}
+      >
+        <img
+          src="/images/user.png"
+          className="scale-[4] absolute top-[50%] left-[5%]"
+          alt="banana guy"
+        />
+      </div>
       <div className="flex flex-col justify-between">
         <p className="font-bold text-[0.97rem]">You</p>
         <p className="font-light text-[0.8rem] opacity-[0.8]">@YesYou</p>

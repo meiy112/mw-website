@@ -15,7 +15,8 @@ export default function HomePage() {
   const [isSmallerScreen, setIsSmallerScreen] = useState(false);
 
   const [isLoading, setIsLoading] = useState(true);
-  const [loadVisible, setLoadVisible] = useState(true);
+  const [loadVisible, setLoadVisible] = useState(false);
+  const [pageVisible, setPageVisible] = useState(true);
 
   const [modelLoaded, setModelLoaded] = useState(false);
 
@@ -35,16 +36,40 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
-    if (isLoading) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    const EXPIRATION_TIME_MS = 5 * 60 * 1000;
+    const visitData = JSON.parse(localStorage.getItem("hasVisited") || "{}");
+    const now = Date.now();
+    if (
+      visitData !== null &&
+      visitData &&
+      visitData.visitedTime &&
+      now - visitData.visitedTime <= EXPIRATION_TIME_MS
+    ) {
+      setPageVisible(false);
+      setIsLoading(false);
+      setLoadVisible(false);
 
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isLoading]);
+      const timeoutId = setTimeout(() => {
+        setPageVisible(true);
+      }, 500);
+
+      return () => clearTimeout(timeoutId);
+    } else {
+      setIsLoading(true);
+      setLoadVisible(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (pageVisible && !isLoading) {
+      const timeoutId = setTimeout(() => {
+        document.body.style.overflow = "";
+      }, 2500);
+      return () => clearTimeout(timeoutId);
+    } else {
+      document.body.style.overflow = "hidden";
+    }
+  }, [pageVisible, isLoading]);
 
   useEffect(() => {
     const loader = new GLTFLoader();
@@ -56,11 +81,19 @@ export default function HomePage() {
 
   useEffect(() => {
     if (!isLoading) {
-      const timeout = setTimeout(() => {
+      const timeoutId = setTimeout(() => {
         setLoadVisible(false);
-      }, 500);
 
-      return () => clearTimeout(timeout);
+        const newVisitTime = Date.now();
+
+        localStorage.setItem(
+          "hasVisited",
+          JSON.stringify({ visited: true, visitedTime: newVisitTime })
+        );
+
+        console.log("new visit time set as:", newVisitTime);
+      }, 500);
+      return () => clearTimeout(timeoutId);
     }
   }, [isLoading]);
 
@@ -73,7 +106,7 @@ export default function HomePage() {
           modelLoaded={modelLoaded}
         />
       )}
-      {!loadVisible && (
+      {!loadVisible && pageVisible && (
         <main className={`flex flex-col h-[100%] w-[100%]`}>
           <div
             className={`relative z-10 flex flex-row h-[100%] justify-between}`}
