@@ -1,6 +1,6 @@
 import { DndContext } from "@dnd-kit/core";
 import React, { ReactNode, createContext, useContext, useState } from "react";
-import Disk from "../middle/Footer/Widgets/DiskContainer/Disk";
+import Disk from "../middle/OldFooter/Widgets/DiskContainer/Disk";
 import { diskData } from "../data/diskData";
 
 type DragContextType = {

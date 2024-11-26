@@ -60,7 +60,7 @@ const TopNavbar = () => {
 
   return (
     <div
-      className={`select-none w-[100%] h-[2.8em] pt-[0.1em] justify-between flex items-center px-[2em] text-[1rem] fixed top-0 backgroundblur-25 z-[200]`}
+      className={`select-none w-[100%] h-[2.8em] pt-[0.1em] justify-between flex items-center px-[2em] text-[1rem] fixed top-0 backgroundblur-25 z-[20]`}
       style={{ borderBottom: "1px solid rgba(255, 255, 255, 0.15)" }}
     >
       <div className="gap-x-[1em] flex items-center">

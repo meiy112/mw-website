@@ -62,7 +62,7 @@ export default function NavBar() {
   ];
 
   return (
-    <div className="sticky top-[4em] flex z-[100]" id="navbar">
+    <div className="sticky top-[4em] flex z-[25]" id="navbar">
       <div className={`${s.navContainer}`}>
         {buttonData.map((button, index) => (
           <div key={index} className="h-[3.5em] flex flex-col justify-center">
