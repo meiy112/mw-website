@@ -5,8 +5,8 @@ import Drawings from "./pages/Drawings";
 import { usePageContext } from "../context/PageProvider";
 import { AnimatePresence } from "framer-motion";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import Footer from "./Footer/Footer";
-import OldFooter from "./Footer/OldFooter";
+import Footer from "./OldFooter/Footer";
+import OldFooter from "./OldFooter/OldFooter";
 import About from "./pages/About";
 import { useTheme } from "@mui/material";
 

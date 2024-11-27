@@ -108,9 +108,7 @@ export default function HomePage() {
       )}
       {!loadVisible && pageVisible && (
         <main className={`flex flex-col h-[100%] w-[100%]`}>
-          <div
-            className={`relative z-10 flex flex-row h-[100%] justify-between}`}
-          >
+          <div className={`flex flex-row h-[100%] justify-between}`}>
             {/* Navbar + Logo */}
             <motion.div
               className="pt-[4.2em] left-container box-border h-[100%]"

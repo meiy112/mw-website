@@ -7,6 +7,7 @@ import { BrightnessProvider } from "./components/context/BrightnessContext";
 import HomePage from "./components/home/Home";
 import { darkTheme } from "./theme/colors";
 import TopNavbar from "./components/navbar/TopNavbar";
+import Footer from "./components/Footer/Footer";
 
 export default function Home() {
   const theme = darkTheme;
@@ -37,7 +38,10 @@ export default function Home() {
           <ThemeProvider theme={theme}>
             <main className={`flex flex-col h-[100%] w-[100%]`}>
               <TopNavbar />
-              <HomePage />
+              <div className="flex-grow">
+                <HomePage />
+              </div>
+              <Footer />
             </main>
           </ThemeProvider>
         </BrightnessProvider>
