@@ -30,11 +30,10 @@ export default function NavLink({
       onClick={onClick}
       className="navlink font-semibold mx-[0.1em] px-[0.5em] py-[0.2em] rounded-[5px]"
       style={{
-        color: theme.palette.primary.light,
         backgroundColor: "rgba(255, 255, 255, 0.1)",
       }}
     >
-      @{name}
+      <span className="pinkGradient">@{name}</span>
     </button>
   );
 }

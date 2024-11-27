@@ -13,6 +13,8 @@ import ModalBar from "./ModalBar";
 import { Thread } from "@/app/interfaces/Thread";
 import ThreadPost from "./ThreadPost";
 import ParallaxCard from "../ParallaxCard/ParallaxCard";
+import { Tag } from "../Tag";
+import VerifiedIcon from "@/app/assets/svg/verified";
 
 export default function ModalPost({
   isPinned,
@@ -84,7 +86,7 @@ function Profile({ date }: { date: string }) {
     <div className="flex flex-row gap-x-[1vw] w-[100%]">
       <img
         alt="pfp"
-        src="/pfp-small.png"
+        src="/pfp-small.jpeg"
         className="rounded-[50%] w-[50px] h-[50px]"
       />
       <div className="flex flex-col justify-between w-[100%]">
@@ -92,11 +94,7 @@ function Profile({ date }: { date: string }) {
           <div className="flex flex-row gap-x-[5px] items-center">
             <span className="text-[1rem] font-bold">MWeng</span>
             <Emoji unified="1f4ab" size={17} emojiStyle={EmojiStyle.APPLE} />
-            <img
-              alt="check"
-              src="verified-check.png"
-              className="size-[1.5rem]"
-            />
+            <VerifiedIcon />
           </div>
           <LuMoreHorizontal size={24} />
         </div>
@@ -123,7 +121,7 @@ function Title({ title, typeOf }: { title: string; typeOf: string[] }) {
   };
   return (
     <div className="flex flex-row items-center pt-[1.9vh] pb-[1vh] gap-x-[0.9vw]">
-      <h1 className="font-extrabold text-[1.6rem] tracking-[0.32px]">
+      <h1 className="nyHeader font-black text-[2.5rem] tracking-[0.32px]">
         {title}
       </h1>
       {typeOf.map((type, index) => getTag({ type, index }))}
@@ -131,22 +129,12 @@ function Title({ title, typeOf }: { title: string; typeOf: string[] }) {
   );
 }
 
-function Tag({ title, unicode }: { title: string; unicode: string }) {
-  const theme = useTheme();
-  return (
-    <div
-      className="rounded-[30rem] px-[0.91vw] py-[0.5vh] justify-center items-center flex flex-row gap-x-[0.2vw]"
-      style={{ backgroundColor: theme.palette.primary.main }}
-    >
-      <span className="font-bold text-[0.75rem]">{title}</span>
-      <Emoji unified={unicode} size={17} emojiStyle={EmojiStyle.APPLE} />
-    </div>
-  );
-}
-
 function Body({ body }: { body: React.ReactNode[] }) {
   return (
-    <ul className="font-light text-[1rem] tracking-[0.32px] flex flex-col items-start gap-y-[2.5vh] pb-[2vh] leading-[1.5em]">
+    <ul
+      className="font-light text-[1rem] tracking-[0.32px] flex flex-col items-start gap-y-[2.5vh] pb-[2vh] leading-[1.5em]"
+      style={{ textShadow: "0 0 0.5em rgba(255, 255, 255, 0.8)" }}
+    >
       {body.map((item, index) => (
         <li key={index}>{item}</li>
       ))}
@@ -163,7 +151,6 @@ function Picture({ image }: { image: string }) {
 }
 
 function Footer({ link, anchor }: { link: string; anchor: string }) {
-  const theme = useTheme();
   return (
     <div className="flex flex-row justify-between pt-[2vh] px-[0.1vw]">
       <div className="flex flex-row gap-x-[1.9vw]">
@@ -174,11 +161,7 @@ function Footer({ link, anchor }: { link: string; anchor: string }) {
       {link ? (
         <div className="flex flex-row gap-x-[0.5vw]">
           <LuLink size={24} className="opacity-[0.5]" />
-          <a
-            href={link}
-            className="text-[0.9rem]"
-            style={{ color: theme.palette.primary.light }}
-          >
+          <a href={link} className="text-[0.9rem] pinkGradient">
             {anchor}
           </a>
         </div>

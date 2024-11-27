@@ -12,6 +12,8 @@ import {
 } from "react-icons/lu";
 import ParallaxCard from "../misc/ParallaxCard/ParallaxCard";
 import s from "./Post.module.css";
+import { Tag } from "../misc/Tag";
+import VerifiedIcon from "@/app/assets/svg/verified";
 
 export default function Post({
   postKey,
@@ -79,13 +81,13 @@ function Pin() {
 function Profile({ date }: { date: string }) {
   return (
     <div className="flex flex-row gap-x-[1vw] w-[100%]">
-      <img src="/pfp-small.png" className="rounded-[50%] w-[50px] h-[50px]" />
+      <img src="/pfp-small.jpeg" className="rounded-[50%] w-[50px] h-[50px]" />
       <div className="flex flex-col justify-between w-[100%]">
         <div className="flex flex-row items-center justify-between w-[100%]">
           <div className="flex flex-row gap-x-[5px] items-center">
             <span className="text-[1rem] font-bold">MWeng</span>
             <Emoji unified="1f4ab" size={17} emojiStyle={EmojiStyle.APPLE} />
-            <Image width={24} height={24} alt="" src="/verified-check.png" />
+            <VerifiedIcon />
           </div>
           <LuMoreHorizontal size={24} />
         </div>
@@ -120,19 +122,6 @@ function Title({ title, typeOf }: { title: string; typeOf: string[] }) {
   );
 }
 
-function Tag({ title, unicode }: { title: string; unicode: string }) {
-  const theme = useTheme();
-  return (
-    <div
-      className="rounded-[30rem] px-[0.91vw] py-[0.5vh] justify-center items-center flex flex-row gap-x-[0.2vw]"
-      style={{ backgroundColor: theme.palette.primary.main }}
-    >
-      <span className="font-bold text-[0.75rem]">{title}</span>
-      <Emoji unified={unicode} size={17} emojiStyle={EmojiStyle.APPLE} />
-    </div>
-  );
-}
-
 function Body({ body }: { body: React.ReactNode[] }) {
   return (
     <ul
@@ -157,11 +146,7 @@ function Footer({ link, anchor }: { link: string; anchor: string }) {
       {link ? (
         <div className="flex flex-row gap-x-[0.5vw]">
           <LuLink size={24} className="opacity-[0.5]" />
-          <a
-            href={link}
-            className="text-[0.9rem]"
-            style={{ color: theme.palette.primary.light }}
-          >
+          <a href={link} className="text-[0.9rem] pinkGradient">
             {anchor}
           </a>
         </div>

@@ -97,7 +97,7 @@ export default function InteractiveSidebar({
 
   return (
     <motion.div
-      className={`interactive-sidebar h-[100%] rounded-r-[20px] z-50 fixed flex flex-col pb-[6vh] gap-y-[0.5em] ${
+      className={`interactive-sidebar pt-[4.2em] h-[100vh] rounded-r-[20px] z-19 sticky top-0 flex flex-col pb-[6vh] gap-y-[0.5em] ${
         isOpen
           ? "items-baseline w-[250px] glass-container-4 px-[20px]"
           : "items-center w-[60px]"

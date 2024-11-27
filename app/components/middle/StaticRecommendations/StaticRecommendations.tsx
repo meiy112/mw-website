@@ -48,6 +48,7 @@ export default function StaticRecommendations() {
           key={profile.at}
         />
       ))}
+      x
       <section className="absolute" style={{ filter: "blur(80px)" }}>
         <div
           className="absolute w-[60px] h-[100px] top-[10px] left-[-30px]"

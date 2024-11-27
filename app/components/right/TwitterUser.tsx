@@ -1,5 +1,6 @@
 import { useTheme } from "@mui/material/styles";
 import GooButton from "../middle/goo-button/GooButton";
+import VerifiedIcon from "@/app/assets/svg/verified";
 
 interface TwitterUserProps {
   pfp: string;
@@ -48,9 +49,7 @@ function Username({
         <h1 className="tracking-[0.4px] font-semibold text-[0.9rem] h-[1.5em]">
           {username}
         </h1>
-        {isVerified ? (
-          <img alt="user" src="/verified-check.png" className="size-[1.5em]" />
-        ) : null}
+        {isVerified ? <VerifiedIcon /> : null}
       </div>
       <span className="text-[0.85rem] opacity-[0.5] font-regular tracking-[0.4px]">
         {at}
