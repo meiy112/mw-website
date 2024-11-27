@@ -1,3 +1,4 @@
+import VerifiedIcon from "@/app/assets/svg/verified";
 import { useTheme } from "@mui/material/styles";
 
 interface TwitterUserProps {
@@ -47,9 +48,7 @@ function Username({
         <h1 className="tracking-[0.4px] font-bold text-[0.923rem] h-[1.5em]">
           {username}
         </h1>
-        {isVerified ? (
-          <img alt="user" src="/verified-check.png" className="size-[1.5em]" />
-        ) : null}
+        {isVerified ? <VerifiedIcon /> : null}
       </div>
       <span className="text-[0.86rem] opacity-50 font-regular tracking-[0.4px]">
         {at}

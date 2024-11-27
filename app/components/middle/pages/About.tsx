@@ -31,7 +31,7 @@ export default function About({
           sacrifice my sleep.
         </p>,
         <p key={1}>
-          <span className="opacity-[0.5]">Check out</span>
+          <span className="opacity-[0.5]">Check out </span>
           <NavLink name="Projects" tab="Projects" />{" "}
           <span className="opacity-[0.5]">
             to see what I&#39;ve been up to, or get in touch via{" "}

@@ -238,7 +238,7 @@ export default function ChatModal() {
     function Profile() {
       return (
         <div className="flex flex-col items-center">
-          <img src="/pfp-small.png" className="size-[45px] rounded-[50%]" />
+          <img src="/pfp-small.jpeg" className="size-[45px] rounded-[50%]" />
           <p className="font-bold text-[0.97rem]">Maggie Weng</p>
           <p className="font-light text-[0.8rem] opacity-[0.8]">
             maggie.weng112@gmail.com

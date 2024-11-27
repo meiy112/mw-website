@@ -111,7 +111,7 @@ export default function HomePage() {
           <div className={`flex flex-row h-[100%] justify-between}`}>
             {/* Navbar + Logo */}
             <motion.div
-              className="pt-[4.2em] left-container box-border h-[100%]"
+              className="left-container box-border h-[100%]"
               initial="hidden"
               animate="visible"
               variants={leftVariants}
