@@ -57,7 +57,7 @@ const LoadingScreen = ({
           transition={{ ease: "easeInOut", duration: 0.5 }}
           className={`z-20 fixed w-[100%] h-[100%] bg-[#07080A] overflow-hidden`}
         >
-          <div className="relative z-30 flex w-[100%] items-center justify-center h-[100%] pb-[2em] pointer-events-none">
+          <div className="relative z-20 flex w-[100%] items-center justify-center h-[100%] pb-[2em] pointer-events-none">
             <div className="flex flex-col items-center gap-y-[2em]">
               <span className="text-[1.75rem] font-light">
                 <motion.div

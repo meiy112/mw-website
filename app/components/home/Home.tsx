@@ -134,7 +134,7 @@ export default function HomePage() {
             </motion.div>
             {/* You Might Like */}
             <motion.div
-              className="pt-[4.2em] right-container"
+              className="right-container"
               initial="hidden"
               animate="visible"
               variants={rightVariants}
