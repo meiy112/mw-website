@@ -61,7 +61,6 @@ export default function PostsContent({
       <div id="navbar" />
       <NavBar />
       <AnimatePresence mode="wait">{renderPage()}</AnimatePresence>
-      {isSmallerScreen ? <OldFooter /> : <Footer />}
     </div>
   );
 }
