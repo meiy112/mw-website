@@ -65,7 +65,7 @@ export default function AnalogClock() {
 
   return (
     <div
-      className={`${styles.clock} relative flex items-center justify-center w-[150px] aspect-square rounded-[23px] glass-container`}
+      className={`${styles.clock} scale-[1.08] relative flex items-center justify-center w-[150px] aspect-square rounded-[23px]`}
     >
       <div
         id="clock"
