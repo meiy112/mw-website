@@ -19,7 +19,7 @@
 .header {
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.9) 40%,
+    rgba(255, 255, 255, 0.9) 50%,
     rgba(255, 255, 255, 0.5) 100%
   );
   -webkit-background-clip: text;
@@ -27,6 +27,12 @@
   -webkit-text-fill-color: transparent;
   font-weight: 600;
   font-size: 1.15rem;
+}
+
+.paragraph {
+  opacity: 50%;
+  font-weight: 300;
+  font-size: 0.88rem;
 }
 
 .gradient {
@@ -67,34 +73,11 @@
   z-index: 1;
 }
 
-.clock {
+.border {
   position: relative;
 }
 
-.clock::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 20px;
-  border-bottom: 0.5px solid transparent;
-  border-top: 2px solid transparent;
-  border-left: 1.5px solid transparent;
-  border-right: 1.5px solid transparent;
-  background: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.16),
-      rgba(255, 255, 255, 0.08)
-    )
-    border-box;
-  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-}
-
-.music {
-  position: relative;
-}
-
-.music::before {
+.border::before {
   content: "";
   position: absolute;
   inset: 0;

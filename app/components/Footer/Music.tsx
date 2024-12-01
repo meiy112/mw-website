@@ -4,11 +4,11 @@ import s from "./Footer.module.css";
 const Music = () => {
   return (
     <div
-      className={`flex flex-col gap-y-[1.5em] ${s.music} pt-[1.3em] pb-[2em] px-[2em]`}
+      className={`flex flex-col gap-y-[1.5em] ${s.border} pt-[1.3em] pb-[2em] px-[2em]`}
     >
       <div>
         <span className={s.header}>Some Music</span>
-        <p className="font-light opacity-50 text-[0.88rem]">
+        <p className={s.paragraph}>
           You didn&#39;t happen to find somewhere to drop disks, did you?
         </p>
       </div>

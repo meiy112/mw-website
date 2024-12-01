@@ -4,6 +4,7 @@ import Clock from "./Clock";
 import TradingCard from "./TradingCard";
 import Music from "./Music";
 import Setup from "./Setup";
+import CodingHours from "./CodingHours";
 
 const Footer = () => {
   return (
@@ -35,6 +36,7 @@ const Footer = () => {
           </div>
           <div className="flex flex-col items-end gap-y-[1.5em]">
             <Music />
+            <CodingHours />
           </div>
           <div>
             <Setup />
