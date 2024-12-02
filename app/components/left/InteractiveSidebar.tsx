@@ -19,7 +19,6 @@ import {
 } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import VerticalDisplayToggle from "./VerticalDisplayToggle";
 import { useTheme } from "@mui/material/styles";
 
 export default function InteractiveSidebar({

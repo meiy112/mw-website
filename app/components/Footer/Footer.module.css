@@ -83,7 +83,7 @@
   inset: 0;
   border-radius: 20px;
   border-bottom: 0.5px solid transparent;
-  border-top: 2px solid transparent;
+  border-top: 1.5px solid transparent;
   border-left: 1.5px solid transparent;
   border-right: 1.5px solid transparent;
   background: linear-gradient(
@@ -94,4 +94,27 @@
     border-box;
   mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
+}
+
+.glowingDot {
+  width: 0.45em;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 1em 0.05em rgba(255, 255, 255, 1);
+}
+
+.dailyTime {
+  font-family: "NY", serif;
+  font-style: italic;
+  font-weight: 800;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1) 30%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 3.5rem;
 }

@@ -90,8 +90,6 @@ export default function HomePage() {
           "hasVisited",
           JSON.stringify({ visited: true, visitedTime: newVisitTime })
         );
-
-        console.log("new visit time set as:", newVisitTime);
       }, 500);
       return () => clearTimeout(timeoutId);
     }

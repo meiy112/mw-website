@@ -26,10 +26,10 @@ const Footer = () => {
         />
       </div>
       <div
-        className={`z-[1] px-[3em] py-[2em] inline-flex flex-col relative my-[1.6em] rounded-[25px] gap-y-[2.1em] w-[88.5%]`}
+        className={`z-[1] px-[3em] py-[2em] inline-flex flex-col relative my-[1.6em] rounded-[25px] gap-y-[2.1em]`}
       >
         <div className={s.background} />
-        <div className="flex flex-row z-[2] justify-between">
+        <div className="flex flex-row z-[2] justify-center gap-[1.5em]">
           <div className="flex flex-col items-end gap-y-[1.5em]">
             <TradingCard />
             <Clock />
