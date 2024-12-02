@@ -7,11 +7,11 @@ const Setup = () => {
         <div className={`${s.header}`}>Setup</div>
         <div className={s.paragraph}>My coding inventory.</div>
       </div>
-      <div className="px-[1.6em] pt-[1.6em] pb-[1.9em]">
+      <div className="px-[1.6em] py-[1.7em]">
         <img
           src="/images/macbook-starlight.png"
           alt="Macbook-Starlight"
-          className="w-[11.5em] mb-[0.5em]"
+          className="w-[11.7em] mb-[0.5em]"
         />
         <div className="flex items-center gap-[0.8em]">
           <div className={s.glowingDot} />

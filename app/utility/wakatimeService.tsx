@@ -26,15 +26,18 @@ export const fetchCodingHours = async () => {
   }
 };
 
-export const fetchWakaTimeData = async (date: string) => {
+export const fetchDailyHours = async (date: string) => {
   const queryParams = new URLSearchParams({
     date,
   });
 
   try {
-    const response = await fetch(`/api/wakatime?${queryParams.toString()}`, {
-      method: "GET",
-    });
+    const response = await fetch(
+      `/api/fetchDuration?${queryParams.toString()}`,
+      {
+        method: "GET",
+      }
+    );
 
     if (!response.ok) {
       const errorData = await response.json();
@@ -50,19 +53,20 @@ export const fetchWakaTimeData = async (date: string) => {
 };
 
 export const fetchWeeklyCodingTime = async (): Promise<
-  { time: string; day: string }[]
+  { hours: number; minutes: number; day: string }[]
 > => {
-  const results: { time: string; day: string }[] = [];
+  const results: { hours: number; minutes: number; day: string }[] = [];
 
   for (let i = 0; i < 7; i++) {
     const date = format(subDays(new Date(), i), "yyyy-MM-dd");
 
     try {
-      const response = await fetchWakaTimeData(date);
+      const response = await fetchDailyHours(date);
 
       if (!response) {
         results.push({
-          time: "0 hours and 0 minutes",
+          hours: 0,
+          minutes: 0,
           day: formatDayOfWeek(subDays(new Date(), i)),
         });
         continue;
@@ -71,13 +75,15 @@ export const fetchWeeklyCodingTime = async (): Promise<
       const time = calculateDailyTime(response);
 
       results.push({
-        time,
+        hours: time.hours,
+        minutes: time.minutes,
         day: formatDayOfWeek(subDays(new Date(), i)),
       });
     } catch (error) {
       console.error(`Error fetching data for ${date}:`, error);
       results.push({
-        time: "Error fetching data",
+        hours: 0,
+        minutes: 0,
         day: formatDayOfWeek(subDays(new Date(), i)),
       });
     }

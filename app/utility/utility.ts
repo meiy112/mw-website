@@ -58,5 +58,8 @@ export function calculateDailyTime(response: { data: any[] }) {
   const hours = Math.floor(totalSeconds / 3600);
   const minutes = Math.ceil((totalSeconds % 3600) / 60);
 
-  return `${hours} hours and ${minutes} minutes`;
+  return {
+    hours: hours,
+    minutes: minutes,
+  };
 }
