@@ -1,0 +1,62 @@
+.center {
+  background-image: linear-gradient(to bottom, #052033, #00345c 20%, #589ca0);
+}
+
+.star {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background-color: #fff;
+}
+
+.shooting-star {
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(120deg) scale(0.8) translateY(50vh);
+}
+
+.ground {
+  width: 1px;
+  height: 2px;
+  border-radius: 100%;
+  background-color: #fff;
+  margin-top: -5px;
+  filter: blur(2px);
+}
+
+.ground-effect {
+  width: 1px;
+  height: 5px;
+  border-radius: 100%;
+  background-color: #fff;
+  filter: contrast(100);
+}
+
+.effect {
+  margin-top: -2px;
+  border-top: 100px solid #fff;
+  border-left: 0.5px solid transparent;
+  border-right: 0.5px solid transparent;
+  border-bottom: 0px solid transparent;
+  background-image: linear-gradient(to bottom, #fff, transparent);
+  filter: blur(1px);
+}
+
+@keyframes star-light {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.2;
+  }
+}
+
+@keyframes shooting-star {
+  from {
+    transform: translate(-50%, -50%) rotate(120deg) scale(0.8) translateY(50vh);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(120deg) scale(0.8) translateY(-90vh);
+  }
+}

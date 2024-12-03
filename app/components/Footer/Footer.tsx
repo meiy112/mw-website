@@ -5,6 +5,7 @@ import TradingCard from "./TradingCard";
 import Music from "./Music";
 import Setup from "./Setup";
 import CodingHours from "./CodingHours";
+import StarsBackground from "./StarsBackground";
 
 const Footer = () => {
   return (
@@ -25,6 +26,7 @@ const Footer = () => {
           className={`bg-[#9575CD] opacity-[0.8] absolute w-[21vw] h-[35vh] left-[28.5%] bottom-[12.5%] ${s.blur400}`}
         />
       </div>
+      <StarsBackground />
       <div
         className={`z-[1] px-[3em] py-[2em] inline-flex flex-col relative my-[1.6em] rounded-[25px] gap-y-[2.1em]`}
       >
