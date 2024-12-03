@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
-  const apiKey = process.env.NEXT_PUBLIC_WAKATIME_API_KEY;
+  const apiKey = process.env.WAKATIME_API_KEY;
 
   if (!apiKey) {
     return NextResponse.json(
       {
         error:
-          "API key is not defined. Please set the NEXT_PUBLIC_WAKATIME_API_KEY environment variable.",
+          "API key is not defined. Please set the WAKATIME_API_KEY environment variable.",
       },
       { status: 500 }
     );
