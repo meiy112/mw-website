@@ -24,7 +24,7 @@ const Setup = () => {
           <div className="text-[0.9rem] font-light">M3 Chip</div>
         </div>
       </div>
-      <div className={s.paragraph}>...that's basically it.</div>
+      <div className={s.paragraph}>...that&apos;s basically it.</div>
     </div>
   );
 };
