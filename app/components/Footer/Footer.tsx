@@ -10,7 +10,7 @@ import StarsBackground from "./StarsBackground";
 const Footer = () => {
   return (
     <div
-      className={`mt-[5em] w-[100%] relative flex justify-center items-end ${s.container}`}
+      className={`pt-[5em] w-[100%] relative flex justify-center items-end ${s.container}`}
     >
       <div className={`absolute inset-0 z-[0] ${s.gradient} overflow-clip`}>
         <div

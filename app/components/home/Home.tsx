@@ -36,7 +36,7 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
-    const EXPIRATION_TIME_MS = 5 * 60 * 1000;
+    const EXPIRATION_TIME_MS = 10 * 60 * 1000;
     const visitData = JSON.parse(localStorage.getItem("hasVisited") || "{}");
     const now = Date.now();
     if (
