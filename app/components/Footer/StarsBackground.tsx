@@ -11,7 +11,7 @@ const StarsBackground = () => {
     const screenWidth = window.innerWidth;
     const screenHeight = window.innerHeight * 1.5;
 
-    const numStars = Math.floor((screenWidth * screenHeight) / 1200);
+    const numStars = Math.floor((screenWidth * screenHeight) / 1500);
 
     const stars: HTMLDivElement[] = [];
     for (let i = 0; i < numStars; i++) {

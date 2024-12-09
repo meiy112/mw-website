@@ -22,10 +22,6 @@ const CodingHours = () => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    console.log("coding hours: ", codingHours);
-  }, [codingHours]);
-
   const chartData = codingHours
     .slice()
     .reverse()

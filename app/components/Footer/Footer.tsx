@@ -6,10 +6,59 @@ import Music from "./Music";
 import Setup from "./Setup";
 import CodingHours from "./CodingHours";
 import StarsBackground from "./StarsBackground";
+import { useSpring } from "react-spring";
+import { useEffect, useRef, useState } from "react";
 
 const Footer = () => {
+  const [center, setCenter] = useState({ x: 0, y: 0 });
+  const [bounds, setBounds] = useState({ width: 0, height: 0 });
+
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (cardRef.current) {
+      const cardBounds = cardRef.current.getBoundingClientRect();
+      setBounds({ width: cardBounds.width, height: cardBounds.height });
+    }
+  }, []);
+
+  const trans = (x: number, y: number, s: number) =>
+    `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
+
+  const calc = (x: number, y: number) => {
+    const BUFFER = 50;
+    return [
+      -(y - window.innerHeight / 2) / BUFFER,
+      (x - window.innerWidth / 2) / BUFFER,
+      1,
+    ];
+  };
+
+  const [props, set] = useSpring(() => ({
+    xys: [0, 0, 1],
+    config: { mass: 5, tension: 350, friction: 40 },
+  }));
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    set({ xys: calc(e.clientX, e.clientY) });
+
+    if (!cardRef.current) return;
+
+    const cardBounds = cardRef.current.getBoundingClientRect();
+    setBounds({ width: cardBounds.width, height: cardBounds.height });
+
+    const x = e.clientX - cardBounds.left;
+    const y = e.clientY - cardBounds.top;
+
+    setCenter({
+      x: (x / cardBounds.width) * 2 - 1,
+      y: (y / cardBounds.height) * 2 - 1,
+    });
+  };
+
   return (
     <div
+      onMouseMove={handleMouseMove}
       className={`pt-[5em] w-[100%] relative flex justify-center items-end ${s.container}`}
     >
       <div className={`absolute inset-0 z-[0] ${s.gradient} overflow-clip`}>
@@ -33,7 +82,12 @@ const Footer = () => {
         <div className={s.background} />
         <div className="flex flex-row z-[2] justify-center gap-[1.5em]">
           <div className="flex flex-col items-end gap-y-[1.5em]">
-            <TradingCard />
+            <TradingCard
+              style={{ transform: props.xys.to(trans) }}
+              center={center}
+              bounds={bounds}
+              cardRef={cardRef}
+            />
             <Clock />
           </div>
           <div className="flex flex-col items-end gap-y-[1.5em]">
