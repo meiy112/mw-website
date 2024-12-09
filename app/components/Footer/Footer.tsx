@@ -36,7 +36,7 @@ const Footer = () => {
 
   const [props, set] = useSpring(() => ({
     xys: [0, 0, 1],
-    config: { mass: 5, tension: 350, friction: 40 },
+    config: { tension: 10000, friction: 0, clamp: true },
   }));
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
