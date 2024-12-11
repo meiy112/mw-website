@@ -4,6 +4,7 @@
   transition-property: transform, box-shadow;
   transition-timing-function: ease-out;
   transform: rotate3d(0);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .card .glow {
@@ -13,5 +14,5 @@
   left: 0;
   top: 0;
 
-  background-image: radial-gradient(circle at 50% -20%, #ffffff16, #0000000f);
+  background-image: radial-gradient(circle at 0% -20%, #ffffff16, #0000000f);
 }

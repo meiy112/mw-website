@@ -28,7 +28,7 @@ const StarsBackground = () => {
       stars.push(starDiv);
     }
 
-    const numShootingStars = Math.floor(screenWidth / 300);
+    const numShootingStars = Math.floor(screenWidth / 250);
 
     const shootingStars: HTMLDivElement[] = [];
     for (let i = 0; i < numShootingStars; i++) {

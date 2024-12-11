@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import s from "./TradingCard.module.css";
 import { animated } from "react-spring";
-import { useRef, useState, useEffect, RefObject } from "react";
+import { RefObject } from "react";
 
 const TradingCard = ({
   style,
@@ -18,7 +18,7 @@ const TradingCard = ({
     <animated.div
       style={style}
       ref={cardRef}
-      className={`w-[15.8em] flex aspect-[253/347] bg-white rounded-[15px] p-[0.48em] overflow-hidden box-border tradingCard ${s.card}`}
+      className={`w-[15.8em] flex aspect-[253/347] rounded-[15px] p-[0.48em] overflow-hidden box-border tradingCard ${s.card}`}
     >
       <motion.div
         className={`${s.glow} absolute inset-0 pointer-events-none`}
@@ -37,6 +37,7 @@ const TradingCard = ({
         alt="me at cafe"
         className="object-cover object-top rounded-[8px]"
       />
+      <div className="card__shine"></div>
     </animated.div>
   );
 };

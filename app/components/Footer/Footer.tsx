@@ -22,11 +22,11 @@ const Footer = () => {
     }
   }, []);
 
-  const trans = (x: number, y: number, s: number) =>
-    `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
+  const trans = (x: number, y: number) =>
+    `perspective(600px) rotateX(${x}deg) rotateY(${y}deg)`;
 
   const calc = (x: number, y: number) => {
-    const BUFFER = 50;
+    const BUFFER = 30;
     return [
       -(y - window.innerHeight / 2) / BUFFER,
       (x - window.innerWidth / 2) / BUFFER,
@@ -35,8 +35,14 @@ const Footer = () => {
   };
 
   const [props, set] = useSpring(() => ({
-    xys: [0, 0, 1],
-    config: { tension: 10000, friction: 0, clamp: true },
+    xys: [0, 0],
+    config: {
+      tension: 170,
+      mass: 1,
+      friction: 26,
+      precision: 0.01,
+      velocity: 0,
+    },
   }));
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {

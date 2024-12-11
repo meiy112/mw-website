@@ -62,6 +62,12 @@
   }
 }
 
+.card__shine,
+.card__glare {
+  will-change: transform, opacity, background-image, background-size,
+    background-position, background-blend-mode, filter;
+}
+
 .card .card__shine,
 .card .card__shine:after {
   --space: 5%;
@@ -139,13 +145,7 @@
   z-index: 1;
 }
 
-/*
-
-  GLARE LAYERS
-
-*/
-
-.card .card__glare {
+.tradingCard .card__glare {
   background-image: radial-gradient(
     farthest-corner circle at var(--pointer-x) var(--pointer-y),
     hsl(0, 0%, 75%) 5%,
@@ -156,10 +156,10 @@
   background-size: 120% 150%;
   background-position: center center;
 
-  mix-blend-mode: hard-light;
+  mix-blend-mode: normal;
   filter: brightness(1) contrast(1.2) saturate(1);
 
-  opacity: calc(var(--card-opacity) * 0.75);
+  opacity: 0.75;
 }
 
 /*
