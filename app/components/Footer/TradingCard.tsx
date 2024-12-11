@@ -27,7 +27,7 @@ const TradingCard = ({
             circle at ${(center.x + 1) * (bounds.width / 2)}px ${
             (center.y + 1) * (bounds.height / 2)
           }px,
-            #ffffff55,
+            #ffffff26,
             #0000000f
           )`,
         }}
