@@ -11,6 +11,7 @@ import Footer from "./components/Footer/Footer";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 import { AnimatePresence } from "framer-motion";
+import { MusicPlayerProvider } from "./components/context/MusicPlayerContext";
 
 export default function Home() {
   const theme = darkTheme;
@@ -101,33 +102,35 @@ export default function Home() {
   }, [isLoading]);
 
   return (
-    <DragProvider>
-      <PageProvider>
-        <BrightnessProvider>
-          <ThemeProvider theme={theme}>
-            <main className={`flex flex-col h-[100%] w-[100%]`}>
-              <TopNavbar />
-              <AnimatePresence mode="wait">
-                {loadVisible && (
-                  <LoadingScreen
-                    setIsLoading={setIsLoading}
-                    isLoading={isLoading}
-                    modelLoaded={modelLoaded}
-                  />
-                )}
-                {!loadVisible && pageVisible && (
-                  <>
-                    <div className="flex-grow">
-                      <HomePage />
-                    </div>
-                    <Footer />
-                  </>
-                )}
-              </AnimatePresence>
-            </main>
-          </ThemeProvider>
-        </BrightnessProvider>
-      </PageProvider>
-    </DragProvider>
+    <MusicPlayerProvider>
+      <DragProvider>
+        <PageProvider>
+          <BrightnessProvider>
+            <ThemeProvider theme={theme}>
+              <main className={`flex flex-col h-[100%] w-[100%]`}>
+                <TopNavbar />
+                <AnimatePresence mode="wait">
+                  {loadVisible && (
+                    <LoadingScreen
+                      setIsLoading={setIsLoading}
+                      isLoading={isLoading}
+                      modelLoaded={modelLoaded}
+                    />
+                  )}
+                  {!loadVisible && pageVisible && (
+                    <>
+                      <div className="flex-grow">
+                        <HomePage />
+                      </div>
+                      <Footer />
+                    </>
+                  )}
+                </AnimatePresence>
+              </main>
+            </ThemeProvider>
+          </BrightnessProvider>
+        </PageProvider>
+      </DragProvider>
+    </MusicPlayerProvider>
   );
 }

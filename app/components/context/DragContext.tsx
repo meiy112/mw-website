@@ -2,6 +2,7 @@ import { DndContext } from "@dnd-kit/core";
 import React, { ReactNode, createContext, useContext, useState } from "react";
 import Disk from "../middle/OldFooter/Widgets/DiskContainer/Disk";
 import { diskData } from "../data/diskData";
+import { useMusicPlayer } from "./MusicPlayerContext";
 
 type DragContextType = {
   parent: any;
@@ -22,6 +23,14 @@ interface DragProviderProps {
 }
 
 export function DragProvider({ children }: DragProviderProps) {
+  const musicContext = useMusicPlayer();
+
+  if (!musicContext) {
+    return null;
+  }
+
+  const { setShowPlayer } = musicContext;
+
   const [parent, setParent] = useState(null);
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [currentChildId, setCurrentChildId] = useState<string | null>(null);
@@ -50,6 +59,7 @@ export function DragProvider({ children }: DragProviderProps) {
     >
       <DndContext
         onDragStart={({ active }) => {
+          setShowPlayer(true);
           if (currentChildId === null || active.id === currentChildId) {
             setIsDragging(true);
           } else {
@@ -66,6 +76,7 @@ export function DragProvider({ children }: DragProviderProps) {
   function handleDragEnd({ active, over }: { active: any; over: any }) {
     setIsDragging(false);
     setIsDraggingOther(false);
+    setShowPlayer(false);
 
     if (over) {
       setCurrentChildId(active.id);

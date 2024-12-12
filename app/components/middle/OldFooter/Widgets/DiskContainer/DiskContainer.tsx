@@ -11,7 +11,7 @@ export default function DiskContainer() {
   const { currentChildId, draggables } = dragContext;
 
   return (
-    <div className="flex w-[100%] justify-between">
+    <div className={`flex w-[100%] justify-between`}>
       <div className={styles.diskBackground}>
         {currentChildId !== "draggable0" ? draggables[0] : null}
       </div>

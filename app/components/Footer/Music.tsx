@@ -1,3 +1,4 @@
+import { useMusicPlayer } from "../context/MusicPlayerContext";
 import DiskContainer from "../middle/OldFooter/Widgets/DiskContainer/DiskContainer";
 import s from "./Footer.module.css";
 

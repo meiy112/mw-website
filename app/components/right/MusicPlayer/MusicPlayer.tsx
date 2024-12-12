@@ -8,7 +8,6 @@ import { FiUpload } from "react-icons/fi";
 import getCurrentTitle from "./getCurrentTitle";
 import getCurrentAuthor from "./getCurrentAuthor";
 import { useEffect, useState } from "react";
-import { useBrightness } from "../../context/BrightnessContext";
 import { FaPlay } from "react-icons/fa6";
 
 let duckAudio: HTMLAudioElement | undefined;
@@ -29,16 +28,6 @@ export default function MusicPlayer() {
   const { isOver, setNodeRef } = useDroppable({
     id: "droppable",
   });
-
-  const brightnessContext = useBrightness();
-
-  if (!brightnessContext) {
-    throw new Error(
-      "BrightnessControl must be used within a BrightnessProvider"
-    );
-  }
-
-  const { brightness } = brightnessContext;
 
   const dragContext = useDragContext();
 
@@ -255,9 +244,10 @@ export default function MusicPlayer() {
   };
 
   return (
-    <div
+    <motion.div
+      layoutId="music-player"
       ref={setNodeRef}
-      className={`element0 flex-1 justify-between px-[12px] max-h-[90px] flex items-center relative recommendations rounded-[23px]`}
+      className={`element0 flex-1 justify-between px-[12px] max-h-[90px] flex items-center recommendations rounded-[23px] relative`}
     >
       <div className="h-[73%] flex flex-row gap-x-[12px]">
         {getCurrentChild()}
@@ -279,6 +269,6 @@ export default function MusicPlayer() {
       >
         {buttonChild}
       </button>
-    </div>
+    </motion.div>
   );
 }
