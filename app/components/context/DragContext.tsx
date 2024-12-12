@@ -29,7 +29,7 @@ export function DragProvider({ children }: DragProviderProps) {
     return null;
   }
 
-  const { setShowPlayer } = musicContext;
+  const { setShowPlayer, isFullyVisible, recalculateVisibility } = musicContext;
 
   const [parent, setParent] = useState(null);
   const [isDragging, setIsDragging] = useState<boolean>(false);
@@ -59,7 +59,10 @@ export function DragProvider({ children }: DragProviderProps) {
     >
       <DndContext
         onDragStart={({ active }) => {
-          setShowPlayer(true);
+          recalculateVisibility();
+          if (currentChildId === null || !isFullyVisible) {
+            setShowPlayer(true);
+          }
           if (currentChildId === null || active.id === currentChildId) {
             setIsDragging(true);
           } else {
