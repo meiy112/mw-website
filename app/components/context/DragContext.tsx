@@ -23,6 +23,11 @@ interface DragProviderProps {
 }
 
 export function DragProvider({ children }: DragProviderProps) {
+  const [parent, setParent] = useState(null);
+  const [isDragging, setIsDragging] = useState<boolean>(false);
+  const [currentChildId, setCurrentChildId] = useState<string | null>(null);
+  const [isDraggingOther, setIsDraggingOther] = useState(false);
+  const [dragEnd, toggleDragEnd] = useState(false);
   const musicContext = useMusicPlayer();
 
   if (!musicContext) {
@@ -30,12 +35,6 @@ export function DragProvider({ children }: DragProviderProps) {
   }
 
   const { setShowPlayer, isFullyVisible, recalculateVisibility } = musicContext;
-
-  const [parent, setParent] = useState(null);
-  const [isDragging, setIsDragging] = useState<boolean>(false);
-  const [currentChildId, setCurrentChildId] = useState<string | null>(null);
-  const [isDraggingOther, setIsDraggingOther] = useState(false);
-  const [dragEnd, toggleDragEnd] = useState(false);
 
   const draggables = [
     <Disk id="draggable0" item={diskData[0]} key={0} />,
