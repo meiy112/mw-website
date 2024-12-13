@@ -1,6 +1,7 @@
 import { useDraggable } from "@dnd-kit/core";
 import styles from "./DiskContainer.module.css";
 import { CSS } from "@dnd-kit/utilities";
+import { createPortal } from "react-dom";
 
 export default function Disk({
   item,
@@ -18,13 +19,13 @@ export default function Disk({
     zIndex: isDragging ? 100 : 10,
   };
 
-  return (
+  const DiskContent = (
     <div
       ref={setNodeRef}
       {...listeners}
       {...attributes}
       style={style}
-      className={`cursor-grab w-[67px] flex items-center justify-center relative aspect-square rounded-[50%] overflow-hidden`}
+      className={`select-none cursor-grab w-[67px] flex items-center justify-center relative aspect-square rounded-[50%] overflow-hidden`}
     >
       <img src={item.img} alt="disk" />
       <div
@@ -34,4 +35,6 @@ export default function Disk({
       <div className={`${styles.diskBorder}`}></div>
     </div>
   );
+
+  return DiskContent;
 }

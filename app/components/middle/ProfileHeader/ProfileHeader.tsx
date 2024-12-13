@@ -108,7 +108,7 @@ function BioHeader() {
   return (
     <div className="mb-[1em] mt-[0.5em] inline select-none pointer-events-none">
       <h2
-        className={`${s.smallHeader} ml-[0.55em] text-[1.55rem] font-normal black-gradient-text1 opacity-[0.5]`}
+        className={`${s.smallHeader} ml-[0.55em] text-[1.55rem] font-light black-gradient-text1 opacity-[0.5]`}
       >
         Hey, I&apos;m Maggie Weng. I love to...
       </h2>

@@ -1,0 +1,120 @@
+.container {
+  background: linear-gradient(
+    to bottom,
+    #07080a 0%,
+    #0b2539 40%,
+    #205170 65%,
+    #4f8d97 94%
+  );
+}
+
+.blur400 {
+  filter: blur(180px);
+}
+
+.blur600 {
+  filter: blur(300px);
+}
+
+.header {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+
+.paragraph {
+  opacity: 50%;
+  font-weight: 300;
+  font-size: 0.88rem;
+}
+
+.gradient {
+  mask-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.28) 25%,
+    rgba(0, 0, 0, 0.18) 100%
+  );
+  mask-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  border-radius: 30px;
+  z-index: 0;
+}
+
+.border {
+  position: relative;
+}
+
+.border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  border-bottom: 0.5px solid transparent;
+  border-top: 1.5px solid transparent;
+  border-left: 1.5px solid transparent;
+  border-right: 1.5px solid transparent;
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.16),
+      rgba(255, 255, 255, 0.08)
+    )
+    border-box;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+.glowingDot {
+  width: 0.45em;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 1em 0.05em rgba(255, 255, 255, 1);
+}
+
+.dailyTime {
+  font-family: "NY", serif;
+  font-style: italic;
+  font-weight: 800;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1) 30%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 3.5rem;
+}

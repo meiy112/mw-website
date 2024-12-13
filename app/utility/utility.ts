@@ -44,3 +44,22 @@ export function isValidEmail(email: string): boolean {
   // Test the email against the regex pattern
   return emailRegex.test(email);
 }
+
+export function calculateDailyTime(response: { data: any[] }) {
+  if (!response || !response.data || !Array.isArray(response.data)) {
+    throw new Error("Invalid response format");
+  }
+
+  const totalSeconds = response.data.reduce(
+    (sum, entry) => sum + (entry.duration || 0),
+    0
+  );
+
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.ceil((totalSeconds % 3600) / 60);
+
+  return {
+    hours: hours,
+    minutes: minutes,
+  };
+}

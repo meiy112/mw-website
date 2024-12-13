@@ -36,7 +36,7 @@ const profileData = [
 // Container with "You Might Like" + Github, Linkedin
 export default function Recommendations() {
   return (
-    <div className="overflow-hidden glass-container-2 recommendations flex flex-col rounded-[19px]">
+    <div className="overflow-hidden glass-container-2 recommendations flex flex-col rounded-[19px] max-w-[24em]">
       <Header />
       <Content />
     </div>

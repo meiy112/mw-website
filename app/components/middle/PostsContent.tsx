@@ -54,14 +54,15 @@ export default function PostsContent({
     <div
       className="w-[100%] h-[100%] relative"
       style={{
-        borderLeft: `1px solid ${theme.palette.divider}`,
-        borderRight: `1px solid ${theme.palette.divider}`,
+        borderLeft: `1px solid transparent`,
+        borderRight: `1px solid transparent`,
+        borderImage:
+          "linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 95%, rgba(255, 255, 255, 0)) 1",
       }}
     >
       <div id="navbar" />
       <NavBar />
       <AnimatePresence mode="wait">{renderPage()}</AnimatePresence>
-      {isSmallerScreen ? <OldFooter /> : <Footer />}
     </div>
   );
 }

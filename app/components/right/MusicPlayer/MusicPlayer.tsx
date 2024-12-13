@@ -7,9 +7,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { FiUpload } from "react-icons/fi";
 import getCurrentTitle from "./getCurrentTitle";
 import getCurrentAuthor from "./getCurrentAuthor";
-import { useEffect, useState } from "react";
-import { useBrightness } from "../../context/BrightnessContext";
+import { useEffect, useRef, useState } from "react";
 import { FaPlay } from "react-icons/fa6";
+import { useMusicPlayer } from "../../context/MusicPlayerContext";
 
 let duckAudio: HTMLAudioElement | undefined;
 let acnhAudio: HTMLAudioElement | undefined;
@@ -26,19 +26,19 @@ if (typeof window !== "undefined") {
 }
 
 export default function MusicPlayer() {
-  const { isOver, setNodeRef } = useDroppable({
-    id: "droppable",
-  });
+  const musicPlayerContext = useMusicPlayer();
 
-  const brightnessContext = useBrightness();
-
-  if (!brightnessContext) {
+  if (!musicPlayerContext) {
     throw new Error(
-      "BrightnessControl must be used within a BrightnessProvider"
+      "MusicPlayerContext must be used within a MusicPlayerProvider!"
     );
   }
 
-  const { brightness } = brightnessContext;
+  const { elementRef, showPlayer } = musicPlayerContext;
+
+  const { isOver, setNodeRef } = useDroppable({
+    id: "droppable",
+  });
 
   const dragContext = useDragContext();
 
@@ -142,7 +142,7 @@ export default function MusicPlayer() {
             >
               {draggables[0]}
             </div>
-            <div className="z-0 absolute flex justify-center items-center aspect-square h-[67px] rounded-[50%] bg-black"></div>
+            <div className="absolute flex justify-center items-center aspect-square h-[3em] rounded-[50%] bg-black"></div>
           </>
         );
       } else if (currentChildId === "draggable1") {
@@ -159,7 +159,7 @@ export default function MusicPlayer() {
             >
               {draggables[1]}
             </div>
-            <div className="z-0 absolute flex justify-center items-center aspect-square h-[67px] rounded-[50%] bg-black"></div>
+            <div className="z-0 absolute flex justify-center items-center aspect-square h-[4.1875em] rounded-[50%] bg-black"></div>
           </>
         );
       } else if (currentChildId === "draggable2") {
@@ -176,7 +176,7 @@ export default function MusicPlayer() {
             >
               {draggables[2]}
             </div>
-            <div className="z-0 absolute flex justify-center items-center aspect-square h-[67px] rounded-[50%] bg-black"></div>
+            <div className="z-0 absolute flex justify-center items-center aspect-square h-[4.1875em] rounded-[50%] bg-black"></div>
           </>
         );
       } else if (currentChildId === "draggable3") {
@@ -193,7 +193,7 @@ export default function MusicPlayer() {
             >
               {draggables[3]}
             </div>
-            <div className="z-0 absolute flex justify-center items-center aspect-square h-[67px] rounded-[50%] bg-black"></div>
+            <div className="z-0 absolute flex justify-center items-center aspect-square h-[4.1875em] rounded-[50%] bg-black"></div>
           </>
         );
       } else if (currentChildId === "draggable4") {
@@ -210,7 +210,7 @@ export default function MusicPlayer() {
             >
               {draggables[4]}
             </div>
-            <div className="z-0 absolute flex justify-center items-center aspect-square h-[67px] rounded-[50%] bg-black"></div>
+            <div className="z-0 absolute flex justify-center items-center aspect-square h-[4.1875em] rounded-[50%] bg-black"></div>
           </>
         );
       }
@@ -219,7 +219,7 @@ export default function MusicPlayer() {
         <div
           className={`${
             isOver ? styles.isOver : ""
-          } flex justify-center items-center aspect-square h-[100%] rounded-[50%] bg-black`}
+          } flex justify-center items-center aspect-square h-[4.1875em] rounded-[50%] bg-black`}
         >
           <AnimatePresence mode="wait">
             {isDragging ? (
@@ -255,13 +255,19 @@ export default function MusicPlayer() {
   };
 
   return (
-    <div
+    <motion.div
+      layoutId="music-player"
       ref={setNodeRef}
-      className={`element0 flex-1 justify-between px-[12px] max-h-[90px] flex items-center relative recommendations rounded-[23px]`}
+      className={`${
+        showPlayer && "fixed top-[8%] right-[2.4vw]"
+      } element0 w-[100%] justify-between px-[0.75em] py-[0.5em] flex items-center recommendations rounded-[23px]`}
     >
-      <div className="h-[73%] flex flex-row gap-x-[12px]">
+      <div
+        className="flex flex-row gap-x-[0.75em] items-center justify-center w-[100%]"
+        ref={elementRef}
+      >
         {getCurrentChild()}
-        <div className="pointer-events-none select-none h-[100%] py-[10px] flex flex-col justify-between opacity-[0.85]">
+        <div className="pointer-events-none select-none h-[100%] flex-1 flex flex-col justify-between opacity-[0.85]">
           {getCurrentTitle()}
           <div className="opacity-[0.4]">{getCurrentAuthor()}</div>
         </div>
@@ -279,6 +285,6 @@ export default function MusicPlayer() {
       >
         {buttonChild}
       </button>
-    </div>
+    </motion.div>
   );
 }
