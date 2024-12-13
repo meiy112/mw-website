@@ -67,7 +67,7 @@ const Footer = () => {
       onMouseMove={handleMouseMove}
       className={`pt-[5em] w-[100%] relative flex justify-center items-end ${s.container}`}
     >
-      <div className={`absolute inset-0 z-[0] ${s.gradient} overflow-clip`}>
+      <div className={`absolute inset-0 ${s.gradient} overflow-clip`}>
         <div
           className={`bg-[#0971A6] absolute w-[28.5vw] h-[43vh] left-[5.3%] bottom-[-13%] ${s.blur400}`}
         />
@@ -83,10 +83,10 @@ const Footer = () => {
       </div>
       <StarsBackground />
       <div
-        className={`z-[1] px-[3em] py-[2em] inline-flex flex-col relative my-[1.6em] rounded-[25px] gap-y-[2.1em]`}
+        className={`px-[3em] py-[2em] inline-flex flex-col relative my-[1.6em] rounded-[25px] gap-y-[2.1em]`}
       >
-        <div className={s.background} />
-        <div className="flex flex-row z-[2] justify-center gap-[1.5em]">
+        <div className={`${s.background}`} />
+        <div className="flex flex-row justify-center gap-[1.5em]">
           <div className="flex flex-col items-end gap-y-[1.5em]">
             <TradingCard
               style={{ transform: props.xys.to(trans) }}
