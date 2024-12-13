@@ -8,6 +8,7 @@ import CodingHours from "./CodingHours";
 import StarsBackground from "./StarsBackground";
 import { useSpring } from "react-spring";
 import { useEffect, useRef, useState } from "react";
+import { usePageContext } from "../context/PageProvider";
 
 const Footer = () => {
   const [center, setCenter] = useState({ x: 0, y: 0 });
@@ -61,6 +62,13 @@ const Footer = () => {
       y: (y / cardBounds.height) * 2 - 1,
     });
   };
+
+  const { currentPage } = usePageContext();
+  console.log("currentPage", currentPage);
+
+  if (currentPage === "Stack") {
+    return null;
+  }
 
   return (
     <div

@@ -1,11 +1,10 @@
 import { leftVariants, rightVariants, variants } from "@/app/page.anim";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import InteractiveSidebar from "../left/InteractiveSidebar";
 import Sidebar from "../left/Sidebar";
 import Right from "../right/right";
 import Main from "../middle/main";
-import MusicPlayer from "../right/MusicPlayer/MusicPlayer";
 import { useMusicPlayer } from "../context/MusicPlayerContext";
 
 export default function HomePage() {
@@ -16,8 +15,6 @@ export default function HomePage() {
       "MusicPlayerContext must be used within a MusicPlayerProvider!"
     );
   }
-
-  const { showPlayer } = musicPlayerContext;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
