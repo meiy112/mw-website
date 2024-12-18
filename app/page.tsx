@@ -80,7 +80,7 @@ export default function Home() {
   useEffect(() => {
     const loader = new GLTFLoader();
 
-    loader.load("/3d/avatar/24_10_05_06_53_13_179.gltf", () => {
+    loader.load("/3d/avatar/24_12_18_22_05_02_418.gltf", () => {
       setModelLoaded(true);
     });
   }, [setModelLoaded]);
