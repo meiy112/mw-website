@@ -8,7 +8,6 @@ import HomePage from "./components/home/Home";
 import { darkTheme } from "./theme/colors";
 import TopNavbar from "./components/navbar/TopNavbar";
 import Footer from "./components/Footer/Footer";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 import { AnimatePresence } from "framer-motion";
 import { MusicPlayerProvider } from "./components/context/MusicPlayerContext";
@@ -76,14 +75,6 @@ export default function Home() {
       document.body.style.overflow = "hidden";
     }
   }, [pageVisible, isLoading]);
-
-  useEffect(() => {
-    const loader = new GLTFLoader();
-
-    loader.load("/3d/avatar/24_12_22_00_32_03_609.gltf", () => {
-      setModelLoaded(true);
-    });
-  }, [setModelLoaded]);
 
   useEffect(() => {
     if (!isLoading) {
