@@ -3,7 +3,6 @@ import { Canvas } from "@react-three/fiber";
 import { Bounds, Environment, OrbitControls } from "@react-three/drei";
 import AvatarModel from "./AvatarModel";
 import s from "./ProfilePicture.module.css";
-import { Dispatch, SetStateAction } from "react";
 
 const ProfilePicture = ({}: {}) => {
   const theme = useTheme();

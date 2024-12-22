@@ -73,10 +73,11 @@ const LoadingBar: React.FC<RollingNumberProps> = ({
       { percentage: 24, delay: 500 },
       { percentage: 30, delay: 1000 },
       { percentage: 35, delay: 200 },
-      { percentage: 40, delay: 1500 },
+      { percentage: 40, delay: 1300 },
       { percentage: 68, delay: 800 },
       { percentage: 74, delay: 500 },
       { percentage: 88, delay: 1000 },
+      { percentage: 100, delay: 200 },
     ];
 
     let timeoutIds: NodeJS.Timeout[] = [];
@@ -94,20 +95,6 @@ const LoadingBar: React.FC<RollingNumberProps> = ({
         }, delay + steps.slice(0, index).reduce((acc, step) => acc + step.delay, 0));
         timeoutIds.push(timeoutId);
       });
-
-      const finalStepTimeout = setTimeout(
-        () => {
-          if (isModelLoaded && currentProgress < 100) {
-            currentProgress = 100;
-            setProgress((prevProgress) =>
-              Math.max(prevProgress, currentProgress)
-            );
-          }
-        },
-        steps.reduce((acc, step) => acc + step.delay, 0)
-      );
-
-      timeoutIds.push(finalStepTimeout);
     };
 
     executeSteps();
@@ -115,7 +102,7 @@ const LoadingBar: React.FC<RollingNumberProps> = ({
     return () => {
       timeoutIds.forEach((id) => clearTimeout(id));
     };
-  }, [isModelLoaded]);
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
