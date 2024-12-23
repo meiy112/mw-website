@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { FiUpload } from "react-icons/fi";
 import getCurrentTitle from "./getCurrentTitle";
 import getCurrentAuthor from "./getCurrentAuthor";
-import { useEffect, useRef, useState } from "react";
+import { ReactElement, useEffect, useRef, useState } from "react";
 import { FaPlay } from "react-icons/fa6";
 import { useMusicPlayer } from "../../context/MusicPlayerContext";
 
@@ -24,6 +24,33 @@ if (typeof window !== "undefined") {
   pianoAudio = new Audio("./audio/piano.mp3");
   pokemonAudio = new Audio("./audio/pokemon.mp3");
 }
+
+const DiskContainer = ({
+  isDragging,
+  isPlaying,
+  child,
+}: {
+  isDragging: boolean;
+  isPlaying: boolean;
+  child: ReactElement;
+}) => {
+  return (
+    <div className="bg-red-500">
+      <div
+        className={
+          isDragging
+            ? ""
+            : isPlaying
+            ? styles.rotate
+            : `${styles.rotate} ${styles.paused}`
+        }
+      >
+        {child}
+      </div>
+      <div className="z-0 absolute justify-center items-center aspect-square h-[3em] rounded-[50%] bg-red-300"></div>
+    </div>
+  );
+};
 
 export default function MusicPlayer() {
   const musicPlayerContext = useMusicPlayer();
@@ -130,7 +157,7 @@ export default function MusicPlayer() {
     if (parent === "droppable") {
       if (currentChildId === "draggable0") {
         return (
-          <>
+          <div className="aspect-square h-[4.1875em] rounded-[50%] bg-black">
             <div
               className={
                 isDragging
@@ -142,12 +169,11 @@ export default function MusicPlayer() {
             >
               {draggables[0]}
             </div>
-            <div className="absolute flex justify-center items-center aspect-square h-[3em] rounded-[50%] bg-black"></div>
-          </>
+          </div>
         );
       } else if (currentChildId === "draggable1") {
         return (
-          <>
+          <div className="aspect-square h-[4.1875em] rounded-[50%] bg-black">
             <div
               className={
                 isDragging
@@ -159,12 +185,11 @@ export default function MusicPlayer() {
             >
               {draggables[1]}
             </div>
-            <div className="z-0 absolute flex justify-center items-center aspect-square h-[4.1875em] rounded-[50%] bg-black"></div>
-          </>
+          </div>
         );
       } else if (currentChildId === "draggable2") {
         return (
-          <>
+          <div className="aspect-square h-[4.1875em] rounded-[50%] bg-black">
             <div
               className={
                 isDragging
@@ -176,12 +201,11 @@ export default function MusicPlayer() {
             >
               {draggables[2]}
             </div>
-            <div className="z-0 absolute flex justify-center items-center aspect-square h-[4.1875em] rounded-[50%] bg-black"></div>
-          </>
+          </div>
         );
       } else if (currentChildId === "draggable3") {
         return (
-          <>
+          <div className="aspect-square h-[4.1875em] rounded-[50%] bg-black">
             <div
               className={
                 isDragging
@@ -193,12 +217,11 @@ export default function MusicPlayer() {
             >
               {draggables[3]}
             </div>
-            <div className="z-0 absolute flex justify-center items-center aspect-square h-[4.1875em] rounded-[50%] bg-black"></div>
-          </>
+          </div>
         );
       } else if (currentChildId === "draggable4") {
         return (
-          <>
+          <div className="aspect-square h-[4.1875em] rounded-[50%] bg-black">
             <div
               className={
                 isDragging
@@ -210,8 +233,7 @@ export default function MusicPlayer() {
             >
               {draggables[4]}
             </div>
-            <div className="z-0 absolute flex justify-center items-center aspect-square h-[4.1875em] rounded-[50%] bg-black"></div>
-          </>
+          </div>
         );
       }
     } else {
