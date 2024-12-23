@@ -30,7 +30,7 @@
 }
 
 .rotate {
-  animation: rotateRecord 10s linear infinite; /* Adjust duration (10s) as needed */
+  animation: rotateRecord 10s linear infinite;
   z-index: 50;
 }
 
