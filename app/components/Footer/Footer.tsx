@@ -9,10 +9,12 @@ import StarsBackground from "./StarsBackground";
 import { useSpring } from "react-spring";
 import { useEffect, useRef, useState } from "react";
 import { usePageContext } from "../context/PageProvider";
+import { fetchLastUpdateTime } from "@/app/utility/githubService";
 
 const Footer = () => {
   const [center, setCenter] = useState({ x: 0, y: 0 });
   const [bounds, setBounds] = useState({ width: 0, height: 0 });
+  const [lastUpdatedDate, setLastUpdatedDate] = useState<string | null>(null);
 
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -21,6 +23,15 @@ const Footer = () => {
       const cardBounds = cardRef.current.getBoundingClientRect();
       setBounds({ width: cardBounds.width, height: cardBounds.height });
     }
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetchLastUpdateTime();
+      setLastUpdatedDate(res);
+    };
+
+    fetchData();
   }, []);
 
   const trans = (x: number, y: number) =>
@@ -121,7 +132,11 @@ const Footer = () => {
               Built with Next.js, TailwindCSS, Framer Motion, React Three Fiber,
               lots of caffeine, and even more love.
             </span>
-            {/* <span className="text-[0.8rem]">Last updated</span> */}
+            <span className="text-[0.8rem]">
+              {lastUpdatedDate === null
+                ? "Loading last update time..."
+                : "Last Updated by Maggie at " + lastUpdatedDate + " UTC"}
+            </span>
           </div>
         </div>
       </div>

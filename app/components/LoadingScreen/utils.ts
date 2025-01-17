@@ -52,6 +52,7 @@ export const imageFiles = [
   "/images/About/sailboat.png",
   "/images/About/sky.png",
   "/images/About/van.png",
+  "/images/me/gallery.png",
 ];
 
 export const fontFiles = [
