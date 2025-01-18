@@ -19,7 +19,7 @@ const CodingHours = () => {
       setCodingHours(res);
     };
 
-    fetchData();
+    // fetchData();
   }, []);
 
   const chartData = codingHours

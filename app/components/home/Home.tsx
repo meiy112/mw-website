@@ -38,7 +38,7 @@ export default function HomePage() {
 
   return (
     <main className={`flex flex-col h-[100%] w-[100%]`}>
-      <div className={`flex flex-row h-[100%] justify-between}`}>
+      <div className={`flex flex-row h-[100%] justify-center`}>
         {/* Navbar + Logo */}
         <motion.div
           className="left-container box-border h-[100%]"

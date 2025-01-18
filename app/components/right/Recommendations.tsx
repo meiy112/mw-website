@@ -36,7 +36,7 @@ const profileData = [
 // Container with "You Might Like" + Github, Linkedin
 export default function Recommendations() {
   return (
-    <div className="overflow-hidden glass-container-2 recommendations flex flex-col rounded-[19px] max-w-[24em]">
+    <div className="w-[100%] overflow-hidden glass-container-2 flex flex-col rounded-[19px]">
       <Header />
       <Content />
     </div>
@@ -56,7 +56,7 @@ function Header() {
 
   return (
     <div
-      className="rec-header px-[16px] rounded-t-[19px] h-[30px] flex flex-row justify-between items-center"
+      className="rec-header px-[1em] rounded-t-[19px] w-[100%] h-[30px] flex flex-row justify-between items-center"
       //      style={{
       //        background: `linear-gradient(
       //  to left,

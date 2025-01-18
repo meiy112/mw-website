@@ -98,7 +98,9 @@ export default function Home() {
         <PageProvider>
           <BrightnessProvider>
             <ThemeProvider theme={theme}>
-              <main className={`flex flex-col h-[100%] w-[100%]`}>
+              <main
+                className={`flex flex-col h-[100%] w-[100%] justify-between`}
+              >
                 <TopNavbar />
                 <AnimatePresence mode="wait">
                   {loadVisible && (

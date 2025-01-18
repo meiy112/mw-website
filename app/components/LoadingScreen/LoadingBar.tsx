@@ -73,7 +73,7 @@ const LoadingBar: React.FC<RollingNumberProps> = ({
       { percentage: 24, delay: 500 },
       { percentage: 30, delay: 1000 },
       { percentage: 35, delay: 200 },
-      { percentage: 40, delay: 1300 },
+      { percentage: 40, delay: 800 },
       { percentage: 68, delay: 800 },
       { percentage: 74, delay: 500 },
       { percentage: 88, delay: 1000 },

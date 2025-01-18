@@ -31,7 +31,7 @@ const Footer = () => {
       setLastUpdatedDate(res);
     };
 
-    fetchData();
+    // fetchData();
   }, []);
 
   const trans = (x: number, y: number) =>
