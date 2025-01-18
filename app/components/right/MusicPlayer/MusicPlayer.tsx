@@ -282,7 +282,7 @@ export default function MusicPlayer() {
       ref={setNodeRef}
       className={`${
         showPlayer && "fixed top-[8%] right-[2.4vw]"
-      } element0 w-[100%] justify-between px-[0.75em] py-[0.5em] flex items-center recommendations rounded-[23px]`}
+      } element0 w-[100%] justify-between px-[0.75em] py-[0.5em] flex items-center rounded-[23px]`}
     >
       <div
         className="flex flex-row gap-x-[0.75em] items-center justify-center w-[100%]"

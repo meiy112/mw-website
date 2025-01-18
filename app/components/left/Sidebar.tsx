@@ -90,7 +90,7 @@ export default function Sidebar({
 
 function UserAccount() {
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex w-[100%] items-center justify-between">
       <div className="flex gap-x-[1.05em] items-center select-none pointer-events-none">
         <div
           className="w-[49.6px] rounded-[50%] overflow-hidden aspect-square flex relative"
