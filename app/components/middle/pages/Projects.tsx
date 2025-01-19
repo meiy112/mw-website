@@ -3,8 +3,7 @@ import { LayoutGroup, AnimatePresence, motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import ModalPost from "../../misc/ModalPost/ModalPost";
 import { useTheme } from "@mui/material/styles";
-import { postContent } from "../../data/ProjectData";
-import { MaintenanceData } from "../../data/UnderMaintenance";
+import { ProjectContent } from "@/app/posts/projects/ProjectContent";
 
 export default function Projects() {
   const [modalIndex, setModalIndex] = useState<number | null>(null);
@@ -35,7 +34,7 @@ export default function Projects() {
       transition={{ duration: 0.3 }}
     >
       <LayoutGroup>
-        {postContent.map((post, index) => (
+        {ProjectContent.map((post, index) => (
           <Post
             key={"projects" + index}
             postKey={"projects" + index}
@@ -89,10 +88,10 @@ export default function Projects() {
             <ModalPost
               key={modalIndex}
               layoutId={`post-${"projects" + modalIndex}`}
-              {...postContent[modalIndex]}
+              {...ProjectContent[modalIndex]}
               onClick={closeModal}
-              {...(postContent[modalIndex].thread
-                ? { thread: postContent[modalIndex].thread }
+              {...(ProjectContent[modalIndex].thread
+                ? { thread: ProjectContent[modalIndex].thread }
                 : {})}
             />
           )}

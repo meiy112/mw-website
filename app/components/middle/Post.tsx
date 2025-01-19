@@ -38,32 +38,37 @@ export default function Post({
   image: string;
   link: string;
   anchor: string;
-  onClick: () => void;
+  onClick?: () => void;
   post: string;
   imageDescription?: string;
 }) {
   return (
     <motion.div
       onClick={onClick}
-      className="mb-[3vh] flex flex-col rounded-[20px] p-[2vw] hoverable"
+      className="mb-[3vh] flex flex-col rounded-[20px] p-[1em] hoverable"
       layoutId={`post-${postKey}`}
     >
       {isPinned ? <Pin /> : null}
-      <Profile date={date} />
-      <div className="px-[0.6vw]">
-        <Title title={title} typeOf={typeOf} />
-        <Body body={body} />
+      <div className="flex flex-row gap-x-[1.2em]">
+        <img
+          src="/pfp-small.jpeg"
+          className="rounded-[50%] w-[3em] h-[3em] gap-x-[0.5em]"
+        />
+        <div className="flex flex-col gap-y-[0.5em]">
+          <Header date={date} />
+          <Title title={title} typeOf={typeOf} />
+          <Body body={body} />
+          <div className="flex items-center justify-center">
+            <ParallaxCard post={post} />
+          </div>
+          {imageDescription ? (
+            <span className="my-[0.4rem] ml-[3%] opacity-[0.5] text-[0.7rem]">
+              {imageDescription}
+            </span>
+          ) : null}
+          <Footer link={link} anchor={anchor} />
+        </div>
       </div>
-      <div className="flex items-center justify-center">
-        <ParallaxCard post={post} />
-      </div>
-      {imageDescription ? (
-        <span className="my-[0.4rem] ml-[3%] opacity-[0.5] text-[0.7rem]">
-          {imageDescription}
-        </span>
-      ) : null}
-      {/*<Picture image={image}/>*/}
-      <Footer link={link} anchor={anchor} />
     </motion.div>
   );
 }
@@ -78,21 +83,20 @@ function Pin() {
   );
 }
 
-function Profile({ date }: { date: string }) {
+function Header({ date }: { date: string }) {
   return (
-    <div className="flex flex-row gap-x-[1vw] w-[100%]">
-      <img src="/pfp-small.jpeg" className="rounded-[50%] w-[50px] h-[50px]" />
-      <div className="flex flex-col justify-between w-[100%]">
-        <div className="flex flex-row items-center justify-between w-[100%]">
-          <div className="flex flex-row gap-x-[5px] items-center">
-            <span className="text-[1rem] font-bold">MWeng</span>
-            <Emoji unified="1f4ab" size={17} emojiStyle={EmojiStyle.APPLE} />
-            <VerifiedIcon />
-          </div>
-          <LuMoreHorizontal size={24} />
+    <div className="flex flex-row items-center justify-between w-[100%]">
+      <div className="flex flex-row gap-x-[0.5em] items-center">
+        <div className="flex flex-row gap-x-[0.3125em] items-center">
+          <span className="text-[1rem] font-medium">Maggie</span>
+          <Emoji unified="1f4ab" size={17} emojiStyle={EmojiStyle.APPLE} />
+          <VerifiedIcon />
         </div>
+        <div className="text-[0.9rem] opacity-[0.5]">@DuckLover112</div>
+        <div className="w-[0.3em] h-[0.3em] bg-white rounded-[0.9em] opacity-[0.5]" />
         <div className="text-[0.9rem] opacity-[0.5]">{date}</div>
       </div>
+      <LuMoreHorizontal size={24} />
     </div>
   );
 }
@@ -112,9 +116,10 @@ function Title({ title, typeOf }: { title: string; typeOf: string[] }) {
         return null;
     }
   };
+
   return (
-    <div className="flex flex-row items-center pt-[1.9vh] pb-[1vh] gap-x-[0.9vw]">
-      <h1 className="nyHeader font-black text-[2.5rem] tracking-[0.32px]">
+    <div className="flex flex-row items-center gap-x-[0.5em]">
+      <h1 className="nyHeader2 font-bold text-[2rem] tracking-[0.32px]">
         {title}&nbsp;
       </h1>
       {typeOf.map((type, index) => getTag({ type, index }))}
@@ -124,13 +129,13 @@ function Title({ title, typeOf }: { title: string; typeOf: string[] }) {
 
 function Body({ body }: { body: React.ReactNode[] }) {
   return (
-    <ul
-      className={`${s.body} font-light text-[1rem] tracking-[0.32px] flex flex-col items-start gap-y-[2.5vh] pb-[2vh] leading-[1.5em]`}
+    <div
+      className={`${s.body} font-light text-[1rem] tracking-[0.32px] flex flex-col items-start gap-y-[1em] pb-[0.5em] leading-[1.5em]`}
     >
       {body.map((item, index) => (
-        <li key={index}>{item}</li>
+        <div key={index}>{item}</div>
       ))}
-    </ul>
+    </div>
   );
 }
 
@@ -146,7 +151,10 @@ function Footer({ link, anchor }: { link: string; anchor: string }) {
       {link ? (
         <div className="flex flex-row gap-x-[0.5vw]">
           <LuLink size={24} className="opacity-[0.5]" />
-          <a href={link} className="text-[0.9rem] pinkGradient">
+          <a
+            href={link}
+            className="text-[1rem] --text-gradient-pink font-light"
+          >
             {anchor}
           </a>
         </div>

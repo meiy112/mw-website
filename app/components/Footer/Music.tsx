@@ -9,9 +9,7 @@ const Music = () => {
     >
       <div>
         <span className={s.header}>Some Music</span>
-        <p className={s.paragraph}>
-          You didn&#39;t happen to find somewhere to drop disks, did you?
-        </p>
+        <p className={s.paragraph}>They're drag and droppable, try it out!</p>
       </div>
       <DiskContainer />
     </div>
