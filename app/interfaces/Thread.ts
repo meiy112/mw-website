@@ -46,7 +46,7 @@ export interface PostData {
   body: React.ReactNode[];
   image: string;
   anchor: string;
-  link: string;
+  link?: string;
   thread?: Thread[];
   post: string;
   imageDescription?: string;

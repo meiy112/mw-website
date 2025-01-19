@@ -149,7 +149,7 @@ function BioDetails() {
       </div>
       <div className="flex items-center gap-x-[5px]">
         <LuLink className="size-[1.2rem] opacity-[50%]" />
-        <span className={`pinkGradient`}>maggie.weng112@gmail.com</span>
+        <span className={`--text-gradient-pink`}>maggie.weng112@gmail.com</span>
       </div>
     </div>
   );

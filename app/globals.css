@@ -100,7 +100,13 @@ body {
   text-shadow: 0 0 0.2em rgba(255, 255, 255, 0.5);
 }
 
-.pinkGradient {
+.nyHeader2 {
+  font-family: "NY", serif;
+  font-style: italic;
+  text-shadow: 0 0 0.2em rgba(255, 255, 255, 0.5);
+}
+
+.--text-gradient-pink {
   background: linear-gradient(to right, #92bfe9, #ffe0fe, #f2d3ca);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

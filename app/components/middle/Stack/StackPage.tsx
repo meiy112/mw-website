@@ -205,7 +205,7 @@ const StackPage = () => {
         >
           Tech Stack
         </span>
-        <span className="opacity-[0.5] pinkGradient">
+        <span className="opacity-[0.5] --text-gradient-pink">
           Yes, you can actually stack them.
         </span>
       </div>

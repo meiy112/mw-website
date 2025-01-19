@@ -1,14 +1,12 @@
 import NavBar from "./Navbar/NavBar";
-import Projects from "./pages/Projects";
-import Resume from "./pages/Resume";
-import Drawings from "./pages/Drawings";
 import { usePageContext } from "../context/PageProvider";
 import { AnimatePresence } from "framer-motion";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import Footer from "./OldFooter/Footer";
-import OldFooter from "./OldFooter/OldFooter";
-import About from "./pages/About";
 import { useTheme } from "@mui/material";
+import Page from "./Page";
+import { AboutContent } from "@/app/posts/about/AboutContent";
+import { ProjectContent } from "@/app/posts/projects/ProjectContent";
+import { MaintenanceData } from "../data/UnderMaintenance";
 
 export default function PostsContent({
   setIsModalOpen,
@@ -20,15 +18,15 @@ export default function PostsContent({
   const renderPage = () => {
     switch (currentPage) {
       case "About":
-        return <About setIsModalOpen={setIsModalOpen} />;
+        return <Page pageContent={AboutContent} pageName={currentPage} />;
       case "Projects":
-        return <Projects />;
+        return <Page pageContent={ProjectContent} pageName={currentPage} />;
       case "Feed":
-        return <Resume />;
+        return <Page pageContent={MaintenanceData} pageName={currentPage} />;
       case "Blog":
-        return <Drawings />;
+        return <Page pageContent={MaintenanceData} pageName={currentPage} />;
       default:
-        return <About setIsModalOpen={setIsModalOpen} />;
+        return <Page pageContent={AboutContent} pageName={currentPage} />;
     }
   };
 

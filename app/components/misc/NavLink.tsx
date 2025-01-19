@@ -33,7 +33,7 @@ export default function NavLink({
         backgroundColor: "rgba(255, 255, 255, 0.1)",
       }}
     >
-      <span className="pinkGradient">@{name}</span>
+      <span className="--text-gradient-pink">@{name}</span>
     </button>
   );
 }
