@@ -1,20 +1,8 @@
 import { useTheme } from "@mui/material/styles";
-import { Emoji, EmojiStyle } from "emoji-picker-react";
 import { motion } from "framer-motion";
-import {
-  LuPin,
-  LuHeart,
-  LuMessageCircle,
-  LuBarChart3,
-  LuLink,
-  LuMoreHorizontal,
-} from "react-icons/lu";
 import ModalBar from "./ModalBar";
 import { Thread } from "@/app/interfaces/Thread";
 import ThreadPost from "./ThreadPost";
-import ParallaxCard from "../ParallaxCard/ParallaxCard";
-import { Tag } from "../Tag";
-import VerifiedIcon from "@/app/assets/svg/verified";
 import Post from "../../middle/Post";
 
 export default function ModalPost({
@@ -37,7 +25,7 @@ export default function ModalPost({
   typeOf: string[];
   body: React.ReactNode[];
   image: string;
-  link: string;
+  link?: string;
   anchor: string;
   onClick: () => void;
   layoutId: string;

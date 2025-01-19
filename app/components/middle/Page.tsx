@@ -1,10 +1,16 @@
+import { PostData } from "@/app/interfaces/Thread";
 import { motion, LayoutGroup, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import ModalPost from "../../misc/ModalPost/ModalPost";
-import Post from "../Post";
-import { MaintenanceData } from "../../data/UnderMaintenance";
+import Post from "./Post";
+import ModalPost from "../misc/ModalPost/ModalPost";
 
-export default function Resume() {
+export default function Page({
+  pageContent,
+  pageName,
+}: {
+  pageContent: PostData[];
+  pageName: string;
+}) {
   const [modalIndex, setModalIndex] = useState<number | null>(null);
 
   const closeModal = () => {
@@ -32,10 +38,10 @@ export default function Resume() {
       transition={{ duration: 0.3 }}
     >
       <LayoutGroup>
-        {MaintenanceData.map((post, index) => (
+        {pageContent.map((post, index) => (
           <Post
-            key={"resume" + index}
-            postKey={"resume" + index}
+            key={pageName + index}
+            postKey={pageName + index}
             isPinned={post.isPinned}
             date={post.date}
             title={post.title}
@@ -84,12 +90,20 @@ export default function Resume() {
           {modalIndex !== null && (
             <ModalPost
               key={modalIndex}
-              layoutId={`post-${"resume" + modalIndex}`}
-              {...MaintenanceData[modalIndex]}
+              layoutId={`post-${pageName + modalIndex}`}
+              {...pageContent[modalIndex]}
               onClick={closeModal}
-              {...(MaintenanceData[modalIndex].thread
-                ? { thread: MaintenanceData[modalIndex].thread }
+              {...(pageContent[modalIndex].thread
+                ? { thread: pageContent[modalIndex].thread }
                 : {})}
+              isPinned={pageContent[modalIndex].isPinned}
+              date={pageContent[modalIndex].date}
+              title={pageContent[modalIndex].title}
+              typeOf={pageContent[modalIndex].typeOf}
+              body={pageContent[modalIndex].body}
+              image={pageContent[modalIndex].image}
+              anchor={pageContent[modalIndex].anchor}
+              link={pageContent[modalIndex].link}
             />
           )}
         </AnimatePresence>

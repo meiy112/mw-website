@@ -1,7 +1,7 @@
 import { PostData } from "@/app/interfaces/Thread";
 import "../posts.css";
 
-export const aboutContent: PostData[] = [
+export const AboutContent: PostData[] = [
   {
     isPinned: true,
     date: "January 18, 2025",
