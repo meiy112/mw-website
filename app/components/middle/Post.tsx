@@ -36,7 +36,7 @@ export default function Post({
   typeOf: string[];
   body: React.ReactNode[];
   image: string;
-  link: string;
+  link?: string;
   anchor: string;
   onClick?: () => void;
   post: string;
@@ -139,7 +139,7 @@ function Body({ body }: { body: React.ReactNode[] }) {
   );
 }
 
-function Footer({ link, anchor }: { link: string; anchor: string }) {
+function Footer({ link, anchor }: { link?: string; anchor: string }) {
   const theme = useTheme();
   return (
     <div className="flex flex-row justify-between pt-[2vh] px-[0.1vw]">

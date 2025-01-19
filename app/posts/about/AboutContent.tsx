@@ -36,7 +36,6 @@ export const aboutContent: PostData[] = [
     ],
     image: "/images/pinned-post.jpg",
     anchor: "wiki.com/Waiting_for_Godot",
-    link: "https://en.wikipedia.org/wiki/Waiting_for_Godot",
     post: "about",
     imageDescription: "Home sweet home",
   },
