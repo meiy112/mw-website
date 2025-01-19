@@ -29,9 +29,9 @@ export const aboutContent: PostData[] = [
       // </p>,
       <div key={2} className="--text-dim">
         I currently work as a Software Engineer Co-op at a fast growing startup,
-        where I'm doing high impact work, wearing different hats, and having a
-        blast programming 24/7! In my free time, I'm a coding tutor for a
-        non-profit that advocates for diversity in tech.
+        where I&apos;m doing high impact work, wearing different hats, and
+        having a blast programming 24/7! In my free time, I&apos;m a coding
+        tutor for a non-profit that advocates for diversity in tech.
       </div>,
     ],
     image: "/images/pinned-post.jpg",
