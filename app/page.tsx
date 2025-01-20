@@ -1,5 +1,5 @@
 "use client";
-import { ThemeProvider, useTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import React, { useEffect, useState } from "react";
 import { PageProvider } from "./components/context/PageProvider";
 import { DragProvider } from "./components/context/DragContext";
@@ -11,6 +11,7 @@ import Footer from "./components/Footer/Footer";
 import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 import { AnimatePresence } from "framer-motion";
 import { MusicPlayerProvider } from "./components/context/MusicPlayerContext";
+import Head from "next/head";
 
 export default function Home() {
   const theme = darkTheme;
@@ -98,6 +99,9 @@ export default function Home() {
         <PageProvider>
           <BrightnessProvider>
             <ThemeProvider theme={theme}>
+              <Head>
+                <link rel="icon" href="/favicon.ico" />
+              </Head>
               <main
                 className={`flex flex-col h-[100%] w-[100%] justify-between`}
               >
