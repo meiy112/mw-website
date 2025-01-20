@@ -40,15 +40,17 @@ export default function HomePage() {
     <main className={`flex flex-col h-[100%] w-[100%]`}>
       <div className={`flex flex-row h-[100%] justify-center`}>
         {/* Navbar + Logo */}
-        <motion.div
-          className="left-container box-border h-[100%]"
-          initial="hidden"
-          animate="visible"
-          variants={leftVariants}
-          layout
-        >
-          {!isSmallScreen ? <Sidebar setIsModalOpen={setIsModalOpen} /> : null}
-        </motion.div>
+        {!isSmallScreen ? (
+          <motion.div
+            className="left-container box-border h-[100%]"
+            initial="hidden"
+            animate="visible"
+            variants={leftVariants}
+            layout
+          >
+            <Sidebar setIsModalOpen={setIsModalOpen} />
+          </motion.div>
+        ) : null}
         {/* Main middle content */}
         <motion.div
           className="pt-[4.2em] main-container"
