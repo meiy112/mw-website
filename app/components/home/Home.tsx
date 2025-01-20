@@ -61,15 +61,17 @@ export default function HomePage() {
           <Main isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
         </motion.div>
         {/* You Might Like */}
-        <motion.div
-          className="right-container"
-          initial="hidden"
-          animate="visible"
-          variants={rightVariants}
-          layout
-        >
-          <Right />
-        </motion.div>
+        {!isSmallerScreen ? (
+          <motion.div
+            className="right-container"
+            initial="hidden"
+            animate="visible"
+            variants={rightVariants}
+            layout
+          >
+            <Right />
+          </motion.div>
+        ) : null}
       </div>
     </main>
   );
