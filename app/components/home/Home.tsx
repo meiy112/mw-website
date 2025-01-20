@@ -40,19 +40,17 @@ export default function HomePage() {
     <main className={`flex flex-col h-[100%] w-[100%]`}>
       <div className={`flex flex-row h-[100%] justify-center`}>
         {/* Navbar + Logo */}
-        <motion.div
-          className="left-container box-border h-[100%]"
-          initial="hidden"
-          animate="visible"
-          variants={leftVariants}
-          layout
-        >
-          {isSmallScreen ? (
-            <InteractiveSidebar setIsModalOpen={setIsModalOpen} />
-          ) : (
+        {!isSmallScreen ? (
+          <motion.div
+            className="left-container box-border h-[100%]"
+            initial="hidden"
+            animate="visible"
+            variants={leftVariants}
+            layout
+          >
             <Sidebar setIsModalOpen={setIsModalOpen} />
-          )}
-        </motion.div>
+          </motion.div>
+        ) : null}
         {/* Main middle content */}
         <motion.div
           className="pt-[4.2em] main-container"
@@ -63,15 +61,17 @@ export default function HomePage() {
           <Main isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
         </motion.div>
         {/* You Might Like */}
-        <motion.div
-          className="right-container"
-          initial="hidden"
-          animate="visible"
-          variants={rightVariants}
-          layout
-        >
-          <Right />
-        </motion.div>
+        {!isSmallerScreen ? (
+          <motion.div
+            className="right-container"
+            initial="hidden"
+            animate="visible"
+            variants={rightVariants}
+            layout
+          >
+            <Right />
+          </motion.div>
+        ) : null}
       </div>
     </main>
   );

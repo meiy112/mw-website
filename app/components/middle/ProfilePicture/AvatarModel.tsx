@@ -1,6 +1,6 @@
-import { PivotControls, useGLTF } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Box3, Group, Mesh, Object3D, Vector3 } from "three";
 import { easing } from "maath";
 
@@ -22,7 +22,7 @@ const useMousePosition = () => {
   return mousePosition;
 };
 
-export default function AvatarModel({}: {}) {
+export default function AvatarModel() {
   const { nodes, materials } = useGLTF("/3d/avatar/24_12_22_00_32_03_609.gltf");
   const { x, y } = useMousePosition();
   const ref = useRef<Group>(null);

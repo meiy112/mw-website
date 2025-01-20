@@ -12,7 +12,7 @@ export const diskData = [
     artist: "Yan Haoxiang",
   },
   {
-    img: "./images/Disks/piano-disk.jpg",
+    img: "./images/Disks/piano-disk.png",
     id: "piano",
     name: "Umi no Mieru Machi",
     artist: "Kiki's Delivery Service",

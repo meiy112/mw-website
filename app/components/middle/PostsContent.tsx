@@ -58,7 +58,6 @@ export default function PostsContent({
           "linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 95%, rgba(255, 255, 255, 0)) 1",
       }}
     >
-      <div id="navbar" />
       <NavBar />
       <AnimatePresence mode="wait">{renderPage()}</AnimatePresence>
     </div>

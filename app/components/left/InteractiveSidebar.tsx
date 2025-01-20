@@ -6,17 +6,9 @@ import {
   LuUserCircle,
   LuPencilLine,
   LuAlignLeft,
-  LuSun,
-  LuMoonStar,
 } from "react-icons/lu";
 import { usePageContext } from "../context/PageProvider";
-import {
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  useEffect,
-  useState,
-} from "react";
+import { Dispatch, ReactNode, SetStateAction, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useTheme } from "@mui/material/styles";
