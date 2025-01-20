@@ -1,21 +1,11 @@
-import { useTheme } from "@mui/material/styles";
-import { useEffect, useRef, useState } from "react";
 import { usePageContext } from "../../context/PageProvider";
 import { motion } from "framer-motion";
 import s from "./NavBar.module.css";
-import {
-  IoHappy,
-  IoHappyOutline,
-  IoLibrary,
-  IoMegaphone,
-  IoNewspaper,
-  IoRocket,
-} from "react-icons/io5";
+import { IoLayers, IoLibrary, IoNewspaper, IoRocket } from "react-icons/io5";
+import { useState } from "react";
 
 export default function NavBar() {
   const { currentPage, setCurrentPage } = usePageContext();
-
-  const theme = useTheme();
 
   function scrollToNavbar() {
     const navbarElement = document.getElementById("navbar");
@@ -44,10 +34,10 @@ export default function NavBar() {
       },
     },
     {
-      icon: <IoMegaphone size={ICON_SIZE} />,
-      title: "Feed",
+      icon: <IoLayers size={ICON_SIZE} />,
+      title: "Stack",
       onClick: () => {
-        setCurrentPage("Feed");
+        setCurrentPage("Stack");
         scrollToNavbar();
       },
     },
@@ -62,22 +52,19 @@ export default function NavBar() {
   ];
 
   return (
-    <div className="sticky top-[4em] flex z-[18]" id="navbar">
+    <div className="relative flex z-[18] my-[1em]" id="navbar">
       <div className={`${s.navContainer}`}>
         {buttonData.map((button, index) => (
-          <div key={index} className="h-[3.5em] flex flex-col justify-center">
+          <div
+            key={index}
+            className="h-[3.5em] flex flex-col justify-center items-center relative"
+          >
             <NavButton
               title={button.title}
               icon={button.icon}
               onClick={button.onClick}
               currentPage={currentPage}
             />
-            {/* {currentPage == button.title && (
-              <motion.div
-                layoutId="main-navbar-indicator"
-                className="w-[50px] h-[2.5px] bg-white rounded-[1em]"
-              />
-            )} */}
           </div>
         ))}
       </div>
@@ -96,6 +83,16 @@ function NavButton({
   onClick: () => void;
   currentPage: string;
 }) {
+  const [hoveredButton, setHoveredButton] = useState<string | null>(null);
+
+  const handleMouseEnter = (title: string) => {
+    setHoveredButton(title);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredButton(null);
+  };
+
   return (
     <motion.button
       onClick={onClick}
@@ -106,8 +103,20 @@ function NavButton({
         bottom: currentPage === title ? "0.5em" : "0em",
       }}
       transition={{ duration: 0.2 }}
+      onMouseEnter={() => handleMouseEnter(title)}
+      onMouseLeave={handleMouseLeave}
     >
       {icon}
+      {hoveredButton === title && (
+        <motion.div
+          className="absolute text-[0.95rem] top-[-2.5em] element1 rounded-[0.5em] flex items-center justify-center px-[0.6em] py-[0.1em]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          {title}
+        </motion.div>
+      )}
     </motion.button>
   );
 }

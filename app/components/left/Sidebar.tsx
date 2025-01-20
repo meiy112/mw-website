@@ -41,13 +41,6 @@ export default function Sidebar({
       },
     },
     {
-      text: "Feed",
-      onClick: () => {
-        setCurrentPage("Feed");
-        scrollToNavbar();
-      },
-    },
-    {
       text: "Blog",
       onClick: () => {
         setCurrentPage("Blog");
