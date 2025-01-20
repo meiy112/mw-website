@@ -47,7 +47,7 @@ export default function HomePage() {
           variants={leftVariants}
           layout
         >
-          {isSmallScreen ?? <Sidebar setIsModalOpen={setIsModalOpen} />}
+          {!isSmallScreen ? <Sidebar setIsModalOpen={setIsModalOpen} /> : null}
         </motion.div>
         {/* Main middle content */}
         <motion.div
