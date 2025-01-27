@@ -39,7 +39,7 @@ export default function Post({
   link?: string;
   anchor: string;
   onClick?: () => void;
-  post: string;
+  post?: string;
   imageDescription?: string;
 }) {
   return (
