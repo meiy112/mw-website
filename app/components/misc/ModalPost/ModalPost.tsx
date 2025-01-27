@@ -24,13 +24,13 @@ export default function ModalPost({
   title: string;
   typeOf: string[];
   body: React.ReactNode[];
-  image: string;
+  image?: string;
   link?: string;
   anchor: string;
   onClick: () => void;
   layoutId: string;
   thread?: Thread[];
-  post: string;
+  post?: string;
 }) {
   const theme = useTheme();
   return (

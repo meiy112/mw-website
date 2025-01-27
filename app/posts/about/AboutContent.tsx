@@ -34,7 +34,6 @@ export const AboutContent: PostData[] = [
         tutor for a non-profit that advocates for diversity in tech.
       </div>,
     ],
-    image: "/images/pinned-post.jpg",
     anchor: "wiki.com/Waiting_for_Godot",
     post: "about",
     imageDescription: "Home sweet home",
