@@ -3,8 +3,8 @@ import NavLink from "@/app/components/misc/NavLink";
 import { PostData } from "@/app/interfaces/Thread";
 import "../posts.css";
 
-export const StudySharkPost: PostData = {
-  isPinned: true,
+export const StudyShark: PostData = {
+  isPinned: false,
   date: "2024",
   title: "Study Shark",
   typeOf: ["Mobile App"],
