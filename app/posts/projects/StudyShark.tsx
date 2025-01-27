@@ -23,7 +23,6 @@ export const StudyShark: PostData = {
       </span>
     </p>,
   ],
-  image: "/images/pinned-post.jpg",
   anchor: "github/study-shark",
   link: "https://github.com/meiy112/study-shark",
   post: "study shark",

@@ -9,7 +9,6 @@ export const MaintenanceData: PostData[] = [
     body: [
       "This page is still in development... check back later, I'm constantly updating this website!",
     ],
-    image: "/images/under-maintenance.jpg",
     anchor: "/maggieweng.dev",
     link: "https://www.maggieweng.dev/",
     post: "maintenance",

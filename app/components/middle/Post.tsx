@@ -35,7 +35,7 @@ export default function Post({
   title: string;
   typeOf: string[];
   body: React.ReactNode[];
-  image: string;
+  image?: string;
   link?: string;
   anchor: string;
   onClick?: () => void;
@@ -59,7 +59,14 @@ export default function Post({
           <Title title={title} typeOf={typeOf} />
           <Body body={body} />
           <div className="flex items-center justify-center">
-            <ParallaxCard post={post} />
+            {post && <ParallaxCard post={post} />}
+            {image && (
+              <img
+                src={image}
+                alt={image}
+                className="relative aspect-[898/549] w-[100%] rounded-[12px]"
+              />
+            )}
           </div>
           {imageDescription ? (
             <span className="my-[0.4rem] ml-[3%] opacity-[0.5] text-[0.7rem]">

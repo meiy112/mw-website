@@ -44,10 +44,10 @@ export interface PostData {
   title: string;
   typeOf: string[];
   body: React.ReactNode[];
-  image: string;
+  image?: string;
   anchor: string;
   link?: string;
   thread?: Thread[];
-  post: string;
+  post?: string;
   imageDescription?: string;
 }

@@ -16,7 +16,7 @@ export const Mangoose: PostData = {
         React + Vite, Redux, Node.js, MongoDB, Mongoose, Jest, and OpenAI{" "}
       </span>
       <span className="--text-dim">
-        To create interactive lessons from user-uploaded files, featuring
+        to create interactive lessons from user-uploaded files, featuring
         question styles like drag-and-drop fill-in-the-blanks and reorderable
         connect-the-dots components.
       </span>
@@ -25,5 +25,4 @@ export const Mangoose: PostData = {
   image: "/images/Projects/mangoose/mangoose.png",
   anchor: "github/mangoose",
   link: "https://github.com/meiy112/mangoose",
-  post: "mangoose",
 };
