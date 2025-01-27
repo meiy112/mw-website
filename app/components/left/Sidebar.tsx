@@ -88,7 +88,7 @@ function UserAccount() {
         <div
           className="w-[49.6px] rounded-[50%] overflow-hidden aspect-square flex relative"
           style={{
-            backgroundImage: "linear-gradient(to bottom, #2F667D, #589ca0 50%)",
+            background: "#8BA6D3",
           }}
         >
           <img
