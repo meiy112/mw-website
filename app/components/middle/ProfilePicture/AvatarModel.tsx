@@ -23,7 +23,10 @@ const useMousePosition = () => {
 };
 
 export default function AvatarModel() {
-  const { nodes, materials } = useGLTF("/3d/avatar/24_12_22_00_32_03_609.gltf");
+  const { nodes, materials } = useGLTF(
+    "/3d/avatar/24_12_22_00_32_03_609.gltf",
+    true
+  );
   const { x, y } = useMousePosition();
   const ref = useRef<Group>(null);
 

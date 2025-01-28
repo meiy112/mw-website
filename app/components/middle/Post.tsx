@@ -64,7 +64,7 @@ export default function Post({
               <img
                 src={image}
                 alt={image}
-                className="relative aspect-[898/549] w-[100%] rounded-[12px]"
+                className="relative w-[100%] rounded-[12px]"
               />
             )}
           </div>
@@ -117,6 +117,8 @@ function Title({ title, typeOf }: { title: string; typeOf: string[] }) {
         return <Tag title="Mobile App" unicode="1f4f1" key={index} />;
       case "Web App":
         return <Tag title="Web App" unicode="1f4bb" key={index} />;
+      case "Hackathon":
+        return <Tag title="Hackathon" unicode="1f4a1" key={index} />;
       case "WIP":
         return <Tag title="WIP" unicode="1f6a7" key={index} />;
       default:
