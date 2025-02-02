@@ -245,18 +245,6 @@ body {
   }
 }
 
-.left-container {
-  max-width: 350px;
-}
-
-.right-container {
-  max-width: 380px;
-}
-
-.main-container {
-  max-width: 800px;
-}
-
 @media (min-width: 1376px) {
   .right {
     padding-left: 2.4vw;
@@ -303,6 +291,7 @@ body {
   }
   .main-container {
     min-width: 630px;
+    max-width: 800px;
   }
 }
 
