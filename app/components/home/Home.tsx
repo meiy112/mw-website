@@ -42,7 +42,7 @@ export default function HomePage() {
         {/* Navbar + Logo */}
         {!isSmallScreen ? (
           <motion.div
-            className="left-container box-border h-[100%]"
+            className="h-[100%]"
             initial="hidden"
             animate="visible"
             variants={leftVariants}
@@ -53,7 +53,7 @@ export default function HomePage() {
         ) : null}
         {/* Main middle content */}
         <motion.div
-          className="pt-[4.2em] main-container"
+          className="pt-[4.2em] w-[52%]"
           initial="hidden"
           animate="visible"
           variants={variants}

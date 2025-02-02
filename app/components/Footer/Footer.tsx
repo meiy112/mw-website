@@ -127,12 +127,12 @@ const Footer = () => {
           <div className="flex items-center gap-x-[0.3em] text-[0.95rem]">
             <LuCopyright /> <span>2024 Maggie Weng.</span>
           </div>
-          <div className="opacity-[0.5] text-[0.88rem] font-light justify-between flex">
+          <div className="opacity-[0.6] text-[0.9rem] font-light justify-between flex">
             <span>
               Built with Next.js, TailwindCSS, Framer Motion, React Three Fiber,
               lots of caffeine, and even more love.
             </span>
-            <span className="text-[0.8rem]">
+            <span className="text-[0.85rem]">
               {lastUpdatedDate === null
                 ? "Loading last update time..."
                 : "Last Updated by Maggie at " + lastUpdatedDate + " UTC"}

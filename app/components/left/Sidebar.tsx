@@ -59,7 +59,7 @@ export default function Sidebar({
   const endDate = new Date("2025-05-02T17:00:00");
 
   return (
-    <div className="select-none sidebar pt-[4.2em] h-[100vh] sticky top-0 items-baseline flex flex-col pb-[2em] justify-between">
+    <div className="select-none mx-[2em] pt-[4.2em] h-[100vh] sticky top-0 items-baseline flex flex-col pb-[2em] justify-between">
       <div className="gap-y-[0.5em] flex flex-col">
         {buttonData.map((button, index) => (
           <div className="relative flex w-[12vw]" key={index}>

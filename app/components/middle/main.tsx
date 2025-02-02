@@ -39,7 +39,7 @@ export default function Main({
 
       {currentPage !== "Stack" && (
         <motion.div
-          className="h-[100%] w-[100%] flex flex-col"
+          className=" h-[100%] w-[100%] flex flex-col"
           initial={{ y: -10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -10, opacity: 0 }}
