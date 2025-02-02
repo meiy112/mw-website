@@ -27,6 +27,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   height: 100%;
+  width: 100%;
 }
 
 /* Dark element */
@@ -244,32 +245,12 @@ body {
   }
 }
 
-.left-container {
-  max-width: 350px;
-}
-
-.right-container {
-  max-width: 380px;
-}
-
 @media (min-width: 1376px) {
-  .left-container {
-    width: 20%;
-  }
-  .main-container {
-    width: 52%;
-  }
-  .right-container {
-    width: 28%;
+  .right {
+    padding-left: 2.4vw;
   }
   .side-button {
     padding-left: 1.75vw;
-  }
-  .sidebar {
-    margin-left: 2vw;
-  }
-  .right {
-    padding-left: 2.4vw;
   }
   .modal-post {
     width: 51%;
@@ -280,23 +261,8 @@ body {
 }
 
 @media (max-width: 1375px) {
-  .left-container {
-    width: 18%;
-  }
-  .main-container {
-    width: 51%;
-  }
-  .right-container {
-    width: 31%;
-  }
   .side-button {
     padding-left: 1.55vw;
-  }
-  .sidebar {
-    margin-left: 1.6vw;
-  }
-  .right {
-    padding-left: 2.4vw;
   }
   .modal-post {
     width: 51%;
@@ -306,30 +272,44 @@ body {
   }
 }
 
-/* Left container resizes */
+/* Left container disappears */
 @media (max-width: 1100px) {
-  .main-container {
-    width: 60%;
-  }
-  .right-container {
-    width: 34%;
-  }
   .right {
     padding-left: 2.4vw;
   }
   .modal-post {
     width: 65%;
   }
+  .footer-cards {
+    display: none;
+  }
+  .left-container {
+    display: none;
+  }
+  .twitter-profile {
+    gap: 2em;
+  }
+  .main-container {
+    min-width: 630px;
+    max-width: 800px;
+  }
 }
 
 /*Right container disappears*/
-@media (max-width: 962px) {
+@media (max-width: 975px) {
   .modal-post {
     width: 640px;
   }
   .main-container {
-    width: 100vw;
+    width: 100%;
     flex: 1;
+    overflow: hidden;
+  }
+  .right-container {
+    display: none;
+  }
+  .main-container {
+    min-width: 0px;
   }
 }
 

@@ -127,7 +127,7 @@ function Title({ title, typeOf }: { title: string; typeOf: string[] }) {
   };
 
   return (
-    <div className="flex flex-row items-center gap-x-[0.5em]">
+    <div className="flex flex-row items-center gap-x-[0.5em] flex-wrap">
       <h1 className="nyHeader2 font-bold text-[2rem] tracking-[0.32px]">
         {title}&nbsp;
       </h1>
