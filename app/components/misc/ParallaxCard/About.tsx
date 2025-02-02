@@ -22,7 +22,11 @@ export default function About() {
         globalFactorY={0.3}
         resetOnLeave
       >
-        <img src="/images/About/sky.png" alt="sky" className="absolute" />
+        <img
+          src="/images/About/sky.png"
+          alt="sky"
+          className="absolute w-[100%]"
+        />
         <MouseParallaxChild
           factorX={0.07}
           factorY={0}
