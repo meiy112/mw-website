@@ -41,6 +41,24 @@ export default function Home() {
 
   const [modelLoaded, setModelLoaded] = useState(false);
 
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [isSmallerScreen, setIsSmallerScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 1100);
+      setIsSmallerScreen(window.innerWidth <= 962);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   useEffect(() => {
     const EXPIRATION_TIME_MS = 10 * 60 * 1000;
     const visitData = JSON.parse(localStorage.getItem("hasVisited") || "{}");
@@ -117,7 +135,10 @@ export default function Home() {
                   {!loadVisible && pageVisible && (
                     <>
                       <div className="flex-grow">
-                        <HomePage />
+                        <HomePage
+                          isSmallScreen={isSmallScreen}
+                          isSmallerScreen={isSmallerScreen}
+                        />
                       </div>
                       <Footer />
                     </>

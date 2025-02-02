@@ -105,7 +105,7 @@ const Footer = () => {
         className={`px-[3em] py-[2em] inline-flex flex-col relative my-[1.6em] rounded-[25px] gap-y-[2.1em]`}
       >
         <div className={`${s.background}`} />
-        <div className="flex flex-row justify-center gap-[1.5em]">
+        <div className="footer-cards flex flex-row justify-center gap-[1.5em]">
           <div className="flex flex-col items-end gap-y-[1.5em]">
             <TradingCard
               style={{ transform: props.xys.to(trans) }}
@@ -127,7 +127,7 @@ const Footer = () => {
           <div className="flex items-center gap-x-[0.3em] text-[0.95rem]">
             <LuCopyright /> <span>2024 Maggie Weng.</span>
           </div>
-          <div className="opacity-[0.6] text-[0.9rem] font-light justify-between flex">
+          <div className="opacity-[0.6] text-[0.9rem] font-light justify-between flex flex-wrap">
             <span>
               Built with Next.js, TailwindCSS, Framer Motion, React Three Fiber,
               lots of caffeine, and even more love.

@@ -18,7 +18,7 @@ export default function TwitterUser({
   onClick,
 }: TwitterUserProps) {
   return (
-    <div className="flex-row flex items-center justify-between gap-x-[3em]">
+    <div className="flex-row flex items-center justify-between gap-x-[3em] twitter-profile">
       <div className="flex-row flex items-center gap-x-[1.05em]">
         <ProfilePicture pfp={pfp} />
         <Username username={username} at={at} isVerified={isVerified} />

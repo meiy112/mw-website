@@ -253,12 +253,16 @@ body {
   max-width: 380px;
 }
 
+.main-container {
+  max-width: 800px;
+}
+
 @media (min-width: 1376px) {
-  .side-button {
-    padding-left: 1.75vw;
-  }
   .right {
     padding-left: 2.4vw;
+  }
+  .side-button {
+    padding-left: 1.75vw;
   }
   .modal-post {
     width: 51%;
@@ -272,9 +276,6 @@ body {
   .side-button {
     padding-left: 1.55vw;
   }
-  .right {
-    padding-left: 2.4vw;
-  }
   .modal-post {
     width: 51%;
   }
@@ -283,7 +284,7 @@ body {
   }
 }
 
-/* Left container resizes */
+/* Left container disappears */
 @media (max-width: 1100px) {
   .right {
     padding-left: 2.4vw;
@@ -291,16 +292,35 @@ body {
   .modal-post {
     width: 65%;
   }
+  .footer-cards {
+    display: none;
+  }
+  .left-container {
+    display: none;
+  }
+  .twitter-profile {
+    gap: 2em;
+  }
+  .main-container {
+    min-width: 630px;
+  }
 }
 
 /*Right container disappears*/
-@media (max-width: 962px) {
+@media (max-width: 975px) {
   .modal-post {
     width: 640px;
   }
   .main-container {
-    width: 100vw;
+    width: 100%;
     flex: 1;
+    overflow: hidden;
+  }
+  .right-container {
+    display: none;
+  }
+  .main-container {
+    min-width: 0px;
   }
 }
 

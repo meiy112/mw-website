@@ -1,22 +1,20 @@
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useEffect, useRef, useState } from "react";
-import { Box3, Group, Mesh, Object3D, Vector3 } from "three";
+import { useEffect, useRef } from "react";
+import { Group, Mesh, Object3D, Vector3 } from "three";
 import { easing } from "maath";
 
 const useMousePosition = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 100, y: 100 });
+  const mousePosition = useRef({ x: 100, y: 100 });
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
-      setMousePosition({ x: event.clientX, y: event.clientY });
+      mousePosition.current.x = event.clientX;
+      mousePosition.current.y = event.clientY;
     };
 
     window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return mousePosition;
@@ -27,26 +25,25 @@ export default function AvatarModel() {
     "/3d/avatar/24_12_22_00_32_03_609.gltf",
     true
   );
-  const { x, y } = useMousePosition();
+
+  const mousePosition = useMousePosition();
   const ref = useRef<Group>(null);
+  const dummy = new Object3D(); // No need for useState
+  const target = new Vector3();
 
-  const box = new Box3();
-  const center = new Vector3();
-
-  useEffect(() => {
-    if (ref.current) {
-      box.setFromObject(ref.current);
-    }
-  }, [nodes, ref]);
-
-  const [dummy] = useState(() => new Object3D());
-  dummy.lookAt(0, 0, 2000);
   useFrame((_state, dt) => {
-    dummy.lookAt(x - 500, 0, y + 2000);
-    if (ref.current) {
-      ref.current.position.copy(center);
-      easing.dampQ(ref.current.quaternion, dummy.quaternion, 0.15, dt);
-    }
+    // Update only if necessary
+    if (!ref.current) return;
+
+    target.set(
+      mousePosition.current.x - 500,
+      0,
+      mousePosition.current.y + 2000
+    );
+    dummy.lookAt(target);
+
+    // Smooth rotation
+    easing.dampQ(ref.current.quaternion, dummy.quaternion, 0.15, dt);
   });
 
   return (
