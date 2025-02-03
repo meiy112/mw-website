@@ -93,9 +93,7 @@ const Tag = () => {
     <div
       className={`bg-[#242324] flex items-center justify-center py-[0.1em] px-[1em] rounded-[1em]`}
     >
-      <span className={`text-[0.88rem] font-bold ${s.tag}`}>
-        Full Stack Dev
-      </span>
+      <span className={`text-[0.88rem] font-bold ${s.tag}`}>Software Dev</span>
     </div>
   );
 };
