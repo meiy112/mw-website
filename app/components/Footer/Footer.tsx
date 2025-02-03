@@ -124,13 +124,13 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex flex-col z-[2] gap-y-[0.3em] mt-[0.5em]">
-          <div className="flex items-center gap-x-[0.3em] text-[0.95rem]">
+          <div className="flex items-center gap-x-[0.3em] text-[1rem]">
             <LuCopyright /> <span>2024 Maggie Weng.</span>
           </div>
-          <div className="opacity-[0.6] text-[0.9rem] font-light justify-between flex flex-wrap">
-            <span>
-              Built with Next.js, TailwindCSS, Framer Motion, React Three Fiber,
-              lots of caffeine, and even more love.
+          <div className="opacity-[0.65] text-[0.9rem] font-light items-end justify-between flex flex-wrap">
+            <span className="mr-[1em]">
+              Built with Next.js, TailwindCSS, Framer Motion, Three.js, lots of
+              caffeine, and even more love.
             </span>
             <span className="text-[0.85rem]">
               {lastUpdatedDate === null
