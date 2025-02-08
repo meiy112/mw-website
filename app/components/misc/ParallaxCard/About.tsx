@@ -1,13 +1,9 @@
-import { Inter, Raleway } from "next/font/google";
 import { LuMapPin } from "react-icons/lu";
 import {
   MouseParallaxContainer,
   MouseParallaxChild,
 } from "react-parallax-mouse";
 import { HoverMeComponent } from "./ParallaxCard";
-
-const inter = Inter({ subsets: ["latin"] });
-const raleway = Raleway({ subsets: ["latin"] });
 
 export default function About() {
   return (
@@ -30,13 +26,24 @@ export default function About() {
         <MouseParallaxChild
           factorX={0.07}
           factorY={0}
-          style={{ position: "absolute", top: "24%", left: "14%" }}
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: "10%",
+            bottom: 0,
+            width: "100%",
+            height: "100%",
+          }}
         >
           <div
-            className={`${inter.className} font-black text-white flex flex-col text-[4.3rem] about-text`}
+            className={`font-black text-white flex flex-col text-[4.3rem] about-text`}
           >
-            <span className="pl-[45%]">WORLD</span>
-            <span className="mt-[-16%]">HELLO</span>
+            <img
+              src="/images/About/hello_world.png"
+              alt="hello world"
+              className="absolute"
+            />
           </div>
         </MouseParallaxChild>
         <MouseParallaxChild
@@ -97,9 +104,9 @@ export default function About() {
         <div className="text-white w-[100%] absolute bottom-[3%] flex flex-col items-center">
           <div className="flex flex-row items-center gap-x-[4px]">
             <LuMapPin size={18} />
-            <span className="font-bold text-[1.2rem]">Vancouver,</span>
+            <span className="font-medium text-[1.2rem]">Vancouver,</span>
           </div>
-          <span className={`${raleway.className} font-light`}>
+          <span className={`font-light opacity-[0.65]`}>
             Beautiful British Columbia
           </span>
         </div>
