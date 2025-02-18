@@ -54,6 +54,7 @@ export default function ModalPost({
             anchor={anchor}
             link={link}
             post={post}
+            onClick={() => console.log("hello world")}
           />
         </motion.div>
         {thread &&

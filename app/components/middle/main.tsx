@@ -1,4 +1,3 @@
-import { useTheme } from "@mui/material/styles";
 import ProfileHeader from "./ProfileHeader/ProfileHeader";
 import PostsContent from "./PostsContent";
 import { Dispatch, SetStateAction } from "react";
@@ -13,7 +12,6 @@ export default function Main({
   isModalOpen: boolean;
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
 }) {
-  const theme = useTheme();
   const { currentPage } = usePageContext();
 
   return (
