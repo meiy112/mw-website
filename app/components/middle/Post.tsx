@@ -44,8 +44,7 @@ export default function Post({
 }) {
   return (
     <motion.div
-      onClick={onClick}
-      className="mb-[3vh] flex flex-col rounded-[20px] p-[1em] hoverable"
+      className="mb-[3vh] flex flex-col rounded-[20px] p-[1em] select-none"
       layoutId={`post-${postKey}`}
     >
       {isPinned ? <Pin /> : null}
@@ -58,7 +57,7 @@ export default function Post({
           <Header date={date} />
           <Title title={title} typeOf={typeOf} />
           <Body body={body} />
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center cursor-pointer">
             {post && <ParallaxCard post={post} />}
             {image && (
               <img

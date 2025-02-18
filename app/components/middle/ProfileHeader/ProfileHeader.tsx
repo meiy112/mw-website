@@ -1,6 +1,6 @@
 import { useTheme } from "@mui/material/styles";
 import { LuMapPin, LuCalendarDays, LuUsers2, LuLink } from "react-icons/lu";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import ContactModal from "../../misc/ContactModal/ContactModal";
 import Button from "../Framer-Button/Button";

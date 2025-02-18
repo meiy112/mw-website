@@ -1,11 +1,17 @@
-import useTheme from "@mui/material/styles/useTheme";
 import { Canvas } from "@react-three/fiber";
-import { Bounds, Environment, OrbitControls } from "@react-three/drei";
+import { Bounds, Environment } from "@react-three/drei";
 import AvatarModel from "./AvatarModel";
 import s from "./ProfilePicture.module.css";
+import { useEffect, useState } from "react";
 
 const ProfilePicture = ({}: {}) => {
-  const theme = useTheme();
+  const [loadProfile, setLoadProfile] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoadProfile(true);
+    }, 2000);
+  }, []);
 
   return (
     <div className="mt-[-90px] relative">
@@ -25,9 +31,11 @@ const ProfilePicture = ({}: {}) => {
               color={"#FF0000"}
               position={[5, 5, 5]}
             />
-            <Bounds fit clip observe margin={0.8}>
-              <AvatarModel />
-            </Bounds>
+            {loadProfile && (
+              <Bounds fit clip observe margin={0.8}>
+                <AvatarModel />
+              </Bounds>
+            )}
           </Canvas>
         </div>
       </div>
