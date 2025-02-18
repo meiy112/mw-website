@@ -108,7 +108,7 @@ function BioHeader() {
   return (
     <div className="mb-[1em] mt-[0.5em] inline select-none pointer-events-none">
       <h2
-        className={`${s.smallHeader} ml-[0.55em] text-[1.55rem] font-light black-gradient-text1 opacity-[0.5]`}
+        className={`${s.smallHeader} ml-[0.55em] opacity-[0.65] text-[1.55rem] font-light black-gradient-text1`}
       >
         Hey, I&apos;m Maggie Weng. I love to...
       </h2>
@@ -163,11 +163,11 @@ function BioFollowers() {
   return (
     <div className={`mt-[0.3em] flex items-center flex-row gap-x-[2em]`}>
       <div className={container}>
-        <span className={numberStyle}>8</span>
+        <span className={numberStyle}>9</span>
         <span className={wordStyle}>Languages</span>
       </div>
       <div className={container}>
-        <span className={numberStyle}>18</span>
+        <span className={numberStyle}>26</span>
         <span className={wordStyle}>Tools/Frameworks</span>
       </div>
     </div>

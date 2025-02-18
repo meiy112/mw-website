@@ -36,16 +36,13 @@ export default function Post({
   body: React.ReactNode[];
   image?: string;
   link?: string;
-  anchor: string;
-  onClick?: () => void;
+  anchor?: string;
+  onClick: (image: string, url?: string, anchor?: string) => void;
   post?: string;
   imageDescription?: string;
 }) {
   return (
-    <motion.div
-      className="mb-[3vh] flex flex-col rounded-[20px] p-[1em] select-none"
-      layoutId={`post-${postKey}`}
-    >
+    <motion.div className="mb-[3vh] flex flex-col rounded-[20px] p-[1em] select-none">
       {isPinned ? <Pin /> : null}
       <div className="flex flex-row gap-x-[1.2em]">
         <img
@@ -56,18 +53,20 @@ export default function Post({
           <Header date={date} />
           <Title title={title} typeOf={typeOf} />
           <Body body={body} />
-          <div
+          <motion.div
+            layoutId={`image-modal-${image}`}
             className={`${s.imageContainer} rounded-[12px] overflow-hidden flex items-center justify-center cursor-pointer`}
           >
             {post && <ParallaxCard post={post} />}
             {image && (
               <img
+                onClick={() => onClick(image, link, anchor)}
                 src={image}
                 alt={image}
                 className={`${s.image} relative w-[100%]`}
               />
             )}
-          </div>
+          </motion.div>
           {imageDescription ? (
             <span className="my-[0.4rem] ml-[3%] opacity-[0.5] text-[0.7rem]">
               {imageDescription}
@@ -148,7 +147,7 @@ function Body({ body }: { body: React.ReactNode[] }) {
   );
 }
 
-function Footer({ link, anchor }: { link?: string; anchor: string }) {
+function Footer({ link, anchor }: { link?: string; anchor?: string }) {
   const theme = useTheme();
   return (
     <div className="flex flex-row justify-between pt-[2vh] px-[0.1vw]">
@@ -158,7 +157,10 @@ function Footer({ link, anchor }: { link?: string; anchor: string }) {
         <LuBarChart3 size={24} />
       </div>
       {link ? (
-        <div className="flex flex-row gap-x-[0.5vw]">
+        <motion.div
+          layoutId={`image-modal-link-${link}`}
+          className="flex flex-row gap-x-[0.5vw]"
+        >
           <LuLink size={24} className="opacity-[0.5]" />
           <a
             href={link}
@@ -166,7 +168,7 @@ function Footer({ link, anchor }: { link?: string; anchor: string }) {
           >
             {anchor}
           </a>
-        </div>
+        </motion.div>
       ) : null}
     </div>
   );
