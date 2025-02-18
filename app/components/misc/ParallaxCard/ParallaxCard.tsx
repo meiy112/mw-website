@@ -46,7 +46,7 @@ export function HoverMeComponent() {
   return (
     <motion.div
       ref={ref}
-      className="gap-x-[5px] flex flex-row items-center font-bold text-[0.8rem] text-white glass-container-5 rounded-[60px] py-[2px] px-[10px]"
+      className="gap-x-[5px] flex flex-row items-center font-medium text-[0.8rem] text-white glass-container-5 rounded-[60px] py-[2px] px-[10px]"
       variants={{
         open: {
           clipPath: "inset(0% 0% 0% 0% round 60px)",

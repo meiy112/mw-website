@@ -1,7 +1,6 @@
 import { useTheme } from "@mui/material/styles";
 import { Emoji, EmojiStyle } from "emoji-picker-react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import {
   LuPin,
   LuHeart,
@@ -57,13 +56,15 @@ export default function Post({
           <Header date={date} />
           <Title title={title} typeOf={typeOf} />
           <Body body={body} />
-          <div className="flex items-center justify-center cursor-pointer">
+          <div
+            className={`${s.imageContainer} rounded-[12px] overflow-hidden flex items-center justify-center cursor-pointer`}
+          >
             {post && <ParallaxCard post={post} />}
             {image && (
               <img
                 src={image}
                 alt={image}
-                className="relative w-[100%] rounded-[12px]"
+                className={`${s.image} relative w-[100%]`}
               />
             )}
           </div>
