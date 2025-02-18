@@ -18,7 +18,7 @@ const TradingCard = ({
     <animated.div
       style={style}
       ref={cardRef}
-      className={`w-[15.8em] flex aspect-[253/347] rounded-[15px] p-[0.48em] overflow-hidden box-border tradingCard ${s.card}`}
+      className={`w-[15.8em] flex aspect-[253/347] glass-container-2 rounded-[15px] p-[0.48em] overflow-hidden box-border tradingCard ${s.card}`}
     >
       <motion.div
         className={`${s.glow} absolute inset-0 pointer-events-none`}

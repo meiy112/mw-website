@@ -4,7 +4,6 @@
   transition-property: transform, box-shadow;
   transition-timing-function: ease-out;
   transform: rotate3d(0);
-  background: rgba(255, 255, 255, 0.1);
 }
 
 .card .glow {
