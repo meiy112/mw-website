@@ -1,6 +1,7 @@
 import { useTheme } from "@mui/material/styles";
 import GooButton from "../middle/goo-button/GooButton";
 import VerifiedIcon from "@/app/assets/svg/verified";
+import ImageLoader from "../misc/ImageLoader";
 
 interface TwitterUserProps {
   pfp: string;
@@ -30,7 +31,14 @@ export default function TwitterUser({
 
 function ProfilePicture({ pfp }: { pfp: string }) {
   return (
-    <img src={pfp} alt="pfp" className="rounded-[50%] w-[49.6px] h-[49.6px]" />
+    <div className="rounded-[50%] overflow-hidden w-[49.6px] h-[49.6px]">
+      <ImageLoader
+        imageUrl={pfp}
+        blurhash="LEI5VqWB0tt2PqoJwuNHp0kCronk"
+        width={49.6}
+        height={49.6}
+      />
+    </div>
   );
 }
 

@@ -6,6 +6,6 @@
   transform: scale(1.05);
 }
 
-.imageContainer .image {
+.image {
   transition: all 0.3s;
 }

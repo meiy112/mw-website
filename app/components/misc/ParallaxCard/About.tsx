@@ -1,11 +1,27 @@
+import { useState, useEffect } from "react";
 import { LuMapPin } from "react-icons/lu";
 import {
   MouseParallaxContainer,
   MouseParallaxChild,
 } from "react-parallax-mouse";
 import { HoverMeComponent } from "./ParallaxCard";
+import { Blurhash } from "react-blurhash";
 
 export default function About() {
+  const [imagesLoaded, setImagesLoaded] = useState(0);
+  const [allImagesLoaded, setAllImagesLoaded] = useState(false);
+  const totalImages = 5;
+
+  const handleImageLoad = () => {
+    setImagesLoaded((prev) => prev + 1);
+  };
+
+  useEffect(() => {
+    if (imagesLoaded === totalImages) {
+      setAllImagesLoaded(true);
+    }
+  }, [imagesLoaded]);
+
   return (
     <div className="relative aspect-[898/549] w-[100%] rounded-[12px] flex justify-center items-center overflow-hidden">
       <MouseParallaxContainer
@@ -22,6 +38,7 @@ export default function About() {
           src="/images/About/sky.png"
           alt="sky"
           className="absolute w-[100%]"
+          onLoad={handleImageLoad}
         />
         <MouseParallaxChild
           factorX={0.07}
@@ -43,6 +60,7 @@ export default function About() {
               src="/images/About/hello_world.png"
               alt="hello world"
               className="absolute"
+              onLoad={handleImageLoad}
             />
           </div>
         </MouseParallaxChild>
@@ -55,7 +73,12 @@ export default function About() {
             left: "35.5%",
           }}
         >
-          <img src="/images/About/van.png" alt="van" className="scale-[2.25]" />
+          <img
+            src="/images/About/van.png"
+            alt="van"
+            className="scale-[2.25]"
+            onLoad={handleImageLoad}
+          />
         </MouseParallaxChild>
         <MouseParallaxChild
           factorX={-0.5}
@@ -72,6 +95,7 @@ export default function About() {
             src="/images/About/birds.png"
             alt="birds"
             className="absolute opacity-[0.8] size-[60%]"
+            onLoad={handleImageLoad}
           />
         </MouseParallaxChild>
         <MouseParallaxChild
@@ -79,8 +103,6 @@ export default function About() {
           factorY={0.5}
           style={{
             position: "absolute",
-            //  right: "-18vw",
-            //  bottom: "-38%",
             width: "100%",
             height: "100%",
           }}
@@ -89,18 +111,9 @@ export default function About() {
             src="/images/About/sailboat.png"
             alt="boat"
             className="scale-[100%] absolute left-[44.5%] top-[-17%]"
+            onLoad={handleImageLoad}
           />
         </MouseParallaxChild>
-        {/*<div className="h-[25%] w-[100%] absolute bottom-0 flex items-end">
-          <div className="w-[100%] absolute blur-8 h-[12.5%]"></div>
-          <div className="w-[100%] absolute blur-7 h-[25%]"></div>
-          <div className="w-[100%] absolute blur-6 h-[37.5%]"></div>
-          <div className="w-[100%] absolute blur-5 h-[50%]"></div>
-          <div className="w-[100%] absolute blur-4 h-[62.5%] bottom-0"></div>
-          <div className="w-[100%] absolute blur-3 h-[75%] bottom-0"></div>
-          <div className="w-[100%] absolute blur-2 h-[87.5%] bottom-0"></div>
-          <div className="w-[100%] absolute blur-1 h-[100%] bottom-0"></div>
-        </div>*/}
         <div className="text-white w-[100%] absolute bottom-[3%] flex flex-col items-center">
           <div className="flex flex-row items-center gap-x-[4px]">
             <LuMapPin size={18} />
@@ -114,6 +127,15 @@ export default function About() {
           <HoverMeComponent />
         </div>
       </MouseParallaxContainer>
+      {!allImagesLoaded && (
+        <div className="absolute w-full h-full">
+          <Blurhash
+            hash="LLN-7;0qs+xUB@s,RoWXIX$xodX9"
+            width={"100%"}
+            height={"100%"}
+          />
+        </div>
+      )}
     </div>
   );
 }

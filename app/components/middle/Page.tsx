@@ -72,6 +72,9 @@ export default function Page({
           link={post.link}
           onClick={onSetModalDataClick}
           post={post.post}
+          imageHash={post.imageHash}
+          imageWidth={post.imageWidth}
+          imageHeight={post.imageHeight}
         />
       ))}
 

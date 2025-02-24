@@ -25,4 +25,7 @@ export const GCodePathfinder: PostData = {
   ],
   image: "/images/Projects/gcode-pathfinder/gcode-pathfinder.png",
   anchor: "devpost/interview-ai",
+  imageHash: "L3SPeB%0^+~XXkWDRjVtRi$loJaK",
+  imageWidth: 5880,
+  imageHeight: 3192,
 };

@@ -31,16 +31,6 @@ export const generateSize = (): { height: number; width: number } => ({
 export const IMAGE_SIZE = 150;
 
 export const imageFiles = [
-  "/images/under-maintenance.jpg",
-  "/pfp-small.jpeg",
-  "/github-pfp.png",
-  "/dog-pfp.png",
-  "/banner.jpg",
-  "/linkedin-pfp.png",
-  "/images/Photo/photo-1.jpg",
-  "/images/Photo/photo-2.jpg",
-  "/images/Photo/photo-3.jpg",
-  "/images/Photo/photo-4.jpg",
   "/images/Disks/acnh-disk.jpg",
   "/images/Disks/duck-disk.jpg",
   "/images/Disks/noise.png",
@@ -52,10 +42,6 @@ export const imageFiles = [
   "/images/About/sailboat.png",
   "/images/About/sky.png",
   "/images/About/van.png",
-  "/images/me/gallery.png",
-  "/images/Projects/interviewai/interview-ai.jpeg",
-  "/images/Projects/mangoose/mangoose.jpeg",
-  "/images/Projects/gcode-pathfinder/gcode-pathfinder.png",
 ];
 
 export const fontFiles = [

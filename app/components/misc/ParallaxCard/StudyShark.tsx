@@ -1,16 +1,30 @@
 import { useInView, motion } from "framer-motion";
-import { Inter, Raleway } from "next/font/google";
+import { Inter } from "next/font/google";
 import { useState, useRef, useEffect } from "react";
-import { LuMapPin, LuBadgeAlert, LuCheck } from "react-icons/lu";
+import { Blurhash } from "react-blurhash";
+import { LuBadgeAlert, LuCheck } from "react-icons/lu";
 import {
   MouseParallaxContainer,
   MouseParallaxChild,
 } from "react-parallax-mouse";
 
 const inter = Inter({ subsets: ["latin"] });
-const raleway = Raleway({ subsets: ["latin"] });
 
 export default function StudyShark() {
+  const [imagesLoaded, setImagesLoaded] = useState(0);
+  const [allImagesLoaded, setAllImagesLoaded] = useState(false);
+  const totalImages = 8;
+
+  const handleImageLoad = () => {
+    setImagesLoaded((prev) => prev + 1);
+  };
+
+  useEffect(() => {
+    if (imagesLoaded === totalImages) {
+      setAllImagesLoaded(true);
+    }
+  }, [imagesLoaded]);
+
   return (
     <div
       style={{
@@ -42,6 +56,7 @@ export default function StudyShark() {
             src="/images/Projects/StudyShark/ss-stats.png"
             alt="stats"
             className="absolute scale-[0.35] bottom-[-3%] left-[32.2%]"
+            onLoad={handleImageLoad}
           />
         </MouseParallaxChild>
         <MouseParallaxChild
@@ -57,6 +72,7 @@ export default function StudyShark() {
             src="/images/Projects/StudyShark/ss-topic.png"
             alt="quiz"
             className="absolute scale-[0.22] bottom-[-22%] left-[10%]"
+            onLoad={handleImageLoad}
           />
         </MouseParallaxChild>
         <MouseParallaxChild
@@ -74,6 +90,7 @@ export default function StudyShark() {
             src="/images/Projects/StudyShark/ss-phone1.png"
             alt="phone"
             className="absolute scale-[0.55]"
+            onLoad={handleImageLoad}
           />
         </MouseParallaxChild>
         <MouseParallaxChild
@@ -91,6 +108,7 @@ export default function StudyShark() {
             src="/images/Projects/StudyShark/ss-quiz.png"
             alt="quiz"
             className="absolute scale-[0.25]"
+            onLoad={handleImageLoad}
           />
         </MouseParallaxChild>
         <MouseParallaxChild
@@ -106,6 +124,7 @@ export default function StudyShark() {
             src="/images/Projects/StudyShark/ss-phone2.png"
             alt="quiz"
             className="absolute scale-[0.55] top-[-11%] left-[6%]"
+            onLoad={handleImageLoad}
           />
         </MouseParallaxChild>
         <MouseParallaxChild
@@ -121,6 +140,7 @@ export default function StudyShark() {
             src="/images/Projects/StudyShark/ss-notes.png"
             alt="quiz"
             className="absolute scale-[0.25] bottom-[-37%] right-[1%]"
+            onLoad={handleImageLoad}
           />
         </MouseParallaxChild>
         <MouseParallaxChild
@@ -136,6 +156,7 @@ export default function StudyShark() {
             src="/images/Projects/StudyShark/ss-subject.png"
             alt="quiz"
             className="absolute scale-[0.2] bottom-[-11%] left-[30%]"
+            onLoad={handleImageLoad}
           />
         </MouseParallaxChild>
         <MouseParallaxChild
@@ -151,12 +172,22 @@ export default function StudyShark() {
             src="/images/Projects/StudyShark/ss-public.png"
             alt="quiz"
             className="absolute scale-[0.36] top-[-11%] right-[19%]"
+            onLoad={handleImageLoad}
           />
         </MouseParallaxChild>
         <div className="absolute top-3 left-3">
           <HoverMeComponent />
         </div>
       </MouseParallaxContainer>
+      {!allImagesLoaded && (
+        <div className="absolute w-full h-full">
+          <Blurhash
+            hash="LFQcVb%y5jm,8x_NJBr?4T_3OXrr"
+            width={"100%"}
+            height={"100%"}
+          />
+        </div>
+      )}
     </div>
   );
 }
