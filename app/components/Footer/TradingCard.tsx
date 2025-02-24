@@ -37,6 +37,8 @@ const TradingCard = ({
         <ImageLoader
           imageUrl="/images/me/gallery.png"
           blurhash="LDGbuHt6IUM}I[9Fj]?H-O?wt8nN"
+          width={3024}
+          height={4032}
         />
       </div>
       <div className="card__shine"></div>
