@@ -1,7 +1,7 @@
 import { PostData } from "@/app/interfaces/Thread";
 
 export const InterviewAI: PostData = {
-  isPinned: true,
+  isPinned: false,
   date: "2024",
   title: "Interview.ai",
   typeOf: ["Web App", "Hackathon"],
