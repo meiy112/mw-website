@@ -2,7 +2,6 @@ import NavBar from "./Navbar/NavBar";
 import { usePageContext } from "../context/PageProvider";
 import { AnimatePresence } from "framer-motion";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { useTheme } from "@mui/material";
 import Page from "./Page";
 import { AboutContent } from "@/app/posts/about/AboutContent";
 import { ProjectContent } from "@/app/posts/projects/ProjectContent";
@@ -18,35 +17,47 @@ export default function PostsContent({
   const renderPage = () => {
     switch (currentPage) {
       case "About":
-        return <Page pageContent={AboutContent} pageName={currentPage} />;
+        return (
+          <AnimatePresence mode="wait">
+            <Page
+              pageContent={AboutContent}
+              pageName={currentPage}
+              key="about"
+            />
+          </AnimatePresence>
+        );
       case "Projects":
-        return <Page pageContent={ProjectContent} pageName={currentPage} />;
-      case "Feed":
-        return <Page pageContent={MaintenanceData} pageName={currentPage} />;
+        return (
+          <AnimatePresence mode="wait">
+            <Page
+              pageContent={ProjectContent}
+              pageName={currentPage}
+              key="projects"
+            />
+          </AnimatePresence>
+        );
       case "Blog":
-        return <Page pageContent={MaintenanceData} pageName={currentPage} />;
+        return (
+          <AnimatePresence mode="wait">
+            <Page
+              pageContent={MaintenanceData}
+              pageName={currentPage}
+              key="blog"
+            />
+          </AnimatePresence>
+        );
       default:
-        return <Page pageContent={AboutContent} pageName={currentPage} />;
+        return (
+          <AnimatePresence mode="wait">
+            <Page
+              pageContent={AboutContent}
+              pageName={currentPage}
+              key="about"
+            />
+          </AnimatePresence>
+        );
     }
   };
-
-  const [isSmallerScreen, setIsSmallerScreen] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsSmallerScreen(window.innerWidth <= 962);
-    };
-
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  const theme = useTheme();
 
   return (
     <div
