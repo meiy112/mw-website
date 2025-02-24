@@ -55,6 +55,7 @@ export const imageFiles = [
   "/images/me/gallery.png",
   "/images/Projects/interviewai/interview-ai.jpeg",
   "/images/Projects/mangoose/mangoose.jpeg",
+  "/images/Projects/gcode-pathfinder/gcode-pathfinder.png",
 ];
 
 export const fontFiles = [

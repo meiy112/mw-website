@@ -19,7 +19,7 @@ export const GCodePathfinder: PostData = {
       <span className="--text-dim"> and deployed with</span>
       <span> Docker and HTTPS on AWS EC2</span>
       <span className="--text-dim">
-        , it's now used by real engineers to streamline their workflow.
+        , it&apos;s now used by real engineers to streamline their workflow.
       </span>
     </p>,
   ],
