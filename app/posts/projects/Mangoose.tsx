@@ -25,4 +25,7 @@ export const Mangoose: PostData = {
   image: "/images/Projects/mangoose/mangoose.jpeg",
   anchor: "github/mangoose",
   link: "https://github.com/meiy112/mangoose",
+  imageHash: "LERypj^~Rk.6~mM|o#M}M*t5E2Rk",
+  imageWidth: 6814,
+  imageHeight: 3840,
 };

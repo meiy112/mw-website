@@ -17,7 +17,7 @@ export const GCodePathfinder: PostData = {
       </span>
       <span> React + Vite, WebGL, Flask, MySQL</span>
       <span className="--text-dim"> and deployed with</span>
-      <span> Docker and HTTPS on AWS EC2</span>
+      <span> Docker, Nginx and HTTPS on AWS EC2</span>
       <span className="--text-dim">
         , it&apos;s now used by real engineers to streamline their workflow.
       </span>
@@ -25,4 +25,7 @@ export const GCodePathfinder: PostData = {
   ],
   image: "/images/Projects/gcode-pathfinder/gcode-pathfinder.png",
   anchor: "devpost/interview-ai",
+  imageHash: "L3SPeB%0^+~XXkWDRjVtRi$loJaK",
+  imageWidth: 5880,
+  imageHeight: 3192,
 };

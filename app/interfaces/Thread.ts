@@ -50,4 +50,7 @@ export interface PostData {
   thread?: Thread[];
   post?: string;
   imageDescription?: string;
+  imageHash?: string;
+  imageWidth?: number;
+  imageHeight?: number;
 }

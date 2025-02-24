@@ -28,4 +28,7 @@ export const InterviewAI: PostData = {
   image: "/images/Projects/interviewai/interview-ai.jpeg",
   anchor: "devpost/interview-ai",
   link: "https://devpost.com/software/interview-ai-2zy6e1",
+  imageHash: "LOP7IQI9.T%hF}x^s8RO%hjZM{WA",
+  imageWidth: 2800,
+  imageHeight: 2023,
 };

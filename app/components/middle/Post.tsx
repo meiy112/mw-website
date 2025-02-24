@@ -13,6 +13,7 @@ import ParallaxCard from "../misc/ParallaxCard/ParallaxCard";
 import s from "./Post.module.css";
 import { Tag } from "../misc/Tag";
 import VerifiedIcon from "@/app/assets/svg/verified";
+import ImageLoader from "../misc/ImageLoader";
 
 export default function Post({
   postKey,
@@ -27,6 +28,9 @@ export default function Post({
   onClick,
   post,
   imageDescription,
+  imageHash,
+  imageWidth,
+  imageHeight,
 }: {
   postKey: string;
   isPinned: boolean;
@@ -40,6 +44,9 @@ export default function Post({
   onClick: (image: string, url?: string, anchor?: string) => void;
   post?: string;
   imageDescription?: string;
+  imageHash?: string;
+  imageWidth?: number;
+  imageHeight?: number;
 }) {
   return (
     <motion.div className="mb-[3vh] flex flex-col rounded-[20px] p-[1em] select-none">
@@ -53,20 +60,26 @@ export default function Post({
           <Header date={date} />
           <Title title={title} typeOf={typeOf} />
           <Body body={body} />
-          <motion.div
-            layoutId={`image-modal-${image}`}
-            className={`${s.imageContainer} rounded-[12px] overflow-hidden flex items-center justify-center cursor-pointer`}
-          >
+          <div className={`flex items-center justify-center cursor-pointer`}>
             {post && <ParallaxCard post={post} />}
-            {image && (
-              <img
+            {image && imageHash && imageWidth && imageHeight && (
+              <motion.div
+                className={`${s.imageContainer} relative w-[100%] rounded-[12px] overflow-hidden`}
+                style={{ aspectRatio: imageWidth / imageHeight }}
                 onClick={() => onClick(image, link, anchor)}
-                src={image}
-                alt={image}
-                className={`${s.image} relative w-[100%]`}
-              />
+                layoutId={`image-modal-${image}`}
+              >
+                <div className={`${s.image} w-[100%]`}>
+                  <ImageLoader
+                    imageUrl={image}
+                    blurhash={imageHash}
+                    width={imageWidth}
+                    height={imageHeight}
+                  />
+                </div>
+              </motion.div>
             )}
-          </motion.div>
+          </div>
           {imageDescription ? (
             <span className="my-[0.4rem] ml-[3%] opacity-[0.5] text-[0.7rem]">
               {imageDescription}

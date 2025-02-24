@@ -1,6 +1,7 @@
 import { useTheme } from "@mui/material/styles";
 import GooButton from "../middle/goo-button/GooButton";
 import VerifiedIcon from "@/app/assets/svg/verified";
+import ImageLoader from "../misc/ImageLoader";
 
 interface TwitterUserProps {
   pfp: string;
@@ -18,19 +19,28 @@ export default function TwitterUser({
   onClick,
 }: TwitterUserProps) {
   return (
-    <div className="flex-row flex items-center justify-between gap-x-[3em] twitter-profile">
-      <div className="flex-row flex items-center gap-x-[1.05em]">
+    <div className="flex items-center justify-between gap-x-[2.2em] twitter-profile">
+      <div className="flex items-center gap-x-[1.05em]">
         <ProfilePicture pfp={pfp} />
         <Username username={username} at={at} isVerified={isVerified} />
       </div>
-      <GooButton title="Visit" onClick={onClick} />
+      <div className="mr-[0.6em]">
+        <GooButton title="Visit" onClick={onClick} />
+      </div>
     </div>
   );
 }
 
 function ProfilePicture({ pfp }: { pfp: string }) {
   return (
-    <img src={pfp} alt="pfp" className="rounded-[50%] w-[49.6px] h-[49.6px]" />
+    <div className="rounded-[50%] overflow-hidden w-[49.6px] h-[49.6px]">
+      <ImageLoader
+        imageUrl={pfp}
+        blurhash="LEI5VqWB0tt2PqoJwuNHp0kCronk"
+        width={49.6}
+        height={49.6}
+      />
+    </div>
   );
 }
 

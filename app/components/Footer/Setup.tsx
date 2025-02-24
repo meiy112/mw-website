@@ -12,6 +12,7 @@ const Setup = () => {
           src="/images/macbook-starlight.png"
           alt="Macbook-Starlight"
           className="w-[11.7em] mb-[0.5em]"
+          loading="lazy"
         />
         <div className="flex items-center gap-[0.8em]">
           <div className={s.glowingDot} />

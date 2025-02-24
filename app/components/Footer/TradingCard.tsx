@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import s from "./TradingCard.module.css";
 import { animated } from "react-spring";
 import { RefObject } from "react";
+import ImageLoader from "../misc/ImageLoader";
 
 const TradingCard = ({
   style,
@@ -32,11 +33,14 @@ const TradingCard = ({
           )`,
         }}
       />
-      <img
-        src="/images/me/gallery.png"
-        alt="me at cafe"
-        className="object-cover object-top rounded-[8px]"
-      />
+      <div className="object-cover object-top rounded-[8px] overflow-hidden">
+        <ImageLoader
+          imageUrl="/images/me/gallery.png"
+          blurhash="LDGbuHt6IUM}I[9Fj]?H-O?wt8nN"
+          width={3024}
+          height={4032}
+        />
+      </div>
       <div className="card__shine"></div>
     </animated.div>
   );
