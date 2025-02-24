@@ -17,7 +17,7 @@ export const GCodePathfinder: PostData = {
       </span>
       <span> React + Vite, WebGL, Flask, MySQL</span>
       <span className="--text-dim"> and deployed with</span>
-      <span> Docker and HTTPS on AWS EC2</span>
+      <span> Docker, Nginx and HTTPS on AWS EC2</span>
       <span className="--text-dim">
         , it&apos;s now used by real engineers to streamline their workflow.
       </span>
