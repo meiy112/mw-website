@@ -19,12 +19,14 @@ export default function TwitterUser({
   onClick,
 }: TwitterUserProps) {
   return (
-    <div className="flex-row flex items-center justify-between gap-x-[3em] twitter-profile">
-      <div className="flex-row flex items-center gap-x-[1.05em]">
+    <div className="flex items-center justify-between gap-x-[2.2em] twitter-profile">
+      <div className="flex items-center gap-x-[1.05em]">
         <ProfilePicture pfp={pfp} />
         <Username username={username} at={at} isVerified={isVerified} />
       </div>
-      <GooButton title="Visit" onClick={onClick} />
+      <div className="mr-[0.6em]">
+        <GooButton title="Visit" onClick={onClick} />
+      </div>
     </div>
   );
 }
