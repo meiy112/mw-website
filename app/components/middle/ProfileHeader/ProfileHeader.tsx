@@ -9,6 +9,7 @@ import Globe from "../Banner/Globe";
 import ProfilePicture from "../ProfilePicture/ProfilePicture";
 import s from "./ProfileHeader.module.css";
 import { ReactFitty } from "react-fitty";
+import { usePageContext } from "../../context/PageProvider";
 
 export default function ProfileHeader({
   isModalOpen,
@@ -157,16 +158,18 @@ function BioDetails() {
 
 function BioFollowers() {
   const numberStyle = "font-bold text-[1rem]";
-  const wordStyle = "text-[0.9rem] tracking-[0.7px] opacity-[0.5]";
-  const container = "flex items-center flex-row gap-x-[0.3em]";
+  const wordStyle = `${s.container} text-[0.9rem] tracking-[0.7px] opacity-[0.5]`;
+  const container = `flex items-center flex-row gap-x-[0.3em] cursor-pointer`;
+
+  const { setCurrentPage } = usePageContext();
 
   return (
     <div className={`mt-[0.3em] flex items-center flex-row gap-x-[2em]`}>
-      <div className={container}>
+      <div className={container} onClick={() => setCurrentPage("Stack")}>
         <span className={numberStyle}>9</span>
         <span className={wordStyle}>Languages</span>
       </div>
-      <div className={container}>
+      <div className={container} onClick={() => setCurrentPage("Stack")}>
         <span className={numberStyle}>26</span>
         <span className={wordStyle}>Tools/Frameworks</span>
       </div>
