@@ -22,11 +22,11 @@ export const Mangoose: PostData = {
       </span>
     </p>,
   ],
-  image: "/images/Projects/mangoose/mangoose2.jpeg",
+  image: "/images/Projects/mangoose/mangoose.png",
   anchor: "github/mangoose",
   link: "https://github.com/meiy112/mangoose",
   imageHash:
     "|5R{#{~pbaNzIE0L_0?t4p_2R5I^t9IBM$NHR+?aR5%LM|Nd?TIYDmItD,Ic?FtMt19QD%?sW=Io%09af-_18{?ZoZR+?Z?RRWERIW?Zs6XAtQ-$?Ex?oGx?M{xtj[Ipxb-=V@%Es:R--.NGWAWFxSt7IWD+?FbWofoxxU",
   imageWidth: 3200,
-  imageHeight: 2285,
+  imageHeight: 2000,
 };
