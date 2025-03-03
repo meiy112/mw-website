@@ -18,7 +18,7 @@ export const Mangoose: PostData = {
       <span className="--text-dim">
         to create gamified lessons from user-uploaded content, featuring
         question styles like drag-and-drop fill-in-the-blanks and reorderable
-        connect-the-dots components. Just don&apos;t run out of lives!
+        connect-the-dots components.
       </span>
     </p>,
   ],

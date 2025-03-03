@@ -8,10 +8,11 @@ export const OldWebsite: PostData = {
   body: [
     <p key="body0">
       <span className="--text-dim">
-        It isn't Twitter/X, it's my 2024 portfolio. Built with
+        It may look like Twitter/X, but it's actually my 2024 portfolio. Built
+        with
       </span>{" "}
       Next.js, TailwindCSS, Framer motion,
-      <span className="--text-dim"> and hosted on </span>
+      <span className="--text-dim"> and deployed on </span>
       Vercel.
     </p>,
     <p key="body1">
@@ -23,7 +24,8 @@ export const OldWebsite: PostData = {
   image: "/images/Projects/old-mw-website/old-mw-website.png",
   anchor: "mw-portfolio2024.com",
   link: "https://old-mw-website.vercel.app/",
-  imageHash: "L2RWF[00000J000JB4610c_1?F-T",
+  imageHash:
+    "|B9@eUDm-:.8%ft7%f?b?b~o9H%KbbWUWCoekCs:4mD%M{IAIURQV?9FD$9G%eIVs.xGRQsVR*S2RW_2M|xt%LR%oy%M%MMf-ooMW;NuXRkCsor?MxbDxuRlNJ%MV_V@W9S#Ntoenirt%1MykCXSNLbcRjadadn}RjbIWZ",
   imageWidth: 5760,
   imageHeight: 3333,
 };
