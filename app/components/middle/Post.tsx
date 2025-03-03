@@ -131,6 +131,8 @@ function Title({ title, typeOf }: { title: string; typeOf: string[] }) {
         return <Tag title="Web App" unicode="1f4bb" key={index} />;
       case "Hackathon":
         return <Tag title="Hackathon" unicode="1f4a1" key={index} />;
+      case "Portfolio":
+        return <Tag title="Portfolio" unicode="1f331" key={index} />;
       case "WIP":
         return <Tag title="WIP" unicode="1f6a7" key={index} />;
       default:
