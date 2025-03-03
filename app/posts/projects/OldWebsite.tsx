@@ -8,7 +8,7 @@ export const OldWebsite: PostData = {
   body: [
     <p key="body0">
       <span className="--text-dim">
-        It may look like Twitter/X, but it's actually my 2024 portfolio. Built
+        It may look like Twitter/X, but it&apos;s actually my 2024 portfolio. Built
         with
       </span>{" "}
       Next.js, TailwindCSS, Framer motion,
