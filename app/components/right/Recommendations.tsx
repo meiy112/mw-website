@@ -4,7 +4,7 @@ import { useBrightness } from "../context/BrightnessContext";
 
 const profileData = [
   {
-    pfp: "/github-pfp.jpeg",
+    pfp: "/github-pfp.png",
     username: "My GitHub",
     at: "@meiy112",
     isVerified: false,
