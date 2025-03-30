@@ -6,7 +6,7 @@ export const Pictoloom: PostData = {
   title: "Pictoloom",
   typeOf: ["Game", "Hackathon"],
   body: [
-    <p key="body0">Telephone pictionary powered by Reddit's community.</p>,
+    <p key="body0">Telephone pictionary powered by Reddit&apos;s community.</p>,
     <p key="body1">
       <span className="--text-dim">
         Pictoloom is a daily Reddit game where players take turns drawing
