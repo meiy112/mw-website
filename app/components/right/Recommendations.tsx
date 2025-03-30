@@ -4,7 +4,7 @@ import { useBrightness } from "../context/BrightnessContext";
 
 const profileData = [
   {
-    pfp: "/github-pfp.png",
+    pfp: "/github-pfp.jpeg",
     username: "My GitHub",
     at: "@meiy112",
     isVerified: false,
@@ -23,7 +23,7 @@ const profileData = [
     },
   },
   {
-    pfp: "/dog-pfp.png",
+    pfp: "/dog-pfp.jpeg",
     username: "My Dog",
     at: "@javathedog",
     isVerified: true,
