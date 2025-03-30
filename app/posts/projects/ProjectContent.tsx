@@ -6,8 +6,10 @@ import { GCodePathfinder } from "./GCodePathfinder";
 import { PantryPlanner } from "./PantryPlanner";
 import { OldWebsite } from "./OldWebsite";
 import { Floowbox } from "./Floowbox";
+import { Pictoloom } from "./Pictoloom";
 
 export const ProjectContent: PostData[] = [
+  Pictoloom,
   Floowbox,
   GCodePathfinder,
   Mangoose,
