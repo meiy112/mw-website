@@ -1,5 +1,4 @@
 import { ReactElement } from "react";
-import { IoLogoVercel } from "react-icons/io5";
 
 export const languageList: { svg: ReactElement<any, any>; fadeOut: boolean }[] =
   [
@@ -974,7 +973,16 @@ export const svgList: { svg: ReactElement<any, any>; fadeOut: boolean }[] = [
   },
   {
     // vercel
-    svg: <IoLogoVercel color="black" className="w-[100%] h-[100%]" />,
+    svg: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="128"
+        height="128"
+        viewBox="0 0 128 128"
+      >
+        <path d="M63.984 17.184 127.964 128H0Zm0 0" />
+      </svg>
+    ),
     fadeOut: false,
   },
   {

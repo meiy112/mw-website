@@ -9,8 +9,8 @@ export const AboutContent: PostData[] = [
     typeOf: ["About Me"],
     body: [
       <div key={0}>
-        I&#39;m a CS student with a computer. More importantly, I'm passionate
-        about ducks and can name all 1025 pokemon from memory.
+        I&#39;m a CS student with a computer. More importantly, I&#39;m
+        passionate about ducks and can name all 1025 pokemon from memory.
       </div>,
       // <p key={1}>
       //   <span className="opacity-[0.5]">Check out </span>
@@ -28,7 +28,7 @@ export const AboutContent: PostData[] = [
       //   </span>
       // </p>,
       <div key={2} className="--text-dim">
-        This summer, I&rsquo;m joining Gumloop &#40;YC W24&#41; in SF as a
+        I&rsquo;m joining Gumloop &#40;YC W24&#41; in SF this summer as a
         software engineer intern.
       </div>,
     ],

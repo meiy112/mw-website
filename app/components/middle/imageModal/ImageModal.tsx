@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { LuLink } from "react-icons/lu";
-import { LuX } from "react-icons/lu";
+import { Link, X } from "lucide-react";
 
 const ImageModal = ({
   image,
@@ -25,7 +24,7 @@ const ImageModal = ({
               className={`absolute opacity-[0.4] right-[1em] top-[1em] bg-black rounded-[50%] cursor-pointer p-[0.2em]`}
               onClick={closeModal}
             >
-              <LuX size={20} />
+              <X size={20} />
             </div>
             <img className="rounded-[12px]" src={image} alt={image} />
           </motion.div>
@@ -34,7 +33,7 @@ const ImageModal = ({
               layoutId={`image-modal-link-${url}`}
               className="flex flex-row gap-x-[0.5vw]"
             >
-              <LuLink size={24} className="opacity-[0.5]" />
+              <Link size={24} className="opacity-[0.5]" />
               <a
                 href={url}
                 className="text-[1rem] --text-gradient-pink font-light"

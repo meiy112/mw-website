@@ -1,6 +1,6 @@
 import { PostData } from "@/app/interfaces/Thread";
-import { motion, LayoutGroup, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import Post from "./Post";
 import ImageModal from "./imageModal/ImageModal";
 

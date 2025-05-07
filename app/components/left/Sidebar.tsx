@@ -2,9 +2,8 @@
 import SideButton from "./SideButton";
 import { usePageContext } from "../context/PageProvider";
 import { Dispatch, SetStateAction } from "react";
-import { LuMoreHorizontal } from "react-icons/lu";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import { EllipsisVertical } from "lucide-react";
 
 export default function Sidebar({
   setIsModalOpen,
@@ -112,7 +111,7 @@ function UserAccount() {
         </div>
       </div>
       <button>
-        <LuMoreHorizontal size={20} />
+        <EllipsisVertical size={20} />
       </button>
     </div>
   );

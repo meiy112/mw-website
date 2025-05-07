@@ -1,6 +1,6 @@
-import { LuPlus } from "react-icons/lu";
 import TwitterUser from "./TwitterUser";
 import { useBrightness } from "../context/BrightnessContext";
+import { Plus } from "lucide-react";
 
 const profileData = [
   {
@@ -94,7 +94,7 @@ function Header() {
           }}
         />
       </div>
-      <LuPlus className="opacity-[0.3]" size={20} />
+      <Plus className="opacity-[0.3]" size={20} />
     </div>
   );
 }

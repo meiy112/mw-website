@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { LuMapPin } from "react-icons/lu";
 import {
   MouseParallaxContainer,
   MouseParallaxChild,
 } from "react-parallax-mouse";
 import { HoverMeComponent } from "./ParallaxCard";
 import { Blurhash } from "react-blurhash";
+import { MapPin } from "lucide-react";
 
 export default function About() {
   const [imagesLoaded, setImagesLoaded] = useState(0);
@@ -116,7 +116,7 @@ export default function About() {
         </MouseParallaxChild>
         <div className="text-white w-[100%] absolute bottom-[3%] flex flex-col items-center">
           <div className="flex flex-row items-center gap-x-[4px]">
-            <LuMapPin size={18} />
+            <MapPin size={18} />
             <span className="font-medium text-[1.2rem]">Vancouver,</span>
           </div>
           <span className={`font-light opacity-[0.65]`}>
