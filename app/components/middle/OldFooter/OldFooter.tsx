@@ -1,8 +1,8 @@
 import { useInView } from "framer-motion";
 import { ReactNode, useEffect, useRef, useState } from "react";
-import { LuCopyright, LuContainer, LuCode2, LuMusic4 } from "react-icons/lu";
 import StaticRecommendations from "../StaticRecommendations/StaticRecommendations";
 import { useTheme } from "@mui/material/styles";
+import { Code2, Container, Copyright, Music4 } from "lucide-react";
 
 export default function OldFooter() {
   // for screen size responsiveness
@@ -34,7 +34,7 @@ export default function OldFooter() {
       ) : null}
       <div className=" flex justify-center mt-[7vh] mb-[5vh] opacity-[0.7] text-[0.75rem] font-light">
         <div className="px-[1em] flex flex-row items-center gap-x-[5px] rounded-[10em] py-[0.2em] glass-container-2">
-          mweng <LuCopyright /> 2024
+          mweng <Copyright /> 2025
         </div>
       </div>
     </div>
@@ -68,7 +68,7 @@ function WebsiteDescription() {
               "+ Framer motion",
               "+ Node.js",
             ]}
-            icon={<LuContainer />}
+            icon={<Container />}
           />
           <List
             listItems={[
@@ -78,7 +78,7 @@ function WebsiteDescription() {
               "+ ?? hours of coding",
               "+ and counting...",
             ]}
-            icon={<LuCode2 />}
+            icon={<Code2 />}
           />
           <List
             listItems={[
@@ -88,7 +88,7 @@ function WebsiteDescription() {
               "Fantaisie-Impromptu, Op. 66 - Chopin",
               "ACNH 2am ost",
             ]}
-            icon={<LuMusic4 />}
+            icon={<Music4 />}
           />
         </div>
         {/*<h1 className="mt-[4em] self-end font-regular px-[1em] text-[0.8rem] opacity-[0.5]">

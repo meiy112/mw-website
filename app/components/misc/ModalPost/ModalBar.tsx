@@ -1,8 +1,8 @@
 import { Emoji } from "emoji-picker-react";
 import { Variants, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { LuX } from "react-icons/lu";
 import JSConfetti from "js-confetti";
+import { X } from "lucide-react";
 
 const itemVariants: Variants = {
   open: {
@@ -55,7 +55,7 @@ function CloseButton({ onClick }: { onClick: () => void }) {
         }}
         className="flex items-center justify-center rounded-[23px] flex w-[100%] h-[100%]"
       >
-        <LuX size={22} />
+        <X size={22} />
       </motion.div>
     </motion.button>
   );

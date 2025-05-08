@@ -7,12 +7,12 @@ import {
 import { useTheme } from "@mui/material/styles";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState, useRef, useEffect, SetStateAction } from "react";
-import { LuPartyPopper, LuSend, LuSmilePlus } from "react-icons/lu";
 import { MessageFromMe, MessageFromUser } from "./Messages";
 import EmojiPicker, { EmojiClickData } from "emoji-picker-react";
 import { useEmailForm } from "../../context/EmailFormContext";
 import { EmailForm, sendEmail } from "@/app/utility/sendEmail";
 import { Message, setEmojiString } from "@/app/utility/MessageService";
+import { PartyPopper, SmilePlus, Send } from "lucide-react";
 
 export default function ChatModal() {
   const handleSubmit = (email: EmailForm) => {
@@ -169,7 +169,7 @@ export default function ChatModal() {
           className="flex flex-row rounded-[10em] px-[1em] gap-x-[10px] py-[0.6em]"
           style={{ background: theme.palette.primary.main }}
         >
-          <LuPartyPopper size={24} />
+          <PartyPopper size={24} />
           <p>New Chat</p>
         </div>
       </div>
@@ -300,7 +300,7 @@ export default function ChatModal() {
             className="mb-[10px] pl-[15px]"
             onClick={() => setShowPicker((val) => !val)}
           >
-            <LuSmilePlus size={25} />
+            <SmilePlus size={25} />
           </button>
           {showPicker && (
             <div className="relative">
@@ -322,7 +322,7 @@ export default function ChatModal() {
             onClick={onClick}
             className="flex justify-center items-center size-[46px] bg-white rounded-[27px]"
           >
-            <LuSend color={"#1ABBA8"} size={22} />
+            <Send color={"#1ABBA8"} size={22} />
           </button>
         </div>
       </div>

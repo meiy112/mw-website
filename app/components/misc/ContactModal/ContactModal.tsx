@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import ChatModal from "./ChatModal";
 import FormModal from "./FormModal";
-import { LuX } from "react-icons/lu";
 import SmallGradient from "@/app/assets/SmallGradient";
 import { EmailFormProvider } from "../../context/EmailFormContext";
+import { X } from "lucide-react";
 
 export default function ContactModal({
   isModalOpen,
@@ -107,7 +107,7 @@ export default function ContactModal({
             }}
             className="flex items-center justify-center rounded-[23px] flex w-[100%] h-[100%]"
           >
-            <LuX size={22} />
+            <X size={22} />
           </motion.div>
         </motion.button>
       </div>
