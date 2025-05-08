@@ -1,19 +1,18 @@
-import { useTheme } from "@mui/material/styles";
 import { Emoji, EmojiStyle } from "emoji-picker-react";
 import { motion } from "framer-motion";
-import {
-  LuPin,
-  LuHeart,
-  LuMessageCircle,
-  LuBarChart3,
-  LuLink,
-  LuMoreHorizontal,
-} from "react-icons/lu";
 import ParallaxCard from "../misc/ParallaxCard/ParallaxCard";
 import s from "./Post.module.css";
 import { Tag } from "../misc/Tag";
 import VerifiedIcon from "@/app/assets/svg/verified";
 import ImageLoader from "../misc/ImageLoader";
+import {
+  BarChart3,
+  Heart,
+  Link,
+  MessageCircle,
+  MoreHorizontal,
+  Pin,
+} from "lucide-react";
 
 export default function Post({
   postKey,
@@ -50,7 +49,7 @@ export default function Post({
 }) {
   return (
     <motion.div className="mb-[3vh] flex flex-col rounded-[20px] p-[1em] select-none">
-      {isPinned ? <Pin /> : null}
+      {isPinned ? <PostPin /> : null}
       <div className="flex flex-row gap-x-[1.2em]">
         <img
           src="/pfp-small.jpeg"
@@ -92,11 +91,11 @@ export default function Post({
   );
 }
 
-function Pin() {
+function PostPin() {
   return (
     <div className="flex flex-row items-center opacity-[0.5] gap-x-[12px] ml-[2.3vw] pb-[1vh]">
       {" "}
-      <LuPin className="size-[1rem]" />
+      <Pin className="size-[1rem]" />
       <span className="text-[0.72rem]">Pinned (quack)</span>
     </div>
   );
@@ -115,7 +114,7 @@ function Header({ date }: { date: string }) {
         <div className="w-[0.3em] h-[0.3em] bg-white rounded-[0.9em] opacity-[0.5]" />
         <div className="text-[0.9rem] opacity-[0.5]">{date}</div>
       </div>
-      <LuMoreHorizontal size={24} />
+      <MoreHorizontal size={20} />
     </div>
   );
 }
@@ -165,20 +164,19 @@ function Body({ body }: { body: React.ReactNode[] }) {
 }
 
 function Footer({ link, anchor }: { link?: string; anchor?: string }) {
-  const theme = useTheme();
   return (
     <div className="flex flex-row justify-between pt-[2vh] px-[0.1vw]">
-      <div className="flex flex-row gap-x-[1.9vw]">
-        <LuHeart size={24} />
-        <LuMessageCircle size={24} />
-        <LuBarChart3 size={24} />
+      <div className="flex flex-row gap-x-[1.5em]">
+        <Heart size={20} />
+        <MessageCircle size={20} />
+        <BarChart3 size={20} />
       </div>
       {link ? (
         <motion.div
           layoutId={`image-modal-link-${link}`}
-          className="flex flex-row gap-x-[0.5vw]"
+          className="flex flex-row gap-x-[0.5vw] items-center"
         >
-          <LuLink size={24} className="opacity-[0.5]" />
+          <Link size={20} className="opacity-[0.5]" />
           <a
             href={link}
             className="text-[1rem] --text-gradient-pink font-light"

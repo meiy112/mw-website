@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { buttonAnim } from "./GooButton.anim";
 import { ButtonProps } from "./GooButton.d";
-import { MoveRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const GooButton = (props: ButtonProps) => {
   return (
@@ -22,7 +22,7 @@ const GooButton = (props: ButtonProps) => {
         variants={buttonAnim}
         className="overflow-hidden absolute z-10 right-[-10%] flex items-center justify-center aspect-square h-[100%] rounded-[50%]"
       >
-        <MoveRight className="absolute" size={15} />
+        <ArrowUpRight className="absolute" size={15} />
       </motion.div>
 
       {/*------------ filter ------------*/}

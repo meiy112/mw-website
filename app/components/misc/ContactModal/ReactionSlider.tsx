@@ -1,8 +1,8 @@
 import { Emoji } from "emoji-picker-react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 import { useEmailForm } from "../../context/EmailFormContext";
+import { ChevronRight, ChevronLeft } from "lucide-react";
 
 const ReactionSlider = () => {
   const [positionIndexes, setPositionIndexes] = useState([0, 1, 2, 3, 4, 5, 6]);
@@ -122,7 +122,7 @@ const NextButton = ({ handleNext }: { handleNext: () => void }) => {
       className="size-[1.875em] flex items-center justify-center hoverable2 rounded-[50%]"
       onClick={handleNext}
     >
-      <LuChevronRight />
+      <ChevronRight />
     </button>
   );
 };
@@ -133,7 +133,7 @@ const BackButton = ({ handleBack }: { handleBack: () => void }) => {
       className="flex items-center justify-center hoverable2 rounded-[50%] size-[1.875em]"
       onClick={handleBack}
     >
-      <LuChevronLeft />
+      <ChevronLeft />
     </button>
   );
 };

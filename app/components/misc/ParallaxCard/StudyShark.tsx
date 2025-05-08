@@ -1,8 +1,8 @@
 import { useInView, motion } from "framer-motion";
+import { Check, BadgeAlert } from "lucide-react";
 import { Inter } from "next/font/google";
 import { useState, useRef, useEffect } from "react";
 import { Blurhash } from "react-blurhash";
-import { LuBadgeAlert, LuCheck } from "react-icons/lu";
 import {
   MouseParallaxContainer,
   MouseParallaxChild,
@@ -207,13 +207,13 @@ function Title() {
       <div className="my-[12px]">
         <div className="flex flex-row gap-x-[7px] items-center mb-[4px]">
           <div className="flex justify-center items-center text-white size-[19px] bg-[#414141] rounded-[50%]">
-            <LuCheck size={14} />
+            <Check size={14} />
           </div>
           <span className="text-[13px] font-semibold">Android</span>
         </div>
         <div className="flex flex-row gap-x-[7px] items-center">
           <div className="flex justify-center items-center text-white size-[19px] bg-[#414141] rounded-[50%]">
-            <LuCheck size={14} />
+            <Check size={14} />
           </div>
           <span className="text-[13px] font-semibold">ios</span>
         </div>
@@ -278,7 +278,7 @@ function HoverMeComponent() {
       animate={isInView ? (isClosing ? "closed" : "open") : "closed"}
       initial="closed"
     >
-      <LuBadgeAlert size={18} />
+      <BadgeAlert size={18} />
       <span>Hover over or tap me!</span>
     </motion.div>
   );

@@ -1,6 +1,5 @@
 import { motion, useMotionValue } from "framer-motion";
 import { useEffect, useState } from "react";
-import { FaFolderClosed } from "react-icons/fa6";
 
 const pageList = [
   "Aside from coding, I also love digital art and collecting shark plushes.",
@@ -60,7 +59,15 @@ export default function Notes() {
   return (
     <div className="relative h-[150px] aspect-[331/195] bg-[#1F1F23] rounded-[23px] overflow-hidden">
       <div className="text-[0.85rem] tracking-[0.02rem] pl-[7%] flex items-center gap-x-[4%] h-[25%] bg-gradient-to-b from-[#5CB099] to-[#479982] border-t-2 border-t-[#7DC5B1]">
-        <FaFolderClosed size={16} /> Notes
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          width="16"
+          height="16"
+        >
+          <path d="M448 480L64 480c-35.3 0-64-28.7-64-64L0 192l512 0 0 224c0 35.3-28.7 64-64 64zm64-320L0 160 0 96C0 60.7 28.7 32 64 32l128 0c20.1 0 39.1 9.5 51.2 25.6l19.2 25.6c6 8.1 15.5 12.8 25.6 12.8l160 0c35.3 0 64 28.7 64 64z" />
+        </svg>
+        Notes
       </div>
       <div className="relative font-light text-[0.85rem] tracking-[0.02rem] justify-between flex h-[75%] flex-col pt-[5%] pb-[5%] w-full border-t-2 border-dotted border-t-[#ffffff] border-opacity-20 mt-[1%]">
         <motion.div

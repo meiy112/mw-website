@@ -1,6 +1,5 @@
 import { useTheme } from "@mui/material/styles";
-import { LuMapPin, LuCalendarDays, LuUsers2, LuLink } from "react-icons/lu";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import { AnimatePresence } from "framer-motion";
 import ContactModal from "../../misc/ContactModal/ContactModal";
 import Button from "../Framer-Button/Button";
@@ -10,6 +9,7 @@ import ProfilePicture from "../ProfilePicture/ProfilePicture";
 import s from "./ProfileHeader.module.css";
 import { ReactFitty } from "react-fitty";
 import { usePageContext } from "../../context/PageProvider";
+import { CalendarDays, Link, MapPin, Users2 } from "lucide-react";
 
 export default function ProfileHeader({
   isModalOpen,
@@ -135,21 +135,20 @@ function BioDescription() {
 }
 
 function BioDetails() {
-  const theme = useTheme();
   return (
     <div className="select-none pointer-events-none mt-[0.2em] flex flex-wrap gap-x-[1.25em] font-regular text-[0.93rem] tracking-[0.3px] gap-y-[0.5rem]">
       <div className="flex items-center gap-x-[4px] opacity-[50%]">
-        <LuMapPin className="size-[1.2rem]" />
+        <MapPin className="size-[1.2rem]" />
         <span>U of British Columbia</span>
       </div>
       <div className="flex items-center gap-x-[5px] opacity-[50%]">
-        <LuCalendarDays className="size-[1.3rem]" /> <span>3rd Year</span>
+        <CalendarDays className="size-[1.3rem]" /> <span>3rd Year</span>
       </div>
       <div className="flex items-center gap-x-[5px] opacity-[50%]">
-        <LuUsers2 className="size-[1.3rem]" /> <span>Coop</span>
+        <Users2 className="size-[1.3rem]" /> <span>Coop</span>
       </div>
       <div className="flex items-center gap-x-[5px]">
-        <LuLink className="size-[1.2rem] opacity-[50%]" />
+        <Link className="size-[1.2rem] opacity-[50%]" />
         <span className={`--text-gradient-pink`}>maggie.weng112@gmail.com</span>
       </div>
     </div>

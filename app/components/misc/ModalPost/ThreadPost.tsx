@@ -2,8 +2,8 @@ import { Content, Thread } from "@/app/interfaces/Thread";
 import { useTheme } from "@mui/material/styles";
 import { Emoji, EmojiStyle } from "emoji-picker-react";
 import { motion } from "framer-motion";
-import { LuMoreHorizontal } from "react-icons/lu";
 import CodeSnippet from "../CodeSnippet";
+import { MoreHorizontal } from "lucide-react";
 
 export default function ThreadPost({ thread }: { thread: Thread }) {
   const theme = useTheme();
@@ -64,7 +64,7 @@ function Header({ date, title }: { date: string; title: string | undefined }) {
       <div className="gap-y-[18px] flex flex-col justify-between w-[100%]">
         <div className="flex flex-row items-center justify-between w-[100%]">
           <Name />
-          <LuMoreHorizontal size={24} />
+          <MoreHorizontal size={24} />
         </div>
         <h1 className="pl-[6px] font-extrabold text-[1.4rem]">{title}</h1>
       </div>

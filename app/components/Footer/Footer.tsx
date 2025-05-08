@@ -1,4 +1,3 @@
-import { LuCopyright } from "react-icons/lu";
 import s from "./Footer.module.css";
 import Clock from "./Clock";
 import TradingCard from "./TradingCard";
@@ -10,6 +9,7 @@ import { useSpring } from "react-spring";
 import { useEffect, useRef, useState } from "react";
 import { usePageContext } from "../context/PageProvider";
 import { fetchLastUpdateTime } from "@/app/utility/githubService";
+import { Copyright } from "lucide-react";
 
 const Footer = () => {
   const [center, setCenter] = useState({ x: 0, y: 0 });
@@ -125,7 +125,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-col z-[2] gap-y-[0.3em] mt-[0.5em]">
           <div className="flex items-center gap-x-[0.3em] text-[1rem]">
-            <LuCopyright /> <span>2025 Maggie Weng.</span>
+            <Copyright size={16} /> <span>2025 Maggie Weng.</span>
           </div>
           <div className="opacity-[0.65] text-[0.9rem] font-light items-end justify-between flex flex-wrap">
             <span className="mr-[1em]">

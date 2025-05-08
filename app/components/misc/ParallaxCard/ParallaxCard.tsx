@@ -1,13 +1,13 @@
 import { motion, useInView } from "framer-motion";
 import { Inter, Raleway } from "next/font/google";
 import { useEffect, useRef, useState } from "react";
-import { LuBadgeAlert, LuMapPin } from "react-icons/lu";
 import {
   MouseParallaxChild,
   MouseParallaxContainer,
 } from "react-parallax-mouse";
 import StudyShark from "./StudyShark";
 import About from "./About";
+import { BadgeAlert } from "lucide-react";
 
 const inter = Inter({ subsets: ["latin"] });
 const raleway = Raleway({ subsets: ["latin"] });
@@ -72,7 +72,7 @@ export function HoverMeComponent() {
       animate={isInView ? (isClosing ? "closed" : "open") : "closed"}
       initial="closed"
     >
-      <LuBadgeAlert size={18} />
+      <BadgeAlert size={18} />
       <span>Hover over or tap me!</span>
     </motion.div>
   );

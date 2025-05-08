@@ -1,15 +1,12 @@
-import { IoMusicalNotes } from "react-icons/io5";
 import styles from "./MusicPlayer.module.css";
-import { IoIosPause } from "react-icons/io";
 import { useDroppable } from "@dnd-kit/core";
 import { useDragContext } from "../../context/DragContext";
 import { AnimatePresence, motion } from "framer-motion";
-import { FiUpload } from "react-icons/fi";
 import getCurrentTitle from "./getCurrentTitle";
 import getCurrentAuthor from "./getCurrentAuthor";
 import { ReactElement, useEffect, useRef, useState } from "react";
-import { FaPlay } from "react-icons/fa6";
 import { useMusicPlayer } from "../../context/MusicPlayerContext";
+import { Upload } from "lucide-react";
 
 let duckAudio: HTMLAudioElement | undefined;
 let acnhAudio: HTMLAudioElement | undefined;
@@ -71,7 +68,15 @@ export default function MusicPlayer() {
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [buttonChild, setButtonChild] = useState(
-    <FaPlay className="text-black" size={14} />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 384 512"
+      width="14"
+      height="14"
+      fill="black"
+    >
+      <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
+    </svg>
   );
   const [audio, setAudio] = useState(acnhAudio);
   const [isPaused, setIsPaused] = useState(false);
@@ -125,11 +130,31 @@ export default function MusicPlayer() {
 
   const handlePlay = () => {
     setIsPlaying(true);
-    setButtonChild(<IoIosPause className="text-black" size={20} />);
+    setButtonChild(
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 320 512"
+        width="14"
+        height="14"
+        fill="black"
+      >
+        <path d="M48 64C21.5 64 0 85.5 0 112L0 400c0 26.5 21.5 48 48 48l32 0c26.5 0 48-21.5 48-48l0-288c0-26.5-21.5-48-48-48L48 64zm192 0c-26.5 0-48 21.5-48 48l0 288c0 26.5 21.5 48 48 48l32 0c26.5 0 48-21.5 48-48l0-288c0-26.5-21.5-48-48-48l-32 0z" />
+      </svg>
+    );
   };
   const handlePause = () => {
     setIsPlaying(false);
-    setButtonChild(<FaPlay className="text-black" size={14} />);
+    setButtonChild(
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 384 512"
+        width="14"
+        height="14"
+        fill="black"
+      >
+        <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
+      </svg>
+    );
   };
 
   const handleButtonPress = () => {
@@ -255,7 +280,7 @@ export default function MusicPlayer() {
                 exit={{ scale: 0, transition: { duration: 0.1 } }}
                 className={styles.dropDisplay}
               >
-                <FiUpload className="opacity-[0.5]" />
+                <Upload className="opacity-50" size={16} />
               </motion.div>
             ) : (
               <motion.div
@@ -267,7 +292,17 @@ export default function MusicPlayer() {
                 }}
                 exit={{ scale: 0, transition: { duration: 0.1 } }}
               >
-                <IoMusicalNotes size={22} className="opacity-[0.5]" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="ionicon"
+                  viewBox="0 0 512 512"
+                  width="22"
+                  height="22"
+                  opacity="0.5"
+                  fill="currentColor"
+                >
+                  <path d="M421.84 37.37a25.86 25.86 0 00-22.6-4.46L199.92 86.49A32.3 32.3 0 00176 118v226c0 6.74-4.36 12.56-11.11 14.83l-.12.05-52 18C92.88 383.53 80 402 80 423.91a55.54 55.54 0 0023.23 45.63A54.78 54.78 0 00135.34 480a55.82 55.82 0 0017.75-2.93l.38-.13 21.84-7.94A47.84 47.84 0 00208 423.91v-212c0-7.29 4.77-13.21 12.16-15.07l.21-.06L395 150.14a4 4 0 015 3.86v141.93c0 6.75-4.25 12.38-11.11 14.68l-.25.09-50.89 18.11A49.09 49.09 0 00304 375.92a55.67 55.67 0 0023.23 45.8 54.63 54.63 0 0049.88 7.35l.36-.12 21.84-7.95A47.83 47.83 0 00432 375.92V58a25.74 25.74 0 00-10.16-20.63z" />
+                </svg>
               </motion.div>
             )}
           </AnimatePresence>

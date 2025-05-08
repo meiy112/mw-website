@@ -1,10 +1,6 @@
-import { useInView } from "framer-motion";
 import { ReactNode, useEffect, useRef, useState } from "react";
-import { LuCopyright, LuContainer, LuCode2, LuMusic4 } from "react-icons/lu";
-import StaticRecommendations from "../StaticRecommendations/StaticRecommendations";
-import { useTheme } from "@mui/material/styles";
-import Copyright from "./Copyright";
 import WidgetContainer from "./WidgetContainer";
+import OldCopyright from "./Copyright";
 
 export default function Footer() {
   // for screen size responsiveness
@@ -29,7 +25,7 @@ export default function Footer() {
   return (
     <div className="flex flex-col gap-y-[3em] px-[2vw] py-[6em]">
       <WidgetContainer />
-      <Copyright />
+      <OldCopyright />
     </div>
   );
 }
