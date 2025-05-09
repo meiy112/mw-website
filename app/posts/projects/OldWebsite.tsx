@@ -8,8 +8,8 @@ export const OldWebsite: PostData = {
   body: [
     <p key="body0">
       <span className="--text-dim">
-        It may look like Twitter/X, but it&apos;s actually my 2024 portfolio. Built
-        with
+        It may look like Twitter/X, but it&apos;s actually my 2024 portfolio.
+        Built with
       </span>{" "}
       Next.js, TailwindCSS, Framer motion,
       <span className="--text-dim"> and deployed on </span>
@@ -21,7 +21,7 @@ export const OldWebsite: PostData = {
       </span>
     </p>,
   ],
-  image: "/images/Projects/old-mw-website/old-mw-website.png",
+  image: "/images/Projects/old-mw-website/old-mw-website.webp",
   anchor: "mw-portfolio2024.com",
   link: "https://old-mw-website.vercel.app/",
   imageHash:

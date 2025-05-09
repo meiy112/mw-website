@@ -35,7 +35,7 @@ const TradingCard = ({
       />
       <div className="object-cover object-top rounded-[8px] overflow-hidden">
         <ImageLoader
-          imageUrl="/images/me/gallery.png"
+          imageUrl="/images/me/gallery.webp"
           blurhash="LDGbuHt6IUM}I[9Fj]?H-O?wt8nN"
           width={3024}
           height={4032}

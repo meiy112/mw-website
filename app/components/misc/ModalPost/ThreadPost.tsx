@@ -60,7 +60,7 @@ function Header({ date, title }: { date: string; title: string | undefined }) {
   };
   return (
     <div className="flex flex-row gap-x-[16px] w-[100%]">
-      <img src="/pfp-small.jpeg" className="rounded-[50%] w-[50px] h-[50px]" />
+      <img src="/pfp-small.webp" className="rounded-[50%] w-[50px] h-[50px]" />
       <div className="gap-y-[18px] flex flex-col justify-between w-[100%]">
         <div className="flex flex-row items-center justify-between w-[100%]">
           <Name />

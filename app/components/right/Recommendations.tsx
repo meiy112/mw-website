@@ -4,7 +4,7 @@ import { Plus } from "lucide-react";
 
 const profileData = [
   {
-    pfp: "/github-pfp.jpeg",
+    pfp: "/github-pfp.webp",
     username: "My GitHub",
     at: "@meiy112",
     isVerified: false,
@@ -13,7 +13,7 @@ const profileData = [
     },
   },
   {
-    pfp: "/linkedin-pfp.jpeg",
+    pfp: "/linkedin-pfp.webp",
     username: "My Linkedin",
     at: "@maggieweng",
     isVerified: false,
@@ -23,7 +23,7 @@ const profileData = [
     },
   },
   {
-    pfp: "/dog-pfp.jpeg",
+    pfp: "/dog-pfp.webp",
     username: "My Dog",
     at: "@javathedog",
     isVerified: true,

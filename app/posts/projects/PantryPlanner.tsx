@@ -21,7 +21,7 @@ export const PantryPlanner: PostData = {
       </span>
     </p>,
   ],
-  image: "/images/Projects/pantry-planner/pantry-planner.png",
+  image: "/images/Projects/pantry-planner/pantry-planner.webp",
   anchor: "devpost/pantry-planner",
   link: "https://devpost.com/software/pantry-planner-l81gm3",
   imageHash: "L2RWF[00000J000JB4610c_1?F-T",

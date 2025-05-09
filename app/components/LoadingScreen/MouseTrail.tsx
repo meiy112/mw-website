@@ -32,7 +32,7 @@ export const images = [
     unoptimized
   />,
   <Image
-    src="/images/loading/heart.jpeg"
+    src="/images/loading/heart.webp"
     width={IMAGE_SIZE}
     height={IMAGE_SIZE}
     alt="heart"
@@ -48,7 +48,7 @@ export const images = [
     unoptimized
   />,
   <Image
-    src="/images/loading/silly_cloud.png"
+    src="/images/loading/silly_cloud.webp"
     alt="cloud"
     key={5}
     width={IMAGE_SIZE}

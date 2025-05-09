@@ -22,7 +22,7 @@ export const Mangoose: PostData = {
       </span>
     </p>,
   ],
-  image: "/images/Projects/mangoose/mangoose.png",
+  image: "/images/Projects/mangoose/mangoose.webp",
   anchor: "github/mangoose",
   link: "https://github.com/meiy112/mangoose",
   imageHash:

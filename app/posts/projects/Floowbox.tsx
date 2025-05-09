@@ -20,7 +20,7 @@ export const Floowbox: PostData = {
       <span> OpenAI, Gemini, Hugging Face and Cloudflare. </span>
     </p>,
   ],
-  image: "/images/Projects/floowbox/floowbox.jpeg",
+  image: "/images/Projects/floowbox/floowbox.webp",
   anchor: "devpost/floowbox",
   link: "https://devpost.com/software/floowbox?ref_content=user-portfolio&ref_feature=in_progress",
   imageHash:
