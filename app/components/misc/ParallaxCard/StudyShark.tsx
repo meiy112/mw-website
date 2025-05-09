@@ -53,7 +53,7 @@ export default function StudyShark() {
           }}
         >
           <img
-            src="/images/Projects/StudyShark/ss-stats.png"
+            src="/images/Projects/StudyShark/ss-stats.webp"
             alt="stats"
             className="absolute scale-[0.35] bottom-[-3%] left-[32.2%]"
             onLoad={handleImageLoad}
@@ -69,7 +69,7 @@ export default function StudyShark() {
           }}
         >
           <img
-            src="/images/Projects/StudyShark/ss-topic.png"
+            src="/images/Projects/StudyShark/ss-topic.webp"
             alt="quiz"
             className="absolute scale-[0.22] bottom-[-22%] left-[10%]"
             onLoad={handleImageLoad}
@@ -87,7 +87,7 @@ export default function StudyShark() {
           }}
         >
           <img
-            src="/images/Projects/StudyShark/ss-phone1.png"
+            src="/images/Projects/StudyShark/ss-phone1.webp"
             alt="phone"
             className="absolute scale-[0.55]"
             onLoad={handleImageLoad}
@@ -105,7 +105,7 @@ export default function StudyShark() {
           }}
         >
           <img
-            src="/images/Projects/StudyShark/ss-quiz.png"
+            src="/images/Projects/StudyShark/ss-quiz.webp"
             alt="quiz"
             className="absolute scale-[0.25]"
             onLoad={handleImageLoad}
@@ -121,7 +121,7 @@ export default function StudyShark() {
           }}
         >
           <img
-            src="/images/Projects/StudyShark/ss-phone2.png"
+            src="/images/Projects/StudyShark/ss-phone2.webp"
             alt="quiz"
             className="absolute scale-[0.55] top-[-11%] left-[6%]"
             onLoad={handleImageLoad}
@@ -137,7 +137,7 @@ export default function StudyShark() {
           }}
         >
           <img
-            src="/images/Projects/StudyShark/ss-notes.png"
+            src="/images/Projects/StudyShark/ss-notes.webp"
             alt="quiz"
             className="absolute scale-[0.25] bottom-[-37%] right-[1%]"
             onLoad={handleImageLoad}
@@ -153,7 +153,7 @@ export default function StudyShark() {
           }}
         >
           <img
-            src="/images/Projects/StudyShark/ss-subject.png"
+            src="/images/Projects/StudyShark/ss-subject.webp"
             alt="quiz"
             className="absolute scale-[0.2] bottom-[-11%] left-[30%]"
             onLoad={handleImageLoad}
@@ -169,7 +169,7 @@ export default function StudyShark() {
           }}
         >
           <img
-            src="/images/Projects/StudyShark/ss-public.png"
+            src="/images/Projects/StudyShark/ss-public.webp"
             alt="quiz"
             className="absolute scale-[0.36] top-[-11%] right-[19%]"
             onLoad={handleImageLoad}

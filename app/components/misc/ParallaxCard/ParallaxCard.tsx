@@ -22,7 +22,7 @@ export default function ParallaxCard({ post }: { post: string }) {
       <div className="w-[100%] h-[420px] rounded-[12px] flex justify-center items-center overflow-hidden">
         <img
           alt=""
-          src={"/images/under-maintenance.jpg"}
+          src={"/images/under-maintenance.webp"}
           className="w-[100%]"
         />
       </div>

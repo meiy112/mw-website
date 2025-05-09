@@ -9,7 +9,7 @@ const Setup = () => {
       </div>
       <div className="px-[1.6em] py-[1.7em]">
         <img
-          src="/images/macbook-starlight.png"
+          src="/images/macbook-starlight.webp"
           alt="Macbook-Starlight"
           className="w-[11.7em] mb-[0.5em]"
           loading="lazy"

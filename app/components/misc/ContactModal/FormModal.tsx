@@ -20,7 +20,7 @@ function Profile() {
         }}
       >
         <img
-          src="/images/user.png"
+          src="/images/user.webp"
           className="scale-[4] absolute top-[50%] left-[5%]"
           alt="banana guy"
         />

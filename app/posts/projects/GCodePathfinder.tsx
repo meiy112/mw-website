@@ -23,7 +23,7 @@ export const GCodePathfinder: PostData = {
       </span>
     </p>,
   ],
-  image: "/images/Projects/gcode-pathfinder/gcode-pathfinder.png",
+  image: "/images/Projects/gcode-pathfinder/gcode-pathfinder.webp",
   anchor: "devpost/interview-ai",
   imageHash: "L3SPeB%0^+~XXkWDRjVtRi$loJaK",
   imageWidth: 5880,

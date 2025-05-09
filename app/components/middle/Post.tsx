@@ -52,7 +52,7 @@ export default function Post({
       {isPinned ? <PostPin /> : null}
       <div className="flex flex-row gap-x-[1.2em]">
         <img
-          src="/pfp-small.jpeg"
+          src="/pfp-small.webp"
           className="rounded-[50%] w-[3em] h-[3em] gap-x-[0.5em]"
         />
         <div className="flex flex-col gap-y-[0.5em]">

@@ -35,7 +35,7 @@ export default function About() {
         resetOnLeave
       >
         <img
-          src="/images/About/sky.png"
+          src="/images/About/sky.webp"
           alt="sky"
           className="absolute w-[100%]"
           onLoad={handleImageLoad}
@@ -57,7 +57,7 @@ export default function About() {
             className={`font-black text-white flex flex-col text-[4.3rem] about-text`}
           >
             <img
-              src="/images/About/hello_world.png"
+              src="/images/About/hello_world.webp"
               alt="hello world"
               className="absolute"
               onLoad={handleImageLoad}
@@ -74,7 +74,7 @@ export default function About() {
           }}
         >
           <img
-            src="/images/About/van.png"
+            src="/images/About/van.webp"
             alt="van"
             className="scale-[2.25]"
             onLoad={handleImageLoad}
@@ -92,7 +92,7 @@ export default function About() {
           }}
         >
           <img
-            src="/images/About/birds.png"
+            src="/images/About/birds.webp"
             alt="birds"
             className="absolute opacity-[0.8] size-[60%]"
             onLoad={handleImageLoad}
@@ -108,7 +108,7 @@ export default function About() {
           }}
         >
           <img
-            src="/images/About/sailboat.png"
+            src="/images/About/sailboat.webp"
             alt="boat"
             className="scale-[100%] absolute left-[44.5%] top-[-17%]"
             onLoad={handleImageLoad}

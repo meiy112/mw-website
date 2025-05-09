@@ -31,17 +31,17 @@ export const generateSize = (): { height: number; width: number } => ({
 export const IMAGE_SIZE = 150;
 
 export const imageFiles = [
-  "/images/Disks/acnh-disk.jpg",
-  "/images/Disks/duck-disk.jpg",
-  "/images/Disks/noise.png",
-  "/images/Disks/piano-disk.png",
-  "/images/Disks/piano-disk.jpg",
-  "/images/Disks/pokemon-disk.jpg",
-  "/images/Disks/yhx-disk.jpg",
-  "/images/About/birds.png",
-  "/images/About/sailboat.png",
-  "/images/About/sky.png",
-  "/images/About/van.png",
+  "/images/Disks/acnh-disk.webp",
+  "/images/Disks/duck-disk.webp",
+  "/images/Disks/noise.webp",
+  "/images/Disks/piano-disk.webp",
+  "/images/Disks/piano-disk.webp",
+  "/images/Disks/pokemon-disk.webp",
+  "/images/Disks/yhx-disk.webp",
+  "/images/About/birds.webp",
+  "/images/About/sailboat.webp",
+  "/images/About/sky.webp",
+  "/images/About/van.webp",
 ];
 
 export const fontFiles = [

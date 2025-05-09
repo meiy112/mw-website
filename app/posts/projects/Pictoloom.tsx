@@ -17,7 +17,7 @@ export const Pictoloom: PostData = {
       <span> Devvit, React, and Redis.</span>
     </p>,
   ],
-  image: "/images/Projects/pictoloom/pictoloom-cover.png",
+  image: "/images/Projects/pictoloom/pictoloom-cover.webp",
   anchor: "devpost/pictoloom",
   link: "https://devpost.com/software/pictoloom",
   imageHash:
