@@ -21,10 +21,7 @@ const useMousePosition = () => {
 };
 
 export default function AvatarModel() {
-  const { nodes, materials } = useGLTF(
-    "/3d/avatar/24_12_22_00_32_03_609.gltf",
-    true
-  );
+  const { nodes, materials } = useGLTF("/3d/avatar/duck_compressed.glb", true);
 
   const mousePosition = useMousePosition();
   const ref = useRef<Group>(null);
@@ -115,4 +112,4 @@ export default function AvatarModel() {
   );
 }
 
-useGLTF.preload("/3d/avatar/24_12_22_00_32_03_609.gltf");
+useGLTF.preload("/3d/avatar/duck_compressed.glb");
