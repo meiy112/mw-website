@@ -37,7 +37,6 @@ export const images = [
     height={IMAGE_SIZE}
     alt="heart"
     key={3}
-    unoptimized
   />,
   <Image
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Eyes.png"
@@ -53,7 +52,6 @@ export const images = [
     key={5}
     width={IMAGE_SIZE}
     height={IMAGE_SIZE}
-    unoptimized
   />,
   <Image
     src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Bubbles.png"
