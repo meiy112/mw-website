@@ -1,5 +1,6 @@
 import VerifiedIcon from "@/app/assets/svg/verified";
 import { useTheme } from "@mui/material/styles";
+import Image from "next/image";
 
 interface TwitterUserProps {
   pfp: string;
@@ -29,7 +30,13 @@ export default function StaticTwitterUser({
 
 function ProfilePicture({ pfp }: { pfp: string }) {
   return (
-    <img src={pfp} alt="pfp" className="rounded-[50%] w-[49.6px] h-[49.6px]" />
+    <Image
+      src={pfp}
+      alt="pfp"
+      width={49.6}
+      height={49.6}
+      className="rounded-[50%]"
+    />
   );
 }
 

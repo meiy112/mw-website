@@ -6,6 +6,7 @@ import {
 import { HoverMeComponent } from "./ParallaxCard";
 import { Blurhash } from "react-blurhash";
 import { MapPin } from "lucide-react";
+import Image from "next/image";
 
 export default function About() {
   const [imagesLoaded, setImagesLoaded] = useState(0);
@@ -34,12 +35,15 @@ export default function About() {
         globalFactorY={0.3}
         resetOnLeave
       >
-        <img
-          src="/images/About/sky.webp"
-          alt="sky"
-          className="absolute w-[100%]"
-          onLoad={handleImageLoad}
-        />
+        <div className="absolute w-[100%] h-[100%]">
+          <Image
+            src="/images/About/sky.webp"
+            alt="sky"
+            fill
+            className="object-cover"
+            onLoad={handleImageLoad}
+          />
+        </div>
         <MouseParallaxChild
           factorX={0.07}
           factorY={0}
@@ -56,12 +60,15 @@ export default function About() {
           <div
             className={`font-black text-white flex flex-col text-[4.3rem] about-text`}
           >
-            <img
-              src="/images/About/hello_world.webp"
-              alt="hello world"
-              className="absolute"
-              onLoad={handleImageLoad}
-            />
+            <div className="absolute">
+              <Image
+                src="/images/About/hello_world.webp"
+                alt="hello world"
+                width={2694}
+                height={1647}
+                onLoad={handleImageLoad}
+              />
+            </div>
           </div>
         </MouseParallaxChild>
         <MouseParallaxChild
@@ -73,12 +80,19 @@ export default function About() {
             left: "35.5%",
           }}
         >
-          <img
-            src="/images/About/van.webp"
-            alt="van"
-            className="scale-[2.25]"
-            onLoad={handleImageLoad}
-          />
+          <div
+            className="scale-[2.25] transform-gpu"
+            style={{ transformOrigin: "center center" }}
+          >
+            <Image
+              src="/images/About/van.webp"
+              alt="van"
+              width={1585}
+              height={526}
+              onLoad={handleImageLoad}
+              className="transform-none"
+            />
+          </div>
         </MouseParallaxChild>
         <MouseParallaxChild
           factorX={-0.5}
@@ -91,12 +105,15 @@ export default function About() {
             height: "100%",
           }}
         >
-          <img
-            src="/images/About/birds.webp"
-            alt="birds"
-            className="absolute opacity-[0.8] size-[60%]"
-            onLoad={handleImageLoad}
-          />
+          <div className="absolute opacity-[0.8] size-[60%]">
+            <Image
+              src="/images/About/birds.webp"
+              alt="birds"
+              width={800}
+              height={520}
+              onLoad={handleImageLoad}
+            />
+          </div>
         </MouseParallaxChild>
         <MouseParallaxChild
           factorX={1.5}
@@ -107,12 +124,15 @@ export default function About() {
             height: "100%",
           }}
         >
-          <img
-            src="/images/About/sailboat.webp"
-            alt="boat"
-            className="scale-[100%] absolute left-[44.5%] top-[-17%]"
-            onLoad={handleImageLoad}
-          />
+          <div className="scale-[100%] absolute left-[44.5%] top-[-17%]">
+            <Image
+              src="/images/About/sailboat.webp"
+              alt="boat"
+              width={1200}
+              height={1200}
+              onLoad={handleImageLoad}
+            />
+          </div>
         </MouseParallaxChild>
         <div className="text-white w-[100%] absolute bottom-[3%] flex flex-col items-center">
           <div className="flex flex-row items-center gap-x-[4px]">

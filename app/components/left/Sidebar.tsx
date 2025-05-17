@@ -4,6 +4,7 @@ import { usePageContext } from "../context/PageProvider";
 import { Dispatch, SetStateAction } from "react";
 import { motion } from "framer-motion";
 import { EllipsisVertical } from "lucide-react";
+import Image from "next/image";
 
 export default function Sidebar({
   setIsModalOpen,
@@ -90,10 +91,12 @@ function UserAccount() {
             background: "#8BA6D3",
           }}
         >
-          <img
+          <Image
             src="/images/user.webp"
-            className="scale-[4] absolute top-[50%] left-[5%]"
             alt="banana guy"
+            width={200}
+            height={200}
+            className="scale-[4] absolute top-[50%] left-[5%]"
           />
         </div>
         <div className="flex flex-col">
@@ -126,11 +129,11 @@ function DuckLogo() {
   return (
     <div className="flex mt-[3.125em] w-[100%] mb-[0.5em] items-center">
       <div onClick={handleNavigation} className="cursor-pointer ml-[2%]">
-        <img
+        <Image
           src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Hatching%20Chick.png"
           alt="Hatching Chick"
-          width="35"
-          height="35"
+          width={35}
+          height={35}
         />
       </div>
       {/* <div

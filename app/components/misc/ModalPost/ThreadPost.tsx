@@ -4,6 +4,7 @@ import { Emoji, EmojiStyle } from "emoji-picker-react";
 import { motion } from "framer-motion";
 import CodeSnippet from "../CodeSnippet";
 import { MoreHorizontal } from "lucide-react";
+import Image from "next/image";
 
 export default function ThreadPost({ thread }: { thread: Thread }) {
   const theme = useTheme();
@@ -48,7 +49,12 @@ function Header({ date, title }: { date: string; title: string | undefined }) {
         <div className="flex flex-row gap-x-[5px] items-center">
           <span className="text-[1rem] font-bold">MWeng</span>
           <Emoji unified="1f4ab" size={17} emojiStyle={EmojiStyle.APPLE} />
-          <img src="verified-check.png" className="size-[1.5rem]" />
+          <Image
+            src="/verified-check.png"
+            alt="Verified check"
+            width={24}
+            height={24}
+          />
         </div>
         <div
           className="size-[0.35em] rounded-[50%] opacity-[0.5]"
@@ -60,7 +66,13 @@ function Header({ date, title }: { date: string; title: string | undefined }) {
   };
   return (
     <div className="flex flex-row gap-x-[16px] w-[100%]">
-      <img src="/pfp-small.webp" className="rounded-[50%] w-[50px] h-[50px]" />
+      <Image
+        src="/pfp-small.webp"
+        alt="Profile picture"
+        width={50}
+        height={50}
+        className="rounded-[50%]"
+      />
       <div className="gap-y-[18px] flex flex-col justify-between w-[100%]">
         <div className="flex flex-row items-center justify-between w-[100%]">
           <Name />
@@ -76,7 +88,11 @@ function Body({ body }: { body: Content[] }) {
   const getContent = ({ item, index }: { item: Content; index: number }) => {
     if (item.type === "image") {
       return (
-        <Image url={item.url} description={item.description} key={index} />
+        <ThreadImage
+          url={item.url}
+          description={item.description}
+          key={index}
+        />
       );
     } else if (item.type === "code") {
       return (
@@ -126,7 +142,7 @@ function Video({
   );
 }
 
-function Image({
+function ThreadImage({
   url,
   description,
 }: {
@@ -135,7 +151,14 @@ function Image({
 }) {
   return (
     <div className="flex flex-col w-[100%] gap-y-[0.4em]">
-      <img src={url} className="w-[100%] rounded-[12px]" />
+      <div className="relative w-full aspect-video">
+        <Image
+          src={url || ""}
+          alt={description || "Thread image"}
+          fill
+          className="rounded-[12px] object-cover"
+        />
+      </div>
       <span className="ml-[3%] opacity-[0.5] text-[0.7rem]">{description}</span>
     </div>
   );

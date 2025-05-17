@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link, X } from "lucide-react";
+import Image from "next/image";
 
 const ImageModal = ({
   image,
@@ -26,7 +27,15 @@ const ImageModal = ({
             >
               <X size={20} />
             </div>
-            <img className="rounded-[12px]" src={image} alt={image} />
+            <div className="relative w-full h-full">
+              <Image
+                className="rounded-[12px]"
+                src={image}
+                alt={image}
+                fill
+                style={{ objectFit: "contain" }}
+              />
+            </div>
           </motion.div>
           {url ? (
             <motion.div

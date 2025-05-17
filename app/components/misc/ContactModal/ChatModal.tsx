@@ -13,6 +13,7 @@ import { useEmailForm } from "../../context/EmailFormContext";
 import { EmailForm, sendEmail } from "@/app/utility/sendEmail";
 import { Message, setEmojiString } from "@/app/utility/MessageService";
 import { PartyPopper, SmilePlus, Send } from "lucide-react";
+import Image from "next/image";
 
 export default function ChatModal() {
   const handleSubmit = (email: EmailForm) => {
@@ -238,7 +239,13 @@ export default function ChatModal() {
     function Profile() {
       return (
         <div className="flex flex-col items-center">
-          <img src="/pfp-small.webp" className="size-[45px] rounded-[50%]" />
+          <Image
+            src="/pfp-small.webp"
+            alt="Profile picture"
+            width={45}
+            height={45}
+            className="rounded-[50%]"
+          />
           <p className="font-bold text-[0.97rem]">Maggie Weng</p>
           <p className="font-light text-[0.8rem] opacity-[0.8]">
             maggie.weng112@gmail.com

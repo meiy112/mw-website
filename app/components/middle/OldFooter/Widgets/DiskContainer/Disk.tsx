@@ -1,7 +1,7 @@
 import { useDraggable } from "@dnd-kit/core";
 import styles from "./DiskContainer.module.css";
 import { CSS } from "@dnd-kit/utilities";
-import { createPortal } from "react-dom";
+import Image from "next/image";
 
 export default function Disk({
   item,
@@ -27,7 +27,7 @@ export default function Disk({
       style={style}
       className={`select-none cursor-grab w-[67px] flex items-center justify-center relative aspect-square rounded-[50%] overflow-hidden`}
     >
-      <img src={item.img} alt="disk" />
+      <Image src={item.img} alt="disk" fill style={{ objectFit: "cover" }} />
       <div
         className={`${styles.diskCenter} absolute w-[12px] bg-[#101010] aspect-square rounded-[50%]`}
       />

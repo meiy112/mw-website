@@ -7,6 +7,7 @@ import {
   MouseParallaxContainer,
   MouseParallaxChild,
 } from "react-parallax-mouse";
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -52,12 +53,15 @@ export default function StudyShark() {
             height: "100%",
           }}
         >
-          <img
-            src="/images/Projects/StudyShark/ss-stats.webp"
-            alt="stats"
-            className="absolute scale-[0.35] bottom-[-3%] left-[32.2%]"
-            onLoad={handleImageLoad}
-          />
+          <div className="absolute scale-[0.35] bottom-[-3%] left-[32.2%]">
+            <Image
+              src="/images/Projects/StudyShark/ss-stats.webp"
+              alt="stats"
+              width={1000}
+              height={1000}
+              onLoad={handleImageLoad}
+            />
+          </div>
         </MouseParallaxChild>
         <MouseParallaxChild
           factorX={-0.05}
@@ -68,12 +72,15 @@ export default function StudyShark() {
             height: "100%",
           }}
         >
-          <img
-            src="/images/Projects/StudyShark/ss-topic.webp"
-            alt="quiz"
-            className="absolute scale-[0.22] bottom-[-22%] left-[10%]"
-            onLoad={handleImageLoad}
-          />
+          <div className="absolute scale-[0.22] bottom-[-22%] left-[10%]">
+            <Image
+              src="/images/Projects/StudyShark/ss-topic.webp"
+              alt="quiz"
+              width={1000}
+              height={1000}
+              onLoad={handleImageLoad}
+            />
+          </div>
         </MouseParallaxChild>
         <MouseParallaxChild
           factorX={0}
@@ -86,12 +93,15 @@ export default function StudyShark() {
             right: "-31%",
           }}
         >
-          <img
-            src="/images/Projects/StudyShark/ss-phone1.webp"
-            alt="phone"
-            className="absolute scale-[0.55]"
-            onLoad={handleImageLoad}
-          />
+          <div className="absolute scale-[0.55]">
+            <Image
+              src="/images/Projects/StudyShark/ss-phone1.webp"
+              alt="phone"
+              width={800}
+              height={800}
+              onLoad={handleImageLoad}
+            />
+          </div>
         </MouseParallaxChild>
         <MouseParallaxChild
           factorX={-0.2}
@@ -104,12 +114,15 @@ export default function StudyShark() {
             right: "-47%",
           }}
         >
-          <img
-            src="/images/Projects/StudyShark/ss-quiz.webp"
-            alt="quiz"
-            className="absolute scale-[0.25]"
-            onLoad={handleImageLoad}
-          />
+          <div className="absolute scale-[0.25]">
+            <Image
+              src="/images/Projects/StudyShark/ss-quiz.webp"
+              alt="quiz"
+              width={1000}
+              height={1000}
+              onLoad={handleImageLoad}
+            />
+          </div>
         </MouseParallaxChild>
         <MouseParallaxChild
           factorX={0}
@@ -120,12 +133,15 @@ export default function StudyShark() {
             height: "100%",
           }}
         >
-          <img
-            src="/images/Projects/StudyShark/ss-phone2.webp"
-            alt="quiz"
-            className="absolute scale-[0.55] top-[-11%] left-[6%]"
-            onLoad={handleImageLoad}
-          />
+          <div className="absolute scale-[0.55] top-[-11%] left-[6%]">
+            <Image
+              src="/images/Projects/StudyShark/ss-phone2.webp"
+              alt="quiz"
+              width={800}
+              height={800}
+              onLoad={handleImageLoad}
+            />
+          </div>
         </MouseParallaxChild>
         <MouseParallaxChild
           factorX={0.15}
@@ -136,12 +152,15 @@ export default function StudyShark() {
             height: "100%",
           }}
         >
-          <img
-            src="/images/Projects/StudyShark/ss-notes.webp"
-            alt="quiz"
-            className="absolute scale-[0.25] bottom-[-37%] right-[1%]"
-            onLoad={handleImageLoad}
-          />
+          <div className="absolute scale-[0.25] bottom-[-37%] right-[1%]">
+            <Image
+              src="/images/Projects/StudyShark/ss-notes.webp"
+              alt="quiz"
+              width={1000}
+              height={1000}
+              onLoad={handleImageLoad}
+            />
+          </div>
         </MouseParallaxChild>
         <MouseParallaxChild
           factorX={0.2}
@@ -152,12 +171,15 @@ export default function StudyShark() {
             height: "100%",
           }}
         >
-          <img
-            src="/images/Projects/StudyShark/ss-subject.webp"
-            alt="quiz"
-            className="absolute scale-[0.2] bottom-[-11%] left-[30%]"
-            onLoad={handleImageLoad}
-          />
+          <div className="absolute scale-[0.2] bottom-[-11%] left-[30%]">
+            <Image
+              src="/images/Projects/StudyShark/ss-subject.webp"
+              alt="quiz"
+              width={1000}
+              height={1000}
+              onLoad={handleImageLoad}
+            />
+          </div>
         </MouseParallaxChild>
         <MouseParallaxChild
           factorX={-0.3}
@@ -168,12 +190,15 @@ export default function StudyShark() {
             height: "100%",
           }}
         >
-          <img
-            src="/images/Projects/StudyShark/ss-public.webp"
-            alt="quiz"
-            className="absolute scale-[0.36] top-[-11%] right-[19%]"
-            onLoad={handleImageLoad}
-          />
+          <div className="absolute scale-[0.36] top-[-11%] right-[19%]">
+            <Image
+              src="/images/Projects/StudyShark/ss-public.webp"
+              alt="quiz"
+              width={1000}
+              height={1000}
+              onLoad={handleImageLoad}
+            />
+          </div>
         </MouseParallaxChild>
         <div className="absolute top-3 left-3">
           <HoverMeComponent />
